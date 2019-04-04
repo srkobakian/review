@@ -8,6 +8,16 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+<!--
+Author notes:
+6000 words maximum.
+focused  application  of  literature  to address  a  relevant  clinical  issue:
+Mapping cancer outcomes
+All cartogram applications should point to examples of cancer outcomes, with the main cartogram section discussing sources considered in grey literature review
+
+Future steps should consider applications not utilised for cancer outcome displays, where their use may improve decision making
+-->
+
 
 ## Abstract
 
@@ -38,7 +48,7 @@ Cartograms stepped toward this goal by highlighting areas of interest. Made some
 
 Importance of the statistic in this area being communicated was more important than keeping geography recognisable.
 
-This helps to draw attention to areas, relies of reader being able to see all areas on a map, and know the difference between initial geography and new layout given by a cartogram.
+This helps to draw attention to areas, relies on reader being able to see all areas on a map, and know the difference between initial geography and new layout given by a cartogram.
 
 We were able to create cartograms by access to data, access to tools, greater demand for insights.
 
