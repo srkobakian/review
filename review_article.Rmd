@@ -3,6 +3,14 @@ title: "Review Manuscript"
 author: "Stephanie"
 date: "02/04/2019"
 output: html_document
+
+toc: false
+fig_caption: yes
+number_sections: false
+fontsize: 11pt
+bibliography: reviewbib.bib
+biblio-style: vancouver
+link-citations: true
 ---
 
 ```{r setup, include=FALSE}
