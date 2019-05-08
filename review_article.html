@@ -377,9 +377,6 @@ $(document).ready(function () {
 
 </div>
 
-<div id="TOC">
-true
-</div>
 
 <!--
 Author notes:
@@ -394,27 +391,22 @@ Future steps should consider applications not currently utilised for cancer outc
 <h2>Abstract</h2>
 <p>Utilising maps to present statistics has been widely used, for centuries. Connecting the data to the geographical representation of areas that are already familiar. It is not enough to be recognisable, if the value of the statistic cannot be seen. Cancer outcomes directly relate to the people living within a geographical area. In situations where the people are of interest, not the land they live on, it is reasonable to explore views that enhance the communication of the cancer outcomes. This has spurred innovations over the previous centuries to enhance the shapes and maps presented to effectively communicate cancer outcomes.</p>
 </div>
-<div id="spatial-visualisation-of-disease" class="section level2">
-<h2>Spatial Visualisation of Disease</h2>
-<div id="choropleth-map-current-go-to" class="section level3">
-<h3>Choropleth Map (current go to)</h3>
-<p><span class="citation">d’Onofrio et al. (<a href="#ref-MACM">2016</a>)</span> geographically mapping cancer mortality uses maps of europe: Static choropleth maps, coloured from green to red, supplemented by histograms. Introduces Moran scatterplot &quot;In the Moran’s scatterplot, each geographic unit is represented by a point, whose X coordinate is the value of the mortality in that area and the Y coordinate is equal to the average value of the theme in the bordering areas’ And Moran’s index: spatial correlation with neighbours</p>
+<div id="disease-mapping" class="section level2">
+<h2>Disease mapping</h2>
+<div id="choropleth-map-steff" class="section level3">
+<h3>Choropleth Map (Steff)</h3>
+<p>Cartographer lit, cancer atlas lit</p>
+<p><span class="citation">d’Onofrio et al. (<a href="#ref-MACM" role="doc-biblioref">2016</a>)</span> geographically mapping cancer mortality uses maps of europe: Static choropleth maps, coloured from green to red, supplemented by histograms. Introduces Moran scatterplot &quot;In the Moran’s scatterplot, each geographic unit is represented by a point, whose X coordinate is the value of the mortality in that area and the Y coordinate is equal to the average value of the theme in the bordering areas’ And Moran’s index: spatial correlation with neighbours</p>
 <p>‘visual intuition coming from the inspection of maps must be complemented and validated by rigorous statistical analyses.’ Does not acknowledge the map as a visual statistic, but a tool.</p>
 <p>cites: Cancer Mortality Atlas of EU and of the European Economic Area last published 8 years ago</p>
 </div>
-<div id="counts-versus-predictions" class="section level3">
-<h3>counts versus predictions</h3>
-<p><span class="citation">Elliot et al. (<a href="#ref-SEMA">2000</a>)</span> ‘Disease mapping is carried out to summarise spatial and spatio-temporal variation in risk.’ Decriptive statistic of the relationship between geography and a disease. Each of the population, exposure, and health data may have associated exact spatial and temporal information (pointdata), or may be available as aggregated summaries (countdata) “As with population data, health data may be available with associated point locations, or as aggregated counts, and will potentially be subject to a number of inaccuracies. For any health event there is always the potential for diagnostic error or misclassification, especially at older ages where diagnostic tests and post-mortem examinations are carried out less frequently than at younger ages.”</p>
-<p>Observed, or predicted. Challenges for either.</p>
-<p>Driven by progressions in computing, statistical methods and collection of data.</p>
-<p>Models summarise relationships between counts of diseases and other factors.</p>
-<p>Choropleth Maps, relationship between regions and spatial location. Able to represent all the occurences within areas more cohesively, as total counts, or colours.</p>
-<p>Urbanisation pushed people closer together, in workplaces and in homes.</p>
-<p>Recognition of biases when utilising the geography to map people. Small areas contain more people, work towards representing regions of importance more clearly.</p>
+<div id="public-face-jessie" class="section level3">
+<h3>Public face (Jessie)</h3>
+<p>what has been provided to the public, norms, common practices, all of Jessie’s lit review</p>
 </div>
 </div>
-<div id="cartograms" class="section level2">
-<h2>Cartograms</h2>
+<div id="cartograms-steff" class="section level2">
+<h2>Cartograms (Steff)</h2>
 <p>General introduction: Cartograms stepped toward this goal by highlighting areas of interest. Made some areas bigger on the map space, kept relationship with neighbours. USA regular cartogram (UK too)</p>
 <div id="contiguous" class="section level3">
 <h3>Contiguous</h3>
@@ -427,13 +419,12 @@ Future steps should consider applications not currently utilised for cancer outc
 <div id="non-contiguous" class="section level3">
 <h3>Non-Contiguous</h3>
 <p>Dorling (Sized according to statistic)</p>
+<!--
+## Temporal displays
+-->
 </div>
-</div>
-<div id="temporal-displays" class="section level2">
-<h2>Temporal displays</h2>
-</div>
-<div id="alternatives" class="section level2">
-<h2>Alternatives</h2>
+<div id="centroid-displays" class="section level3">
+<h3>Centroid displays</h3>
 <p>Plotting centroids on top of geographies. (Size is kept constant) Hexmaps</p>
 <p>If the goal of the map is the statistic.</p>
 <p>If the distribution is the focus, the display should reflect that.</p>
@@ -441,8 +432,9 @@ Future steps should consider applications not currently utilised for cancer outc
 <p>Recent methods have every area represented with the same map space.</p>
 <p>This gives equal emphasis to every area, allows distributions and relationships between neighbours to become more clear.</p>
 </div>
-<div id="comparison-of" class="section level2">
-<h2>Comparison of</h2>
+</div>
+<div id="choropleth-and-cartograms-critique" class="section level2">
+<h2>Choropleth and cartograms critique</h2>
 <p>(only worth including if it is possible for us to implement) Tabular form comparing and contrasting - Relationship to geography</p>
 <ul>
 <li>Show using cancer examples</li>
@@ -452,15 +444,55 @@ Future steps should consider applications not currently utilised for cancer outc
 <h2>Animation</h2>
 <p>lends to temporal pattern exploration</p>
 </div>
-<div id="software" class="section level2">
-<h2>Software</h2>
-<p>Commonly available tools to implement.</p>
+<div id="acknowledgements" class="section level2">
+<h2>Acknowledgements</h2>
+<p>What software did we use, for eg</p>
+</div>
+<div id="references" class="section level2">
+<h2>References</h2>
+<!--
+## Software
+Commonly available tools to implement.
+-->
+<!--
+### counts versus predictions
+
+@SEMA
+'Disease mapping is carried out to summarise spatial and spatio-temporal variation in risk.'
+Decriptive statistic of the relationship between geography and a disease.
+population, exposure, and health data may have pointdata or aggregated summaries (countdata)
+potentially be subject to a number of inaccuracies
+diagnostic error or misclassification
+
+Not only the counts, but population, migration, deaths and births are modelled across census years.
+
+rapid visual summary of complex geographical information, descriptive purposes, to generate hypotheses, for surveillance, and to aid policy formation and resource allocation.
+
+When using counts:
+ small populations imply large variability in estimated rates
+ 
+Decisions taken at this stage may be critical as apparent ‘clusters’ may depend crucially on the boundaries chosen in time or space: ‘The more narrowly the underlying population is defined, the less will be the number of expected cases, the greater will be the estimate of the excess rate, and often the more pronounced will be the statistical significance’ 
+ 
+Using prediction:
+assuming that neighbouring μi are correlated leads to a ‘clustering’ prior
+
+
+
+
+Driven by progressions in computing, statistical methods and collection of data.
+
+Models summarise relationships between counts of diseases and other factors.
+
+Choropleth Maps, relationship between regions and spatial location. Able to represent all the occurences within areas more cohesively, as total counts, or colours.
+
+
+Urbanisation pushed people closer together, in workplaces and in homes.
+
+Recognition of biases when utilising the geography to map people. Small areas contain more people, work towards representing regions of importance more clearly.
+-->
 <div id="refs" class="references">
 <div id="ref-MACM">
 <p>d’Onofrio, Alberto, Chiara Mazzetta, Chris Robertson, Michel Smans, Peter Boyle, and Mathieu Boniol. 2016. “Maps and Atlases of Cancer Mortality: A Review of a Useful Tool to Trigger New Questions.” Journal Article. <em>Ecancermedicalscience</em> 10: 670–70. <a href="https://doi.org/10.3332/ecancer.2016.670">https://doi.org/10.3332/ecancer.2016.670</a>.</p>
-</div>
-<div id="ref-SEMA">
-<p>Elliot, P., J. C. Wakefield, N. G. Best, and D. J. Briggs. 2000. <em>Spatial Epidemiology: Methods and Applications</em>. Book. Oxford University Press: Oxford.</p>
 </div>
 </div>
 </div>
