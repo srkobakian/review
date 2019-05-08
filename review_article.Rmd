@@ -34,12 +34,42 @@ It is not enough to be recognisable, if the value of the statistic cannot be see
 
 ## Spatial Visualisation of Disease
 
+
+
 ### Choropleth Map (current go to)
+
+@MACM
+geographically mapping cancer mortality uses maps of europe:
+Static choropleth maps, coloured from green to red, supplemented by histograms.
+Introduces Moran scatterplot "In the Moran’s scatterplot, each geographic unit is represented by a point, whose X coordinate is the value of the mortality in that area and the Y coordinate is equal to the average value of the theme in the bordering areas'
+And Moran's index: spatial correlation with neighbours
+
+'visual intuition coming from the inspection of maps must be complemented and validated by rigorous statistical analyses.'
+Does not acknowledge the map as a visual statistic, but a tool.
+
+cites: Cancer Mortality Atlas of EU and of the European Economic Area last published 8 years ago
 
 ### counts versus predictions
 
-Observed, or predicted.
-Challenges for either.
+@SEMA
+'Disease mapping is carried out to summarise spatial and spatio-temporal variation in risk.'
+Decriptive statistic of the relationship between geography and a disease.
+population, exposure, and health data may have pointdata or aggregated summaries (countdata)
+potentially be subject to a number of inaccuracies
+diagnostic error or misclassification
+
+Not only the counts, but population, migration, deaths and births are modelled across census years.
+
+rapid visual summary of complex geographical information, descriptive purposes, to generate hypotheses, for surveillance, and to aid policy formation and resource allocation.
+
+When using counts:
+ small populations imply large variability in estimated rates
+ 
+Decisions taken at this stage may be critical as apparent ‘clusters’ may depend crucially on the boundaries chosen in time or space: ‘The more narrowly the underlying population is defined, the less will be the number of expected cases, the greater will be the estimate of the excess rate, and often the more pronounced will be the statistical significance’ 
+ 
+Using prediction:
+assuming that neighbouring μi are correlated leads to a ‘clustering’ prior
+
 
 
 

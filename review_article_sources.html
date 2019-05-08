@@ -392,38 +392,50 @@ Future steps should consider applications not currently utilised for cancer outc
 -->
 <div id="abstract" class="section level2">
 <h2>Abstract</h2>
-<p>Utilising maps to present statistics has been widely used, for centuries. Connecting the data to the geographical representation of areas that are already familiar. It is not enough to be recognisable, if the value of the statistic cannot be seen. Cancer outcomes directly relate to the people living within a geographical area. In situations where the people are of interest, not the land they live on, it is reasonable to explore views that enhance the communication of the cancer outcomes. This has spurred innovations over the previous centuries to enhance the shapes and maps presented to effectively communicate cancer outcomes.</p>
 </div>
-<div id="spatial-visualisation-of-disease" class="section level2">
-<h2>Spatial Visualisation of Disease</h2>
+<div id="cartogram-visualisations-of-disease" class="section level2">
+<h2>Cartogram Visualisations of Disease</h2>
+<p>Cartograms utilise a map base, and distort using a statistic.</p>
+<p>There was a long history that arrived cartogram maps.</p>
+<p><span class="citation">Walter (<a href="#ref-DMAHP">2001</a>)</span> Thematic cartography began around 1800, spot maps, did not consider population rates available data on the environment or society, weather crime rates. Disease mapping, evaluate geographical patterns, identify risk factors For risks to be considered, need population for rates</p>
 <div id="choropleth-map-current-go-to" class="section level3">
 <h3>Choropleth Map (current go to)</h3>
+<p>True maps, used for inspection to direct hypotheses.</p>
+<p><span class="citation">Brewster and Subramanian (<a href="#ref-CIBMUK">2010</a>)</span> -data exists within boundaries, -areas within are shaded to match level of value, -compare colour of areas to compare boundaries -visual perception tends to weight the shades from the largest areas more heavily since they occupy more of our visual space -display information in units of area, not population -can mislead and bias inference</p>
 <p><span class="citation">d’Onofrio et al. (<a href="#ref-MACM">2016</a>)</span> geographically mapping cancer mortality uses maps of europe: Static choropleth maps, coloured from green to red, supplemented by histograms. Introduces Moran scatterplot &quot;In the Moran’s scatterplot, each geographic unit is represented by a point, whose X coordinate is the value of the mortality in that area and the Y coordinate is equal to the average value of the theme in the bordering areas’ And Moran’s index: spatial correlation with neighbours</p>
 <p>‘visual intuition coming from the inspection of maps must be complemented and validated by rigorous statistical analyses.’ Does not acknowledge the map as a visual statistic, but a tool.</p>
 <p>cites: Cancer Mortality Atlas of EU and of the European Economic Area last published 8 years ago</p>
 </div>
 <div id="counts-versus-predictions" class="section level3">
 <h3>counts versus predictions</h3>
-<p><span class="citation">Elliot et al. (<a href="#ref-SEMA">2000</a>)</span> ‘Disease mapping is carried out to summarise spatial and spatio-temporal variation in risk.’ Decriptive statistic of the relationship between geography and a disease. Each of the population, exposure, and health data may have associated exact spatial and temporal information (pointdata), or may be available as aggregated summaries (countdata) “As with population data, health data may be available with associated point locations, or as aggregated counts, and will potentially be subject to a number of inaccuracies. For any health event there is always the potential for diagnostic error or misclassification, especially at older ages where diagnostic tests and post-mortem examinations are carried out less frequently than at younger ages.”</p>
-<p>Observed, or predicted. Challenges for either.</p>
-<p>Driven by progressions in computing, statistical methods and collection of data.</p>
-<p>Models summarise relationships between counts of diseases and other factors.</p>
-<p>Choropleth Maps, relationship between regions and spatial location. Able to represent all the occurences within areas more cohesively, as total counts, or colours.</p>
-<p>Urbanisation pushed people closer together, in workplaces and in homes.</p>
-<p>Recognition of biases when utilising the geography to map people. Small areas contain more people, work towards representing regions of importance more clearly.</p>
+<p>Need population, census data</p>
+<p><span class="citation">Elliot et al. (<a href="#ref-SEMA">2000</a>)</span> - ‘Disease mapping is carried out to summarise spatial and spatio-temporal variation in risk.’ - Decriptive statistic of the relationship between geography and a disease. - rapid visual summary of complex geographical information, descriptive purposes, to generate hypotheses, for surveillance, and to aid policy formation and resource allocation. - population, exposure, and health data may have pointdata or aggregated summaries (countdata) - potentially be subject to a number of inaccuracies - diagnostic error or misclassification</p>
+<ul>
+<li>Not only the counts, but population, migration, deaths and births are modelled across census years.</li>
+</ul>
+<p>When using counts: small populations imply large variability in estimated rates</p>
+<p>Decisions taken at this stage may be critical as apparent ‘clusters’ may depend crucially on the boundaries chosen in time or space: ‘The more narrowly the underlying population is defined, the less will be the number of expected cases, the greater will be the estimate of the excess rate, and often the more pronounced will be the statistical significance’</p>
+<p>Using prediction: assuming that neighbouring μi are correlated leads to a ‘clustering’ prior</p>
+<p><span class="citation">Walter (<a href="#ref-DMAHP">2001</a>)</span> improve rates use age and sex Standardised rates allow choropleth implementation</p>
+<p>choice of variable: relative risk (or equivalent), possibly in conjunction with statistical significance. Other functions included case frequencies or statistical significance alone. The choice of function makes an enormous difference to the appearance of the map, but the rationale for the choice adopted was rarely discussed. The Finnish cancer atlas (Pukkala et al. 1987) was one of the earliest to use data smoothing, with a geometric centroid approach More recently, a Canadian atlas of cancer incidence has appeared (Le et al. 1996; see Plate 1). Cancer is registered provincially, so considerable attention was paid to the quality and comparability of the data from contributing registries. moving toward incidence</p>
+<p>Very skeptical of smoothing</p>
+<p><span class="citation">Pickle (<a href="#ref-HCUSMA">2009</a>)</span> The 1980s began computed generated cancer atlases</p>
 </div>
 </div>
 <div id="cartograms" class="section level2">
 <h2>Cartograms</h2>
-<p>General introduction: Cartograms stepped toward this goal by highlighting areas of interest. Made some areas bigger on the map space, kept relationship with neighbours. USA regular cartogram (UK too)</p>
-<div id="contiguous" class="section level3">
-<h3>Contiguous</h3>
+<p><span class="citation">Walter (<a href="#ref-DMAHP">2001</a>)</span> most disease atlases concerned cancer in developed countries iso-demographic map: size by pop, colour by stat <span class="citation">Brewster and Subramanian (<a href="#ref-CIBMUK">2010</a>)</span> ‘geographical differences does not automatically mean that geography by itself makes the difference.’ Cartograms overcome this problem by standardizing the visual information presented to population size,</p>
+<p>Issues: ‘Many regions had such small expected frequencies that random variation would dominate the data. Interestingly, the smaller regions tended to occur in atlases that covered larger total populations.’ Smaller regions are a key issue, often occur when population has to be broken into many areas.</p>
+<p>General introduction: Cartograms stepped toward this goal by highlighting areas of interest. Made some areas bigger on the map space, kept relationship with neighbours.</p>
+<p>UK: USA: AUS: <span class="citation">Cramb, L Mengersen, and Baade (<a href="#ref-DACQ">2011</a>)</span> AUS Cancer atlas example, reasons for choosing choropleth</p>
+<p><span class="citation">Dorling (<a href="#ref-TVSSS">2012</a>)</span> Human cartography chapter ‘in order to show the spatial structure of society the conventional use of maps of physical geography has to be rejected.’ strong opinions on lives of people not being accurately seen in geographical maps, not specifically disease related</p>
+<p>only with the advent of sophisticated computer graphics, visualization, has it become possible to do this on an easily replicable basis. MAny examples and references to different map displays ### Contiguous</p>
+<p><span class="citation">Brewster and Subramanian (<a href="#ref-CIBMUK">2010</a>)</span> -a trade-off between informational accuracy and intuitive representation</p>
 <p>Importance of the statistic in this area being communicated was more important than keeping geography recognisable.</p>
 <p>This helps to draw attention to areas, relies on reader being able to see all areas on a map, and know the difference between initial geography and new layout given by a cartogram.</p>
 <p>We were able to create cartograms by access to data, access to tools, greater demand for insights.</p>
 <p>In theory these ideas have been used, but the people making them do not necessarily have not access or ability to create them.</p>
 <p>Therefore the uptake of these maps has been due to education, not the validity of their use.</p>
-</div>
 <div id="non-contiguous" class="section level3">
 <h3>Non-Contiguous</h3>
 <p>Dorling (Sized according to statistic)</p>
@@ -443,6 +455,8 @@ Future steps should consider applications not currently utilised for cancer outc
 </div>
 <div id="comparison-of" class="section level2">
 <h2>Comparison of</h2>
+<p><span class="citation">Kraak (<a href="#ref-CD">2017</a>)</span> discusses variable representation in maps ‘Maps are designed following the cartographic visualization process’ Aknowledges map makers consider: methods and techniques, map type</p>
+<p>Open source and commerical software can help make the maps, but decision still needs to be made, “nonprofessionals” can now make their own</p>
 <p>(only worth including if it is possible for us to implement) Tabular form comparing and contrasting - Relationship to geography</p>
 <ul>
 <li>Show using cancer examples</li>
@@ -455,12 +469,34 @@ Future steps should consider applications not currently utilised for cancer outc
 <div id="software" class="section level2">
 <h2>Software</h2>
 <p>Commonly available tools to implement.</p>
+<p><span class="citation">Walter (<a href="#ref-DMAHP">2001</a>)</span> “7. Increasing access to mapping technology The development of powerful computers has been a major force in the potential for disease mapping. It is likely that this trend will continue, so that larger databases and more rigorous analytical methods will become accessible to a wide circle of consumers. The availability of the European mortality atlas on the Internet is probably only the first such venture. In the future we will likely see capability for on-line manipulation of data to create maps to the user’s specifications, and an interface with other databases containing information on relevant covariables.”</p>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
 <div id="refs" class="references">
+<div id="ref-CIBMUK">
+<p>Brewster, Mark B., and S. V. Subramanian. 2010. “Cartographic Insights into the Burden of Mortality in the United Kingdom: A Review of вЂ�вЂ™.” Journal Article. <em>International Journal of Epidemiology</em> 39 (4): 1120–2. <a href="https://doi.org/10.1093/ije/dyp395">https://doi.org/10.1093/ije/dyp395</a>.</p>
+</div>
+<div id="ref-DACQ">
+<p>Cramb, Susanna, Kerrie L Mengersen, and Peter Baade. 2011. “Developing the Atlas of Cancer in Queensland: Methodological Issues.” <em>International Journal of Health Geographics</em> 10 (January): 9. <a href="https://doi.org/10.1186/1476-072X-10-9">https://doi.org/10.1186/1476-072X-10-9</a>.</p>
+</div>
 <div id="ref-MACM">
 <p>d’Onofrio, Alberto, Chiara Mazzetta, Chris Robertson, Michel Smans, Peter Boyle, and Mathieu Boniol. 2016. “Maps and Atlases of Cancer Mortality: A Review of a Useful Tool to Trigger New Questions.” Journal Article. <em>Ecancermedicalscience</em> 10: 670–70. <a href="https://doi.org/10.3332/ecancer.2016.670">https://doi.org/10.3332/ecancer.2016.670</a>.</p>
 </div>
+<div id="ref-TVSSS">
+<p>Dorling, Daniel. 2012. <em>The Visualisation of Spatial Social Structure</em>. John Wiley &amp; Sons Ltd.</p>
+</div>
 <div id="ref-SEMA">
 <p>Elliot, P., J. C. Wakefield, N. G. Best, and D. J. Briggs. 2000. <em>Spatial Epidemiology: Methods and Applications</em>. Book. Oxford University Press: Oxford.</p>
+</div>
+<div id="ref-CD">
+<p>Kraak, M.J. 2017. “Cartographic Design.” In <em>The International Encyclopedia of Geography : People, the Earth, Environment, and Technology</em>, edited by D. Richardson, 1–16. United States: Wiley.</p>
+</div>
+<div id="ref-HCUSMA">
+<p>Pickle, Linda Williams. 2009. “A History and Critique of U.s. Mortality Atlases.” <em>Spatial and Spatio-Temporal Epidemiology</em> 1 (1): 3–17. <a href="https://doi.org/https://doi.org/10.1016/j.sste.2009.07.004">https://doi.org/https://doi.org/10.1016/j.sste.2009.07.004</a>.</p>
+</div>
+<div id="ref-DMAHP">
+<p>Walter, S. D. 2001. <em>Disease Mapping: A Historical Perspective</em>. Book. Oxford University Press: Oxford.</p>
 </div>
 </div>
 </div>
