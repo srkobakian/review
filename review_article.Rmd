@@ -34,19 +34,16 @@ It is not enough to be recognisable, if the value of the statistic cannot be see
 
 ### Choropleth Map (Steff)
 
-Choropleth mapping methods explore a relationship across a geographical space, utilising administrative or other boundaries. In thematic maps colours or patterns are used represent levels, or rates, of the information communicated. @CIBMUK believes these 'representations are highly intuitive' as the familiar shapes help those looking at the maps to infer spatial relationships.  
+Choropleth mapping methods explore a relationship across a geographical space, utilising administrative or other boundaries. In thematic maps colours, symbols or patterns are used represent levels, or rates, of the information communicated. @CIBMUK believes these 'representations are highly intuitive' as the familiar shapes help those looking at the maps to infer spatial relationships. 
 They are true maps, used for visual inspection and can help to direct hypotheses about the statial patterns across the physical space. 
 These true maps rely on visual perception, a fallible metric as it can 'weight the shades from the largest areas more heavily.' The inferences derived from visual inspection, and the hypotheses developed can suffer from 'bias'. The use of thematic disease mapping was motivated by a 'desire to evaluate geographical patterns' @DMAHP. This approach has been seen as a 'trigger for questions' which drives research of spatial distributions.  @MACM also recognises the intuition that can be derived from choropleths. However, his critique is that they must be 'validated by rigorous statistical analyses.' 
 
 As a cancer mapping tool choropleths are often used. Specifically in epidemiology, the study of the distribution of health-related states and events. Almost 100 years of cancer maps have explored the US and the UK with increased effectiveness in presentation of unbiased rates. @DMAHP cites Cruickshank's (1947) discussion of 'formal statistical assessment of the spatial pattern' as another major advancement. 
 
 
-
-
-
-
-
 The data collection methods, and administrative control within regions lends itself to the presentation of cancer mortality rates across regions.
+Data is now presented often age adjusted, and as relative rates of risk. Some also present changes in the rates 
+
 
 cites: Cancer Mortality Atlas of EU and of the European Economic Area last published 8 years ago
 
@@ -60,6 +57,9 @@ what has been provided to the public, norms, common practices, all of Jessie's l
 General introduction:
 Cartograms stepped toward this goal by highlighting areas of interest. Made some areas bigger on the map space, kept relationship with neighbours.
 USA regular cartogram (UK too)
+@DMAHP reduce the visual impact of large areas with small populations
+
+distortion of spatial units -> proportional to the denominator variable. iso-demographic map, for approx equal population density.
 
 ### Contiguous
 Importance of the statistic in this area being communicated was more important than keeping geography recognisable.
