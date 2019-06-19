@@ -39,15 +39,20 @@ Thematic maps involve drawing administrative or other boundaries and filling the
 The visualisations are true maps, used for visual inspection and can help to direct hypotheses about the spatial patterns across the physical space. 
 These true maps rely on visual perception, a fallible metric as it can 'weight the shades from the largest areas more heavily.' The inferences derived from visual inspection, and the hypotheses developed can suffer from 'bias'. The use of thematic disease mapping was motivated by a 'desire to evaluate geographical patterns' @DMAHP. This technique has been seen as a 'trigger for questions' which drives research of spatial distributions. @MACM also recognise the intuition that can be derived from choropleths with the critique that they must be 'validated by rigorous statistical analyses.' 
 
-In epidemiology, choropleths are often used as a mapping tool in the study of the spatial distribution. Almost 100 years of cancer maps have explored the US and the UK with increased effectiveness in presentation of unbiased rates. 
-The data collection methods, and administrative control within regions lends itself choropleth visualisation, for the presentation of cancer mortality rates across regions. Mortality and incidence rates are now presented age adjusted, and as relative rates of risk across the population.
+In epidemiology, choropleths are often used as a mapping tool in the study of the spatial distribution. 
+Almost 100 years of cancer maps have explored the US and the UK with increased effectiveness in presentation of unbiased rates. 
+The data collection methods, and administrative control within regions lends itself choropleth visualisation, for the presentation of cancer mortality rates across regions. Mortality rates are now presented as relative rates of risk across the population, an age adjusted to correct for the proportion of old people. Howe [-@HEDP] describes Stocks development of the standardised mortality ratios through the 1930s. The choropleth maps presented levels of cancer via hatchings on a black and white scale. 
 
 
 @DMAHP cites Cruickshank's (1947) discussion of using visuals as 'formal statistical assessment of the spatial pattern' as a major advancement.
+
 @HEDP considered maps a research tool, dots maps use spots, choropleths and thematic maps shade areas and isopleths use isolines. These  techniques were commonly used before the advent of computer-assisted cartography.
 
+
+
 <!--
--Atlases
+Clear examples of:
+White paper example for published Atlases
 -methods they use
 -->
 
@@ -68,9 +73,13 @@ USA regular cartogram (UK too)
 distortion of spatial units -> proportional to the denominator variable. iso-demographic map, for approx equal population density.
 
 @HEDP argues that 'cancer occurs in people, not in geographical areas' and the map base should reflect this to avoid allocating 'undue prominence' to rural areas.
+'intimate part of the total human and social experience.'
 geographical and demographic base maps could be used after digital computer methods became available.
+Howe's National Atlas of Disease Mortality in the United Kingdom (Howe 1963) upgraded to a 
+a demographic base "map" (Howe 1970).
 
 
+introduction of electronic computer-assisted techniques created a flood of disease atlases
 
 ### Contiguous
 Importance of the statistic in this area being communicated was more important than keeping geography recognisable.
