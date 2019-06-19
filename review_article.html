@@ -395,9 +395,13 @@ Future steps should consider applications not currently utilised for cancer outc
 <h2>Disease mapping</h2>
 <div id="choropleth-map-steff" class="section level3">
 <h3>Choropleth Map (Steff)</h3>
-<p>Choropleth mapping methods explore a relationship across a geographical space, utilising administrative or other boundaries. In thematic maps colours, symbols or patterns are used represent levels, or rates, of the information communicated. <span class="citation">Brewster and Subramanian (<a href="#ref-CIBMUK">2010</a>)</span> believes these ‘representations are highly intuitive’ as the familiar shapes help those looking at the maps to infer spatial relationships. They are true maps, used for visual inspection and can help to direct hypotheses about the statial patterns across the physical space. These true maps rely on visual perception, a fallible metric as it can ‘weight the shades from the largest areas more heavily.’ The inferences derived from visual inspection, and the hypotheses developed can suffer from ‘bias’. The use of thematic disease mapping was motivated by a ‘desire to evaluate geographical patterns’ <span class="citation">Walter (<a href="#ref-DMAHP">2001</a>)</span>. This approach has been seen as a ‘trigger for questions’ which drives research of spatial distributions. <span class="citation">d’Onofrio et al. (<a href="#ref-MACM">2016</a>)</span> also recognises the intuition that can be derived from choropleths. However, his critique is that they must be ‘validated by rigorous statistical analyses.’</p>
-<p>As a cancer mapping tool choropleths are often used. Specifically in epidemiology, the study of the distribution of health-related states and events. Almost 100 years of cancer maps have explored the US and the UK with increased effectiveness in presentation of unbiased rates. <span class="citation">Walter (<a href="#ref-DMAHP">2001</a>)</span> cites Cruickshank’s (1947) discussion of ‘formal statistical assessment of the spatial pattern’ as another major advancement.</p>
-<p>The data collection methods, and administrative control within regions lends itself to the presentation of cancer mortality rates across regions.</p>
+<p>Choropleth mapping methods explore a relationship across a geographical space. Thematic maps involve drawing administrative or other boundaries and filling the regions with colours, symbols or patterns to present levels, or rates, of the information communicated. <span class="citation">Brewster and Subramanian (<a href="#ref-CIBMUK">2010</a>)</span> believes these ‘representations are highly intuitive’ as the familiar shapes help those looking at the maps to visually infer spatial relationships. The visualisations are true maps, used for visual inspection and can help to direct hypotheses about the spatial patterns across the physical space. These true maps rely on visual perception, a fallible metric as it can ‘weight the shades from the largest areas more heavily.’ The inferences derived from visual inspection, and the hypotheses developed can suffer from ‘bias’. The use of thematic disease mapping was motivated by a ‘desire to evaluate geographical patterns’ <span class="citation">Walter (<a href="#ref-DMAHP">2001</a>)</span>. This technique has been seen as a ‘trigger for questions’ which drives research of spatial distributions. <span class="citation">d’Onofrio et al. (<a href="#ref-MACM">2016</a>)</span> also recognise the intuition that can be derived from choropleths with the critique that they must be ‘validated by rigorous statistical analyses.’</p>
+<p>In epidemiology, choropleths are often used as a mapping tool in the study of the spatial distribution. Almost 100 years of cancer maps have explored the US and the UK with increased effectiveness in presentation of unbiased rates. The data collection methods, and administrative control within regions lends itself choropleth visualisation, for the presentation of cancer mortality rates across regions. Mortality and incidence rates are now presented age adjusted, and as relative rates of risk across the population.</p>
+<p><span class="citation">Walter (<a href="#ref-DMAHP">2001</a>)</span> cites Cruickshank’s (1947) discussion of using visuals as ‘formal statistical assessment of the spatial pattern’ as a major advancement. <span class="citation">Howe (<a href="#ref-HEDP">1989</a>)</span> considered maps a research tool, dots maps use spots, choropleths and thematic maps shade areas and isopleths use isolines. These techniques were commonly used before the advent of computer-assisted cartography.</p>
+<!--
+-Atlases
+-methods they use
+-->
 <p>cites: Cancer Mortality Atlas of EU and of the European Economic Area last published 8 years ago</p>
 </div>
 <div id="public-face-jessie" class="section level3">
@@ -408,6 +412,8 @@ Future steps should consider applications not currently utilised for cancer outc
 <div id="cartograms-steff" class="section level2">
 <h2>Cartograms (Steff)</h2>
 <p>General introduction: Cartograms stepped toward this goal by highlighting areas of interest. Made some areas bigger on the map space, kept relationship with neighbours. USA regular cartogram (UK too) <span class="citation">Walter (<a href="#ref-DMAHP">2001</a>)</span> reduce the visual impact of large areas with small populations</p>
+<p>distortion of spatial units -&gt; proportional to the denominator variable. iso-demographic map, for approx equal population density.</p>
+<p><span class="citation">Howe (<a href="#ref-HEDP">1989</a>)</span> argues that ‘cancer occurs in people, not in geographical areas’ and the map base should reflect this to avoid allocating ‘undue prominence’ to rural areas. geographical and demographic base maps could be used after digital computer methods became available.</p>
 <div id="contiguous" class="section level3">
 <h3>Contiguous</h3>
 <p>Importance of the statistic in this area being communicated was more important than keeping geography recognisable.</p>
@@ -419,13 +425,14 @@ Future steps should consider applications not currently utilised for cancer outc
 <div id="non-contiguous" class="section level3">
 <h3>Non-Contiguous</h3>
 <p>Dorling (Sized according to statistic)</p>
-<!--
+<p>Used in displays of the UK by Howe in 1986 cited by <span class="citation">Howe (<a href="#ref-HEDP">1989</a>)</span> <!--
 ## Temporal displays
--->
+--></p>
+<p>Computer generated map examples: <span class="citation">Howe (<a href="#ref-HEDP">1989</a>)</span> (Hopps et al. 1968; Armstrong 1972). There has followed a flood of disease atlases, mainly concentrating on the modem problems of cancer and degenerative diseases from countries as scattered as the United States (Burbank 1971; Mason et al. 1975, 1976; Pickle et al. 1987), the Soviet Union (Levin 1980), Japan (Shigematsu 1977), the Federal Republic of Germany</p>
 </div>
 <div id="centroid-displays" class="section level3">
 <h3>Centroid displays</h3>
-<p>Plotting centroids on top of geographies. (Size is kept constant) Hexmaps</p>
+<p>Plotting centroids on top of geographies. (Size is kept constant) Hex maps</p>
 <p>If the goal of the map is the statistic.</p>
 <p>If the distribution is the focus, the display should reflect that.</p>
 <p>Replies on the idea that every area is important, no matter the size.</p>
@@ -459,8 +466,8 @@ Commonly available tools to implement.
 
 @SEMA
 'Disease mapping is carried out to summarise spatial and spatio-temporal variation in risk.'
-Decriptive statistic of the relationship between geography and a disease.
-population, exposure, and health data may have pointdata or aggregated summaries (countdata)
+Descriptive statistic of the relationship between geography and a disease.
+population, exposure, and health data may have point data or aggregated summaries (count data)
 potentially be subject to a number of inaccuracies
 diagnostic error or misclassification
 
@@ -483,7 +490,7 @@ Driven by progressions in computing, statistical methods and collection of data.
 
 Models summarise relationships between counts of diseases and other factors.
 
-Choropleth Maps, relationship between regions and spatial location. Able to represent all the occurences within areas more cohesively, as total counts, or colours.
+Choropleth Maps, relationship between regions and spatial location. Able to represent all the occurrences within areas more cohesively, as total counts, or colours.
 
 
 Urbanisation pushed people closer together, in workplaces and in homes.
@@ -496,6 +503,9 @@ Recognition of biases when utilising the geography to map people. Small areas co
 </div>
 <div id="ref-MACM">
 <p>d’Onofrio, Alberto, Chiara Mazzetta, Chris Robertson, Michel Smans, Peter Boyle, and Mathieu Boniol. 2016. “Maps and Atlases of Cancer Mortality: A Review of a Useful Tool to Trigger New Questions.” Journal Article. <em>Ecancermedicalscience</em> 10: 670–70. <a href="https://doi.org/10.3332/ecancer.2016.670">https://doi.org/10.3332/ecancer.2016.670</a>.</p>
+</div>
+<div id="ref-HEDP">
+<p>Howe, G. M. 1989. “Historical Evolution of Disease Mapping in General and Specifically of Cancer Mapping.” In <em>Cancer Mapping</em>, edited by Peter Boyle, Calum S. Muir, and Ekkehard Grundmann, 1–21. Berlin, Heidelberg: Springer Berlin Heidelberg.</p>
 </div>
 <div id="ref-DMAHP">
 <p>Walter, S. D. 2001. <em>Disease Mapping: A Historical Perspective</em>. Book. Oxford University Press: Oxford.</p>
