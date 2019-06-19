@@ -34,7 +34,7 @@ It is not enough to be recognisable, if the value of the statistic cannot be see
 
 ### Choropleth Map (Steff)
 
-Choropleth mapping methods explore a relationship across a geographical space.
+Choropleth mapping methods effectively explore a relationship across a geographical space.
 Thematic maps involve drawing administrative or other boundaries and filling the regions with colours, symbols or patterns to present levels, or rates, of the information communicated. @CIBMUK believes these 'representations are highly intuitive' as the familiar shapes help those looking at the maps to visually infer spatial relationships. 
 The visualisations are true maps, used for visual inspection and can help to direct hypotheses about the spatial patterns across the physical space. 
 These true maps rely on visual perception, a fallible metric as it can 'weight the shades from the largest areas more heavily.' The inferences derived from visual inspection, and the hypotheses developed can suffer from 'bias'. The use of thematic disease mapping was motivated by a 'desire to evaluate geographical patterns' @DMAHP. This technique has been seen as a 'trigger for questions' which drives research of spatial distributions. @MACM also recognise the intuition that can be derived from choropleths with the critique that they must be 'validated by rigorous statistical analyses.' 
@@ -51,6 +51,8 @@ The data collection methods, and administrative control within regions lends its
 
 
 <!--
+Current atlases utilising choropleth methods include Australia: 
+
 Clear examples of:
 White paper example for published Atlases
 -methods they use
@@ -65,23 +67,20 @@ what has been provided to the public, norms, common practices, all of Jessie's l
 
 ## Cartograms (Steff)
 
-General introduction:
-Cartograms stepped toward this goal by highlighting areas of interest. Made some areas bigger on the map space, kept relationship with neighbours.
-USA regular cartogram (UK too)
-@DMAHP reduce the visual impact of large areas with small populations
-
-distortion of spatial units -> proportional to the denominator variable. iso-demographic map, for approx equal population density.
-
-@HEDP argues that 'cancer occurs in people, not in geographical areas' and the map base should reflect this to avoid allocating 'undue prominence' to rural areas.
-'intimate part of the total human and social experience.'
-geographical and demographic base maps could be used after digital computer methods became available.
-Howe's National Atlas of Disease Mortality in the United Kingdom (Howe 1963) upgraded to a 
-a demographic base "map" (Howe 1970).
+Cartograms are a thematic map, presenting statistical and geographical information like choropleths. The difference is the augmentation of the geographical areas.
+This was originally implemented to allow a map base that represented the populations within regions. 
+@HEDP argues that 'cancer occurs in people, not in geographical areas' and the map base should reflect this to avoid allocating 'undue prominence' to rural areas. It makes areas with greater populations bigger on the map space, but kept relationship with neighbours.
+@DMAHP reduce the visual impact of large areas with small populations. The distortion of spatial areas is proportional to the denominator variable. This is implemented in an iso-demographic map, for approx equal population density.
 
 
-introduction of electronic computer-assisted techniques created a flood of disease atlases
+Geographical and demographic base maps could be implemented after digital computer methods became available.
+
+@HEDP shows the introduction of electronic computer-assisted techniques created a flood of disease atlases like Howe's National Atlas of Disease Mortality in the United Kingdom (Howe 1963) which upgraded to a demographic base "map" (Howe 1970).
 
 ### Contiguous
+
+Australia (McGlashan 1977),
+
 Importance of the statistic in this area being communicated was more important than keeping geography recognisable.
 
 This helps to draw attention to areas, relies on reader being able to see all areas on a map, and know the difference between initial geography and new layout given by a cartogram.
