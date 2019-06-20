@@ -51,7 +51,8 @@ The data collection methods, and administrative control within regions lends its
 
 
 <!--
-Current atlases utilising choropleth methods include Australia: 
+Current atlases utilising choropleth methods 
+- include Australia: 
 
 Clear examples of:
 White paper example for published Atlases
@@ -60,9 +61,6 @@ White paper example for published Atlases
 cites: Cancer Mortality Atlas of EU and of the European Economic Area last published 8 years ago
 @MTMSIH Bayesian disease mapping methods for areal data - explains key concepts applied to create an atlas
 Explores Australia as a case study, utilising QLD SA2 areas
-
-@DACQ 
-
 
 -->
 
@@ -92,20 +90,16 @@ Geographical and demographic base maps could be implemented after digital comput
 
 ### Contiguous
 
-Keep neighbours by keeping borders intact.
-
-From a computer graphics perspective it is a problem of 'map deformation' to account for the value assigned to each area. @ACA discuss their implementation of three methods for creating value - by - area cartograms. Defining cells, and manipulating the display according to statistical value of the cell. 
-@ECGC present the problem of maintaining shape presevation in non-contiguous cartograms.
+<!-- Compress this to 2 sentence introduction about methods. Focus on which atlases have implemented this technique.--->
+Cartograms keep spatial relationships of neighbours intact by keeping borders when adjusting sizes.
+From a computer graphics perspective it is a problem of 'map deformation' to account for the value assigned to each area. @ACA discuss their implementation of three methods for creating value - by - area cartograms. @ECGC present the problem of maintaining shape presevation in non-contiguous cartograms.
  
- 
-eg. state by population
-Highlight the value of animating contigous to see changes over time, US can be recognisable but animation aides interpretation 
-
-Australia (McGlashan 1977),
-
+The intention is to allow the map space to highlight the distribution of the variable. However drawing attention to large value areas and allowing reader to see all significant areas on a map, relies on them also knowing the difference between initial geography and new layout given by a cartogram.
 Importance of the statistic in this area being communicated was more important than keeping geography recognisable.
 
-This helps to draw attention to large value areas, relies on reader being able to see all areas on a map, and know the difference between initial geography and new layout given by a cartogram.
+eg. state by population
+
+Australia (McGlashan 1977),
 
 We were able to create cartograms by access to data, access to tools, greater demand for insights.
 
@@ -123,6 +117,8 @@ Used in displays of the UK by Howe in 1986 cited by @HEDP
 -->
 
 @TFYCC Value-Area Cartograms. In these cartograms a region,country, or continent is subdivided into small regions, each ofwhich is represented by a rectangle. This rectangle is proportionate in area to the value which it represents in certain statistical distributions. The regions are grouped in approximately the same positions as they are on the map.
+
+@CVBGSD presents bivariate maps, using size and colour for different variables.
 
 Computer generated map examples:  @HEDP
 (Hopps et al. 1968; Armstrong 1972). There
@@ -154,6 +150,8 @@ Tabular form comparing and contrasting
 ## Animation
 
 lends to temporal pattern exploration
+
+@ECGC ?? Highlight the value of animating contigous to see changes over time, US can be recognisable but animation aides interpretation 
 
 ## Acknowledgements
 
