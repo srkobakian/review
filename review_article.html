@@ -405,8 +405,16 @@ Current atlases utilising choropleth methods include Australia:
 Clear examples of:
 White paper example for published Atlases
 -methods they use
+
+cites: Cancer Mortality Atlas of EU and of the European Economic Area last published 8 years ago
+@MTMSIH Bayesian disease mapping methods for areal data - explains key concepts applied to create an atlas
+Explores Australia as a case study, utilising QLD SA2 areas
+
+@DACQ 
+
+
 -->
-<p>cites: Cancer Mortality Atlas of EU and of the European Economic Area last published 8 years ago</p>
+<p><span class="citation">Moore and Carpenter (<a href="#ref-SAMGIS">1999</a>)</span> suggests it is the “investigators’ objectives” that drive the “representation of diseases on maps”. There will be situations like infectious diseases that require choropleth methods</p>
 </div>
 <div id="public-face-jessie" class="section level3">
 <h3>Public face (Jessie)</h3>
@@ -416,13 +424,17 @@ White paper example for published Atlases
 <div id="cartograms-steff" class="section level2">
 <h2>Cartograms (Steff)</h2>
 <p>Cartograms are a thematic map, presenting statistical and geographical information like choropleths. The difference is the augmentation of the geographical areas. This was originally implemented to allow a map base that represented the populations within regions. <span class="citation">Howe (<a href="#ref-HEDP">1989</a>)</span> argues that ‘cancer occurs in people, not in geographical areas’ and the map base should reflect this to avoid allocating ‘undue prominence’ to rural areas. It makes areas with greater populations bigger on the map space, but kept relationship with neighbours. <span class="citation">Walter (<a href="#ref-DMAHP">2001</a>)</span> reduce the visual impact of large areas with small populations. The distortion of spatial areas is proportional to the denominator variable. This is implemented in an iso-demographic map, for approx equal population density.</p>
-<p>Geographical and demographic base maps could be implemented after digital computer methods became available.</p>
+<p>Geographical and demographic base maps could be implemented after digital computer methods became available. Alternatively, the area on the map space can represent the value. There have been many algorithms presented, <span class="citation">Nusrat and Kobourov (<a href="#ref-SAIC">2016</a>)</span> investigate these implementations and the “statistical accuracy, geographical accuracy, and topological accuracy”.</p>
 <p><span class="citation">Howe (<a href="#ref-HEDP">1989</a>)</span> shows the introduction of electronic computer-assisted techniques created a flood of disease atlases like Howe’s National Atlas of Disease Mortality in the United Kingdom (Howe 1963) which upgraded to a demographic base “map” (Howe 1970).</p>
+<p><span class="citation">Jahan et al. (<a href="#ref-MTMSIH">2018</a>)</span> to uncover local-level inequalities frequently masked by health estimates from large areas</p>
 <div id="contiguous" class="section level3">
 <h3>Contiguous</h3>
+<p>Keep neighbours by keeping borders intact.</p>
+<p>From a computer graphics perspective it is a problem of ‘map deformation’ to account for the value assigned to each area. <span class="citation">Min Ouyang and Revesz (<a href="#ref-ACA">2000</a>)</span> discuss their implementation of three methods for creating value - by - area cartograms. Defining cells, and manipulating the display according to statistical value of the cell. <span class="citation">Keim et al. (<a href="#ref-ECGC">2002</a>)</span> present the problem of maintaining shape presevation in non-contiguous cartograms.</p>
+<p>eg. state by population Highlight the value of animating contigous to see changes over time, US can be recognisable but animation aides interpretation</p>
 <p>Australia (McGlashan 1977),</p>
 <p>Importance of the statistic in this area being communicated was more important than keeping geography recognisable.</p>
-<p>This helps to draw attention to areas, relies on reader being able to see all areas on a map, and know the difference between initial geography and new layout given by a cartogram.</p>
+<p>This helps to draw attention to large value areas, relies on reader being able to see all areas on a map, and know the difference between initial geography and new layout given by a cartogram.</p>
 <p>We were able to create cartograms by access to data, access to tools, greater demand for insights.</p>
 <p>In theory these ideas have been used, but the people making them do not necessarily have not access or ability to create them.</p>
 <p>Therefore the uptake of these maps has been due to education, not the validity of their use.</p>
@@ -433,6 +445,7 @@ White paper example for published Atlases
 <p>Used in displays of the UK by Howe in 1986 cited by <span class="citation">Howe (<a href="#ref-HEDP">1989</a>)</span> <!--
 ## Temporal displays
 --></p>
+<p><span class="citation">Tobler (<a href="#ref-TFYCC">2004</a>)</span> Value-Area Cartograms. In these cartograms a region,country, or continent is subdivided into small regions, each ofwhich is represented by a rectangle. This rectangle is proportionate in area to the value which it represents in certain statistical distributions. The regions are grouped in approximately the same positions as they are on the map.</p>
 <p>Computer generated map examples: <span class="citation">Howe (<a href="#ref-HEDP">1989</a>)</span> (Hopps et al. 1968; Armstrong 1972). There has followed a flood of disease atlases, mainly concentrating on the modem problems of cancer and degenerative diseases from countries as scattered as the United States (Burbank 1971; Mason et al. 1975, 1976; Pickle et al. 1987), the Soviet Union (Levin 1980), Japan (Shigematsu 1977), the Federal Republic of Germany</p>
 </div>
 <div id="centroid-displays" class="section level3">
@@ -511,6 +524,24 @@ Recognition of biases when utilising the geography to map people. Small areas co
 </div>
 <div id="ref-HEDP">
 <p>Howe, G. M. 1989. “Historical Evolution of Disease Mapping in General and Specifically of Cancer Mapping.” In <em>Cancer Mapping</em>, edited by Peter Boyle, Calum S. Muir, and Ekkehard Grundmann, 1–21. Berlin, Heidelberg: Springer Berlin Heidelberg.</p>
+</div>
+<div id="ref-MTMSIH">
+<p>Jahan, Farzana, Earl Duncan, Susanna Cramb, Peter Baade, and Kerrie Mengersen. 2018. “Making More of Spatial Maps: A Bayesian Meta-Analysis Approach.” In.</p>
+</div>
+<div id="ref-ECGC">
+<p>Keim, D.A, S.C North, C Panse, and J Schneidewind. 2002. “Efficient Cartogram Generation: A Comparison.” In <em>IEEE Symposium on Information Visualization, 2002. INFOVIS 2002</em>, 2002-:33–36. IEEE.</p>
+</div>
+<div id="ref-ACA">
+<p>Min Ouyang, and P. Revesz. 2000. “Algorithms for Cartogram Animation.” In <em>Proceedings 2000 International Database Engineering and Applications Symposium (Cat. No.PR00789)</em>, 231–35. <a href="https://doi.org/10.1109/IDEAS.2000.880581">https://doi.org/10.1109/IDEAS.2000.880581</a>.</p>
+</div>
+<div id="ref-SAMGIS">
+<p>Moore, Dale A., and Tim E. Carpenter. 1999. “Spatial Analytical Methods and Geographic Information Systems: Use in Health Research and Epidemiology.” <em>Epidemiologic Reviews</em> 21 (2): 143–61. <a href="https://doi.org/10.1093/oxfordjournals.epirev.a017993">https://doi.org/10.1093/oxfordjournals.epirev.a017993</a>.</p>
+</div>
+<div id="ref-SAIC">
+<p>Nusrat, Sabrina, and Stephen G. Kobourov. 2016. “The State of the Art in Cartograms.” <em>CoRR</em> abs/1605.08485. <a href="http://arxiv.org/abs/1605.08485">http://arxiv.org/abs/1605.08485</a>.</p>
+</div>
+<div id="ref-TFYCC">
+<p>Tobler, Waldo. 2004. “Thirty Five Years of Computer Cartograms.” <em>Annals of the Association of American Geographers</em> 94 (1): 58–73.</p>
 </div>
 <div id="ref-DMAHP">
 <p>Walter, S. D. 2001. <em>Disease Mapping: A Historical Perspective</em>. Book. Oxford University Press: Oxford.</p>

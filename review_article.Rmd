@@ -56,9 +56,18 @@ Current atlases utilising choropleth methods include Australia:
 Clear examples of:
 White paper example for published Atlases
 -methods they use
--->
 
 cites: Cancer Mortality Atlas of EU and of the European Economic Area last published 8 years ago
+@MTMSIH Bayesian disease mapping methods for areal data - explains key concepts applied to create an atlas
+Explores Australia as a case study, utilising QLD SA2 areas
+
+@DACQ 
+
+
+-->
+
+
+@SAMGIS suggests it is the "investigators' objectives" that drive the "representation of diseases on maps". There will be situations like infectious diseases that require choropleth methods
 
 ### Public face (Jessie)
 
@@ -73,17 +82,30 @@ This was originally implemented to allow a map base that represented the populat
 @DMAHP reduce the visual impact of large areas with small populations. The distortion of spatial areas is proportional to the denominator variable. This is implemented in an iso-demographic map, for approx equal population density.
 
 
-Geographical and demographic base maps could be implemented after digital computer methods became available.
+Geographical and demographic base maps could be implemented after digital computer methods became available. Alternatively, the area on the map space can represent the value. There have been many algorithms presented, @SAIC investigate these implementations and the "statistical accuracy, geographical accuracy, and topological accuracy".
 
 @HEDP shows the introduction of electronic computer-assisted techniques created a flood of disease atlases like Howe's National Atlas of Disease Mortality in the United Kingdom (Howe 1963) which upgraded to a demographic base "map" (Howe 1970).
 
+
+@MTMSIH to uncover local-level inequalities frequently masked by health estimates from large areas
+
+
 ### Contiguous
+
+Keep neighbours by keeping borders intact.
+
+From a computer graphics perspective it is a problem of 'map deformation' to account for the value assigned to each area. @ACA discuss their implementation of three methods for creating value - by - area cartograms. Defining cells, and manipulating the display according to statistical value of the cell. 
+@ECGC present the problem of maintaining shape presevation in non-contiguous cartograms.
+ 
+ 
+eg. state by population
+Highlight the value of animating contigous to see changes over time, US can be recognisable but animation aides interpretation 
 
 Australia (McGlashan 1977),
 
 Importance of the statistic in this area being communicated was more important than keeping geography recognisable.
 
-This helps to draw attention to areas, relies on reader being able to see all areas on a map, and know the difference between initial geography and new layout given by a cartogram.
+This helps to draw attention to large value areas, relies on reader being able to see all areas on a map, and know the difference between initial geography and new layout given by a cartogram.
 
 We were able to create cartograms by access to data, access to tools, greater demand for insights.
 
@@ -99,6 +121,8 @@ Used in displays of the UK by Howe in 1986 cited by @HEDP
 <!--
 ## Temporal displays
 -->
+
+@TFYCC Value-Area Cartograms. In these cartograms a region,country, or continent is subdivided into small regions, each ofwhich is represented by a rectangle. This rectangle is proportionate in area to the value which it represents in certain statistical distributions. The regions are grouped in approximately the same positions as they are on the map.
 
 Computer generated map examples:  @HEDP
 (Hopps et al. 1968; Armstrong 1972). There
