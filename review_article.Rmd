@@ -32,6 +32,7 @@ It is not enough to be recognisable, if the value of the statistic cannot be see
 
 ## Disease mapping
 
+
 ### Choropleth Map (Steff)
 
 Choropleth mapping methods effectively explore a relationship across a geographical space. 
@@ -49,6 +50,10 @@ The data collection methods of cancer mortality rates across regions, and admini
 @CD considers cartographic data analysis in practice. Presenting a clear guide for preparing cartograms for use with both qualitative and quantitative information.
 The authors recognise that the creation of cartograms was largely the work of professional cartographers until the innovation of geographical information systems that welcomed 
 map users as map creators. These systems are utilised depending on 'the effectiveness, efficiency, and satisfaction of the map products (Nielsen 1994)'.
+@SE reports the increase in disease mapping development due to the availability of geographic information system softwares. 
+
+Choropleths can inhibit visual inference when presenting human related statistics as the display may draw attention from the 'potentially more important results in the more populous communities' [@SE].
+
 
 Examples of atlases:
 Kraak 1998, Kraak and Ormeling 2011
@@ -79,31 +84,37 @@ what has been provided to the public, norms, common practices, all of Jessie's l
 
 ## Cartograms (Steff)
 
-Cartograms are a thematic map, presenting statistical and geographical information like choropleths. @AC suggests the difference is the intentional and desirable augmentation of the size, shape or distance of geographical areas.
-This was originally implemented to allow a map base that represented the proportion of the population within each region. @AC considers this design a 'more socially just form of mapping' by giving all members of the population 'equitable representation'. This is known as an iso-demographic map, and the design inherently lends itself to epidemiolgy. @HEDP argues that 'cancer occurs in people, not in geographical areas' and the map base should reflect this to avoid allocating 'undue prominence' to rural areas. @DMAHP reduce the visual impact of large areas with small populations. The distortion of spatial areas is proportional to the denominator variable. 
+Cartograms are a thematic map, presenting statistical and geographical information like choropleths. @ACTUC suggests the difference is the intentional and desirable augmentation of the size, shape or distance of geographical areas. World projections reflect the frequent distortions seen from altering perspectives. Choropleth maps will always be distorted if they cover enough of the globe, as will photographs of the globe from space. Cartogram creation requires choosing a favourable distortion of the geography for presenting the set of spatial information.
+This concept was originally implemented to allow a map base that represented the proportion of the population within each region. @ACTUC considers this design a 'more socially just form of mapping' by giving all members of the population 'equitable representation'. This is known as an iso-demographic map, and the design inherently lends itself to epidemiolgy. 
+@HEDP argues that 'cancer occurs in people, not in geographical areas' and the map base should reflect this to avoid allocating 'undue prominence' to rural areas. @DMAHP reduce the visual impact of large areas with small populations, the distortion of spatial areas is proportional to the denominator variable. 
 
 
-Alternatively, the area on the map space can represent the value. There have been many algorithms presented, @SAIC investigate these implementations and the "statistical accuracy, geographical accuracy, and topological accuracy".
+Alternatively, the area of the map space can represent the value. There have been many algorithms presented, @SAIC provided a framework to investigate implementations and the "statistical accuracy, geographical accuracy, and topological accuracy".
 
 @HEDP shows the introduction of electronic computer-assisted techniques created a flood of disease atlases like Howe's National Atlas of Disease Mortality in the United Kingdom (Howe 1963) which upgraded to a demographic base "map" (Howe 1970).
 
-
-@MTMSIH to uncover local-level inequalities frequently masked by health estimates from large areas
-
+The presentation of small areas requires more thought during the implementation of maps, @MTMSIH encourage their use to uncover local-level inequalities frequently masked by health estimates from large areas.
 
 ### Contiguous
 
 <!-- Intentionally preserve shape-->
 
-@AC describes the process of creating a population cartogram for Canada, using the 1966 Census. An intentional goal of this project was to maintain contiguity, while attempting to keep the actual shape of places. The end result was a 'very accurate isodemo-graphic map of Canada'. This intentional design goal coincided with the rising interest in urban geography.
+@ACTUC presents the three methods for creating contiguous cartograms. John Hunter and Johnathan Young (1968), and Durham used phsyical accretion models, arranging wooden tiles by hand. Tobler (1973) used a computer programs. Skoda and Robertson (1972) developed a mechanical model utilising steel ball bearings.
 
+<!--describes the process of creating a population cartogram for Canada, using the 1966 Census. An intentional goal of this project was to maintain contiguity, while attempting to keep the actual shape of places. The end result was a 'very accurate isodemo-graphic map of Canada'. This intentional design goal coincided with the rising interest in urban geography. 
+-->
 
-Cartograms keep spatial relationships of neighbours intact by preserving borders when adjusting sizes.
+Cartograms keep spatial relationships of neighbours intact by preserving borders when adjusting sizes. Tobler's Conformal mapping means to preserve angles
+locally so that the shapes of very small areas on a traditional map and a
+cartogram would be similar
 From a computer graphics perspective it is a problem of 'map deformation' to account for the value assigned to each area. @ACA discuss their implementation of three methods for creating value-by-area cartograms.
  
-The intention is to allow the map space to highlight the distribution of the variable. However drawing attention to large value areas and allowing reader to see all significant areas on a map, relies on them also knowing the difference between initial geography and new layout given by a cartogram.
+Their intention is to allow the map space to highlight the distribution of the variable. However a reader may have to know the difference between initial geography and new layout given by a cartogram, to be able to recognise the significant changes.
 
-Requires knowledge of the methods
+Tobler's method and the many implementations that 'elaborated' on it are derived from 'numerical approximations to a pair of equations'[@ACTUC]. They all operate through incremental adjustments, and can produce wildly different outcomes from small changes in the inputs.
+
+
+
 
 Australia (McGlashan 1977),
 
@@ -111,9 +122,28 @@ In theory these ideas have been used, but the people making them do not necessar
 
 Therefore the uptake of these maps has been due to education, not the validity of their use.
 
+@ACTUC reiterates: 'There is no "best" cartogram or method of creating cartograms just as there is no "best" map' (Monmonier and Schnell, 1988). There are many alternatives to consider, the intended audience of the map, and its purpose are key points in cartogram use and creation.
+
+
 ### Non-Contiguous
 
-Dorling (Sized according to statistic)
+
+Dorling -@ACTUC puts forward a simple question:
+>If, for instance, it is desirable that areas on a map have boundaries which are as simple as possible, why not draw the areas as simple shapes in the first place?
+
+He answers this with his implementation of maps created with 'the simplest of all shapes'. While contiguous cartograms may be a 'more sophisticated' method, they produce 'very complex shapes'. Circular cartograms use the same shape for every region represented, and size them according to the population, or statistic represented.
+To produce a compelling map, a gravity model is applied to avoid overlaps, and keep spatial relationships with neighbouring areas over many iterations. This implementation can work for up to 'one hundred thousand' areas.
+
+
+@ACTUC suggests 'population distribution is often extremely uneven in former British colonies'. 
+
+'In Australia the urban federal constituencies occupy only a tenth of the land, but contain nine tenths of the people. It would be almost unthinkable to show election results for that country on a conventional equal land area map.'
+This 1966 cartogram uses mostly straight lines, and the result looks very little like the geographical shape of Australia.
+
+'Given the increasingly uneven population distribution of the United States and the growing social divides between the populations of neighbourhoods living at different densities, the need for cartograms like this is greater now than ever.'
+
+
+
 
 Used in displays of the UK by Howe in 1986 cited by @HEDP
 <!--
