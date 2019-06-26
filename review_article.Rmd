@@ -38,7 +38,7 @@ It is not enough to be recognisable, if the value of the statistic cannot be see
 Choropleth mapping methods effectively explore a relationship across a geographical space. 
 Thematic maps involve drawing administrative or other boundaries and filling the regions with colours, symbols or patterns to present levels, or rates, of the information communicated. @CIBMUK believes these 'representations are highly intuitive' as the familiar shapes help those looking at the maps to visually infer spatial relationships. Using the topography as a base map is common for thematic maps of phenomena [@CD].
 The visualisations are true maps, used for visual inspection and can help to direct hypotheses about the spatial patterns across the physical space. 
-These true maps rely on visual perception, a fallible metric as it can cause viewers to 'weight the shades from the largest areas more heavily.' The inferences derived from visual inspection, and the hypotheses developed can suffer from 'bias'. The use of thematic disease mapping was motivated by a 'desire to evaluate geographical patterns' @DMAHP. This technique has been seen as a 'trigger for questions' which drives research of spatial distributions of diseases. @MACM also recognise the intuition that can be derived from choropleths with the critique that they must be 'validated by rigorous statistical analyses.' 
+These true maps rely on visual perception, a fallible metric as it can cause viewers to 'weight the shades from the largest areas more heavily.' The inferences derived from visual inspection, and the hypotheses developed can suffer from 'bias'. The use of thematic disease mapping was motivated by a 'desire to evaluate geographical patterns' @DMAHP. This technique has been seen as a 'trigger for questions' which drives research of spatial distributions of diseases. @CPISACA recommends Choropleths, or isopleths for 'measures that are continuous over space, such as elevation or temperature.' @MACM also recognise the intuition that can be derived from choropleths with the critique that they must be 'validated by rigorous statistical analyses.' 
 
 In epidemiology, choropleths are often used as a mapping tool in the study of the spatial distribution. 
 Almost 100 years of cancer maps have explored the US and the UK with increased effectiveness in presentation of unbiased rates. 
@@ -51,6 +51,14 @@ The data collection methods of cancer mortality rates across regions, and admini
 The authors recognise that the creation of cartograms was largely the work of professional cartographers until the innovation of geographical information systems that welcomed 
 map users as map creators. These systems are utilised depending on 'the effectiveness, efficiency, and satisfaction of the map products (Nielsen 1994)'.
 @SE reports the increase in disease mapping development due to the availability of geographic information system softwares. 
+
+<!--
+@CPISACA
+The potential audience for the results of a spatial analysis of health data is no longer limited to scientists but now also includes the public, policymakers, the media, and a host of others.
+
+Using the recognisable geography, that is familiar, helps communicate the information.
+-->
+
 
 Choropleths can inhibit visual inference when presenting human related statistics as the display may draw attention from the 'potentially more important results in the more populous communities' [@SE].
 
@@ -111,16 +119,11 @@ From a computer graphics perspective it is a problem of 'map deformation' to acc
  
 Their intention is to allow the map space to highlight the distribution of the variable. However a reader may have to know the difference between initial geography and new layout given by a cartogram, to be able to recognise the significant changes.
 
-Tobler's method and the many implementations that 'elaborated' on it are derived from 'numerical approximations to a pair of equations'[@ACTUC]. They all operate through incremental adjustments, and can produce wildly different outcomes from small changes in the inputs.
 
 
 
 
 Australia (McGlashan 1977),
-
-In theory these ideas have been used, but the people making them do not necessarily have not access or ability to create them.
-
-Therefore the uptake of these maps has been due to education, not the validity of their use.
 
 @ACTUC reiterates: 'There is no "best" cartogram or method of creating cartograms just as there is no "best" map' (Monmonier and Schnell, 1988). There are many alternatives to consider, the intended audience of the map, and its purpose are key points in cartogram use and creation.
 
@@ -133,6 +136,8 @@ Dorling -@ACTUC puts forward a simple question:
 
 He answers this with his implementation of maps created with 'the simplest of all shapes'. While contiguous cartograms may be a 'more sophisticated' method, they produce 'very complex shapes'. Circular cartograms use the same shape for every region represented, and size them according to the population, or statistic represented.
 To produce a compelling map, a gravity model is applied to avoid overlaps, and keep spatial relationships with neighbouring areas over many iterations. This implementation can work for up to 'one hundred thousand' areas.
+
+ @ECGC also present the problem of maintaining shape presevation in non-contiguous cartograms. 
 
 
 @ACTUC suggests 'population distribution is often extremely uneven in former British colonies'. 
@@ -150,15 +155,23 @@ Used in displays of the UK by Howe in 1986 cited by @HEDP
 ## Temporal displays
 -->
 
- @ECGC present the problem of maintaining shape presevation in non-contiguous cartograms.
+ 
+Tobler's method and the many implementations that 'elaborated' on it are derived from 'numerical approximations to a pair of equations'[@ACTUC]. They all operate through incremental adjustments, and can produce wildly different outcomes from small changes in the inputs.
  
 @TFYCC Value-Area Cartograms. In these cartograms a region,country, or continent is subdivided into small regions, each ofwhich is represented by a rectangle. This rectangle is proportionate in area to the value which it represents in certain statistical distributions. The regions are grouped in approximately the same positions as they are on the map.
 
-@CVBGSD presents bivariate maps, using size and colour for different variables.
 
 Computer generated map examples:  @HEDP
 (Hopps et al. 1968; Armstrong 1972). There
 has followed a flood of disease atlases, mainly concentrating on the modem problems of cancer and degenerative diseases from countries as scattered as the United States (Burbank 1971; Mason et al. 1975, 1976; Pickle et al. 1987), the Soviet Union (Levin 1980), Japan (Shigematsu 1977), the Federal Republic of Germany
+
+<!--
+@CVBGSD presents bivariate maps, using size and colour for different variables. 
+-->
+
+@MDAC define the term 'mosaic cartograms'. 
+Compare amount of tiles to contrast population of regions.
+'Cartograms show a data value per input region by scaling each region such that its area is proportional to its data value. Mosaic cartograms show data in multiples of tiles, hence the input data must consist of, or be cast into, small integer units.'
 
 ### Centroid displays
 
@@ -176,6 +189,14 @@ Recent methods have every area represented with the same map space.
 This gives equal emphasis to every area, allows distributions and relationships between neighbours to become more clear.
 
 ## A critique choropleth and cartograms
+
+>designing a map tailored to precise goals [is] easier than forcing a single map to accommodate diverse objectives - @CPISACA
+
+With that in mind, the intented user and message to communicate should drive map selection.
+
+'Where control of the message is important, static maps will continue to be the most effective, although good tables, graphs, and explanatory text are still needed in order to ensure that different people will see the same thing in the maps' @CPISACA
+
+<!-- @CPISACA contrasted several online atlases in a 2006 paper, consider for structure? -->
 
 (only worth including if it is possible for us to implement)
 Tabular form comparing and contrasting
