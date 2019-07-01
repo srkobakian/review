@@ -4,7 +4,6 @@ author: "Stephanie Kobakian, Jessie Roberts and Dianne Cook"
 bibliography: reviewbib.bib
 output:
   html_document: default
-  pdf_document: default
 fontsize: 11pt
 link-citations: yes
 number_sections: no
