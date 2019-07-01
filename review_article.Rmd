@@ -1,13 +1,15 @@
 ---
 title: "Cartogram Mapping and its Application to Cancer Data Visualisation"
 author: "Stephanie Kobakian, Jessie Roberts and Dianne Cook"
-output: html_document
-fig_caption: yes
-number_sections: false
-fontsize: 11pt
 bibliography: reviewbib.bib
+output:
+  html_document: default
+  pdf_document: default
+fontsize: 11pt
+link-citations: yes
+number_sections: no
+fig_caption: yes
 biblio-style: vancouver
-link-citations: true
 ---
 
 ```{r setup, include=FALSE}
@@ -26,7 +28,7 @@ Future steps should consider applications not currently utilised for cancer outc
 
 ## Abstract
 
-Utilising maps to present statistics has been widely used, for centuries.
+Utilising maps to present statistics has been widely used for centuries.
 Connecting the data to the geographical representation of areas that are already familiar.
 It is not enough to be recognisable, if the value of the statistic cannot be seen. Cancer outcomes directly relate to the people living within a geographical area. In situations where the people are of interest, not the land they live on, it is reasonable to explore views that enhance the communication of the cancer outcomes. This has spurred innovations over the previous centuries to enhance the shapes and maps presented to effectively communicate cancer outcomes.
 
@@ -37,7 +39,8 @@ It is not enough to be recognisable, if the value of the statistic cannot be see
 ### Choropleth map (Steff)
 
 <!-- what is a choropleth map -->
-A choropleth map is used to show the spatial variability of measurements, with usage dating back to the 1800s. They are constructed by drawing administrative boundaries, and filling the polygon with colour to represent values of a measured variable. Early versions used symbols or patterns instead of colour. @CD provides a good overview (XXX check this is true), @CPISACA discusses the use of choropleth maps for visualising cancer data, and @DMAHP gives an overview of choropleth maps for displaying disease data. Figure 1 shows a choropleth map on XXX. What can be seen.  A choropleth map is a true map, constructed for visual inspection of spatial patterns across a familiar geographic form, that might show trends in disease occurrence, or even localised outbreaks. 
+A choropleth map is used to show the spatial variability of measurements, with usage dating back to the 1800s. They are constructed by drawing administrative boundaries, and filling the polygon with colour to represent values of a measured variable. Early versions used symbols or patterns instead of colour. @CPISACA discusses the use of choropleth maps for visualising cancer data, and @DMAHP gives an overview of the development of the use of choropleth maps for displaying disease data. Figure 1 shows a choropleth map on XXX. What can be seen.  A choropleth map is a true map, constructed for visual inspection of spatial patterns across a familiar geographic form, that might show trends in disease occurrence, or even localised outbreaks. 
+
 
 < Figure 1 here: choropleth map >
 
