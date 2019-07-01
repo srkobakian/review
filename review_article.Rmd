@@ -40,7 +40,7 @@ It is not enough to be recognisable, if the value of the statistic cannot be see
 <!-- what is a choropleth map -->
 A choropleth map is used to show the spatial variability of measurements, with usage dating back to the 1800s. They are constructed by drawing administrative boundaries, and filling the polygon with colour to represent values of a measured variable. Early versions used symbols or patterns instead of colour. @CPISACA discusses the use of choropleth maps for visualising cancer data, and @DMAHP gives an overview of the development of the use of choropleth maps for displaying disease data. Figure 1 shows a choropleth map where each state of the United States of America is coloured by the average annual rate of new cases of Melanoma of the skin from years 2012 to 2016. A choropleth map is a true map of the topology, constructed for visual inspection of spatial patterns across a familiar geographic form, that might show trends in disease occurrence, or even localised outbreaks. 
 
-!["A choropleth map of the United States of America. Each state is coloured according the the average of the 20"](figures/ggchoro.png)
+!["A choropleth map of the United States of America."](figures/ggchoro.png)
 
 <!-- psychology -->
 The familiar shapes help viewers to visually infer spatial relationships, and hence intuitive to read [@CIBMUK]. However, the different sizes of administrative areas can lead viewers to place more attention on the shades of the largest areas. The inferences derived, and the hypotheses developed can suffer from a large area "bias". <!--This technique has been seen as a 'trigger for questions' which drives research of spatial distributions of diseases.  @MACM also recognise the intuition that can be derived from choropleths with the critique that they must be 'validated by rigorous statistical analyses.' -->
@@ -115,11 +115,13 @@ Alternatively, the area of the map space can represent the value. There have bee
 
 The presentation of small areas requires more thought during the implementation of maps, @MTMSIH encourage their use to uncover local-level inequalities frequently masked by health estimates from large areas.
 
-< Figure 2 here - basic cartogram - easy to see >
+
 
 ### Contiguous
 
 <!-- What is a contiguous cartogram -->
+
+!["A contiguous cartogram of the Unites States of America"](figures/ggcont.png)
 
 <!-- Intentionally preserve shape-->
 
@@ -143,12 +145,19 @@ Australia (McGlashan 1977),
 
 @ACTUC reiterates: 'There is no "best" cartogram or method of creating cartograms just as there is no "best" map' (Monmonier and Schnell, 1988). There are many alternatives to consider, the intended audience of the map, and its purpose are key points in cartogram use and creation.
 
-< Figure 3 here>
+
 
 ### Non-Contiguous
 
 
+!["A Non - contiguous cartogram of the Unites States of America"](figures/ggncont.png)
+
+
+!["A dorling cartogram of the Unites States of America"](figures/ggdorl.png)
+
+
 Dorling -@ACTUC puts forward a simple question:
+
 >If, for instance, it is desirable that areas on a map have boundaries which are as simple as possible, why not draw the areas as simple shapes in the first place?
 
 He answers this with his implementation of maps created with 'the simplest of all shapes'. While contiguous cartograms may be a 'more sophisticated' method, they produce 'very complex shapes'. Circular cartograms use the same shape for every region represented, and size them according to the population, or statistic represented.
