@@ -5,9 +5,9 @@ bibliography: reviewbib.bib
 output:
   html_document: default
 fontsize: 11pt
-link-citations: yes
-number_sections: yes
-fig_caption: yes
+link-citations: true
+number_sections: true
+fig_caption: true
 biblio-style: vancouver
 ---
 
@@ -50,7 +50,7 @@ Suggested uses of
 ### Choropleth map (Steff)
 
 <!-- what is a choropleth map -->
-A choropleth map is used to show the spatial variability of measurements, with usage dating back to the 1800s. They are constructed by drawing administrative boundaries, and filling the polygon with colour to represent values of a measured variable. Early versions used symbols or patterns instead of colour. @CPISACA discusses the use of choropleth maps for visualising cancer data, and @DMAHP gives an overview of the development of the use of choropleth maps for displaying disease data. Figure 1 shows a choropleth map where each state of the United States of America is coloured by the average annual rate of new cases of Melanoma of the skin from years 2012 to 2016. A choropleth map is a true map of the topology, constructed for visual inspection of spatial patterns across a familiar geographic form, that might show trends in disease occurrence, or even localised outbreaks. 
+A choropleth map is used to show the spatial variability of measurements, with usage dating back to the 1800s. They are constructed by drawing administrative boundaries, and filling the polygon with colour to represent values of a measured variable. Early versions used symbols or patterns instead of colour. @CPISACA discusses the use of choropleth maps for visualising cancer data, and @DMAHP gives an overview of the development of the use of choropleth maps for displaying disease data. Figure 1 shows a choropleth map where each state of the United States of America is coloured by the average annual rate of new cases of lung and bronchus cancer from years 2012 to 2016. A choropleth map is a true map of the topology, constructed for visual inspection of spatial patterns across a familiar geographic form, that might show trends in disease occurrence, or even localised outbreaks. 
 
 !["A choropleth map of the United States of America."](figures/ggchoro.png)
 

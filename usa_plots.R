@@ -9,7 +9,7 @@
 # United States
 # Rate of New Cancers
 # Female and Male
-# Melanoma of the skin
+# Lung and Bronchus
 # 2012-2016
 
 # Export
@@ -22,7 +22,7 @@ library(maptools)
 library(sf)
 
 # read in data
-cancer <- read_csv("data/USCS.csv") %>% rename(NAME = Area)
+cancer <- read_csv("data/USCSlung.csv") %>% rename(NAME = Area)
 
 
 # Join polygons to data
@@ -37,7 +37,7 @@ ggplot(cancer, aes(x = total_pop_15)) + geom_histogram()
 ggplot(cancer, aes(x = total_pop_15 )) + geom_density()
 
 title <- ""
-  #"Average rate of incidence for melanoma of the skin for females and males in the United States 2012-2016, \n where the size of each state has been adjusted for population"
+  #"Average rate of incidence for lung and bronchus for females and males in the United States 2012-2016, \n where the size of each state has been adjusted for population"
 
 # Create a choropleth
 ggchoro <- ggplot(cancer) + 
