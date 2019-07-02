@@ -16,54 +16,76 @@
 
 library(sugarbag)
 library(tidyverse)
+library(spData)
+library(ggthemes)
+library(maptools)
+library(sf)
 
 # read in data
 cancer <- read_csv("data/USCS.csv") %>% rename(NAME = Area)
 
-library(spData)
-library(tmap)
-library(maptools)
 
 # Join polygons to data
 data(us_states)
 cancer <- left_join(us_states, cancer, by = c("NAME"))
-us <- sf::as_Spatial(cancer)
-us <- spTransform(us, CRS("+init=epsg:3857"))
+cancer <- st_transform(cancer, 3857)
+
+b <- st_bbox(cancer)
 
 # Histogram
-ggplot(cancer, aes(x = AgeAdjustedRate)) + geom_histogram(binwidth = 1) 
-ggplot(cancer, aes(x = AgeAdjustedRate)) + geom_density()
+ggplot(cancer, aes(x = total_pop_15)) + geom_histogram() 
+ggplot(cancer, aes(x = total_pop_15 )) + geom_density()
 
+title <- ""
+  #"Average rate of incidence for melanoma of the skin for females and males in the United States 2012-2016, \n where the size of each state has been adjusted for population"
 
 # Create a choropleth
-ggchoro <- ggplot(cancer) + geom_sf(aes(fill = AgeAdjustedRate)) + scale_fill_distiller(type = "div", palette = "RdYlBu")
+ggchoro <- ggplot(cancer) + 
+  geom_sf(aes(fill = AgeAdjustedRate)) +
+  scale_fill_distiller(type = "seq", palette = "YlOrRd",  direction = 1) + 
+  ggtitle(title) +
+  coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
+  theme_void() +
+  theme(legend.position ="bottom")
 ggsave(filename = "figures/ggchoro.png", device = "png", width = 12, height = 6)
+ggchoro
 
 # Cartograms
 #install.packages("cartogram")
 library(cartogram)
 
 # Contiguous Cartograms
-cont <- cartogram_cont(us,
-  weight = "AgeAdjustedRate") %>% sf::st_as_sf()
+cont <- cartogram_cont(cancer,
+  weight = "total_pop_15") %>% st_as_sf()
 ggcont <- ggplot(cont) + 
   geom_sf(aes(fill = AgeAdjustedRate)) + 
-  scale_fill_distiller(type = "div", palette = "RdYlBu")
+  ggtitle(title) +
+  scale_fill_distiller(type = "seq", palette = "YlOrRd",  direction = 1) + 
+  coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
+  theme_void() +   theme(legend.position ="bottom")
 ggsave(filename = "figures/ggcont.png", device = "png", width = 12, height = 6)
+ggcont
 
 # Non - Contiguous Cartograms
-ncont <- cartogram_ncont(us,
-  weight = "AgeAdjustedRate") %>% sf::st_as_sf()
+ncont <- cartogram_ncont(cancer,
+  weight = "total_pop_15") %>% st_as_sf()
 ggncont <- ggplot(ncont) + 
   geom_sf(aes(fill = AgeAdjustedRate)) + 
-  scale_fill_distiller(type = "div", palette = "RdYlBu")
+  ggtitle(title) + 
+  scale_fill_distiller(type = "seq", palette = "YlOrRd",  direction = 1) + 
+  coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
+  theme_void() + theme(legend.position ="bottom")
 ggsave(filename = "figures/ggncont.png", device = "png", width = 12, height = 6)
-
+ggncont
 
 # Non - Contiguous Dorling Cartograms
-dorl <- cartogram_dorling(us,
-  weight = "AgeAdjustedRate") %>% sf::st_as_sf()
+dorl <- cartogram_dorling(cancer,
+  weight = "total_pop_15") %>% st_as_sf()
 ggdorl <- ggplot(dorl) + 
   geom_sf(aes(fill = AgeAdjustedRate)) + 
-  scale_fill_distiller(type = "div", palette = "RdYlBu")
+  ggtitle(title) +
+  scale_fill_distiller(type = "seq", palette = "YlOrRd",  direction = 1) + 
+  coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
+  theme_void() + theme(legend.position ="bottom")
 ggsave(filename = "figures/ggdorl.png", device = "png", width = 12, height = 6)
+ggdorl
