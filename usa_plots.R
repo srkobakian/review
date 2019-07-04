@@ -89,3 +89,36 @@ ggdorl <- ggplot(dorl) +
   theme_void() + theme(legend.position ="bottom")
 ggsave(filename = "figures/ggdorl.png", device = "png", width = 12, height = 6)
 ggdorl
+
+
+
+# Choropleth projections
+# 3857, 2163, 4326, 2955
+ggchoro1 <- ggplot(st_transform(cancer, 3857)) + 
+  geom_sf(aes(fill = AgeAdjustedRate)) +
+  scale_fill_distiller(type = "seq", palette = "YlOrRd",  direction = 1) + 
+  ggtitle("The United States using ESPG: 3857") +
+  theme_void()+ guides(fill = FALSE)
+
+ggchoro2 <- ggplot(st_transform(cancer, 2163)) + 
+  geom_sf(aes(fill = AgeAdjustedRate)) +
+  scale_fill_distiller(type = "seq", palette = "YlOrRd",  direction = 1) + 
+  ggtitle("The United States using ESPG: 2163") +
+  theme_void()+ guides(fill = FALSE)
+
+ggchoro3 <- ggplot(st_transform(cancer, 4326)) + 
+  geom_sf(aes(fill = AgeAdjustedRate)) +
+  scale_fill_distiller(type = "seq", palette = "YlOrRd",  direction = 1) + 
+  ggtitle("The United States using ESPG: 4326") +
+  theme_void()+ guides(fill = FALSE)
+
+ggchoro4 <- ggplot(st_transform(cancer, 2955)) + 
+  geom_sf(aes(fill = AgeAdjustedRate)) +
+  scale_fill_distiller(type = "seq", palette = "YlOrRd",  direction = 1) + 
+  ggtitle("The United States using ESPG: 2955") +
+  theme_void() + guides(fill = FALSE)
+
+ggchoroCRS <- gridExtra::grid.arrange(ggchoro1, ggchoro2, ggchoro3, ggchoro4)
+
+ggsave(filename = "figures/ggchoroCRS.png", plot = ggchoroCRS,
+  device = "png", width = 12, height = 6)
