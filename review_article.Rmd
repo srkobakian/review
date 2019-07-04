@@ -44,6 +44,7 @@ Current exploratory practices: Cartograms: cont, non cont, (tilegrams, dorlings)
 Suggested uses of 
 -->
 
+
 ## Disease mapping methods
 
 
@@ -56,29 +57,30 @@ A choropleth map is used to show the spatial variability of measurements, with u
 !["A choropleth map of the United States of America."](figures/ggchoro.png)
 
 <!-- psychology -->
-The familiar state shapes help viewers to visually infer spatial relationships, and hence intuitive to read [@CIBMUK]. However, the different sizes of administrative areas can lead viewers to place more attention on the shades of the largest areas. The inferences derived, and the hypotheses developed can suffer from a large area "bias". <!--This technique has been seen as a 'trigger for questions' which drives research of spatial distributions of diseases.  @MACM also recognise the intuition that can be derived from choropleths with the critique that they must be 'validated by rigorous statistical analyses.' -->
+Utilising the familiar state shapes can make a map intuitive to read [@CIBMUK], and allow viewers to visually infer the spatial relationships in the data. 
+The familiarity of the geography is a worthy consideration when presenting results of spatial analysis. Just as geographers are no longer the only creators of maps, @CPISACA suggests the audience of spatial health data analysis has extended beyond researchers to the public, policymakers and the media.
+However, while they can be recognisable shapes, the different sizes of administrative areas can lead viewers to give more attention to the shades of the largest areas. Choropleths can inhibit visual inference when presenting human related statistics as the display may draw attention from the 'potentially more important results in the more populous communities' [@SE]. 
 
+<!--
+Urbanisation has pushed people closer together,
+-in workplaces and in homes. 
+-this issue is not with the size of the administrative areas,
+- the increasing urbanisation is contributing to the changing density of population
+-->
 
 <!-- Displaying cancer data on choropleths -->
 In epidemiology, choropleths are often used as a tool to study the spatial distribution of cancer incidence and mortality. 
 Almost 100 years of cancer maps have explored the United States and the United Kingdom with increased effectiveness in presentation of unbiased rates. The increasing development and use of disease maps can be attributed to the availability of geographic information system softwares [@SE]. The data collection methods of cancer mortality rates across regions, and administrative control within regions lends itself choropleth visualisation. Mortality rates are now often presented as relative rates of risk across the population, and age adjusted to correct for the proportion of old people. Howe [-@HEDP] describes Stocks development of the standardised mortality ratios through the 1930s. The choropleth maps used presented levels of cancer via hatchings on a black and white scale. 
 
-@CPISACA
-The potential audience for the results of a spatial analysis of health data is no longer limited to scientists but now also includes the public, policymakers, the media, and a host of others.
 
 <!-- Usage and availability -->
 @DMAHP cites Cruickshank's (1947) discussion of using visuals as 'formal statistical assessment of the spatial pattern' as a major advancement.
 @CD considers cartographic data analysis in practice. Presenting a clear guide for preparing cartograms for use with both qualitative and quantitative information.
- The authors recognise that the creation of cartograms was largely the work of professional cartographers until the innovation of geographical information systems that welcomed map users as map creators. These systems are utilised depending on ‘the effectiveness, efficiency, and satisfaction of the map products (Nielsen 1994)’.
+The authors recognise that the creation of cartograms was largely the work of professional cartographers until the innovation of geographical information systems that welcomed map users as map creators. These systems are utilised depending on ‘the effectiveness, efficiency, and satisfaction of the map products (Nielsen 1994)’. @MACM also recognises the intuition that can be derived from choropleths must be 'validated by rigorous statistical analyses.' 
  
  
-
-Using the recognisable geography, that is familiar, helps communicate the information.
--->
 
 <!-- Published atlases -->
-
-Choropleths can inhibit visual inference when presenting human related statistics as the display may draw attention from the 'potentially more important results in the more populous communities' [@SE].
 
 
 Examples of atlases:
@@ -90,10 +92,6 @@ Bertin 1967
 Current atlases utilising choropleth methods 
 - include Australia: 
 
-Clear examples of:
-White paper example for published Atlases
--methods they use
-
 cites: Cancer Mortality Atlas of EU and of the European Economic Area last published 8 years ago
 @MTMSIH Bayesian disease mapping methods for areal data - explains key concepts applied to create an atlas
 Explores Australia as a case study, utilising QLD SA2 areas
@@ -101,7 +99,6 @@ Explores Australia as a case study, utilising QLD SA2 areas
 -->
 
 
-@SAMGIS suggests it is the "investigators' objectives" that drive the "representation of diseases on maps". There will be situations like infectious diseases that require choropleth methods
 
 ### Public face (Jessie)
 
@@ -277,6 +274,9 @@ This gives equal emphasis to every area, allows distributions and relationships 
 
 With that in mind, the intented user and message to communicate should drive map selection.
 
+@SAMGIS suggests it is the "investigators' objectives" that drive the "representation of diseases on maps". 
+-infectious diseases may require choropleth methods
+
 'Where control of the message is important, static maps will continue to be the most effective, although good tables, graphs, and explanatory text are still needed in order to ensure that different people will see the same thing in the maps' @CPISACA
 
 <!-- @CPISACA contrasted several online atlases in a 2006 paper, consider for structure? -->
@@ -333,10 +333,7 @@ Driven by progressions in computing, statistical methods and collection of data.
 
 Models summarise relationships between counts of diseases and other factors.
 
-Choropleth Maps, relationship between regions and spatial location. Able to represent all the occurrences within areas more cohesively, as total counts, or colours.
 
-
-Urbanisation pushed people closer together, in workplaces and in homes.
 
 Recognition of biases when utilising the geography to map people. Small areas contain more people, work towards representing regions of importance more clearly.
 -->
