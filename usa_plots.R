@@ -67,16 +67,27 @@ ggsave(filename = "figures/ggcont.png", device = "png", width = 12, height = 6)
 ggcont
 
 # Non - Contiguous Cartograms
-ncont <- cartogram_ncont(cancer,
+# Needs a scaling factor
+
+cancer <- cancer %>% mutate(sva = sqrt(as.numeric(total_pop_15/AREA)))
+cancer %>% 
+  ggplot(.) +
+  geom_density(aes(x = sva)) + geom_vline(aes(xintercept = 5))
+
+# The state of Vermonet is used as the anchor unit
+
+ncont <- cartogram_ncont(cancer, k = 1/5,
   weight = "total_pop_15") %>% st_as_sf()
 ggncont <- ggplot(ncont) + 
   geom_sf(aes(fill = AgeAdjustedRate)) + 
+  geom_sf(data=cancer, fill = NA, colour = "grey") +
   ggtitle(title) + 
   scale_fill_distiller(type = "seq", palette = "YlOrRd",  direction = 1) + 
   coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
   theme_void() + theme(legend.position ="bottom")
 ggsave(filename = "figures/ggncont.png", device = "png", width = 12, height = 6)
 ggncont
+
 
 # Non - Contiguous Dorling Cartograms
 dorl <- cartogram_dorling(cancer,
@@ -91,6 +102,21 @@ ggsave(filename = "figures/ggdorl.png", device = "png", width = 12, height = 6)
 ggdorl
 
 
+
+# Centroid Cartograms
+cancer <- cancer %>% 
+  sf::st_centroid(geometry) %>% 
+  sf::st_coordinates() %>% as_tibble() %>% bind_cols(cancer, .)
+
+ggdot <- ggplot(cancer) + 
+  geom_point(aes(X,Y, colour = AgeAdjustedRate)) + 
+  geom_sf(data=cancer, fill = NA, colour = "grey") +
+  ggtitle(title) +
+  scale_colour_distiller(type = "seq", palette = "YlOrRd",  direction = 1) + 
+  coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
+  theme_void() + theme(legend.position ="bottom")
+ggsave(filename = "figures/ggdot.png", device = "png", width = 12, height = 6)
+ggdot
 
 # Choropleth projections
 # 3857, 2163, 4326, 2955
