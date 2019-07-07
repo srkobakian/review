@@ -3,11 +3,12 @@ title: "Cartogram Mapping and its Application to Cancer Data Visualisation"
 author: "Stephanie Kobakian, Jessie Roberts and Dianne Cook"
 bibliography: reviewbib.bib
 output:
+  pdf_document: default
   html_document: default
 fontsize: 11pt
-link-citations: true
-number_sections: true
-fig_caption: true
+link-citations: yes
+number_sections: yes
+fig_caption: yes
 biblio-style: vancouver
 ---
 
@@ -105,7 +106,96 @@ Explores Australia as a case study, utilising QLD SA2 areas
 
 ### Public face (Jessie)
 
-what has been provided to the public, norms, common practices, all of Jessie's lit review
+A grey literature review conducted by (ref) identified 33 Cancer Atlases publically available cancer atlases available on the internet and published between 01/01/2010 to 11/11/2015. 
+
+All the maps identified in this review were chloropleth maps, in which the representation of the map geometry stayed true to the underlying geography. 
+
+<!-- Could be nice to insert a grid of the different maps. Or at least one or two full maps -->
+
+#### Publishers {-}
+ 
+The majority of atlases were published by non-commercial organisations, including not-for-profits (NFPs), government, research organisations, advocacy groups or a partnership between an NFP & government. Only one map was published by a commercial entity (Maps of Cancer Mortality Rates in Spain), in this case a media organisation El Pais^[https://elpais.com/].  
+ 
+#### Reported measures {-}
+ 
+The majority of maps identified in this study reported age adjusted rates of either incidence, mortality or survival. The list below summarises these measures, and provides a definition of each measure.
+
+#### Geographical coverage {-}
+ 
+Identified cancer atlases covered geographies from all around the world: 4 were global, 3 from Australia (AUS), 11 from the United States (US), 2 from Canada (CAN), 7 from the United Kingdom (UK), 2 from Spain, 1 from Switzerland, 1 from Germany, 1 from Norway, and 1 covering the European Union. Not all maps had a national focus and 10 covered a region or state rather than an entire nation. The states or counties/regions covered were South Australia (AUS), Queensland (AUS), Ontario (CAN), Valencia (Spain), Pennsylvania county Massachusetts (US), New Hampshire (US), Cape Cod (US), Missouri (US), Florida (US), New York State (US) and Arizona (US).
+
+\newpage
+Table: (\#tab:measures) Measures used to report cancer statistics
+
+|Measure |Details| 
+|:--------------------|:------------------------------------------------|  
+|1. IR (Incidence Ratio)|$(IR)_i=\frac{(Incidence\ Rate)_i}{Average\ Incidence\ Rate}$, |
+||Cancer incidence rate in region $i$ over the average cancer incidence rate for the total region|
+|2. SIR (Standardised Incidence Ratio)| IR standardised by age structure in each region $i$|
+|3. RER |$RER = \frac{(Cancer\ related\ mortality)_i}{Average\ cancer\ related\ mortality}$|
+|(Relative Excess Risk)|Represents the estimate of cancer related mortality within five years of diagnosis|
+||Also referred to as 'excess hazard ratio'|
+|4. Age Adjusted Relative Risk| RR standardised by age structure in each region $i$|   
+|5. Rate per 100,000|Cancer incidence per 100,000 population|  
+|6. Age Adjusted Rate per 100,000| #5 standardised by age structure or region|   
+|7. New cancer cases per 100,000|Specific methods could not be found|   
+|8. Count|Crude cancer counts|  
+|9. Below or above Expected|Alternative expression of the SIR|   
+
+#### Statistical uncertainty 
+ 
+Cancer atlases were considered to report uncertainty to the non-expert user if they included a measure of statistical uncertainty either within or alongside the map. Maps that only reported this information within the supplementary material were not considered to have directly attempted to report uncertainty.
+
+The review did not reveal any novel uncertainty visualisation approaches or visualisations. Maps used standard and well known measures including credible intervals and standard deviation, statistical significance, boxplots and distributions. These maps ranged from static pdfs or infographics to interactive online resources. The interactivity of the more modern maps enabled uncertainty information to be incorporated without cluttering the screen, such as in a tool tip feature. 
+
+```{r ci-viz2, fig.cap = "Example of CI visualisation for uncertainty representation in cancer mapping (1/3). Source: Alberta Health IHDA Geographic. (2012) ", echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width='80%'}
+
+knitr::include_graphics("figures/Alberta_CI_viz.png")
+```
+
+```{r ci-viz3, fig.cap = "Example of CI visualisation for uncertainty representation in cancer mapping (2/3). Source: Pensylvania Cancer Atlas ", echo=FALSE, message=FALSE, warning=FALSE, out.width='55%', fig.align='center'}
+
+knitr::include_graphics("figures/Pennsylvania_CI_viz.png")
+
+```
+
+Close to half of the atlases identified (42%, n=14) included some measure of uncertainty. The most common measure used to represent uncertainty were credible or confidence intervals (CIs). CIs were either visualised by including their bounds in a scatterplot or graph of estimates vs region (see Figures \@ref(fig:ci-viz2)^[Alberta Health IHDA Geographic. (2012). Age-Standardised Incidence Rate of COPD, 2011. Retrieved from: http://www.health.alberta.ca/health-info/IHDA-geographic/COPD/incidence-agestandard/atlas.html?epik=0GJSpE_IW34lx], and \@ref(fig:ci-viz3)^[Centres for Disease Control and Prevention (CDC). (n.d). United States Cancer Statistics: An Interactive Cancer Atlas (InCA). Retrieved from:https://nccd.cdc.gov/DCPC_INCA/] positioned next to the map, or reported numerically through the CI upper and lower bounds listed in a data table (see Figure 3.4^[Pennsylvania Cancer Atlas. (n.d). Retrieved from:  https://www.geovista.psu.edu/grants/CDC/?epik=0lJSpE_IW34lx]). Of those that visualised the CIs, 30% (n=10) embedded the visualisation within a tool tip function which visualised the CI when the mouse hovered over the relevant area (see Figure 3.5^[International Agency for Research on Cancer. (2017). Atlas of Cancer Mortality in the European Union and European Economic Area 1993-1997, Annex 4 - Cancer mortality maps by site. Retrieved from: http://www.iarc.fr/en/publications/pdfs-online/epi/sp159/]). 
+
+```{r ci-tooltip, fig.cap= "Example of CI visualisation for uncertainty representation in cancer mapping (3/3). Source: Centres for Disease Control and Prevention (CDC). United States Cancer Statistics: An Interactive Cancer Atlas (InCA) ", echo=FALSE, message=FALSE, warning=FALSE, fig.show='hold', out.width= '60%', fig.align = 'center'}
+
+knitr::include_graphics("figures/CDC_CI_viz_tooltip.png")
+```
+
+```{r ci-table, fig.cap= "Example of an interactive data table with CI upper and lower bounds used in cancer mapping. Source: Pennsylvania Cancer Atlas", echo=FALSE, message=FALSE, warning=FALSE, fig.show='hold', out.width= '50%', fig.align = 'center'}
+
+knitr::include_graphics("figures/uncert_table.png")
+```
+  
+Methods for representing sources of uncertainty information can be visualised or communicated in different ways, examples identified through this grey literature review are listed below. 
+
+
+```{r stndvn-example, fig.cap= "Example of standard deviation visualised in cancer mapping", echo=FALSE, message=FALSE, warning=FALSE, fig.show='hold', out.width= '90%', fig.align = 'center'}
+
+knitr::include_graphics("figures/standard_deviation_large.png")
+```
+
+
+```{r boxplot-example, fig.cap= "Example of boxplot used in cancer mapping. Source: Source: Pensylvania Cancer Atlas ", echo=FALSE, message=FALSE, warning=FALSE, fig.show='hold', out.width= '40%', fig.align = 'center'}
+
+knitr::include_graphics("figures/Boxplot2.png")
+```
+
+
+Table: (\#tab:method-exp) Implicit and explicit measures of uncertainty.
+
+|Measure | Example | 
+|:-------------------------|:-------------------------------------------|
+|CI Interval |Figures 3.1, 3.2, 3.3|
+|Statistical Significance|Textured overlay on top of coloured regions used to indicate statistical significance|
+|Distribution|Figure 3.4|
+|Boxplots|Figures 3.4, 3.5|
+|Sample Size|Textured overlay or lack of colour on a region, was used to show regions with small sample size|
+|Standard deviation |Figure 3.6 - the second map in the bottom right corner shows standard deviation|
 
 
 ## Cartograms (Steff)
