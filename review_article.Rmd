@@ -109,15 +109,16 @@ what has been provided to the public, norms, common practices, all of Jessie's l
 
 
 <!-- Going from choropleth to cartogram -->
-<!-- Why transform?-->
-Cartograms aand choropleths both present statistical and geographical information. @ACTUC suggests the difference is the intentional and desirable augmentation of the size, shape or distance of geographical areas.
-Waldo Tobler [-@TVSSS] explores many graphical techniques, and suggests there are particular methods for particular purposes.
 
 <!-- There are many alternative views of the world-->
 <!-- Tobler map projections-->
-Some consider choropleths true topological maps, however, if the land mass presented covers enough of the globe, there must be a transformation to visualise it in 2D.
+Choropleths may be considered true topological maps, however, if the land mass presented covers enough of the globe, there must be a transformation to visualise it in 2D.
 The world projections reflect the frequent distortions seen from altering perspectives. Choropleth maps will always be distorted if they cover enough of the globe, as will photographs of the globe from space. Choropleth creation requires choosing a favourable distortion of the geography for presenting the set of spatial information.
 
+
+<!-- Why transform?-->
+Cartograms provide an alternative visualisation method for statistical and geographical information. The key difference is the intentional, and desirable, augmentation of the size, shape or distance of geographical areas [@ACTUC].
+Waldo Tobler [-@TVSSS] explores many graphical techniques, and suggests there are particular methods for particular purposes.
 
 !["Choropleth maps of the United States of America using four coordinate reference systems."](figures/ggchoroCRS.png)
 
