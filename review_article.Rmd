@@ -50,23 +50,6 @@ Suggested uses of
 ## Disease mapping methods
 
 
-<!--
-@GOINO major geographic storage device; map reading and map interpretation have been the basic methods of retrieval and analysis.
-Geography’s interests are in spatial distributions and associations, in areal differentiation
-and in spatial processes. All of these interests demand information that is geographically
-ordered. Geographically ordered data are those data which have their locational
-coordinates preserved.
-
-Certain limitations to the standard graphic techniques have also become apparent, however.
-They are slow, and do not permit instant retrieval of information. They are untrustworthy when interpretations of spatial association are needed; there are both severe physiological and psychological constraints on our abilities to assess correlations of
-spatial distributions visually.
-
-These opportunities will be lost if locational coding is not inserted into the data referencing system as such banks are built, however.
-
-There are six potential benefits to geographic research from computer-connected data banks in which the data have proper locational referents. These come under the general headings of mapping, partitioning and aggregation, merging of data systems, transformations of geographic spaces, descriprive statistics, and intermediate analysis.
-
-of some element, for example population density, or purchasing power, or agricultural fertility; reality, of course, is not like this. the background variable assumed to be uniform (such as population density) can be adjusted so that it behaves as if uniformity were the case
--->
 
 ### Current best practice map displays for cancer data
 
@@ -76,12 +59,31 @@ of some element, for example population density, or purchasing power, or agricul
 <!-- what is a choropleth map -->
 A choropleth map is used to show the spatial variability of measurements, with usage dating back to the 1800s. They are constructed by drawing administrative boundaries, and filling the polygon with colour to represent values of a measured variable. Early versions used symbols or patterns instead of colour. @CPISACA discusses the use of choropleth maps for visualising cancer data, and @DMAHP gives an overview of the development of the use of choropleth maps for displaying disease data. Figure 1 shows a choropleth map where each state of the United States of America is coloured by the average annual rate of new cases of lung and bronchus cancer from years 2012 to 2016. A choropleth map is a true map of the topology, constructed for visual inspection of spatial patterns across a familiar geographic form, that might show trends in disease occurrence, or even localised outbreaks. 
 
+
+<!--
+@GOINO major geographic storage device; map reading and map interpretation have been the basic methods of retrieval and analysis.
+Geography’s interests are in spatial distributions and associations, in areal differentiation
+and in spatial processes. All of these interests demand information that is geographically
+ordered. Geographically ordered data are those data which have their locational
+coordinates preserved.
+-->
+
 !["A choropleth map of the United States of America."](figures/ggchoro.png)
 
 <!-- psychology -->
 Utilising the familiar state shapes can make a map intuitive to read [@CIBMUK], and allow viewers to visually infer the spatial relationships in the data. 
 The familiarity of the geography is a worthy consideration when presenting results of spatial analysis. Just as geographers are no longer the only creators of maps, @CPISACA suggests the audience of spatial health data analysis has extended beyond researchers to the public, policymakers and the media.
 However, while they can be recognisable shapes, the different sizes of administrative areas can lead viewers to give more attention to the shades of the largest areas. Choropleths can inhibit visual inference when presenting human related statistics as the display may draw attention from the 'potentially more important results in the more populous communities' [@SE]. 
+
+<!--
+Certain limitations to the standard graphic techniques have also become apparent, however.
+They are slow, and do not permit instant retrieval of information. They are untrustworthy when interpretations of spatial association are needed; there are both severe physiological and psychological constraints on our abilities to assess correlations of spatial distributions visually.
+
+These opportunities will be lost if locational coding is not inserted into the data referencing system as such banks are built, however.
+
+
+of some element, for example population density, or purchasing power, or agricultural fertility; reality, of course, is not like this. the background variable assumed to be uniform (such as population density) can be adjusted so that it behaves as if uniformity were the case
+-->
 
 <!--
 Urbanisation has pushed people closer together,
