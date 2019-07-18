@@ -57,7 +57,7 @@ Suggested uses of
 <!--Choropleth map (Steff)-->
 
 <!-- what is a choropleth map -->
-A choropleth map is used to show the spatial variability of measurements, with usage dating back to the 1800s. They are constructed by drawing the given geographic or political boundaries, and filling the polygon with colour to represent values of a measured variable [@EI]. Early versions used symbols or patterns instead of colour. @CPISACA discusses the use of choropleth maps for visualising cancer data, and @DMAHP gives an overview of the development of the use of choropleth maps for displaying disease data. A choropleth map is a true map of the topology, constructed for visual inspection of spatial patterns across a familiar geographic form, that might show trends in disease occurrence, or even localised outbreaks. Figure 1 shows a choropleth map where each state of the United States of America is coloured by the average annual rate of new cases of lung and bronchus cancer from years 2012 to 2016.
+A choropleth map is used to show the spatial variability of measurements or statistics, with usage dating back to the 1800s. They are constructed by drawing the given geographic or political boundaries, and filling the resulting polygon with colour to represent values of a measured variable [@EI]. Early versions of these maps used symbols or patterns instead of colour. @CPISACA discusses the use of choropleth maps for visualising cancer data, and @DMAHP gives an overview of the development of the use of choropleth maps for displaying disease data. A choropleth map is a true map of the topology, constructed for visual inspection of spatial patterns across a familiar geographic form, that might show trends in disease occurrences, or even localised outbreaks. Figure 1 shows a choropleth map where each state of the United States of America is coloured by the average annual rate of new cases of lung and bronchus cancer from years 2012 to 2016.
 
 
 <!--
@@ -71,10 +71,10 @@ coordinates preserved.
 !["A choropleth map of the United States of America."](figures/ggchoro.png)
 
 <!-- psychology -->
-Utilising the familiar state shapes can make a map intuitive to read [@CIBMUK], and allow viewers to visually infer the spatial relationships in the data.
-The familiarity of the geography is a worthy consideration when presenting results of spatial analysis. Just as geographers are no longer the only creators of maps, @CPISACA suggests the audience of spatial health data analysis has extended beyond researchers to the public, policymakers and the media.
-However, while the areas are recognisable shapes, they are often politically driven boundaries with individual areas being of non-uniform size, different population densities and subject to changes over time. 
-The different sizes of administrative areas can attract attention to the shades of the unpopulated, large physical areas [@EI]. Choropleths can inhibit visual inference when presenting human related statistics as the display may draw attention from the 'potentially more important results in the more populous communities' [@SE]. 
+Utilising the familiar state boundaries can make a map intuitive to read [@CIBMUK], and allow viewers to visually infer the spatial relationships in the data, i.e. how cancer rate differs across the states.
+The familiarity of the geography is a worthy consideration when presenting results of spatial analysis. Just as geographers are no longer the only creators of maps, @CPISACA suggests the audiences of spatial health data analysis have extended beyond researchers to the public, policymakers and the media.
+However, while the areas are recognisable shapes, they are often politically driven boundaries with individual areas being of non-uniform size, containing different population densities and subject to change over time. 
+The different population and geographical sizes of administrative areas can attract attention to the shades of the unpopulated but large areas [@EI]. Choropleths can inhibit visual inference when presenting human related statistics as the display may draw attention from the 'potentially more important results in the more populous communities' [@SE]. 
 
 <!--
 Certain limitations to the standard graphic techniques have also become apparent, however.
@@ -95,7 +95,7 @@ Urbanisation has pushed people closer together,
 
 <!-- Displaying cancer data on choropleths -->
 In epidemiology, choropleths are often used as a tool to study the spatial distribution of cancer incidence and mortality. 
-Almost 100 years of cancer maps have explored the United States and the United Kingdom with increased effectiveness in presentation of unbiased rates. The increasing development and use of disease maps can be attributed to the availability of geographic information system software [@SE]. The data collection methods of cancer mortality rates across regions, and administrative control within regions lends itself choropleth visualisation. Mortality rates are now often presented as relative rates of risk across the population, and age adjusted to correct for the proportion of old people. Howe [-@HEDP] describes Stocks development of the standardised mortality ratios through the 1930s. The choropleth maps used presented levels of cancer via hatchings on a black and white scale. 
+Almost 100 years of cancer mapping in the United States and the United Kingdom has increased the effectiveness in the presentation of unbiased rates. The increasing development and use of disease maps can be attributed to the availability of geographic information system software [@SE]. The data collection methods of cancer mortality rates across regions, and administrative control within regions lends itself to choropleth visualisation. Mortality rates are now often presented as relative rates of risk across the population, and age adjusted to correct for the the higher prevalence of cancers in older populations. Howe [-@HEDP] describes Stocks development of the standardised mortality ratios through the 1930s. The choropleth maps used at this time presented levels of cancer via hatchings on a black and white scale. 
 
 
 <!--
@@ -105,7 +105,7 @@ Computing mapping methods improved with access to necessary information: locatio
 <!-- Usage and availability -->
 @DMAHP cites Cruickshank's (1947) discussion of using visuals as 'formal statistical assessment of the spatial pattern' as a major advancement.
 @CD considers cartographic data analysis in practice. Presenting a clear guide for preparing cartograms for use with both qualitative and quantitative information.
-The authors recognise that the creation of cartograms was largely the work of professional cartographers until the innovation of geographical information systems that welcomed map users as map creators. These systems are utilised depending on ‘the effectiveness, efficiency, and satisfaction of the map products (Nielsen 1994)’. @MACM also recognises the intuition that can be derived from choropleths must be 'validated by rigorous statistical analyses.' 
+The authors recognise that the creation of cartograms was largely the work of professional cartographers until the innovation of geographical information systems enabled map users to become map creators. These systems are utilised depending on ‘the effectiveness, efficiency, and satisfaction of the map products (Nielsen 1994)’. @MACM also recognises the intuition that can be derived from choropleths must be 'validated by rigorous statistical analyses.' 
  
  
 
