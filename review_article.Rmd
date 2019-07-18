@@ -131,11 +131,8 @@ Explores Australia as a case study, utilising QLD SA2 areas
 
 ## Public face
 
-A grey literature review conducted by (ref) identified 33 publically available cancer atlases published on the internet between 01/01/2010 to 11/11/2015. 
+A grey literature review conducted by (ref) identified 33 publically available cancer atlases published on the internet between 01/01/2010 to 11/11/2015. Reflecting the high use of chloropleth maps founds in the literature, outlined in the section above, all the public facing maps identified in this review were also chloropleth maps.
 
-All the maps identified in this review were chloropleth maps, in which the representation of the map geometry stayed true to the underlying geography. 
-
-<!-- Could be nice to insert a grid of the different maps. Or at least one or two full maps -->
 
 ### Publishers {-}
  
