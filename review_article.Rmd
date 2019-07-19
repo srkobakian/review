@@ -3,11 +3,11 @@ title: "Cartogram Mapping and its Application to Cancer Data Visualisation"
 author: "Stephanie Kobakian, Jessie Roberts and Dianne Cook"
 bibliography: reviewbib.bib
 output: 
+  html_document: default
   pdf_document:
     toc: true
     toc_depth: 2
     number_sections: true
-  html_document: default
 fontsize: 11pt
 link-citations: true
 fig_caption: yes
@@ -154,24 +154,18 @@ Explores Australia as a case study, utilising QLD SA2 areas
 
 ## Public face
 
-
-A grey literature review conducted by (ref) identified 33 publicly available cancer atlases published on the internet between 01/01/2010 to 11/11/2015. Reflecting the high use of chloropleth maps founds in the literature, outlined in the section above, all the public facing maps identified in this review were also chloropleth maps.
-
-
-
-### Publishers {-}
+Cancer maps are effective communication tools for a general or non-expert audience and are commonly used in the public domain to communicate the output of sophisticated statistical analyses to these audiences. The heavy use of chloroplet maps within the research literature is reflected in the types of maps that are found in the public domain. A grey literature review conducted by (ref) identified 33 cancer atlases published on the internet between 01/01/2010 to 11/11/2015 all of which were chloropleth maps. These maps were mostly published by non-commercial organisations, including not-for-profits (NFPs), government, research organisations, advocacy groups or a partnership between an NFP & government. Only one map was published by a commercial entity (Maps of Cancer Mortality Rates in Spain), published by the media organisation El Pais^[https://elpais.com/].  
  
-The majority of atlases were published by non-commercial organisations, including not-for-profits (NFPs), government, research organisations, advocacy groups or a partnership between an NFP & government. Only one map was published by a commercial entity (Maps of Cancer Mortality Rates in Spain), in this case a media organisation El Pais^[https://elpais.com/].  
- 
-### Reported measures {-}
- 
-The majority of maps identified in this study reported age adjusted rates of either incidence, mortality or survival. The list below summarises these measures, and provides a definition of each measure.
+
 
 ### Geographical coverage {-}
  
 Identified cancer atlases covered geographies from all around the world: 4 were global, 3 from Australia (AUS), 11 from the United States (US), 2 from Canada (CAN), 7 from the United Kingdom (UK), 2 from Spain, 1 from Switzerland, 1 from Germany, 1 from Norway, and 1 covering the European Union. Not all maps had a national focus and 10 covered a region or state rather than an entire nation. The states or counties/regions covered were South Australia (AUS), Queensland (AUS), Ontario (CAN), Valencia (Spain), Pennsylvania county Massachusetts (US), New Hampshire (US), Cape Cod (US), Missouri (US), Florida (US), New York State (US) and Arizona (US).
 
-\newpage
+### Reported measures {-}
+ 
+The majority of maps identified in this study reported age adjusted rates of either incidence, mortality or survival. The list below summarises these measures, and provides a definition of each measure.
+
 Table: (\#tab:measures) Measures used to report cancer statistics
 
 |Measure |Details| 
