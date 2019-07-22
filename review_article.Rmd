@@ -120,18 +120,15 @@ In epidemiology, choropleths are often used as a tool to study the spatial distr
 Choropleth maps can be useful devices for communicating information to public on a familiar map base. A cancer atlas is a choropleth map, or collection of maps, representing cancer incidence and mortality for a country, or group of countries. @MACM provide the definition and report that cancer atlases began with Haviland's maps in 1875. The data collection methods of cancer mortality rates across regions, and administrative control within regions lends itself to choropleth visualisation. 
 The increasing development and use of disease maps can be attributed to the availability of geographic information system software [@SE]. Early work in US cancer atlases can be attributed to Burbank ???, and UK cancer atlases to Howe 1963 ???.  The choropleth maps used at this time presented levels  via hatchings or dots on a black and white scale. These atlases were key to developing hypotheses regarding areas with unusually high rates, geographic correlations, work related exposures, and high risk diets @MACM.
 
-<!-- Measures of cancer -->
+<!-- Measures reported in cancer atlases -->
 
-Almost 100 years of cancer mapping in the United States and the United Kingdom has increased the effectiveness in the presentation of unbiased rates. Mortality rates are now often presented as relative rates of risk across the population, and age adjusted to correct for the the higher prevalence of cancers in older populations. Howe [-@HEDP] describes Stocks development of the standardised mortality ratios through the 1930s.
+Almost 100 years of cancer mapping in the United States and the United Kingdom has seen increased effectiveness in the presentation of unbiased rates. Mortality rates are now often presented as relative rates of risk across the population, and age adjusted to correct for the the higher prevalence of cancers in older populations. Howe [-@HEDP] describes Stocks development of the standardised mortality ratios through the 1930s.
 
 <!--
 Literature regarding measures presented in public facing atlases.
 -->
 
-
-### Reported measures in cancer atlases
- 
-The list below summarises these measures, and provides a definition of each measure.
+The list below summarises the measures presented in published cancer atlases, and provides a definition of each measure.
 
 Table: (\#tab:measures) Measures used to report cancer statistics
 
@@ -151,28 +148,16 @@ Table: (\#tab:measures) Measures used to report cancer statistics
 |9. Below or above Expected|Alternative expression of the SIR|   
 
 
-<!--
+
+
 @DMAHP cites Cruickshank's (1947) discussion of using visuals as 'formal statistical assessment of the spatial pattern' as a major advancement.
-@MACM also recognises the intuition that can be derived from choropleths must be 'validated by rigorous statistical analyses.' 
 
-@CD considers cartographic data analysis in practice. Presenting a clear guide for preparing cartograms for use with both qualitative and quantitative information.
-The authors recognise that the creation of cartograms was largely the work of professional cartographers until the innovation of geographical information systems that welcomed map users as map creators. These systems are utilised depending on ‘the effectiveness, efficiency, and satisfaction of the map products (Nielsen 1994)’. 
--->
-
+When presenting cancer atlases, @MACM believes the intuition that can be derived must be 'validated by rigorous statistical analyses.' Additional statistics are often 
 
 <!--
 of some element, for example population density, or purchasing power, or agricultural fertility; reality, of course, is not like this. the background variable assumed to be uniform (such as population density) can be adjusted so that it behaves as if uniformity were the case
 @GOINO
 -->
-
-### Supporting material in cancer atlases
-
-<!-- Moved Jessies stat uncertainty up-->
-Cancer atlases were considered to report uncertainty to the non-expert user if they included a measure of statistical uncertainty either within or alongside the map. Maps that only reported this information within the supplementary material were not considered to have directly attempted to report uncertainty.
-
-The review did not reveal any novel uncertainty visualisation approaches or visualisations. Maps used standard and well known measures including credible intervals and standard deviation, statistical significance, box plots and distributions. These maps ranged from static pdfs or infographics to interactive online resources. The interactivity of the more modern maps enabled uncertainty information to be incorporated without cluttering the screen, such as in a tool tip feature. 
-
-
 
 <!-- Published atlases -->
 
@@ -191,6 +176,16 @@ cites: Cancer Mortality Atlas of EU and of the European Economic Area last publi
 Explores Australia as a case study, utilising QLD SA2 areas
 
 -->
+
+### Supporting material in cancer atlases
+
+<!-- Moved Jessies stat uncertainty up-->
+Cancer atlases were considered to report uncertainty to the non-expert user if they included a measure of statistical uncertainty either within or alongside the map. Maps that only reported this information within the supplementary material were not considered to have directly attempted to report uncertainty.
+
+The review did not reveal any novel uncertainty visualisation approaches or visualisations. Maps used standard and well known measures including credible intervals and standard deviation, statistical significance, box plots and distributions. These maps ranged from static pdfs or infographics to interactive online resources. The interactivity of the more modern maps enabled uncertainty information to be incorporated without cluttering the screen, such as in a tool tip feature. 
+
+
+
 
 
 ## Public face
@@ -256,8 +251,11 @@ Table: (\#tab:method-exp) Implicit and explicit measures of uncertainty.
 
 ## Cartograms
 
-
 <!-- Going from choropleth to cartogram 
+
+A cartogram is an alternative map visual. 
+An intention distortion is applied to a geographic map base, 
+
 A cartogram is a map purposely distorted so that its spatial properties represent quantities
 not directly associated with position on the globe. As thematic maps, cartograms emphasize
 the distribution of a variable by changing the area (or lengths) of objects on the map.
@@ -265,6 +263,13 @@ Our approach maintains continuity, and preserves
 many local features of cartographic lines that provide visual clues to the identity of the distorted
 objects.
 @ACCAC
+
+
+@CD considers cartographic data analysis in practice. Presenting a clear guide for preparing cartograms for use with both qualitative and quantitative information.
+The authors recognise that the creation of cartograms was largely the work of professional cartographers until the innovation of geographical information systems that welcomed map users as map creators. These systems are utilised depending on ‘the effectiveness, efficiency, and satisfaction of the map products (Nielsen 1994)’. 
+
+'Where control of the message is important, static maps will continue to be the most effective, although good tables, graphs, and explanatory text are still needed in order to ensure that different people will see the same thing in the maps' @CPISACA
+
 -->
 
 
@@ -535,15 +540,12 @@ TVSSS parliamentary cartogram where each constituency is represented by an oval 
 
 >designing a map tailored to precise goals [is] easier than forcing a single map to accommodate diverse objectives - @CPISACA
 
-With that in mind, the intended user and message to communicate should drive map selection.
-first is the nature or inherent properties of the device itself
-second is the ease and accuracy with which map users are able to extract information
-from it
+To choose an approporiate map display, the map creator must consider the intended user, and message the map will communicate.
+It is the objectives of the investigator that will drive the choice of representation [@CPISACA]. 
 
-@SAMGIS suggests it is the "investigators' objectives" that drive the "representation of diseases on maps". 
--infectious diseases may require choropleth methods
+There are two keys to drive the choice of display: the properties of the visualisation, and the ease or accuracy of information extraction for map users @SAMGIS.
 
-'Where control of the message is important, static maps will continue to be the most effective, although good tables, graphs, and explanatory text are still needed in order to ensure that different people will see the same thing in the maps' @CPISACA
+
 
 <!-- @CPISACA contrasted several online atlases in a 2006 paper, consider for structure? -->
 
@@ -553,7 +555,11 @@ Tabular form comparing and contrasting
 
 - Show using cancer examples
 
-# Animation
+# Animation and Interactivity
+
+Recent developments of technology allowed interactive 
+
+'Where control of the message is important, static maps will continue to be the most effective, although good tables, graphs, and explanatory text are still needed in order to ensure that different people will see the same thing in the maps' @CPISACA
 
 lends to temporal pattern exploration
 
@@ -561,7 +567,7 @@ lends to temporal pattern exploration
 
 # Acknowledgements
 
-What software did we use, for e.g.
+
 
 # References
 
@@ -569,6 +575,10 @@ What software did we use, for e.g.
 # Software
 Commonly available tools to implement.
 -->
+@tidyerse for data analysis, @spData and @sf to implement plotting of spatial data.
+@sugarbag to create hexagon tesselation. @ggthemes to enhance plot displays.
+@cartogram for contiguous and non-contiguous cartogram displays.
+
 
 <!--
 ## counts versus predictions
@@ -592,16 +602,6 @@ Decisions taken at this stage may be critical as apparent ‘clusters’ may dep
 Using prediction:
 assuming that neighbouring μi are correlated leads to a ‘clustering’ prior
 
-
-
-
-Driven by progressions in computing, statistical methods and collection of data.
-
-Models summarise relationships between counts of diseases and other factors.
-
-
-
-Recognition of biases when utilising the geography to map people. Small areas contain more people, work towards representing regions of importance more clearly.
 -->
 
 
