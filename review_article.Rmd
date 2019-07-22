@@ -109,14 +109,22 @@ communities, as well as the dynamics of these communities
 and their organization into larger units. @SAMGIS
 -->
 
-<!-- Displaying cancer data on choropleths -->
+<!-- Displaying of cancer data on choropleths -->
 
 In epidemiology, choropleths are often used as a tool to study the spatial distribution of cancer incidence and mortality. 
+Choropleth maps can be useful devices for communicating information to public on a familiar map base. A cancer atlas is a choropleth map, or collection of maps, representing cancer incidence and mortality for a country, or group of countries. @MACM provide the definition and report that cancer atlases began with Haviland's maps in 1875. The data collection methods of cancer mortality rates across regions, and administrative control within regions lends itself to choropleth visualisation. 
+The increasing development and use of disease maps can be attributed to the availability of geographic information system software [@SE]. Early work in US cancer atlases can be attributed to Burbank ???, and UK cancer atlases to Howe 1963 ???.  The choropleth maps used at this time presented levels  via hatchings or dots on a black and white scale. These atlases were key to developing hypotheses regarding areas with unusually high rates, geographic correlations, work related exposures, and high risk diets @MACM.
 
-Almost 100 years of cancer mapping in the United States and the United Kingdom has increased the effectiveness in the presentation of unbiased rates. The increasing development and use of disease maps can be attributed to the availability of geographic information system software [@SE]. The data collection methods of cancer mortality rates across regions, and administrative control within regions lends itself to choropleth visualisation. Mortality rates are now often presented as relative rates of risk across the population, and age adjusted to correct for the the higher prevalence of cancers in older populations. Howe [-@HEDP] describes Stocks development of the standardised mortality ratios through the 1930s. The choropleth maps used at this time presented levels of cancer via hatchings on a black and white scale. 
+<!-- Measures of cancer -->
+
+Almost 100 years of cancer mapping in the United States and the United Kingdom has increased the effectiveness in the presentation of unbiased rates. Mortality rates are now often presented as relative rates of risk across the population, and age adjusted to correct for the the higher prevalence of cancers in older populations. Howe [-@HEDP] describes Stocks development of the standardised mortality ratios through the 1930s.
+
+<!--
+Literature regarding measures presented in public facing atlases.
+
+-->
 
 
-Mortality rates are now often presented as relative rates of risk across the population, and age adjusted. @HEDP describes Stocks' development of the standardised mortality ratios through the 1930s. The choropleth maps used presented levels of cancer via hatchings on a black and white scale. 
 
 <!--
 @DMAHP cites Cruickshank's (1947) discussion of using visuals as 'formal statistical assessment of the spatial pattern' as a major advancement.
@@ -153,7 +161,6 @@ Explores Australia as a case study, utilising QLD SA2 areas
 
 
 ## Public face
-
 
 A grey literature review conducted by (ref) identified 33 publicly available cancer atlases published on the internet between 01/01/2010 to 11/11/2015. Reflecting the high use of chloropleth maps founds in the literature, outlined in the section above, all the public facing maps identified in this review were also chloropleth maps.
 
