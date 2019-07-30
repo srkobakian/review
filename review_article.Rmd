@@ -187,7 +187,7 @@ Close to half of the atlases identified (42%, n=14) included some measure of unc
 
 <!--
 Create a table:
-cofactors: socio demographic status
+cofactors: Greater capital city regions, states, socio demographic status, Remoteness
 
 
 Supplementary stats
