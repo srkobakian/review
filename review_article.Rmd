@@ -2,17 +2,17 @@
 title: "Cartogram Mapping and its Application to Cancer Data Visualisation"
 author: "Stephanie Kobakian, Jessie Roberts and Dianne Cook"
 bibliography: reviewbib.bib
-output: 
+output:
   pdf_document:
-    toc: true
+    number_sections: yes
+    toc: yes
     toc_depth: 2
-    number_sections: true
   html_document: default
 fontsize: 11pt
-link-citations: true
+link-citations: yes
 fig_caption: yes
-yolo: true
 biblio-style: vancouver
+yolo: yes
 ---
 
 ```{r setup, include=FALSE}
@@ -44,13 +44,12 @@ Current exploratory practices: Cartograms: cont, non cont, (tilegrams, dorlings)
 Suggested uses of 
 -->
 
-Maps have been adopted to present geospatial statistics for centuries.
-These maps connect data and/or statistics to the geographical representation of areas that are generally familiar to the audience.
-However, it is not enough for areas on maps to be recognisable, if the distribution of the statistic cannot be understood.
+Maps have been adopted as a base to present geospatial statistics for centuries.
+These maps connect data and statistics to the geographical representation of areas that are generally familiar to the audience.
+However, it is not enough for areas on maps to be recognisable, if information regarding the distribution of the statistic cannot be gleaned.
 This is particularly relevant to cancer statistics, as cancer outcomes directly relate to the people living within a geographical area.
 In situations where the people are of interest, not the land they live on, it is reasonable to explore views that enhance the communication of the cancer statistics.
 This has spurred innovations over the previous centuries to enhance the shapes and maps presented to effectively communicate cancer outcomes, and health outcomes more broadly.
-
 
 # Disease mapping methods
 
@@ -80,57 +79,46 @@ to be identified and effectively addressed
 <!--Choropleth map (Steff)-->
 
 <!-- what is a choropleth map -->
-A choropleth map is used to show the spatial characteritics of a 
-relationship, or variability, of measurements. Created as a storage device which preserves locations for geographically ordered data, with usage dating back to the 1800s [@GOINO]. They are constructed by drawing the given geographic or political boundaries, and filling the shapes with colours to represent values of a measured variable [@EI]. Early versions used symbols or patterns instead of colour. @CPISACA discusses the use of choropleth maps for visualising cancer data, and @DMAHP gives an overview of the development of the use of choropleth maps for displaying disease data. A choropleth map is a true map of the topology, constructed for visual inspection of spatial patterns across a familiar geographic form. Figure 1 shows a choropleth map where each state of the United States of America is coloured by the average annual rate of new cases of lung and bronchus cancer from years 2012 to 2016.
+A choropleth map is often used to display the spatial characteritics of a relationship, or variability, of measurements. 
+As an alternative storage device to a table, it preserves locations for geographically ordered data, with usage dating back to the 1800s [@GOINO].
+A choropleth is constructed by drawing the geographic or political boundaries, and filling the shapes with colours to represent values of a measured variable [@EI].
+Early versions of choropleth maps used symbols or patterns instead of colour.
+@CPISACA discusses their use in visualising cancer data, and @DMAHP gives an overview of the development of these maps for displaying disease data.
+Just as geographers are no longer the only creators of maps, @CPISACA suggests the audiences of spatial health data analysis have extended beyond researchers to the public, policymakers and the media.
+A choropleth map is a true map of the topology, constructed for visual inspection of spatial patterns across a familiar geographic form. 
+Figure 1 shows a choropleth map where each state of the United States of America is coloured by the average annual rate of new cases of lung and bronchus cancer from years 2012 to 2016.
 
-<!--
-Thematic maps, on the other hand, do select some geographical concept or arrangement and attempt to focus attention entirely on the spatial characteristics of the entire distribution and upon its relation to other geographical factors.
--->
-
-!["A choropleth map of the United States of America."](figures/ggchoro.png)
+```{r choro, fig.cap = "A choropleth map of the United States of America.", echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width='80%'}
+knitr::include_graphics("figures/ggchoro.png")
+```
 
 <!-- psychology -->
-
 Utilising the familiar state boundaries can make a map intuitive to read [@CIBMUK], and allow viewers to visually infer the spatial relationships in the data, i.e. how cancer rate differs across the states.
-The familiarity of the geography is a worthy consideration when presenting results of spatial analysis. Just as geographers are no longer the only creators of maps, @CPISACA suggests the audiences of spatial health data analysis have extended beyond researchers to the public, policymakers and the media.
-However, while the areas are recognisable shapes, they are often politically driven boundaries with individual areas being of non-uniform size, containing different population densities and subject to change over time. 
-The different population and geographical sizes of administrative areas can attract attention to the shades of the unpopulated but large areas [@EI]. Choropleths can inhibit visual inference when presenting human related statistics as the display may draw attention from the 'potentially more important results in the more populous communities' [@SE]. 
+The familiarity of the geography is a worthy consideration when presenting results of spatial analysis.
+While the areas are recognisable shapes, they are often politically driven boundaries with individual areas being of non-uniform size, containing different population densities and subject to change over time. 
+The different population and geographical sizes of administrative areas can attract attention to the shades of the unpopulated but large areas [@EI]. 
+Choropleths can inhibit visual inference when presenting human related statistics as the display may draw attention from the 'potentially more important results in the more populous communities' [@SE]. 
 
-<!--
-criticisms:
-Certain limitations to the standard graphic techniques have also become apparent, however.
-They are slow, and do not permit instant retrieval of information. They are untrustworthy when interpretations of spatial association are needed; there are both severe physiological and psychological constraints on our abilities to assess correlations of spatial distributions visually.
--->
-
-<!--
-Urbanisation has pushed people closer together,
--in workplaces and in homes. 
--this issue is not with the size of the administrative areas,
-- the increasing urbanisation is contributing to the changing density of population
-
-A particular spatial structure includes
-the individuals affected and how they are connected in
-communities, as well as the dynamics of these communities
-and their organization into larger units. @SAMGIS
--->
 
 <!-- Displaying of cancer data on choropleths -->
 
 In epidemiology, choropleths are often used as a tool to study the spatial distribution of cancer incidence and mortality. 
-Choropleth maps can be useful devices for communicating information to public on a familiar map base. A cancer atlas is a choropleth map, or collection of maps, representing cancer incidence and mortality for a country, or group of countries. @MACM provide the definition and report that cancer atlases began with Haviland's maps in 1875. The data collection methods of cancer mortality rates across regions, and administrative control within regions lends itself to choropleth visualisation. 
-The increasing development and use of disease maps can be attributed to the availability of geographic information system software [@SE]. Early work in US cancer atlases can be attributed to Burbank ???, and UK cancer atlases to Howe 1963 ???.  The choropleth maps used at this time presented levels  via hatchings or dots on a black and white scale. These atlases were key to developing hypotheses regarding areas with unusually high rates, geographic correlations, work related exposures, and high risk diets @MACM.
+Choropleth maps can be useful devices for communicating information to public on a familiar map base.
+A cancer atlas is a choropleth map, or collection of maps, representing cancer incidence and mortality for a country, or group of countries. @MACM provide the definition and reports that cancer atlases began with Haviland's maps in 1875.
+The data collection methods of cancer mortality rates across regions, and the administrative control within regions lends itself to choropleth visualisation. 
+The increasing development and use of disease maps can be attributed to the availability of geographic information system software [@SE].
+arly work in US cancer atlases can be attributed to Burbank ???, and UK cancer atlases to Howe 1963 ???.
+The choropleth maps presented levels via hatchings or dots on a black and white scale.
+These atlases were key to developing hypotheses regarding areas with unusually high rates, geographic correlations, work related exposures, and high risk diets @MACM.
 
 <!-- Measures reported in cancer atlases -->
 
-Almost 100 years of cancer mapping in the United States and the United Kingdom has seen increased effectiveness in the presentation of unbiased rates. Mortality rates are now often presented as relative rates of risk across the population, and age adjusted to correct for the the higher prevalence of cancers in older populations. Howe [-@HEDP] describes Stocks development of the standardised mortality ratios through the 1930s.
+Almost 100 years of cancer mapping in the United States and the United Kingdom has seen increased effectiveness in the presentation cancer statistics.
+Mortality rates are now often presented as relative rates of risk across the population, and age adjusted to correct for the the higher prevalence of cancers in older populations.
+Howe [-@HEDP] describes Stock's development of the standardised mortality ratios through the 1930s. Table 1 presents summarises the measures presented in published cancer atlases, and provides a definition of each measure.
 
-<!--
-Literature regarding measures presented in public facing atlases.
--->
-
-The list below summarises the measures presented in published cancer atlases, and provides a definition of each measure.
-
-Table: (\#tab:measures) Measures used to report cancer statistics
+<!-- ??? Table tags-->
+Table 1: Measures used to report cancer statistics
 
 |Measure |Details| 
 |:--------------------|:------------------------------------------------|  
@@ -155,8 +143,7 @@ Table: (\#tab:measures) Measures used to report cancer statistics
 When presenting cancer atlases, @MACM believes the intuition that can be derived must be 'validated by rigorous statistical analyses.' Additional statistics are often 
 
 <!--
-of some element, for example population density, or purchasing power, or agricultural fertility; reality, of course, is not like this. the background variable assumed to be uniform (such as population density) can be adjusted so that it behaves as if uniformity were the case
-@GOINO
+of some element, for example population density, or purchasing power, or agricultural fertility; reality, of course, is not like this. 
 -->
 
 <!-- Published atlases -->
@@ -252,6 +239,8 @@ Table: (\#tab:method-exp) Implicit and explicit measures of uncertainty.
 ## Cartograms
 
 <!-- Going from choropleth to cartogram 
+the background variable assumed to be uniform (such as population density) can be adjusted so that it behaves as if uniformity were the case
+@GOINO
 
 A cartogram is an alternative map visual. 
 An intention distortion is applied to a geographic map base, 
@@ -270,6 +259,23 @@ The authors recognise that the creation of cartograms was largely the work of pr
 
 'Where control of the message is important, static maps will continue to be the most effective, although good tables, graphs, and explanatory text are still needed in order to ensure that different people will see the same thing in the maps' @CPISACA
 
+-->
+<!--
+criticisms:
+Certain limitations to the standard graphic techniques have also become apparent, however.
+They are slow, and do not permit instant retrieval of information. They are untrustworthy when interpretations of spatial association are needed; there are both severe physiological and psychological constraints on our abilities to assess correlations of spatial distributions visually.
+-->
+
+<!--
+Urbanisation has pushed people closer together,
+-in workplaces and in homes. 
+-this issue is not with the size of the administrative areas,
+- the increasing urbanisation is contributing to the changing density of population
+
+A particular spatial structure includes
+the individuals affected and how they are connected in
+communities, as well as the dynamics of these communities
+and their organization into larger units. @SAMGIS
 -->
 
 
