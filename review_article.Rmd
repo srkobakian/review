@@ -137,16 +137,7 @@ Table 1: Measures used to report cancer statistics
 
 
 
-
-@DMAHP cites Cruickshank's (1947) discussion of using visuals as 'formal statistical assessment of the spatial pattern' as a major advancement.
-
-When presenting cancer atlases, @MACM believes the intuition that can be derived must be 'validated by rigorous statistical analyses.' Additional statistics are often 
-
 <!--
-of some element, for example population density, or purchasing power, or agricultural fertility; reality, of course, is not like this. 
--->
-
-<!-- Published atlases -->
 
 
 Examples of atlases:
@@ -154,7 +145,6 @@ Kraak 1998, Kraak and Ormeling 2011
 Bertin 1967
 
 
-<!--
 Current atlases utilising choropleth methods 
 - include Australia: 
 
@@ -166,10 +156,15 @@ Explores Australia as a case study, utilising QLD SA2 areas
 
 ### Supporting material in cancer atlases
 
-<!-- Moved Jessies stat uncertainty up-->
-Cancer atlases were considered to report uncertainty to the non-expert user if they included a measure of statistical uncertainty either within or alongside the map. Maps that only reported this information within the supplementary material were not considered to have directly attempted to report uncertainty.
+A map communicates quickly and draws attention to prominent geographies, but an atlas is often supplemented with supporting statistics. Cruickshank's (1947) as cited by @DMAHP, discusses using visuals as 'formal statistical assessment of the spatial pattern'. However, when presenting cancer atlases, @MACM believes the intuition derived must be 'validated by rigorous statistical analyses.'
 
-The review did not reveal any novel uncertainty visualisation approaches or visualisations. Maps used standard and well known measures including credible intervals and standard deviation, statistical significance, box plots and distributions. These maps ranged from static pdfs or infographics to interactive online resources. The interactivity of the more modern maps enabled uncertainty information to be incorporated without cluttering the screen, such as in a tool tip feature. 
+<!-- The supplementary statistics ??? -->
+These additional statistics often include a measure of the statistical uncertainty of the values of the statistics presented in a choropleth.
+In the review of atlases in the public domain, atlases were considered to report uncertainty to the non-expert user if they included a measure of statistical uncertainty either within or alongside the map. Maps that only reported this information within the supplementary material were not considered to have directly attempted to report uncertainty. The maps considered used standard and well known measures including credible intervals and standard deviation, statistical significance, box plots and distributions. These maps ranged from static pdfs or infographics, to interactive online resources.
+
+
+<!-- Presentation methods of supplementary statistics ??? -->
+The interactivity of the more modern maps enabled supplementary information to be incorporated without cluttering the screen, such as in a tool tip feature. 
 
 
 
@@ -177,29 +172,44 @@ The review did not reveal any novel uncertainty visualisation approaches or visu
 
 ## Public face
 
-Cancer maps are effective communication tools for a general or non-expert audience and are commonly used in the public domain to communicate the output of sophisticated statistical analyses to these audiences. The heavy use of chloropleth maps within the research literature is reflected in the types of maps that are found in the public domain. A grey literature review conducted by (ref) identified 33 cancer atlases published on the internet between 01/01/2010 to 11/11/2015 all of which were chloropleth maps. These maps were mostly published by non-commercial organisations, including not-for-profits (NFPs), government, research organisations, advocacy groups or a partnership between an NFP & government. Only one map was published by a commercial entity (Maps of Cancer Mortality Rates in Spain), published by the media organisation El Pais^[https://elpais.com/].  
+Cancer maps are effective communication tools for a general or non-expert audience. They are commonly used in the public domain to communicate results of sophisticated statistical analyses.
+The heavy use of chloropleth maps within the research literature is reflected in the types of maps that are found in the public domain.
+A grey literature review conducted by (ref) identified 33 cancer atlases published on the internet between January 2010 and November 2015. These chloropleth maps were mostly published by non-commercial organisations, including not-for-profits (NFPs), government, research organisations, advocacy groups or a partnership between an NFP & government.
+Only one map was published by a commercial entity. 
  
-### Geographical coverage
- 
-Identified cancer atlases covered geographies from all around the world, four were global atlases. Most focussed on single nations, the United States was considered by eleven atlases. The United Kingdom was considered by seven, followed by three of Australia, two of Canada, and one of each from Switzerland, Germany, Norway. One atlas covered the European Union.
+<!-- geographic coverage-->
+The cancer atlases covered geographies from all around the world, four were global atlases. Most focussed on single nations, the United States was considered by eleven atlases, the United Kingdom by seven, followed by three of Australia, two of Canada, and one of each from Switzerland, Germany, Norway. One atlas covered the European Union.
 Not all maps had a national focus and ten covered a region or state rather than an entire nation. The states or counties/regions covered were South Australia (AUS), Queensland (AUS), Ontario (CAN), Valencia (Spain), Pennsylvania county Massachusetts (US), New Hampshire (US), Cape Cod (US), Missouri (US), Florida (US), New York State (US) and Arizona (US).
 
-### Statistical uncertainty in public facing atlases
- 
-```{r ci-viz2, fig.cap = "Example of CI visualisation for uncertainty representation in cancer mapping (1/3). Source: Alberta Health IHDA Geographic. (2012) ", echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width='80%'}
+### Examples of supporting statistics in public facing atlases
+
+Close to half of the atlases identified (42%, n=14) included some measure of uncertainty. The most common measure used to represent uncertainty were credible or confidence intervals (CIs).
+
+<!--
+Create a table:
+cofactors: socio demographic status
+
+
+Supplementary stats
+stat        | Literature examples | Public atlas examples
+uncertainty |      ...            |    ...
+co factor(1)|      ...            |    ...
+co factor(2)|      ...            |    ...
+-->
+
+
+```{r ci-viz2, fig.cap = "Example of CI visualisation for uncertainty representation in cancer mapping (1/3). Source: Alberta Health IHDA Geographic. (2012) ", echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width='50%'}
 
 knitr::include_graphics("figures/Alberta_CI_viz.png")
 ```
 
-```{r ci-viz3, fig.cap = "Example of CI visualisation for uncertainty representation in cancer mapping (2/3). Source: Pensylvania Cancer Atlas ", echo=FALSE, message=FALSE, warning=FALSE, out.width='55%', fig.align='center'}
+```{r ci-viz3, fig.cap = "Example of CI visualisation for uncertainty representation in cancer mapping (2/3). Source: Pensylvania Cancer Atlas ", echo=FALSE, message=FALSE, warning=FALSE, out.width='50%', fig.align='center'}
 
 knitr::include_graphics("figures/Pennsylvania_CI_viz.png")
 
 ```
 
-Close to half of the atlases identified (42%, n=14) included some measure of uncertainty. The most common measure used to represent uncertainty were credible or confidence intervals (CIs). CIs were either visualised by including their bounds in a scatterplot or graph of estimates vs region (see Figures \@ref(fig:ci-viz2)^[Alberta Health IHDA Geographic. (2012). Age-Standardised Incidence Rate of COPD, 2011. Retrieved from: http://www.health.alberta.ca/health-info/IHDA-geographic/COPD/incidence-agestandard/atlas.html?epik=0GJSpE_IW34lx], and \@ref(fig:ci-viz3)^[Centres for Disease Control and Prevention (CDC). (n.d). United States Cancer Statistics: An Interactive Cancer Atlas (InCA). Retrieved from:https://nccd.cdc.gov/DCPC_INCA/] positioned next to the map, or reported numerically through the CI upper and lower bounds listed in a data table (see Figure 3.4^[Pennsylvania Cancer Atlas. (n.d). Retrieved from:  https://www.geovista.psu.edu/grants/CDC/?epik=0lJSpE_IW34lx]). Of those that visualised the CIs, 30% (n=10) embedded the visualisation within a tool tip function which visualised the CI when the mouse hovered over the relevant area (see Figure 3.5^[International Agency for Research on Cancer. (2017). Atlas of Cancer Mortality in the European Union and European Economic Area 1993-1997, Annex 4 - Cancer mortality maps by site. Retrieved from: http://www.iarc.fr/en/publications/pdfs-online/epi/sp159/]). 
-
-```{r ci-tooltip, fig.cap= "Example of CI visualisation for uncertainty representation in cancer mapping (3/3). Source: Centres for Disease Control and Prevention (CDC). United States Cancer Statistics: An Interactive Cancer Atlas (InCA) ", echo=FALSE, message=FALSE, warning=FALSE, fig.show='hold', out.width= '60%', fig.align = 'center'}
+```{r ci-tooltip, fig.cap= "Example of CI visualisation for uncertainty representation in cancer mapping (3/3). Source: Centres for Disease Control and Prevention (CDC). United States Cancer Statistics: An Interactive Cancer Atlas (InCA) ", echo=FALSE, message=FALSE, warning=FALSE, fig.show='hold', out.width= '50%', fig.align = 'center'}
 
 knitr::include_graphics("figures/CDC_CI_viz_tooltip.png")
 ```
