@@ -99,6 +99,10 @@ While the areas are recognisable shapes, they are often politically driven bound
 The different population and geographical sizes of administrative areas can attract attention to the shades of the unpopulated but large areas [@EI]. 
 Choropleths can inhibit visual inference when presenting human related statistics as the display may draw attention from the 'potentially more important results in the more populous communities' [@SE]. 
 
+<!--
+They are untrustworthy when interpretations of spatial association are needed; there are both severe physiological and psychological constraints on our abilities to assess correlations of spatial distributions visually.
+-->
+
 
 <!-- Displaying of cancer data on choropleths -->
 
@@ -110,6 +114,13 @@ The increasing development and use of disease maps can be attributed to the avai
 arly work in US cancer atlases can be attributed to Burbank ???, and UK cancer atlases to Howe 1963 ???.
 The choropleth maps presented levels via hatchings or dots on a black and white scale.
 These atlases were key to developing hypotheses regarding areas with unusually high rates, geographic correlations, work related exposures, and high risk diets @MACM.
+
+<!--
+A particular spatial structure includes
+the individuals affected and how they are connected in
+communities, as well as the dynamics of these communities
+and their organization into larger units. @SAMGIS
+-->
 
 <!-- Measures reported in cancer atlases -->
 
@@ -157,6 +168,11 @@ Explores Australia as a case study, utilising QLD SA2 areas
 ### Supporting material in cancer atlases
 
 A map communicates quickly and draws attention to prominent geographies, but an atlas is often supplemented with supporting statistics. Cruickshank's (1947) as cited by @DMAHP, discusses using visuals as 'formal statistical assessment of the spatial pattern'. However, when presenting cancer atlases, @MACM believes the intuition derived must be 'validated by rigorous statistical analyses.'
+
+<!--
+'Where control of the message is important, static maps will continue to be the most effective, although good tables, graphs, and explanatory text are still needed in order to ensure that different people will see the same thing in the maps' @CPISACA
+
+-->
 
 <!-- The supplementary statistics ??? -->
 These additional statistics often include a measure of the statistical uncertainty of the values of the statistics presented in a choropleth.
@@ -248,53 +264,25 @@ Table: (\#tab:method-exp) Implicit and explicit measures of uncertainty.
 
 ## Cartograms
 
-<!-- Going from choropleth to cartogram 
-the background variable assumed to be uniform (such as population density) can be adjusted so that it behaves as if uniformity were the case
-@GOINO
-
-A cartogram is an alternative map visual. 
-An intention distortion is applied to a geographic map base, 
-
-A cartogram is a map purposely distorted so that its spatial properties represent quantities
-not directly associated with position on the globe. As thematic maps, cartograms emphasize
-the distribution of a variable by changing the area (or lengths) of objects on the map.
-Our approach maintains continuity, and preserves
-many local features of cartographic lines that provide visual clues to the identity of the distorted
-objects.
-@ACCAC
+<!-- What is a cartogram? -->
+A cartogram alters the map base with the intention of improving the presentation of the statistic of interest. For a single variable of interest, each map area is changed to emphasise the distribution by representing the corresponding value, in comparison to the value of the other areas [@ACCAC].
 
 
-@CD considers cartographic data analysis in practice. Presenting a clear guide for preparing cartograms for use with both qualitative and quantitative information.
-The authors recognise that the creation of cartograms was largely the work of professional cartographers until the innovation of geographical information systems that welcomed map users as map creators. These systems are utilised depending on ‘the effectiveness, efficiency, and satisfaction of the map products (Nielsen 1994)’. 
-
-'Where control of the message is important, static maps will continue to be the most effective, although good tables, graphs, and explanatory text are still needed in order to ensure that different people will see the same thing in the maps' @CPISACA
-
--->
-<!--
-criticisms:
-Certain limitations to the standard graphic techniques have also become apparent, however.
-They are slow, and do not permit instant retrieval of information. They are untrustworthy when interpretations of spatial association are needed; there are both severe physiological and psychological constraints on our abilities to assess correlations of spatial distributions visually.
--->
-
-<!--
-Urbanisation has pushed people closer together,
--in workplaces and in homes. 
--this issue is not with the size of the administrative areas,
-- the increasing urbanisation is contributing to the changing density of population
-
-A particular spatial structure includes
-the individuals affected and how they are connected in
-communities, as well as the dynamics of these communities
-and their organization into larger units. @SAMGIS
--->
 
 
 
 <!-- There are many alternative views of the world-->
 <!-- Tobler map projections-->
-Choropleths may be considered true topological maps, however, if the land mass presented covers enough of the globe, there must be a transformation or distortion to display in 2D. The amount of distortion is related to the distance displayed @GAMP.
-The world projections reflect the frequent distortions seen from altering perspectives. Choropleth maps will always be distorted if they cover enough of the globe, as will photographs of the globe from space. Choropleth creation requires choosing a map projection that shows a favourable distortion of the geography for presenting the set of spatial information.
-Diagrams that do not specify a projection can be considered to have some unknown projection. <!-- ?? cite tobler.-->
+Choropleths may be considered true topological maps, however, if the land mass displayed covers enough of the globe, there must be a transformation or distortion to display the land in 2D. The amount of distortion is related to the distance covered by the landmass displayed @GAMP.
+World map projections reflect the frequent perspectives used to view the earth. Choropleth maps will always be distorted if they cover enough of the globe, just as photographs of the globe from space. Choropleth creation requires choosing a map projection that shows a favourable distortion of the geography for presenting the set of spatial information.
+Diagrams that do not specify a projection can be considered to have some unknown projection. <!-- ??? cite tobler.-->
+
+
+<!-- Denominators -->
+If the statistic presented on the map base relies on physical distance and is influenced by the topology there is no transformation needed beyond choosing a projection. 
+The purposeful distortion of the map space is beneficial when a uniform density of the map base is desired.
+When a map base is transformed according to population density, population becomes a uniformly distributed background for the statistic presented [@GOINO]. 
+
 
 
 !["Choropleth maps of the United States of America using four coordinate reference systems."](figures/ggchoroCRS.png)
@@ -302,11 +290,16 @@ Diagrams that do not specify a projection can be considered to have some unknown
 
 <!-- Why transform?-->
 <!-- Common variables used to create cartograms, e.g. population, mortality -->
-Waldo Tobler [-@TVSSS] explores many graphical techniques, and suggests there are particular methods for particular purposes. Cartograms provide an alternative visualisation method for statistical and geographical information.
+Cartograms provide an alternative visualisation method for statistical and geographical information.
 The key difference between a choropleth and a cartogram is the desirable augmentation of the size, shape or distance of geographical areas [@ACTUC].
 Cartograms may be seen as an extension of map transformations and projections. The favourable distortion is proportional to a value other other than actual earth size area [@NAC].
 
 <!--
+
+
+The transformations required to create cartograms was historically the role of professional cartographers.  
+Geographical information systems allowed map users, and researchers to implement their own cartograms, but these systems are utilised depending on ‘the effectiveness, efficiency, and satisfaction of the map products (Nielsen 1994)’[@CD]. 
+
 @SE Researchers mapping spatial patterns of disease
 for small areas are confronted with a number of
 challenges, including cartographic design, the
@@ -556,7 +549,7 @@ TVSSS parliamentary cartogram where each constituency is represented by an oval 
 
 >designing a map tailored to precise goals [is] easier than forcing a single map to accommodate diverse objectives - @CPISACA
 
-To choose an approporiate map display, the map creator must consider the intended user, and message the map will communicate.
+Waldo Tobler [-@TVSSS] explores many graphical techniques, and suggests there are particular methods for particular purposes. To choose an approporiate map display, the map creator must consider the intended user, and message the map will communicate.
 It is the objectives of the investigator that will drive the choice of representation [@CPISACA]. 
 
 There are two keys to drive the choice of display: the properties of the visualisation, and the ease or accuracy of information extraction for map users @SAMGIS.
