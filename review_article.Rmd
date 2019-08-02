@@ -44,42 +44,26 @@ Current exploratory practices: Cartograms: cont, non cont, (tilegrams, dorlings)
 Suggested uses of 
 -->
 
-Maps have been adopted as a base to present geospatial statistics for centuries.
-These maps connect data and statistics to the geographical representation of areas that are generally familiar to the audience.
+Maps have been adopted to present geospatial statistics for centuries.
+Maps connect data and statistics to the geographical representation of areas that are generally familiar to the audience.
 However, it is not enough for areas on maps to be recognisable, if information regarding the distribution of the statistic cannot be gleaned.
-This is particularly relevant to cancer statistics, as cancer outcomes directly relate to the people living within a geographical area.
 In situations where the people are of interest, not the land they live on, it is reasonable to explore views that enhance the communication of the cancer statistics.
+Identifying and explaining spatial structures, patterns, and processes involves considering the individuals in communities and organising communities into representable units [@SAMGIS]. 
 This has spurred innovations over the previous centuries to enhance the shapes and maps presented to effectively communicate cancer outcomes, and health outcomes more broadly.
+Cancer statistics directly represent and relate to the people living within individual geographical areas.
+
+The visualisation methods used to present cancer statistics will depend on the intended message and users of the map. 
+Transforming statistics to visualisations considers individual observations or observation points aggregated into communities and geographical units.
+Visualising diseases on maps is often the first step in exploratory spatial data analysis and effectively helps in the formulation of hypotheses [@MTMSIH]. 
+Disease maps help to present geographic patterns that may have been overlooked in a table, obscuring the geospatially related statistics [@SAMGIS].
+By providing a visual representation of cancer outcomes, geographic patterns of disease are able to be identified and effectively addressed.
 
 # Disease mapping methods
 
-<!--
-Disease maps present geographic patterns that may have been overlooked in a table that obscures the geospatially related statistics [@SAMGIS].
-Often used as a first step to drive hypotheses 
-
-
-Transforming statistics to visualisations begins with the coordinates of observations.
-The observation points can be aggregated to regions within boundaries.
-The polygon regions may be presented directly, or transformed first according to associated values.
-
-The visualisation method used will depend on the intended use of the map, namely the message a map will communicate. 
-
-commonly used for hypothesis generating and as the first step in exploratory
-spatial data analysis. @SE Geography is concerned with the identification and
-explanation of spatial structure, pattern, and process, and with the analysis and explanation of the links
-between humans and the environment (2). @SAMGIS
-
-By providing a visual representation of cancer outcomes, geographic patterns of disease are able
-to be identified and effectively addressed
---> 
-
 ## Current best practice map displays for cancer data
 
-
-<!--Choropleth map (Steff)-->
-
 <!-- what is a choropleth map -->
-A choropleth map is often used to display the spatial characteritics of a relationship, or variability, of measurements. 
+A choropleth map is used to display the spatial characteritics of a relationship, or variability, of measurements. 
 As an alternative storage device to a table, it preserves locations for geographically ordered data, with usage dating back to the 1800s [@GOINO].
 A choropleth is constructed by drawing the geographic or political boundaries, and filling the shapes with colours to represent values of a measured variable [@EI].
 Early versions of choropleth maps used symbols or patterns instead of colour.
@@ -94,7 +78,7 @@ knitr::include_graphics("figures/ggchoro.png")
 
 <!-- psychology -->
 Utilising the familiar state boundaries can make a map intuitive to read [@CIBMUK], and allow viewers to visually infer the spatial relationships in the data, i.e. how cancer rate differs across the states.
-The familiarity of the geography is a worthy consideration when presenting results of spatial analysis.
+The familiarity of the geography is a worthy consideration when presenting results of spatial analysis. Just as geographers are no longer the only creators of maps, @CPISACA suggests the audiences of spatial health data analysis have extended beyond researchers to the public, policymakers and the media.
 While the areas are recognisable shapes, they are often politically driven boundaries with individual areas being of non-uniform size, containing different population densities and subject to change over time. 
 The different population and geographical sizes of administrative areas can attract attention to the shades of the unpopulated but large areas [@EI]. 
 Choropleths can inhibit visual inference when presenting human related statistics as the display may draw attention from the 'potentially more important results in the more populous communities' [@SE]. 
@@ -106,12 +90,13 @@ They are untrustworthy when interpretations of spatial association are needed; t
 
 <!-- Displaying of cancer data on choropleths -->
 
-In epidemiology, choropleths are often used as a tool to study the spatial distribution of cancer incidence and mortality. 
+<!-- Displaying of cancer data on choropleths -->
 Choropleth maps can be useful devices for communicating information to public on a familiar map base.
+In epidemiology, choropleths are often used as a tool to study the spatial distribution of cancer incidence and mortality. 
 A cancer atlas is a choropleth map, or collection of maps, representing cancer incidence and mortality for a country, or group of countries. @MACM provide the definition and reports that cancer atlases began with Haviland's maps in 1875.
 The data collection methods of cancer mortality rates across regions, and the administrative control within regions lends itself to choropleth visualisation. 
 The increasing development and use of disease maps can be attributed to the availability of geographic information system software [@SE].
-arly work in US cancer atlases can be attributed to Burbank ???, and UK cancer atlases to Howe 1963 ???.
+Early work in US cancer atlases can be attributed to Burbank ???, and UK cancer atlases to Howe 1963 ???.
 The choropleth maps presented levels via hatchings or dots on a black and white scale.
 These atlases were key to developing hypotheses regarding areas with unusually high rates, geographic correlations, work related exposures, and high risk diets @MACM.
 
@@ -124,6 +109,7 @@ and their organization into larger units. @SAMGIS
 
 <!-- Measures reported in cancer atlases -->
 
+<!-- Measures reported in cancer atlases -->
 Almost 100 years of cancer mapping in the United States and the United Kingdom has seen increased effectiveness in the presentation cancer statistics.
 Mortality rates are now often presented as relative rates of risk across the population, and age adjusted to correct for the the higher prevalence of cancers in older populations.
 Howe [-@HEDP] describes Stock's development of the standardised mortality ratios through the 1930s. Table 1 presents summarises the measures presented in published cancer atlases, and provides a definition of each measure.
@@ -146,10 +132,9 @@ Table 1: Measures used to report cancer statistics
 |8. Count|Crude cancer counts|  
 |9. Below or above Expected|Alternative expression of the SIR|   
 
-
+<!-- Cancer atlas literature -->
 
 <!--
-
 
 Examples of atlases:
 Kraak 1998, Kraak and Ormeling 2011
@@ -181,7 +166,6 @@ In the review of atlases in the public domain, atlases were considered to report
 
 <!-- Presentation methods of supplementary statistics ??? -->
 The interactivity of the more modern maps enabled supplementary information to be incorporated without cluttering the screen, such as in a tool tip feature. 
-
 
 
 
@@ -287,6 +271,12 @@ When a map base is transformed according to population density, population becom
 
 !["Choropleth maps of the United States of America using four coordinate reference systems."](figures/ggchoroCRS.png)
 
+<!-- Denominators -->
+If the statistic presented on the map base relies on physical distance and is influenced by the topology there is no transformation needed beyond choosing a projection. 
+The purposeful distortion of the map space is beneficial when a uniform density of the map base is desired, @ACTUC suggests 'population distribution is often extremely uneven in former British colonies', this makes the distortion necessary. 
+When a map base is transformed according to population density, population becomes a uniformly distributed background for the statistic presented [@GOINO]. 
+Using choropleth maps for population characteristics requires graphic distortions when the population concerned varies greatly in density [@CTTMB].
+When implementing a distortion of the geographical shape according to population, an area cartogram [@NAC], population-by-area cartograms [@TAAM], or iso-demographic map is the result. 
 
 <!-- Why transform?-->
 <!-- Common variables used to create cartograms, e.g. population, mortality -->
@@ -308,52 +298,27 @@ number” problem, where some places have no,
 or few, disease events and/or a low population at
 risk of contracting the disease.
 
-@TAAM variations in population density may obscure geographic patterns
-This factor may be eliminated by making the map area proportional to population rather than to actual land area.
-Such maps, or what have been termed "population-by-area cartograms," are well known in the
-cartographic literature
--->
-Using choropleth maps for population characteristics requires graphic distortions when the population concerned varies greatly in density [@CTTMB].
-When implementing a distortion of the geographical shape according to population, an area cartogram [@NAC], or iso-demographic map is the result.
-When visualising population statistics @ACTUC considers this equitable representation design 'more socially just, giving due attention to all members of the population and reducing the visual impact of large areas with small populations [@DMAHP]. @CTTMB suggest that spatial socio-economic data is best presented on a cartogram for urban areas.
-@HEDP agrees that 'cancer occurs in people, not in geographical areas' and the map bases of population reflect this and avoid allocating 'undue prominence' to rural areas. @MTMSIH encourage the use of cartograms to highlight small areas and uncover local-level inequalities. Using health estimates from large areas can prevent drawing attention to the inequalities.
-
 
 
 <!--
-> The aim here is to see the whole, in as much detail as possible, at a glance.
-
 @HEDP discusses the impact of electronic computer-assisted techniques. Disease atlases were implemented using both geographic (Howe 1963) and demographic bases (Howe 1970).
 
-@AOCAFE
-An Online Census Atlas for everyone
-The familiar choropleth maps in the Online Census Atlas were produced using generalized boundaries. Great Britain is recognizable and it is relatively easy to identify the higher geography levels such as Counties and Local Authorities. A disadvantage of the conventional map is that sparsely populated rural areas may be emphasized, whereas the areas representing cities are very small, making interpretation of spatial patterns very difficult.
+Design goals:
+- to maintain as much as possible of the intricate detail
+- to maximize the simplicity of the transformation
+- maintenance of directional accuracy
+- attempt to influence and direct the map user's attention, 
 
-The Atlas does not allow visualization of census
-data at ward level, but instead uses these boundaries
-aggregated to the six higher level geographies
-defined above for display of 88 census variables.
-
-To cartograms by:
-The creation of the map began
-with a computer-generated cartogram of parliamentary
-constituencies where each constituency was
-given equal weight.
-Using the circular cartogram
-algorithm (Dorling 1995), this resulted in a largely
-hexagonal tessellation of 641 circles, each circle
-representing a parliamentary constituency as first
-used in the 1997 general election.
+2) that the contiguity relationships between the DCU's should be maintained, 
+3) that true directions should be retained from the centre of the transformation,
+4) that the main shape characteristics of the DCU's should be preserved, and 
+5) that the map should possess the overall shape of the built-up area. 
 -->
-
 
 
 <!-- Overview of varieties -->
 
-The area on the map space can also be used represent a value. There have been many algorithms presented, @SAIC provided a framework to investigate implementations and the "statistical accuracy, geographical accuracy, and topological accuracy". The spatial transformation of map regions relative to the data emphasises the data distribution instead of land size [@CBATCC].
-
-
-Cancer statistics and atlases 
+There have been many algorithms presented, @SAIC provided a framework to investigate implementations and the "statistical accuracy, geographical accuracy, and topological accuracy". 
 
 
 <!-- Cartogram makers -->
@@ -365,24 +330,6 @@ The creation of cartograms was largely in the hands of cartographers.
 There are many alternatives to consider, the intended audience of the map, and its purpose are key points in cartogram use and creation.
 @ACTUC reiterates: 'There is no "best" cartogram or method of creating cartograms just as there is no "best" map' (Monmonier and Schnell, 1988). 
 
-<!-- Creation goals-->
-
-'Firstly, that no such transformation has a unique solution, leaving the subjective choice in the hands of the individual map designer. '
-
-
-Design goals:
-- to maintain as much as possible of the intricate detail
-- to maximize the simplicity of the transformation
-- maintenance of directional accuracy
-- attempt to influence and direct the map user's attention, 
-
-1) that the size of the electoral subdivisions should be made proportional to their respective electoral populations, 
-2) that the contiguity relationships between the DCU's should be maintained, 
-3) that true directions should be retained from the centre of the transformation, 
-4) that the main shape characteristics of the DCU's should be preserved, and 
-5) that the map should possess the overall shape of the built-up area. 
-
-
 
 
 ### Contiguous
@@ -391,36 +338,26 @@ Design goals:
 
 !["A contiguous cartogram of the Unites States of America"](figures/ggcont.png)
 
-<!-- Intentionally preserve shape-->
+<!-- Intentionally preserve neighbours -->
 
 
-A contiguous cartogram allows the map space to highlight the distribution of the variable. These cartograms maintain connectivity of the map regions while areas are resized according to a statistic, this often must occur at the expense of the shape [@CBATCC,@NAC, @TAAM].
+A contiguous cartogram maintains connectivity of the map regions while areas are resized according to a statistic. This transformation often occurs at the expense of the shape [@CBATCC, @NAC, @TAAM].
 From a computer graphics perspective, @ACA believe it is a problem of 'map deformation' to account for the value assigned to each area, they provide three methods for creating value-by-area cartograms.
 Examples include Tobler’s Pseudo-Cartogram Method, Dorling’s Cellular Automaton Method [-@ACTUC], Radial Expansion Method of Selvin et al., Rubber Sheet Method of Dougenik et al., Gusein-Zade and Tikunov’s Line Integral Method, Constraint-Based Method (Kocmoud and House) [-@CBATCC].
 
+
+
 <!--
-Medical application: TAAM 1965
-Actual shapes of counties were sacrificed to the extent necessary to retain as far as possible, common boundaries, relative locations, and the approximate contour of the State.
-
-There is no unique solution to the topology
-problem of preparing a population-by-area
-cartogram for a given population and its jurisdictional
-boundaries. Although the map areas
-of the various regions are fixed by their populations, their shapes and relative locations are
-not completely determined.
-
-Other characteristics of the population
-may also serve as the base for adjustment; for
-example, sex, race, parity, socio-economic level,
-or immune status.
-
-@RSCW
-helps to correct misconceptions. Pupils are likely to over-estimate regions as Canada, Siberia, Africa, and our own West just because they loom up large on maps. The simple picture which the cartogram gives is easily comprehended and remembered and
-will be stimulating in making comparisons.
 
 @NISCC
 two advantages of the cartogram: (1) new relationships are often revealed visually, and ( 2 ) it is often more honest to use “other” space on the base map than land area. Finally, and most important for the present discussion, they suggest that the ability to preserve shape of the statistical units drops with an increase in the number of these units, and in situations where the difference is great between the smallest and largest values mapped.
 Until we know how the map reader compares it to an ordinary thematic map, we are experimenting with a graphic device that may be reducing (or at least hindering) the flow of information from the map to the map reader.
+
+
+The transformations required to create cartograms was historically the role of professional cartographers.  
+Geographical information systems allowed map users, and researchers to implement their own cartograms, but these systems are utilised depending on ‘the effectiveness, efficiency, and satisfaction of the map products (Nielsen 1994)’[@CD].
+
+
 -->
 
 describes the process of creating a population cartogram for Canada, using the 1966 Census. An intentional goal of this project was to maintain contiguity, while attempting to keep the actual shape of places. The end result was a 'very accurate isodemo-graphic map of Canada'. This intentional design goal coincided with the rising interest in urban geography. 
@@ -465,6 +402,8 @@ such recognizable units are generally fairly
 large for the area represented. @NAC
 
 constant shapes are easily recognized regardless of scale;
+
+Presenting an alternative view can help to correct interpretation of global statistics when some areas loom large on maps [@RSCW].
 -->
 
 !["A Non - contiguous cartogram of the Unites States of America"](figures/ggncont.png)
@@ -497,7 +436,6 @@ recognized than nonsense shapes or those that have no meaning.
 -->
 
 
-@ACTUC suggests 'population distribution is often extremely uneven in former British colonies'. 
 
 'In Australia the urban federal constituencies occupy only a tenth of the land, but contain nine tenths of the people. It would be almost unthinkable to show election results for that country on a conventional equal land area map.'
 This 1966 cartogram uses mostly straight lines, and the result looks very little like the geographical shape of Australia.
@@ -614,4 +552,14 @@ assuming that neighbouring μi are correlated leads to a ‘clustering’ prior
 -->
 
 
+<!--
+@SE Researchers mapping spatial patterns of disease
+for small areas are confronted with a number of
+challenges, including cartographic design, the
+modifiable area unit problem, and also the “small
+number” problem, where some places have no,
+or few, disease events and/or a low population at
+risk of contracting the disease.
+
+-->
 
