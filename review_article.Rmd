@@ -3,11 +3,14 @@ title: "Cartogram Mapping and its Application to Cancer Data Visualisation"
 author: "Stephanie Kobakian, Jessie Roberts and Dianne Cook"
 bibliography: reviewbib.bib
 output:
+  html_document:
+    df_print: paged
+    toc: yes
+    toc_depth: '2'
   pdf_document:
     number_sections: yes
     toc: yes
     toc_depth: 2
-  html_document: default
 fontsize: 11pt
 link-citations: yes
 fig_caption: yes
@@ -16,7 +19,7 @@ yolo: yes
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 ```
 <!--
 
@@ -89,6 +92,8 @@ They are untrustworthy when interpretations of spatial association are needed; t
 
 
 <!-- Displaying of cancer data on choropleths -->
+
+<!-- Displaying of cancer data on choropleths -->
 Choropleth maps can be useful devices for communicating information to public on a familiar map base.
 In epidemiology, choropleths are often used as a tool to study the spatial distribution of cancer incidence and mortality. 
 A cancer atlas is a choropleth map, or collection of maps, representing cancer incidence and mortality for a country, or group of countries. @MACM provide the definition and reports that cancer atlases began with Haviland's maps in 1875.
@@ -98,6 +103,14 @@ Early work in US cancer atlases can be attributed to Burbank ???, and UK cancer 
 The choropleth maps presented levels via hatchings or dots on a black and white scale.
 These atlases were key to developing hypotheses regarding areas with unusually high rates, geographic correlations, work related exposures, and high risk diets @MACM.
 
+<!--
+A particular spatial structure includes
+the individuals affected and how they are connected in
+communities, as well as the dynamics of these communities
+and their organization into larger units. @SAMGIS
+-->
+
+<!-- Measures reported in cancer atlases -->
 
 <!-- Measures reported in cancer atlases -->
 Almost 100 years of cancer mapping in the United States and the United Kingdom has seen increased effectiveness in the presentation cancer statistics.
@@ -188,23 +201,23 @@ co factor(2)|      ...            |    ...
 -->
 
 
-```{r ci-viz2, fig.cap = "Example of CI visualisation for uncertainty representation in cancer mapping (1/3). Source: Alberta Health IHDA Geographic. (2012) ", echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width='50%'}
+```{r ci-viz2, fig.cap = "Example of CI visualisation for uncertainty representation in cancer mapping (1/3). Source: Alberta Health IHDA Geographic. (2012) ", echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width='50%', eval = FALSE}
 
 knitr::include_graphics("figures/Alberta_CI_viz.png")
 ```
 
-```{r ci-viz3, fig.cap = "Example of CI visualisation for uncertainty representation in cancer mapping (2/3). Source: Pensylvania Cancer Atlas ", echo=FALSE, message=FALSE, warning=FALSE, out.width='50%', fig.align='center'}
+```{r ci-viz3, fig.cap = "Example of CI visualisation for uncertainty representation in cancer mapping (2/3). Source: Pensylvania Cancer Atlas ", echo=FALSE, message=FALSE, warning=FALSE, out.width='50%', fig.align='center', eval = FALSE}
 
 knitr::include_graphics("figures/Pennsylvania_CI_viz.png")
 
 ```
 
-```{r ci-tooltip, fig.cap= "Example of CI visualisation for uncertainty representation in cancer mapping (3/3). Source: Centres for Disease Control and Prevention (CDC). United States Cancer Statistics: An Interactive Cancer Atlas (InCA) ", echo=FALSE, message=FALSE, warning=FALSE, fig.show='hold', out.width= '50%', fig.align = 'center'}
+```{r ci-tooltip, fig.cap= "Example of CI visualisation for uncertainty representation in cancer mapping (3/3). Source: Centres for Disease Control and Prevention (CDC). United States Cancer Statistics: An Interactive Cancer Atlas (InCA) ", echo=FALSE, message=FALSE, warning=FALSE, fig.show='hold', out.width= '50%', fig.align = 'center', eval = FALSE}
 
 knitr::include_graphics("figures/CDC_CI_viz_tooltip.png")
 ```
 
-```{r ci-table, fig.cap= "Example of an interactive data table with CI upper and lower bounds used in cancer mapping. Source: Pennsylvania Cancer Atlas", echo=FALSE, message=FALSE, warning=FALSE, fig.show='hold', out.width= '50%', fig.align = 'center'}
+```{r ci-table, fig.cap= "Example of an interactive data table with CI upper and lower bounds used in cancer mapping. Source: Pennsylvania Cancer Atlas", echo=FALSE, message=FALSE, warning=FALSE, fig.show='hold', out.width= '50%', fig.align = 'center', eval = FALSE}
 
 knitr::include_graphics("figures/uncert_table.png")
 ```
@@ -218,7 +231,7 @@ knitr::include_graphics("figures/standard_deviation_large.png")
 ```
 
 
-```{r boxplot-example, fig.cap= "Example of boxplot used in cancer mapping. Source: Source: Pensylvania Cancer Atlas ", echo=FALSE, message=FALSE, warning=FALSE, fig.show='hold', out.width= '40%', fig.align = 'center'}
+```{r boxplot-example, fig.cap= "Example of boxplot used in cancer mapping. Source: Source: Pensylvania Cancer Atlas ", echo=FALSE, message=FALSE, warning=FALSE, fig.show='hold', out.width= '40%', fig.align = 'center', eval = FALSE}
 
 knitr::include_graphics("figures/Boxplot2.png")
 ```
@@ -238,37 +251,25 @@ Table: (\#tab:method-exp) Implicit and explicit measures of uncertainty.
 
 ## Cartograms
 
-> The aim here is to see the whole, in as much detail as possible, at a glance.
-
 <!-- What is a cartogram? -->
-Cartograms provide an alternative visualisation method for statistical and geographical information.
-A cartogram alters the map base with the intention of improving the presentation of a statistic.
-The key difference between a choropleth and a cartogram is the desirable augmentation of the size, shape or distance of geographical areas [@ACTUC].
-For a single variable of interest, each map area is changed to emphasise the distribution by representing the corresponding value, in comparison to the value of the other areas [@ACCAC].
+A cartogram alters the map base with the intention of improving the presentation of the statistic of interest. For a single variable of interest, each map area is changed to emphasise the distribution by representing the corresponding value, in comparison to the value of the other areas [@ACCAC].
 
-<!--
-Medical application: TAAM 1965
-Actual shapes of counties were sacrificed to the extent necessary to retain as far as possible, common boundaries, relative locations, and the approximate contour of the State.
 
-There is no unique solution to the topology
-problem of preparing a population-by-area
-cartogram for a given population and its jurisdictional
-boundaries. Although the map areas
-of the various regions are fixed by their populations, their shapes and relative locations are not completely determined.
 
-Other characteristics of the population
-may also serve as the base for adjustment; for
-example, sex, race, parity, socio-economic level,
-or immune status.
--->
+
 
 <!-- There are many alternative views of the world-->
 <!-- Tobler map projections-->
-Choropleths may be considered true topological maps, however if the land mass displayed covers enough of the globe, there must be a transformation or distortion to display the land in 2D.
-The amount of distortion is related to the distance covered by the landmass displayed @GAMP.
-World map projections reflect the frequent perspectives used to view the earth. Choropleth maps will always be distorted if they cover enough of the globe, just as photographs of the globe from space.
-Choropleth creation requires choosing a map projection that shows a favourable distortion of the geography for presenting the set of spatial information.
+Choropleths may be considered true topological maps, however, if the land mass displayed covers enough of the globe, there must be a transformation or distortion to display the land in 2D. The amount of distortion is related to the distance covered by the landmass displayed @GAMP.
+World map projections reflect the frequent perspectives used to view the earth. Choropleth maps will always be distorted if they cover enough of the globe, just as photographs of the globe from space. Choropleth creation requires choosing a map projection that shows a favourable distortion of the geography for presenting the set of spatial information.
 Diagrams that do not specify a projection can be considered to have some unknown projection. <!-- ??? cite tobler.-->
+
+
+<!-- Denominators -->
+If the statistic presented on the map base relies on physical distance and is influenced by the topology there is no transformation needed beyond choosing a projection. 
+The purposeful distortion of the map space is beneficial when a uniform density of the map base is desired.
+When a map base is transformed according to population density, population becomes a uniformly distributed background for the statistic presented [@GOINO]. 
+
 
 
 !["Choropleth maps of the United States of America using four coordinate reference systems."](figures/ggchoroCRS.png)
@@ -280,16 +281,18 @@ When a map base is transformed according to population density, population becom
 Using choropleth maps for population characteristics requires graphic distortions when the population concerned varies greatly in density [@CTTMB].
 When implementing a distortion of the geographical shape according to population, an area cartogram [@NAC], population-by-area cartograms [@TAAM], or iso-demographic map is the result. 
 
-
-A disadvantage of the conventional map is that sparsely populated rural areas may be emphasized, whereas the areas representing cities are very small, making interpretation of spatial patterns very difficult [@AOCAFE].
+<!-- Why transform?-->
+<!-- Common variables used to create cartograms, e.g. population, mortality -->
+Cartograms provide an alternative visualisation method for statistical and geographical information.
+The key difference between a choropleth and a cartogram is the desirable augmentation of the size, shape or distance of geographical areas [@ACTUC].
+Cartograms may be seen as an extension of map transformations and projections. The favourable distortion is proportional to a value other other than actual earth size area [@NAC].
+A disadvantage of the conventional map is that sparsely populated rural areas may be emphasized, whereas the areas representing cities are very small, making interpretation of spatial patterns very difficult.
 The distortion of a cartogram prevents the density obscuring the spatial patterns [@TAAM]. 
 The spatial transformation of map regions relative to the data emphasises the data distribution instead of land size [@CBATCC].
 When visualising population statistics @ACTUC considers this equitable representation design 'more socially just', or honest [@NISCC], giving due attention to all members of the population and reducing the visual impact of large areas with small populations [@DMAHP]. 
 @CTTMB suggest that spatial socio-economic data is best presented on a cartogram for urban areas.
 @HEDP agrees that 'cancer occurs in people, not in geographical areas' and the map bases of population reflect this and avoid allocating 'undue prominence' to rural areas. 
 @MTMSIH encourage the use of cartograms to highlight small areas and uncover local-level inequalities. 
-
-
 
 <!--
  Disease atlases were implemented using both geographic (Howe 1963) and demographic bases (Howe 1970).
@@ -450,20 +453,6 @@ has followed a flood of disease atlases, mainly concentrating on the modem probl
 Compare amount of tiles to contrast population of regions.
 'Cartograms show a data value per input region by scaling each region such that its area is proportional to its data value. Mosaic cartograms show data in multiples of tiles, hence the input data must consist of, or be cast into, small integer units.'
 
-## Centroid displays
-
-Dot plot: one dot for each region, coloured, and placed at centroid. 
-
-@NAC gives an example of 
-
-Plotting centroids on top of geographies. (Size is kept constant)
-
-Replies on the idea that every area is important, no matter the size.
-This gives equal emphasis to every area, allows distributions and relationships between neighbours to become more clear.
-
-<!-- 
-TVSSS parliamentary cartogram where each constituency is represented by an oval of equal size. Many ovals overlap because the cartogram is still in the process of being made. Each
--->
 
 # A critique of mapping methods
 
@@ -472,27 +461,35 @@ TVSSS parliamentary cartogram where each constituency is represented by an oval 
 Waldo Tobler [-@TVSSS] explores many graphical techniques, and suggests there are particular methods for particular purposes. To choose an approporiate map display, the map creator must consider the intended user, and message the map will communicate.
 It is the objectives of the investigator that will drive the choice of representation [@CPISACA]. 
 
-There are two keys to drive the choice of display: the properties of the visualisation, and the ease or accuracy of information extraction for map users @SAMGIS.
+There are two keys presented by @SAMGIS to drive the choice of display: 
+ - the properties of the visualisation, and 
+ - the ease or accuracy of information extraction for map users
 
 
 
-<!-- @CPISACA contrasted several online atlases in a 2006 paper, consider for structure? -->
+<!-- @CPISACA contrasted several online atlases in a 2006 paper, consider for structure? 
 
 (only worth including if it is possible for us to implement)
 Tabular form comparing and contrasting
 - Relationship to geography
-
 - Show using cancer examples
+-->
 
 # Animation and Interactivity
 
-Recent developments of technology allowed interactive 
+Recent developments in technology allowed interactive web atlases.
 
-'Where control of the message is important, static maps will continue to be the most effective, although good tables, graphs, and explanatory text are still needed in order to ensure that different people will see the same thing in the maps' @CPISACA
+> 'Where control of the message is important, static maps will continue to be the most effective, although good tables, graphs, and explanatory text are still needed in order to ensure that different people will see the same thing in the maps' @CPISACA
 
-lends to temporal pattern exploration
+The intention of interactivity and animation is to allow users to answer their own questions.
 
+<!--
+Using e-Delphi to Evaluate the Pennsylvania Cancer Atlas - explains PCA and reasons for interactivity.
+-->
+
+<!--
 @ECGC ?? Highlight the value of animating contiguous to see changes over time, US can be recognisable but animation aides interpretation 
+-->
 
 # Acknowledgements
 
