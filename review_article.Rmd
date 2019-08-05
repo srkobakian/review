@@ -284,7 +284,7 @@ When implementing a distortion of the geographical shape according to population
 A disadvantage of the conventional map is that sparsely populated rural areas may be emphasized, whereas the areas representing cities are very small, making interpretation of spatial patterns very difficult [@AOCAFE].
 The distortion of a cartogram prevents the density obscuring the spatial patterns [@TAAM]. 
 The spatial transformation of map regions relative to the data emphasises the data distribution instead of land size [@CBATCC].
-When visualising population statistics @ACTUC considers this equitable representation design 'more socially just, giving due attention to all members of the population and reducing the visual impact of large areas with small populations [@DMAHP]. 
+When visualising population statistics @ACTUC considers this equitable representation design 'more socially just', or honest [@NISCC], giving due attention to all members of the population and reducing the visual impact of large areas with small populations [@DMAHP]. 
 @CTTMB suggest that spatial socio-economic data is best presented on a cartogram for urban areas.
 @HEDP agrees that 'cancer occurs in people, not in geographical areas' and the map bases of population reflect this and avoid allocating 'undue prominence' to rural areas. 
 @MTMSIH encourage the use of cartograms to highlight small areas and uncover local-level inequalities. 
@@ -292,7 +292,7 @@ When visualising population statistics @ACTUC considers this equitable represent
 
 
 <!--
-@HEDP discusses the impact of electronic computer-assisted techniques. Disease atlases were implemented using both geographic (Howe 1963) and demographic bases (Howe 1970).
+ Disease atlases were implemented using both geographic (Howe 1963) and demographic bases (Howe 1970).
 
 Design goals:
 - to maintain as much as possible of the intricate detail
@@ -306,17 +306,20 @@ Design goals:
 5) that the map should possess the overall shape of the built-up area. 
 -->
 
+<!--
+@NISCC
+two advantages of the cartogram: (1) new relationships are often revealed visually, and ( Finally, and most important for the present discussion, they suggest that the ability to preserve shape of the statistical units drops with an increase in the number of these units, and in situations where the difference is great between the smallest and largest values mapped.
+Until we know how the map reader compares it to an ordinary thematic map, we are experimenting with a graphic device that may be reducing (or at least hindering) the flow of information from the map to the map reader.
+-->
 
 <!-- Overview of varieties -->
-
-There have been many algorithms presented, @SAIC provided a framework to investigate implementations and the "statistical accuracy, geographical accuracy, and topological accuracy". 
-
-
 <!-- Cartogram makers -->
 
-The creation of cartograms was largely in the hands of cartographers. 
-@ACTUC discusses early approaches including John Hunter and Jonathan Young (1968) and Durham's wooden tile method, Skoda and Robertson's (1972) steel ball bearing approach and Tobler's (1973) computer programs.
+The creation of cartograms was largely in the hands of professional cartographers [@CD]. 
+@ACTUC discusses early approaches including John Hunter and Jonathan Young (1968) and Durham's wooden tile method, Skoda and Robertson's (1972) steel ball bearing approach and Tobler's (1973) computer programs. @HEDP discusses the impact of electronic computer-assisted techniques.
+Geographical information systems allowed map users, and researchers to implement their own cartograms, but these systems are utilised depending on ‘the effectiveness, efficiency, and satisfaction of the map products (Nielsen 1994)’[@CD].
 
+There have been many algorithms presented, @SAIC provided a framework to investigate implementations and the "statistical accuracy, geographical accuracy, and topological accuracy". 
 
 There are many alternatives to consider, the intended audience of the map, and its purpose are key points in cartogram use and creation.
 @ACTUC reiterates: 'There is no "best" cartogram or method of creating cartograms just as there is no "best" map' (Monmonier and Schnell, 1988). 
@@ -331,27 +334,13 @@ There are many alternatives to consider, the intended audience of the map, and i
 
 <!-- Intentionally preserve neighbours -->
 
-
-A contiguous cartogram maintains connectivity of the map regions while areas are resized according to a statistic. This transformation often occurs at the expense of the shape [@CBATCC, @NAC, @TAAM].
+A contiguous cartogram maintains connectivity of the map regions while areas are resized according to a statistic. This transformation often occurs at the expense of the shape of areas [@CBATCC, @NAC, @TAAM].
 From a computer graphics perspective, @ACA believe it is a problem of 'map deformation' to account for the value assigned to each area, they provide three methods for creating value-by-area cartograms.
 Examples include Tobler’s Pseudo-Cartogram Method, Dorling’s Cellular Automaton Method [-@ACTUC], Radial Expansion Method of Selvin et al., Rubber Sheet Method of Dougenik et al., Gusein-Zade and Tikunov’s Line Integral Method, Constraint-Based Method (Kocmoud and House) [-@CBATCC].
 
 
 
-<!--
-
-@NISCC
-two advantages of the cartogram: (1) new relationships are often revealed visually, and ( 2 ) it is often more honest to use “other” space on the base map than land area. Finally, and most important for the present discussion, they suggest that the ability to preserve shape of the statistical units drops with an increase in the number of these units, and in situations where the difference is great between the smallest and largest values mapped.
-Until we know how the map reader compares it to an ordinary thematic map, we are experimenting with a graphic device that may be reducing (or at least hindering) the flow of information from the map to the map reader.
-
-
-The transformations required to create cartograms was historically the role of professional cartographers.  
-Geographical information systems allowed map users, and researchers to implement their own cartograms, but these systems are utilised depending on ‘the effectiveness, efficiency, and satisfaction of the map products (Nielsen 1994)’[@CD].
-
-
--->
-
-describes the process of creating a population cartogram for Canada, using the 1966 Census. An intentional goal of this project was to maintain contiguity, while attempting to keep the actual shape of places. The end result was a 'very accurate isodemo-graphic map of Canada'. This intentional design goal coincided with the rising interest in urban geography. 
+An intentional goal when creating the 1966 Census population cartogram for Canada was to maintain contiguity, while attempting to keep the actual shape of places. The end result was a 'very accurate isodemo-graphic map of Canada'. This intentional design goal coincided with the rising interest in urban geography. 
 
 
 <!--
@@ -372,6 +361,8 @@ To be able to recognise the significant changes, a reader will usually have to k
 locally so that the shapes of very small areas on a traditional map and a
 cartogram would be similar.
 @CBATCC presents this issue as conflicting tasks or aims, to adjust region sizes and retain region shapes. Distortion of region shapes on the contiguous cartogram presents an additional hurdle to visual recognition and this hurdle is not only eliminated on the noncontiguous cartogram but is replaced by the meaningful empty-space property [@NAC, @ECGC].
+
+
 
 ### Non-Contiguous
 
