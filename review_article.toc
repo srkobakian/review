@@ -1,14 +1,14 @@
-\contentsline {section}{\numberline {1}Introduction}{1}{section.1}
-\contentsline {section}{\numberline {2}Disease mapping methods}{2}{section.2}
-\contentsline {subsection}{\numberline {2.1}Current best practice map displays for cancer data}{2}{subsection.2.1}
-\contentsline {subsubsection}{\numberline {2.1.1}Supporting material in cancer atlases}{4}{subsubsection.2.1.1}
-\contentsline {subsection}{\numberline {2.2}Public face}{4}{subsection.2.2}
-\contentsline {subsubsection}{\numberline {2.2.1}Examples of supporting statistics in public facing atlases}{4}{subsubsection.2.2.1}
-\contentsline {subsection}{\numberline {2.3}Cartograms}{7}{subsection.2.3}
-\contentsline {subsubsection}{\numberline {2.3.1}Contiguous}{9}{subsubsection.2.3.1}
-\contentsline {subsubsection}{\numberline {2.3.2}Non-Contiguous}{10}{subsubsection.2.3.2}
-\contentsline {subsection}{\numberline {2.4}Centroid displays}{11}{subsection.2.4}
-\contentsline {section}{\numberline {3}A critique of mapping methods}{11}{section.3}
-\contentsline {section}{\numberline {4}Animation and Interactivity}{12}{section.4}
-\contentsline {section}{\numberline {5}Acknowledgements}{12}{section.5}
-\contentsline {section}{\numberline {6}References}{12}{section.6}
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}% 
+\contentsline {section}{\numberline {2}Disease mapping methods}{2}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Current best practice map displays for cancer data}{2}{subsection.2.1}% 
+\contentsline {subsubsection}{\numberline {2.1.1}Supporting material in cancer atlases}{4}{subsubsection.2.1.1}% 
+\contentsline {subsection}{\numberline {2.2}Public face}{4}{subsection.2.2}% 
+\contentsline {subsubsection}{\numberline {2.2.1}Examples of supporting statistics in public facing atlases}{5}{subsubsection.2.2.1}% 
+\contentsline {subsection}{\numberline {2.3}Cartograms}{8}{subsection.2.3}% 
+\contentsline {subsubsection}{\numberline {2.3.1}Contiguous}{9}{subsubsection.2.3.1}% 
+\contentsline {subsubsection}{\numberline {2.3.2}Non-Contiguous}{10}{subsubsection.2.3.2}% 
+\contentsline {subsection}{\numberline {2.4}Centroid displays}{12}{subsection.2.4}% 
+\contentsline {section}{\numberline {3}A critique of mapping methods}{12}{section.3}% 
+\contentsline {section}{\numberline {4}Animation and Interactivity}{12}{section.4}% 
+\contentsline {section}{\numberline {5}Acknowledgements}{13}{section.5}% 
+\contentsline {section}{\numberline {6}References}{13}{section.6}% 
