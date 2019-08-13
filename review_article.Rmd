@@ -3,14 +3,14 @@ title: "Cartogram Mapping and its Application to Cancer Data Visualisation"
 author: "Stephanie Kobakian, Jessie Roberts and Dianne Cook"
 bibliography: reviewbib.bib
 output:
-  html_document:
-    df_print: paged
-    toc: yes
-    toc_depth: '2'
   pdf_document:
     number_sections: yes
     toc: yes
     toc_depth: 2
+  html_document:
+    df_print: paged
+    toc: yes
+    toc_depth: '2'
 fontsize: 11pt
 link-citations: yes
 fig_caption: yes
@@ -173,7 +173,7 @@ The interactivity of the more modern maps enabled supplementary information to b
 
 
 
-## Public face
+## Publicly available atlases using choropleth methods
 
 Cancer maps are effective communication tools for a general or non-expert audience. They are commonly used in the public domain to communicate results of sophisticated statistical analyses.
 The heavy use of chloropleth maps within the research literature is reflected in the types of maps that are found in the public domain.
@@ -249,7 +249,7 @@ Table: (\#tab:method-exp) Implicit and explicit measures of uncertainty.
 |Standard deviation |Figure 3.6 - the second map in the bottom right corner shows standard deviation|
 
 
-## Cartograms
+## Cartograms as an alternative display
 
 <!-- What is a cartogram? -->
 A cartogram alters the map base with the intention of improving the presentation of the statistic of interest. For a single variable of interest, each map area is changed to emphasise the distribution by representing the corresponding value, in comparison to the value of the other areas [@ACCAC].
@@ -404,7 +404,7 @@ Presenting an alternative view can help to correct interpretation of global stat
 
 Dorling -@ACTUC puts forward a simple question:
 
->If, for instance, it is desirable that areas on a map have boundaries which are as simple as possible, why not draw the areas as simple shapes in the first place?
+>"If, for instance, it is desirable that areas on a map have boundaries which are as simple as possible, why not draw the areas as simple shapes in the first place?"
 
 He answers this with his implementation of maps created with 'the simplest of all shapes'. While contiguous cartograms may be a 'more sophisticated' method, they produce 'very complex shapes'. Circular cartograms use the same shape for every region represented, and size them according to the statistic represented or the population for a base map.
 To produce a compelling map, a gravity model is applied to avoid overlaps, and keep spatial relationships with neighbouring areas over many iterations. This implementation can work for up to 'one hundred thousand' areas.
@@ -456,7 +456,7 @@ Compare amount of tiles to contrast population of regions.
 
 # A critique of mapping methods
 
->designing a map tailored to precise goals [is] easier than forcing a single map to accommodate diverse objectives - @CPISACA
+>"designing a map tailored to precise goals [is] easier than forcing a single map to accommodate diverse objectives" @CPISACA
 
 Waldo Tobler [-@TVSSS] explores many graphical techniques, and suggests there are particular methods for particular purposes. To choose an approporiate map display, the map creator must consider the intended user, and message the map will communicate.
 It is the objectives of the investigator that will drive the choice of representation [@CPISACA]. 
@@ -479,7 +479,7 @@ Tabular form comparing and contrasting
 
 Recent developments in technology allowed interactive web atlases.
 
-> 'Where control of the message is important, static maps will continue to be the most effective, although good tables, graphs, and explanatory text are still needed in order to ensure that different people will see the same thing in the maps' @CPISACA
+>"Where control of the message is important, static maps will continue to be the most effective, although good tables, graphs, and explanatory text are still needed in order to ensure that different people will see the same thing in the maps" @CPISACA
 
 The intention of interactivity and animation is to allow users to answer their own questions.
 

@@ -1657,7 +1657,6 @@ $(document).ready(function () {
 <li><a href="#current-best-practice-map-displays-for-cancer-data">Current best practice map displays for cancer data</a></li>
 <li><a href="#public-face">Public face</a></li>
 <li><a href="#cartograms">Cartograms</a></li>
-<li><a href="#centroid-displays">Centroid displays</a></li>
 </ul></li>
 <li><a href="#a-critique-of-mapping-methods">A critique of mapping methods</a></li>
 <li><a href="#animation-and-interactivity">Animation and Interactivity</a></li>
@@ -1981,7 +1980,7 @@ Presenting an alternative view can help to correct interpretation of global stat
 </div>
 <p>Dorling <span class="citation">(<a href="#ref-ACTUC">2011</a>)</span> puts forward a simple question:</p>
 <blockquote>
-<p>If, for instance, it is desirable that areas on a map have boundaries which are as simple as possible, why not draw the areas as simple shapes in the first place?</p>
+<p>“If, for instance, it is desirable that areas on a map have boundaries which are as simple as possible, why not draw the areas as simple shapes in the first place?”</p>
 </blockquote>
 <p>He answers this with his implementation of maps created with ‘the simplest of all shapes’. While contiguous cartograms may be a ‘more sophisticated’ method, they produce ‘very complex shapes’. Circular cartograms use the same shape for every region represented, and size them according to the statistic represented or the population for a base map. To produce a compelling map, a gravity model is applied to avoid overlaps, and keep spatial relationships with neighbouring areas over many iterations. This implementation can work for up to ‘one hundred thousand’ areas.</p>
 <!--
@@ -2008,36 +2007,35 @@ recognized than nonsense shapes or those that have no meaning.
 <p><span class="citation">Cano et al. (<a href="#ref-MDAC">2015</a>)</span> define the term ‘mosaic cartograms’. Compare amount of tiles to contrast population of regions. ‘Cartograms show a data value per input region by scaling each region such that its area is proportional to its data value. Mosaic cartograms show data in multiples of tiles, hence the input data must consist of, or be cast into, small integer units.’</p>
 </div>
 </div>
-<div id="centroid-displays" class="section level2">
-<h2>Centroid displays</h2>
-<p>Dot plot: one dot for each region, coloured, and placed at centroid.</p>
-<p><span class="citation">Olson (<a href="#ref-NAC">1976</a>)</span> gives an example of</p>
-<p>Plotting centroids on top of geographies. (Size is kept constant)</p>
-<p>Replies on the idea that every area is important, no matter the size. This gives equal emphasis to every area, allows distributions and relationships between neighbours to become more clear.</p>
-<!-- 
-TVSSS parliamentary cartogram where each constituency is represented by an oval of equal size. Many ovals overlap because the cartogram is still in the process of being made. Each
--->
-</div>
 </div>
 <div id="a-critique-of-mapping-methods" class="section level1">
 <h1>A critique of mapping methods</h1>
 <blockquote>
-<p>designing a map tailored to precise goals [is] easier than forcing a single map to accommodate diverse objectives - <span class="citation">Bell et al. (<a href="#ref-CPISACA">2006</a>)</span></p>
+<p>“designing a map tailored to precise goals [is] easier than forcing a single map to accommodate diverse objectives” <span class="citation">Bell et al. (<a href="#ref-CPISACA">2006</a>)</span></p>
 </blockquote>
 <p>Waldo Tobler <span class="citation">(<a href="#ref-TVSSS">2012</a>)</span> explores many graphical techniques, and suggests there are particular methods for particular purposes. To choose an approporiate map display, the map creator must consider the intended user, and message the map will communicate. It is the objectives of the investigator that will drive the choice of representation <span class="citation">(Bell et al. <a href="#ref-CPISACA">2006</a>)</span>.</p>
-<p>There are two keys to drive the choice of display: the properties of the visualisation, and the ease or accuracy of information extraction for map users <span class="citation">Moore and Carpenter (<a href="#ref-SAMGIS">1999</a>)</span>.</p>
-<!-- @CPISACA contrasted several online atlases in a 2006 paper, consider for structure? -->
-<p>(only worth including if it is possible for us to implement) Tabular form comparing and contrasting - Relationship to geography</p>
-<ul>
-<li>Show using cancer examples</li>
-</ul>
+<p>There are two keys presented by <span class="citation">Moore and Carpenter (<a href="#ref-SAMGIS">1999</a>)</span> to drive the choice of display: - the properties of the visualisation, and - the ease or accuracy of information extraction for map users</p>
+<!-- @CPISACA contrasted several online atlases in a 2006 paper, consider for structure? 
+
+(only worth including if it is possible for us to implement)
+Tabular form comparing and contrasting
+- Relationship to geography
+- Show using cancer examples
+-->
 </div>
 <div id="animation-and-interactivity" class="section level1">
 <h1>Animation and Interactivity</h1>
-<p>Recent developments of technology allowed interactive</p>
-<p>‘Where control of the message is important, static maps will continue to be the most effective, although good tables, graphs, and explanatory text are still needed in order to ensure that different people will see the same thing in the maps’ <span class="citation">Bell et al. (<a href="#ref-CPISACA">2006</a>)</span></p>
-<p>lends to temporal pattern exploration</p>
-<p><span class="citation">Keim et al. (<a href="#ref-ECGC">2002</a>)</span> ?? Highlight the value of animating contiguous to see changes over time, US can be recognisable but animation aides interpretation</p>
+<p>Recent developments in technology allowed interactive web atlases.</p>
+<blockquote>
+<p>“Where control of the message is important, static maps will continue to be the most effective, although good tables, graphs, and explanatory text are still needed in order to ensure that different people will see the same thing in the maps” <span class="citation">Bell et al. (<a href="#ref-CPISACA">2006</a>)</span></p>
+</blockquote>
+<p>The intention of interactivity and animation is to allow users to answer their own questions.</p>
+<!--
+Using e-Delphi to Evaluate the Pennsylvania Cancer Atlas - explains PCA and reasons for interactivity.
+-->
+<!--
+@ECGC ?? Highlight the value of animating contiguous to see changes over time, US can be recognisable but animation aides interpretation 
+-->
 </div>
 <div id="acknowledgements" class="section level1">
 <h1>Acknowledgements</h1>
