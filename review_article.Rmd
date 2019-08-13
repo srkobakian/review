@@ -103,10 +103,9 @@ These atlases were key to developing hypotheses regarding areas with unusually h
 <!-- Measures reported in cancer atlases -->
 Almost 100 years of cancer mapping in the United States and the United Kingdom has seen increased effectiveness in the presentation cancer statistics.
 Mortality rates are now often presented as relative rates of risk across the population, and age adjusted to correct for the higher prevalence of cancers in older populations.
-Howe [-@HEDP] describes Stock's development of the standardised mortality ratios through the 1930s. Table 1 presents summarises the measures presented in published cancer atlases, and provides a definition of each measure.
+Howe [-@HEDP] describes Stock's development of the standardised mortality ratios through the 1930s. Table \ref{measures} presents summarises the measures presented in published cancer atlases, and provides a definition of each measure.
 
-<!-- ??? Table tags-->
-Table 1: Measures used to report cancer statistics
+Table: \label{measures} Measures used to report cancer statistics
 
 |Measure |Details| 
 |:--------------------|:------------------------------------------------|  
@@ -216,6 +215,7 @@ Not all maps had a national focus and ten covered a region or state rather than 
 ### Examples of supporting statistics in public facing atlases
 
 Close to half of the atlases identified (42%, n=14) included some measure of uncertainty. The most common measure used to represent uncertainty were credible or confidence intervals (CIs).
+Methods for representing sources of uncertainty information can be visualised or communicated in different ways, examples identified through this grey literature review are listed below. 
 
 <!--
 Create a table:
@@ -229,8 +229,6 @@ co factor(1)|      ...            |    ...
 co factor(2)|      ...            |    ...
 -->
 
-
-Methods for representing sources of uncertainty information can be visualised or communicated in different ways, examples identified through this grey literature review are listed below. 
 
 
 
