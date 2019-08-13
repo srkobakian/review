@@ -6,11 +6,7 @@ output:
   pdf_document:
     number_sections: yes
     toc: yes
-    toc_depth: 2
-  html_document:
-    df_print: paged
-    toc: yes
-    toc_depth: '2'
+    toc_depth: 3
 fontsize: 11pt
 link-citations: yes
 fig_caption: yes
@@ -20,6 +16,7 @@ yolo: yes
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+library(ggplot2)
 ```
 <!--
 
@@ -92,29 +89,20 @@ They are untrustworthy when interpretations of spatial association are needed; t
 
 
 <!-- Displaying of cancer data on choropleths -->
-
-<!-- Displaying of cancer data on choropleths -->
 Choropleth maps can be useful devices for communicating information to public on a familiar map base.
+A cancer atlas is a choropleth map, or collection of maps, representing cancer incidence and mortality for a country, or group of countries. 
+Choropleths consider the spatial structures and present information regarding the individuals, their communities and organization into larger units @SAMGIS.
 In epidemiology, choropleths are often used as a tool to study the spatial distribution of cancer incidence and mortality. 
-A cancer atlas is a choropleth map, or collection of maps, representing cancer incidence and mortality for a country, or group of countries. @MACM provide the definition and reports that cancer atlases began with Haviland's maps in 1875.
 The data collection methods of cancer mortality rates across regions, and the administrative control within regions lends itself to choropleth visualisation. 
+@MACM provides the definition of a cancer atlas, beginning with Haviland's maps in 1875, they attribute UK cancer atlases to Howe (1963), and early work in US cancer atlases can be attributed to Burbank (1971).
 The increasing development and use of disease maps can be attributed to the availability of geographic information system software [@SE].
-Early work in US cancer atlases can be attributed to Burbank ???, and UK cancer atlases to Howe 1963 ???.
 The choropleth maps presented levels via hatchings or dots on a black and white scale.
 These atlases were key to developing hypotheses regarding areas with unusually high rates, geographic correlations, work related exposures, and high risk diets @MACM.
 
-<!--
-A particular spatial structure includes
-the individuals affected and how they are connected in
-communities, as well as the dynamics of these communities
-and their organization into larger units. @SAMGIS
--->
-
-<!-- Measures reported in cancer atlases -->
 
 <!-- Measures reported in cancer atlases -->
 Almost 100 years of cancer mapping in the United States and the United Kingdom has seen increased effectiveness in the presentation cancer statistics.
-Mortality rates are now often presented as relative rates of risk across the population, and age adjusted to correct for the the higher prevalence of cancers in older populations.
+Mortality rates are now often presented as relative rates of risk across the population, and age adjusted to correct for the higher prevalence of cancers in older populations.
 Howe [-@HEDP] describes Stock's development of the standardised mortality ratios through the 1930s. Table 1 presents summarises the measures presented in published cancer atlases, and provides a definition of each measure.
 
 <!-- ??? Table tags-->
@@ -154,8 +142,7 @@ Explores Australia as a case study, utilising QLD SA2 areas
 -->
 
 
-```{r chloropleth-grid, echo=FALSE, message=FALSE}
-
+```{r chloropleth-grid-create, echo=FALSE, message=FALSE, eval = FALSE}
 library(grid)
 library(png)
 library(gridExtra)
@@ -179,13 +166,19 @@ plot15 <- png::readPNG('cancer_map_images/chloropleths/29.chloropleth.png')
 plot16 <- png::readPNG('cancer_map_images/chloropleths/30.chloropleth.png')
 
 
-gridExtra::grid.arrange(grid::rasterGrob(plot1),grid::rasterGrob(plot2), grid::rasterGrob(plot3), 
+chloropleth_grid <- gridExtra::grid.arrange(grid::rasterGrob(plot1),grid::rasterGrob(plot2), grid::rasterGrob(plot3), 
                         grid::rasterGrob(plot4), grid::rasterGrob(plot5), grid::rasterGrob(plot6),
                         grid::rasterGrob(plot7), grid::rasterGrob(plot8), grid::rasterGrob(plot9),
                         grid::rasterGrob(plot10),grid::rasterGrob(plot11), grid::rasterGrob(plot12), 
                         grid::rasterGrob(plot13), grid::rasterGrob(plot14), grid::rasterGrob(plot15), 
                         grid::rasterGrob(plot16), nrow=4)
 
+
+ggsave(choropleth_grid, filename = "figures/choropleth_grid.png", device = "png", width = 12, height = 6)
+```
+
+```{r chloropleth-grid-print, echo = FALSE}
+knitr::include_graphics("figures/choropleth_grid.png")
 ```
 
 
@@ -237,40 +230,8 @@ co factor(2)|      ...            |    ...
 -->
 
 
-```{r ci-viz2, fig.cap = "Example of CI visualisation for uncertainty representation in cancer mapping (1/3). Source: Alberta Health IHDA Geographic. (2012) ", echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width='50%', eval = FALSE}
-
-knitr::include_graphics("figures/Alberta_CI_viz.png")
-```
-
-```{r ci-viz3, fig.cap = "Example of CI visualisation for uncertainty representation in cancer mapping (2/3). Source: Pensylvania Cancer Atlas ", echo=FALSE, message=FALSE, warning=FALSE, out.width='50%', fig.align='center', eval = FALSE}
-
-knitr::include_graphics("figures/Pennsylvania_CI_viz.png")
-
-```
-
-```{r ci-tooltip, fig.cap= "Example of CI visualisation for uncertainty representation in cancer mapping (3/3). Source: Centres for Disease Control and Prevention (CDC). United States Cancer Statistics: An Interactive Cancer Atlas (InCA) ", echo=FALSE, message=FALSE, warning=FALSE, fig.show='hold', out.width= '50%', fig.align = 'center', eval = FALSE}
-
-knitr::include_graphics("figures/CDC_CI_viz_tooltip.png")
-```
-
-```{r ci-table, fig.cap= "Example of an interactive data table with CI upper and lower bounds used in cancer mapping. Source: Pennsylvania Cancer Atlas", echo=FALSE, message=FALSE, warning=FALSE, fig.show='hold', out.width= '50%', fig.align = 'center', eval = FALSE}
-
-knitr::include_graphics("figures/uncert_table.png")
-```
-  
 Methods for representing sources of uncertainty information can be visualised or communicated in different ways, examples identified through this grey literature review are listed below. 
 
-
-```{r stndvn-example, fig.cap= "Example of standard deviation visualised in cancer mapping", echo=FALSE, message=FALSE, warning=FALSE, fig.show='hold', out.width= '90%', fig.align = 'center'}
-
-knitr::include_graphics("figures/standard_deviation_large.png")
-```
-
-
-```{r boxplot-example, fig.cap= "Example of boxplot used in cancer mapping. Source: Source: Pensylvania Cancer Atlas ", echo=FALSE, message=FALSE, warning=FALSE, fig.show='hold', out.width= '40%', fig.align = 'center', eval = FALSE}
-
-knitr::include_graphics("figures/Boxplot2.png")
-```
 
 
 Table: (\#tab:method-exp) Implicit and explicit measures of uncertainty.
