@@ -148,3 +148,40 @@ ggchoroCRS <- gridExtra::grid.arrange(ggchoro1, ggchoro2, ggchoro3, ggchoro4)
 
 ggsave(filename = "figures/ggchoroCRS.png", plot = ggchoroCRS,
   device = "png", width = 12, height = 6)
+
+
+#####
+# Choropleth grid
+
+library(grid)
+library(png)
+library(gridExtra)
+
+plot1 <- png::readPNG('cancer_map_images/chloropleths/1.png')
+plot2 <- png::readPNG('cancer_map_images/chloropleths/14.chloropleth1.png')
+plot3 <- png::readPNG('cancer_map_images/chloropleths/15.chloropleth.png')
+plot4 <- png::readPNG('cancer_map_images/chloropleths/3.chloropleth.png')
+plot5 <- png::readPNG('cancer_map_images/chloropleths/5.chloropleth.png')
+plot6 <- png::readPNG('cancer_map_images/chloropleths/6.chloropleth.png')
+plot6 <- png::readPNG('cancer_map_images/chloropleths/7.chloropleth.png')
+plot7 <- png::readPNG('cancer_map_images/chloropleths/8.chloropleth.png')
+plot8 <- png::readPNG('cancer_map_images/chloropleths/20.chloropleth1.png')
+plot9 <- png::readPNG('cancer_map_images/chloropleths/21.chloropleth2.png')
+plot10 <- png::readPNG('cancer_map_images/chloropleths/23.chloropleth.png')
+plot11 <- png::readPNG('cancer_map_images/chloropleths/24.chloropleth.png')
+plot12 <- png::readPNG('cancer_map_images/chloropleths/25.chloropleth.png')
+plot13 <- png::readPNG('cancer_map_images/chloropleths/26.chloropleth.png')
+plot14 <- png::readPNG('cancer_map_images/chloropleths/27.chloropleth.png')
+plot15 <- png::readPNG('cancer_map_images/chloropleths/29.chloropleth.png')
+plot16 <- png::readPNG('cancer_map_images/chloropleths/30.chloropleth.png')
+
+
+chloropleth_grid <- gridExtra::grid.arrange(grid::rasterGrob(plot1),grid::rasterGrob(plot2), grid::rasterGrob(plot3), 
+  grid::rasterGrob(plot4), grid::rasterGrob(plot5), grid::rasterGrob(plot6),
+  grid::rasterGrob(plot7), grid::rasterGrob(plot8), grid::rasterGrob(plot9),
+  grid::rasterGrob(plot10),grid::rasterGrob(plot11), grid::rasterGrob(plot12), 
+  grid::rasterGrob(plot13), grid::rasterGrob(plot14), grid::rasterGrob(plot15), 
+  grid::rasterGrob(plot16), nrow=4)
+
+
+ggsave(filename = "figures/choropleth_grid.png", plot = choropleth_grid, device = "png", width = 12, height = 6)
