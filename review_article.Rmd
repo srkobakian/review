@@ -47,10 +47,10 @@ Suggested uses of
 Maps have been adopted to present geospatial statistics for centuries.
 Maps connect data and statistics to the geographical representation of areas that are generally familiar to the audience.
 However, it is not enough for areas on maps to be recognisable, if information regarding the distribution of the statistic cannot be gleaned.
-In situations where the people are of interest, not the land they live on, it is reasonable to explore views that enhance the communication of the cancer statistics.
+In situations where the population and their health is of interest, not the land they live on, it is reasonable to explore views that enhance the communication of the cancer statistics.
 Identifying and explaining spatial structures, patterns, and processes involves considering the individuals in communities and organising communities into representable units [@SAMGIS]. 
 This has spurred innovations over the previous centuries to enhance the shapes and maps presented to effectively communicate cancer outcomes, and health outcomes more broadly.
-Cancer statistics directly represent and relate to the people living within individual geographical areas.
+Cancer statistics directly represent and relate to the populations living within individual geographical areas.
 
 The visualisation methods used to present cancer statistics will depend on the intended message and users of the map. 
 Transforming statistics to visualisations considers individual observations or observation points aggregated into communities and geographical units.
