@@ -68,7 +68,7 @@ As an alternative storage device to a table, it preserves locations for geograph
 A choropleth is constructed by drawing the geographic or political boundaries, and filling the shapes with colours to represent values of a measured variable [@EI].
 Early versions of choropleth maps used symbols or patterns instead of colour.
 @CPISACA discusses their use in visualising cancer data, and @DMAHP gives an overview of the development of these maps for displaying disease data.
-Just as geographers are no longer the only creators of maps, @CPISACA suggests the audiences of spatial health data analysis have extended beyond researchers to the public, policymakers and the media.
+Just as geographers are no longer the only creators of maps, @CPISACA suggests the audiences of spatial health data analysis have extended beyond researchers to the public, policymakers and the media. Now many examples of choropleth maps can be found on the websites of government, media, health and other public facing organisations (insert ref for Jessie's grey lit review).
 A choropleth map is a true map of the topology, constructed for visual inspection of spatial patterns across a familiar geographic form. 
 Figure 1 shows a choropleth map where each state of the United States of America is coloured by the average annual rate of new cases of lung and bronchus cancer from years 2012 to 2016.
 
@@ -78,9 +78,9 @@ knitr::include_graphics("figures/ggchoro.png")
 
 <!-- psychology -->
 Utilising the familiar state boundaries can make a map intuitive to read [@CIBMUK], and allow viewers to visually infer the spatial relationships in the data, i.e. how cancer rate differs across the states.
-The familiarity of the geography is a worthy consideration when presenting results of spatial analysis. Just as geographers are no longer the only creators of maps, @CPISACA suggests the audiences of spatial health data analysis have extended beyond researchers to the public, policymakers and the media.
-While the areas are recognisable shapes, they are often politically driven boundaries with individual areas being of non-uniform size, containing different population densities and subject to change over time. 
-The different population and geographical sizes of administrative areas can attract attention to the shades of the unpopulated but large areas [@EI]. 
+The familiarity of the geography is a worthy consideration when presenting results of spatial analysis. Just as geographers are no longer the only creators of maps, @CPISACA suggests the audiences of spatial health data analysis have extended beyond researchers to the public, policymakers and the media. __(repeated sentence)__
+While the areas are recognisable shapes, they are often politically driven boundaries with individual areas being of both non-uniform size, and population densities. In addition these boundaries are often subject to change over time. 
+The different population and geographical sizes of administrative areas can unduly attract focus to the shades of the unpopulated but large areas [@EI]. 
 Choropleths can inhibit visual inference when presenting human related statistics as the display may draw attention from the 'potentially more important results in the more populous communities' [@SE]. 
 
 <!--
@@ -101,9 +101,9 @@ These atlases were key to developing hypotheses regarding areas with unusually h
 
 
 <!-- Measures reported in cancer atlases -->
-Almost 100 years of cancer mapping in the United States and the United Kingdom has seen increased effectiveness in the presentation cancer statistics.
+Almost 100 years of cancer mapping in the United States and the United Kingdom has seen increased effectiveness in the presentation of cancer statistics.
 Mortality rates are now often presented as relative rates of risk across the population, and age adjusted to correct for the higher prevalence of cancers in older populations.
-Howe [-@HEDP] describes Stock's development of the standardised mortality ratios through the 1930s. Table \ref{measures} presents summarises the measures presented in published cancer atlases, and provides a definition of each measure.
+Howe [-@HEDP] describes Stock's development of the standardised mortality ratios through the 1930s. Table \ref{measures} summarises the measures presented in published cancer atlases, and provides a definition of each measure.
 
 Table: \label{measures} Measures used to report cancer statistics
 
