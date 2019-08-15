@@ -141,31 +141,31 @@ Explores Australia as a case study, utilising QLD SA2 areas
 -->
 
 
-```{r chloropleth-grid-create, echo=FALSE, message=FALSE, eval = FALSE}
+```{r choropleth-grid-create, echo=FALSE, message=FALSE, eval = FALSE}
 library(grid)
 library(png)
 library(gridExtra)
 
-plot1 <- png::readPNG('cancer_map_images/chloropleths/1.png')
-plot2 <- png::readPNG('cancer_map_images/chloropleths/14.chloropleth1.png')
-plot3 <- png::readPNG('cancer_map_images/chloropleths/15.chloropleth.png')
-plot4 <- png::readPNG('cancer_map_images/chloropleths/3.chloropleth.png')
-plot5 <- png::readPNG('cancer_map_images/chloropleths/5.chloropleth.png')
-plot6 <- png::readPNG('cancer_map_images/chloropleths/6.chloropleth.png')
-plot6 <- png::readPNG('cancer_map_images/chloropleths/7.chloropleth.png')
-plot7 <- png::readPNG('cancer_map_images/chloropleths/8.chloropleth.png')
-plot8 <- png::readPNG('cancer_map_images/chloropleths/20.chloropleth1.png')
-plot9 <- png::readPNG('cancer_map_images/chloropleths/21.chloropleth2.png')
-plot10 <- png::readPNG('cancer_map_images/chloropleths/23.chloropleth.png')
-plot11 <- png::readPNG('cancer_map_images/chloropleths/24.chloropleth.png')
-plot12 <- png::readPNG('cancer_map_images/chloropleths/25.chloropleth.png')
-plot13 <- png::readPNG('cancer_map_images/chloropleths/26.chloropleth.png')
-plot14 <- png::readPNG('cancer_map_images/chloropleths/27.chloropleth.png')
-plot15 <- png::readPNG('cancer_map_images/chloropleths/29.chloropleth.png')
-plot16 <- png::readPNG('cancer_map_images/chloropleths/30.chloropleth.png')
+plot1 <- png::readPNG('cancer_map_images/choropleths/1.png')
+plot2 <- png::readPNG('cancer_map_images/choropleths/14.choropleth1.png')
+plot3 <- png::readPNG('cancer_map_images/choropleths/15.choropleth.png')
+plot4 <- png::readPNG('cancer_map_images/choropleths/3.choropleth.png')
+plot5 <- png::readPNG('cancer_map_images/choropleths/5.choropleth.png')
+plot6 <- png::readPNG('cancer_map_images/choropleths/6.choropleth.png')
+plot6 <- png::readPNG('cancer_map_images/choropleths/7.choropleth.png')
+plot7 <- png::readPNG('cancer_map_images/choropleths/8.choropleth.png')
+plot8 <- png::readPNG('cancer_map_images/choropleths/20.choropleth1.png')
+plot9 <- png::readPNG('cancer_map_images/choropleths/21.choropleth2.png')
+plot10 <- png::readPNG('cancer_map_images/choropleths/23.choropleth.png')
+plot11 <- png::readPNG('cancer_map_images/choropleths/24.choropleth.png')
+plot12 <- png::readPNG('cancer_map_images/choropleths/25.choropleth.png')
+plot13 <- png::readPNG('cancer_map_images/choropleths/26.choropleth.png')
+plot14 <- png::readPNG('cancer_map_images/choropleths/27.choropleth.png')
+plot15 <- png::readPNG('cancer_map_images/choropleths/29.choropleth.png')
+plot16 <- png::readPNG('cancer_map_images/choropleths/30.choropleth.png')
 
 
-chloropleth_grid <- gridExtra::grid.arrange(grid::rasterGrob(plot1),grid::rasterGrob(plot2), grid::rasterGrob(plot3), 
+choropleth_grid <- gridExtra::grid.arrange(grid::rasterGrob(plot1),grid::rasterGrob(plot2), grid::rasterGrob(plot3), 
                         grid::rasterGrob(plot4), grid::rasterGrob(plot5), grid::rasterGrob(plot6),
                         grid::rasterGrob(plot7), grid::rasterGrob(plot8), grid::rasterGrob(plot9),
                         grid::rasterGrob(plot10),grid::rasterGrob(plot11), grid::rasterGrob(plot12), 
@@ -176,8 +176,9 @@ chloropleth_grid <- gridExtra::grid.arrange(grid::rasterGrob(plot1),grid::raster
 ggsave(choropleth_grid, filename = "figures/choropleth_grid.png", device = "png", width = 12, height = 6)
 ```
 
-```{r chloropleth-grid-print, echo = FALSE}
+```{r choropleth-grid-print, echo = FALSE}
 knitr::include_graphics("figures/choropleth_grid.png")
+
 ```
 
 
