@@ -1,7 +1,7 @@
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}% 
 \contentsline {section}{\numberline {2}Disease mapping methods}{2}{section.2}% 
 \contentsline {subsection}{\numberline {2.1}Current best practice map displays for cancer data}{2}{subsection.2.1}% 
-\contentsline {subsubsection}{\numberline {2.1.1}Supporting material in cancer atlases}{5}{subsubsection.2.1.1}% 
+\contentsline {subsubsection}{\numberline {2.1.1}Supporting material in cancer atlases}{4}{subsubsection.2.1.1}% 
 \contentsline {subsection}{\numberline {2.2}Publicly available atlases using choropleth methods}{5}{subsection.2.2}% 
 \contentsline {subsubsection}{\numberline {2.2.1}Examples of supporting statistics in public facing atlases}{5}{subsubsection.2.2.1}% 
 \contentsline {subsection}{\numberline {2.3}Cartograms as an alternative display}{6}{subsection.2.3}% 

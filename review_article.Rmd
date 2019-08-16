@@ -44,16 +44,16 @@ Current exploratory practices: Cartograms: cont, non cont, (tilegrams, dorlings)
 Suggested uses of 
 -->
 
-Maps have been adopted to present geospatial statistics for centuries.
-Maps connect data and statistics to the geographical representation of areas that are generally familiar to the audience.
-However, it is not enough for areas on maps to be recognisable, if information regarding the distribution of the statistic cannot be gleaned.
-In situations where the people are of interest, not the land they live on, it is reasonable to explore views that enhance the communication of the cancer statistics.
-Identifying and explaining spatial structures, patterns, and processes involves considering the individuals in communities and organising communities into representable units [@SAMGIS]. 
-This has spurred innovations over the previous centuries to enhance the shapes and maps presented to effectively communicate cancer outcomes, and health outcomes more broadly.
+Geospatial statistics have been presented and stored on maps for centuries.
+Maps connect data for areas to the geographical representation which is usually familiar to the audience.
+However, it is not enough for areas on maps to be recognisable, the distribution of the statistic must also be visible.
 Cancer statistics directly represent and relate to the people living within individual geographical areas.
+It is reasonable to explore views that enhance the communication of the cancer statistics, especially as in these situations the people are of interest, not the land they live on. 
+This has spurred innovations over the previous centuries to enhance maps to effectively communicate cancer outcomes, and health outcomes more broadly.
+
 
 The visualisation methods used to present cancer statistics will depend on the intended message and users of the map. 
-Transforming statistics to visualisations considers individual observations or observation points aggregated into communities and geographical units.
+Presenting statistics as visualisations requires transforming individual observations into aggregations of communities as geographical units.
 Visualising diseases on maps is often the first step in exploratory spatial data analysis and effectively helps in the formulation of hypotheses [@MTMSIH]. 
 Disease maps help to present geographic patterns that may have been overlooked in a table, obscuring the geospatially related statistics [@SAMGIS].
 By providing a visual representation of cancer outcomes, geographic patterns of disease are able to be identified and effectively addressed.
@@ -63,16 +63,16 @@ By providing a visual representation of cancer outcomes, geographic patterns of 
 ## Current best practice map displays for cancer data
 
 <!-- what is a choropleth map -->
-A choropleth map is used to display the spatial characteritics of a relationship, or variability, of measurements. 
-As an alternative storage device to a table, it preserves locations for geographically ordered data, with usage dating back to the 1800s [@GOINO].
+A choropleth map is used to display the characteristics of a spatial relationship of measurements. 
+A choropleth map is a true map of the topology, constructed for visual inspection of spatial patterns on a familiar geographic form. 
+Figure 1 shows a choropleth map where each state of the United States of America is coloured by the average annual rate of new cases of lung and bronchus cancer from years 2012 to 2016.
+Identifying and explaining spatial structures, patterns, and processes involves considering the individuals in communities and organising communities into representable units [@SAMGIS]. 
 A choropleth is constructed by drawing the geographic or political boundaries, and filling the shapes with colours to represent values of a measured variable [@EI].
 Early versions of choropleth maps used symbols or patterns instead of colour.
-@CPISACA discusses their use in visualising cancer data, and @DMAHP gives an overview of the development of these maps for displaying disease data.
-Just as geographers are no longer the only creators of maps, @CPISACA suggests the audiences of spatial health data analysis have extended beyond researchers to the public, policymakers and the media.
-A choropleth map is a true map of the topology, constructed for visual inspection of spatial patterns across a familiar geographic form. 
-Figure 1 shows a choropleth map where each state of the United States of America is coloured by the average annual rate of new cases of lung and bronchus cancer from years 2012 to 2016.
+As an alternative storage device to a table, it preserves locations for geographically ordered data, with usage dating back to the 1800s [@GOINO].
+@CPISACA discuss the use of choropleths to visualise cancer data, and @DMAHP gives an overview of the development of these maps for displaying disease data.
 
-```{r choro, fig.cap = "A choropleth map of the United States of America.", echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width='80%'}
+```{r choro, fig.cap = "A choropleth map of the United States of America.", message=FALSE, warning=FALSE, fig.align='center', out.width='80%'}
 knitr::include_graphics("figures/ggchoro.png")
 ```
 
@@ -91,7 +91,6 @@ They are untrustworthy when interpretations of spatial association are needed; t
 <!-- Displaying of cancer data on choropleths -->
 Choropleth maps can be useful devices for communicating information to public on a familiar map base.
 A cancer atlas is a choropleth map, or collection of maps, representing cancer incidence and mortality for a country, or group of countries. 
-Choropleths consider the spatial structures and present information regarding the individuals, their communities and organization into larger units @SAMGIS.
 In epidemiology, choropleths are often used as a tool to study the spatial distribution of cancer incidence and mortality. 
 The data collection methods of cancer mortality rates across regions, and the administrative control within regions lends itself to choropleth visualisation. 
 @MACM provides the definition of a cancer atlas, beginning with Haviland's maps in 1875, they attribute UK cancer atlases to Howe (1963), and early work in US cancer atlases can be attributed to Burbank (1971).
@@ -141,71 +140,68 @@ Explores Australia as a case study, utilising QLD SA2 areas
 -->
 
 
-```{r chloropleth-grid-create, echo=FALSE, message=FALSE, eval = FALSE}
+```{r choropleth-grid-create, message=FALSE, eval = FALSE}
 library(grid)
 library(png)
 library(gridExtra)
 
-plot1 <- png::readPNG('cancer_map_images/chloropleths/1.png')
-plot2 <- png::readPNG('cancer_map_images/chloropleths/14.chloropleth1.png')
-plot3 <- png::readPNG('cancer_map_images/chloropleths/15.chloropleth.png')
-plot4 <- png::readPNG('cancer_map_images/chloropleths/3.chloropleth.png')
-plot5 <- png::readPNG('cancer_map_images/chloropleths/5.chloropleth.png')
-plot6 <- png::readPNG('cancer_map_images/chloropleths/6.chloropleth.png')
-plot6 <- png::readPNG('cancer_map_images/chloropleths/7.chloropleth.png')
-plot7 <- png::readPNG('cancer_map_images/chloropleths/8.chloropleth.png')
-plot8 <- png::readPNG('cancer_map_images/chloropleths/20.chloropleth1.png')
-plot9 <- png::readPNG('cancer_map_images/chloropleths/21.chloropleth2.png')
-plot10 <- png::readPNG('cancer_map_images/chloropleths/23.chloropleth.png')
-plot11 <- png::readPNG('cancer_map_images/chloropleths/24.chloropleth.png')
-plot12 <- png::readPNG('cancer_map_images/chloropleths/25.chloropleth.png')
-plot13 <- png::readPNG('cancer_map_images/chloropleths/26.chloropleth.png')
-plot14 <- png::readPNG('cancer_map_images/chloropleths/27.chloropleth.png')
-plot15 <- png::readPNG('cancer_map_images/chloropleths/29.chloropleth.png')
-plot16 <- png::readPNG('cancer_map_images/chloropleths/30.chloropleth.png')
+plot1 <- png::readPNG('cancer_map_images/choropleths/1.png')
+plot2 <- png::readPNG('cancer_map_images/choropleths/14.choropleth1.png')
+plot3 <- png::readPNG('cancer_map_images/choropleths/15.choropleth.png')
+plot4 <- png::readPNG('cancer_map_images/choropleths/3.choropleth.png')
+plot5 <- png::readPNG('cancer_map_images/choropleths/5.choropleth.png')
+plot6 <- png::readPNG('cancer_map_images/choropleths/6.choropleth.png')
+plot6 <- png::readPNG('cancer_map_images/choropleths/7.choropleth.png')
+plot7 <- png::readPNG('cancer_map_images/choropleths/8.choropleth.png')
+plot8 <- png::readPNG('cancer_map_images/choropleths/20.choropleth1.png')
+plot9 <- png::readPNG('cancer_map_images/choropleths/21.choropleth2.png')
+plot10 <- png::readPNG('cancer_map_images/choropleths/23.choropleth.png')
+plot11 <- png::readPNG('cancer_map_images/choropleths/24.choropleth.png')
+plot12 <- png::readPNG('cancer_map_images/choropleths/25.choropleth.png')
+plot13 <- png::readPNG('cancer_map_images/choropleths/26.choropleth.png')
+plot14 <- png::readPNG('cancer_map_images/choropleths/27.choropleth.png')
+plot15 <- png::readPNG('cancer_map_images/choropleths/29.choropleth.png')
+plot16 <- png::readPNG('cancer_map_images/choropleths/30.choropleth.png')
 
 
-chloropleth_grid <- gridExtra::grid.arrange(grid::rasterGrob(plot1),grid::rasterGrob(plot2), grid::rasterGrob(plot3), 
+choropleth_grid <- gridExtra::grid.arrange(grid::rasterGrob(plot1),grid::rasterGrob(plot2), grid::rasterGrob(plot3), 
                         grid::rasterGrob(plot4), grid::rasterGrob(plot5), grid::rasterGrob(plot6),
                         grid::rasterGrob(plot7), grid::rasterGrob(plot8), grid::rasterGrob(plot9),
                         grid::rasterGrob(plot10),grid::rasterGrob(plot11), grid::rasterGrob(plot12), 
                         grid::rasterGrob(plot13), grid::rasterGrob(plot14), grid::rasterGrob(plot15), 
                         grid::rasterGrob(plot16), nrow=4)
 
-
-ggsave(choropleth_grid, filename = "figures/choropleth_grid.png", device = "png", width = 12, height = 6)
+ggsave(filename = "figures/choropleth_grid.png", plot = choropleth_grid, device = "png", width = 12, height = 6, dpi = 300)
 ```
 
-```{r chloropleth-grid-print, echo = FALSE}
+```{r choropleth-grid-print, echo = FALSE, results = "asis"}
 knitr::include_graphics("figures/choropleth_grid.png")
 ```
 
 
 ### Supporting material in cancer atlases
 
-A map communicates quickly and draws attention to prominent geographies, but an atlas is often supplemented with supporting statistics. Cruickshank's (1947) as cited by @DMAHP, discusses using visuals as 'formal statistical assessment of the spatial pattern'. However, when presenting cancer atlases, @MACM believes the intuition derived must be 'validated by rigorous statistical analyses.'
-
-<!--
-'Where control of the message is important, static maps will continue to be the most effective, although good tables, graphs, and explanatory text are still needed in order to ensure that different people will see the same thing in the maps' @CPISACA
-
--->
-
-<!-- The supplementary statistics ??? -->
-These additional statistics often include a measure of the statistical uncertainty of the values of the statistics presented in a choropleth.
-In the review of atlases in the public domain, atlases were considered to report uncertainty to the non-expert user if they included a measure of statistical uncertainty either within or alongside the map. Maps that only reported this information within the supplementary material were not considered to have directly attempted to report uncertainty. The maps considered used standard and well known measures including credible intervals and standard deviation, statistical significance, box plots and distributions. These maps ranged from static pdfs or infographics, to interactive online resources.
-
-
-<!-- Presentation methods of supplementary statistics ??? -->
+A map communicates quickly and draws attention to prominent geographies, but an atlas is often supplemented with supporting statistics. Cruickshank's (1947) as cited by @DMAHP, discusses using visuals as 'formal statistical assessment of the spatial pattern'. However, when presenting cancer atlases, @MACM believes the intuition derived must be 'validated by rigorous statistical analyses.' @CPISACA suggests 'good tables, graphs, and explanatory text' support understanding and inference derived from maps will be consistent across a range of viewers. 
 The interactivity of the more modern maps enabled supplementary information to be incorporated without cluttering the screen, such as in a tool tip feature. 
 
+<!-- geographic hierarchies  -->
+
+<!-- statistical uncertainty -->
+These additional statistics often include a measure of the statistical uncertainty of the values of the statistics presented in a choropleth.
+In the review of atlases in the public domain, atlases were considered to report uncertainty to the non-expert user if they included a measure of statistical uncertainty either within or alongside the map. Maps that only reported this information within the supplementary material were not considered to have directly attempted to report uncertainty. The maps considered used standard and well known measures including credible intervals and standard deviation, statistical significance, box plots and distributions. The maps employing uncertainty ranged from static pdfs or infographics, to interactive online resources.
+
+<!-- demographics -->
+
+
+<!-- sex, race,  -->
 
 
 
 ## Publicly available atlases using choropleth methods
 
 Cancer maps are effective communication tools for a general or non-expert audience. They are commonly used in the public domain to communicate results of sophisticated statistical analyses.
-The heavy use of chloropleth maps within the research literature is reflected in the types of maps that are found in the public domain.
-A grey literature review conducted by (ref) identified 33 cancer atlases published on the internet between January 2010 and November 2015. These chloropleth maps were mostly published by non-commercial organisations, including not-for-profits (NFPs), government, research organisations, advocacy groups or a partnership between an NFP & government.
+The heavy use of choropleth maps within the research literature is reflected in the types of maps that are found in the public domain.
+A grey literature review conducted by (ref) identified 33 cancer atlases published on the internet between January 2010 and November 2015. These choropleth maps were mostly published by non-commercial organisations, including not-for-profits (NFPs), government, research organisations, advocacy groups or a partnership between an NFP & government.
 Only one map was published by a commercial entity. 
  
 <!-- geographic coverage-->
@@ -248,9 +244,7 @@ Table: (\#tab:method-exp) Implicit and explicit measures of uncertainty.
 
 <!-- What is a cartogram? -->
 A cartogram alters the map base with the intention of improving the presentation of the statistic of interest. For a single variable of interest, each map area is changed to emphasise the distribution by representing the corresponding value, in comparison to the value of the other areas [@ACCAC].
-
-
-
+The changes in the map base occur by altering individual areas, by altering the shapes or boundaries.
 
 
 <!-- There are many alternative views of the world-->
@@ -453,7 +447,7 @@ Compare amount of tiles to contrast population of regions.
 
 >"designing a map tailored to precise goals [is] easier than forcing a single map to accommodate diverse objectives" @CPISACA
 
-Waldo Tobler [-@TVSSS] explores many graphical techniques, and suggests there are particular methods for particular purposes. To choose an approporiate map display, the map creator must consider the intended user, and message the map will communicate.
+Waldo Tobler [-@TVSSS] explores many graphical techniques, and suggests there are particular methods for particular purposes. To choose an appropriate map display, the map creator must consider the intended user, and message the map will communicate.
 It is the objectives of the investigator that will drive the choice of representation [@CPISACA]. 
 
 There are two keys presented by @SAMGIS to drive the choice of display: 
@@ -497,7 +491,7 @@ Using e-Delphi to Evaluate the Pennsylvania Cancer Atlas - explains PCA and reas
 Commonly available tools to implement.
 -->
 @tidyerse for data analysis, @spData and @sf to implement plotting of spatial data.
-@sugarbag to create hexagon tesselation. @ggthemes to enhance plot displays.
+@sugarbag to create hexagon tessellation. @ggthemes to enhance plot displays.
 @cartogram for contiguous and non-contiguous cartogram displays.
 
 
