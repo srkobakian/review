@@ -83,10 +83,6 @@ While the areas are recognisable shapes, they are often politically driven bound
 The different population and geographical sizes of administrative areas can attract attention to the shades of the unpopulated but large areas [@EI]. 
 Choropleths can inhibit visual inference when presenting human related statistics as the display may draw attention from the 'potentially more important results in the more populous communities' [@SE]. 
 
-<!--
-They are untrustworthy when interpretations of spatial association are needed; there are both severe physiological and psychological constraints on our abilities to assess correlations of spatial distributions visually.
--->
-
 
 <!-- Displaying of cancer data on choropleths -->
 Choropleth maps can be useful devices for communicating information to public on a familiar map base.
@@ -96,15 +92,15 @@ The data collection methods of cancer mortality rates across regions, and the ad
 @MACM provides the definition of a cancer atlas, beginning with Haviland's maps in 1875, they attribute UK cancer atlases to Howe (1963), and early work in US cancer atlases can be attributed to Burbank (1971).
 The increasing development and use of disease maps can be attributed to the availability of geographic information system software [@SE].
 The choropleth maps presented levels via hatchings or dots on a black and white scale.
-These atlases were key to developing hypotheses regarding areas with unusually high rates, geographic correlations, work related exposures, and high risk diets @MACM.
+These atlases were key to developing hypotheses regarding areas with unusually high rates, geographic correlations, work related exposures, and high risk diets [@MACM].
 
 
 <!-- Measures reported in cancer atlases -->
 Almost 100 years of cancer mapping in the United States and the United Kingdom has seen increased effectiveness in the presentation cancer statistics.
 Mortality rates are now often presented as relative rates of risk across the population, and age adjusted to correct for the higher prevalence of cancers in older populations.
-Howe [-@HEDP] describes Stock's development of the standardised mortality ratios through the 1930s. Table \ref{measures} presents summarises the measures presented in published cancer atlases, and provides a definition of each measure.
+Howe [-@HEDP] describes Stock's development of the standardised mortality ratios through the 1930s. Table \ref{tab:measures} presents summarises the measures presented in published cancer atlases, and provides a definition of each measure.
 
-Table: \label{measures} Measures used to report cancer statistics
+Table: \label{tab:measures} Measures used to report cancer statistics
 
 |Measure |Details| 
 |:--------------------|:------------------------------------------------|  
@@ -171,7 +167,7 @@ choropleth_grid <- gridExtra::grid.arrange(grid::rasterGrob(plot1),grid::rasterG
                         grid::rasterGrob(plot13), grid::rasterGrob(plot14), grid::rasterGrob(plot15), 
                         grid::rasterGrob(plot16), nrow=4)
 
-ggsave(filename = "figures/choropleth_grid.png", plot = choropleth_grid, device = "png", width = 12, height = 6, dpi = 300)
+ggsave(filename = "figures/choropleth_grid.png", plot = choropleth_grid, device = "png", width = 6, height = 5, dpi = 300)
 ```
 
 ```{r choropleth-grid-print, echo = FALSE, results = "asis"}
