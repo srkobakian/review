@@ -72,7 +72,7 @@ Early versions of choropleth maps used symbols or patterns instead of colour.
 As an alternative storage device to a table, it preserves locations for geographically ordered data, with usage dating back to the 1800s [@GOINO].
 @CPISACA discuss the use of choropleths to visualise cancer data, and @DMAHP gives an overview of the development of these maps for displaying disease data.
 
-```{r choro, fig.cap = "A choropleth map of the United States of America.", message=FALSE, warning=FALSE, fig.align='center', out.width='80%'}
+```{r choro, fig.cap = "A choropleth map of the United States of America. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. The state of Utah has an unusually low rate of lung and bronchus incidence. The state of Kentucky is high, the surrounding states also have high rates. There is a pattern of average higher rates toward the East Coast and lower rates toward the West Coast.", message=FALSE, warning=FALSE, fig.align='center', out.width='80%'}
 knitr::include_graphics("figures/ggchoro.png")
 ```
 
@@ -252,6 +252,14 @@ Age groups,
 A cartogram alters the map base with the intention of improving the presentation of the statistic of interest. For a single variable of interest, each map area is changed to emphasise the distribution by representing the corresponding value, in comparison to the value of the other areas [@ACCAC].
 The changes in the map base occur by altering individual areas, by altering the shapes or boundaries.
 
+<!--
+
+'In Australia the urban federal constituencies occupy only a tenth of the land, but contain nine tenths of the people. It would be almost unthinkable to show election results for that country on a conventional equal land area map.'
+This 1966 cartogram uses mostly straight lines, and the result looks very little like the geographical shape of Australia.
+
+'Given the increasingly uneven population distribution of the United States and the growing social divides between the populations of neighbourhoods living at different densities, the need for cartograms like this is greater now than ever.'
+
+-->
 
 <!-- There are many alternative views of the world-->
 <!-- Tobler map projections-->
@@ -267,7 +275,9 @@ When a map base is transformed according to population density, population becom
 
 
 
-!["Choropleth maps of the United States of America using four coordinate reference systems."](figures/ggchoroCRS.png)
+```{r choroCRS, fig.cap = "Four choropleth maps of the United States of America using various coordinate reference systems. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. The map projections alter the shapes and angles of the boundaries of each state. Maps a and b are similar in their straight edges, unlike maps c and d which curve on the northern United States border. ", message=FALSE, warning=FALSE, fig.align='center', out.width='80%'}
+knitr::include_graphics("figures/ggchoroCRS.png")
+```
 
 <!-- Denominators -->
 If the statistic presented on the map base relies on physical distance and is influenced by the topology there is no transformation needed beyond choosing a projection. 
@@ -328,7 +338,10 @@ There are many alternatives to consider, the intended audience of the map, and i
 
 <!-- What is a contiguous cartogram -->
 
-!["A contiguous cartogram of the Unites States of America"](figures/ggcont.png)
+
+```{r ggcont, fig.cap = "A contiguous cartogram map of the United States of America. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. Each stated shape has been distorted according to the population of the state in 2015. The state of California has become much larger due to it's large population density. This draws attention to the densely populated North East region, and detracts from the Mid West.", message=FALSE, warning=FALSE, fig.align='center', out.width='80%'}
+knitr::include_graphics("figures/ggcont.png")
+```
 
 <!-- Intentionally preserve neighbours -->
 
@@ -386,14 +399,15 @@ constant shapes are easily recognized regardless of scale;
 Presenting an alternative view can help to correct interpretation of global statistics when some areas loom large on maps [@RSCW].
 -->
 
-!["A Non - contiguous cartogram of the Unites States of America"](figures/ggncont.png)
+
+```{r ggncont, fig.cap = "A Non - contiguous cartogram map of the United States of America. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. Each state shape has been maintained, but the size has altered according to the population of the state in 2015. The state of California has remained closer to it's original size than it's surrounding states. The North East states have remained closer to their geographical size, in the case of Massachusetts and Connecticut. This draws attention to the densely populated North East region, and the sparse Mid West.", message=FALSE, warning=FALSE, fig.align='center', out.width='80%'}
+knitr::include_graphics("figures/ggncont.png")
+```
 
 
-
-
-!["A dorling cartogram of the Unites States of America"](figures/ggdorl.png)
-
-
+```{r ggdorl, fig.cap = "A dorling cartogram of the Unites States of America. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. Each state has been represented by a circle, but the size was determined by the population of the state in 2015. The North East states remain closer to their neighbours, and may be displaced from their geographic location. The sparsity of the population in the Mid West is highlight by the distance between the circles, located at the geographic centroids.", message=FALSE, warning=FALSE, fig.align='center', out.width='80%'}
+knitr::include_graphics("figures/ggdorl.png")
+```
 
 
 
@@ -401,11 +415,11 @@ Dorling -@ACTUC puts forward a simple question:
 
 >"If, for instance, it is desirable that areas on a map have boundaries which are as simple as possible, why not draw the areas as simple shapes in the first place?"
 
-He answers this with his implementation of maps created with 'the simplest of all shapes'. While contiguous cartograms may be a 'more sophisticated' method, they produce 'very complex shapes'. Circular cartograms use the same shape for every region represented, and size them according to the statistic represented or the population for a base map.
+He answers this with his implementation of maps created with 'the simplest of all shapes'. While contiguous cartograms may be a 'more sophisticated' method, they produce 'very complex shapes'. Circular cartograms use the same simple shapes for every region represented, and size them according to the statistic represented or the population for a base map. This familar shape may be more effective that contiguous cartograms, as the shapes used have 'no meaning' after distortions are applied @NISCC.
 To produce a compelling map, a gravity model is applied to avoid overlaps, and keep spatial relationships with neighbouring areas over many iterations. This implementation can work for up to 'one hundred thousand' areas.
 
+
 <!--
--simple shapes of the circle, square, and triangle are relatively easily recognized.
 -sacrifice communication efficiency;
 -There is evidence, too, that angular shapes are more easily seen than ones with smooth outlines. Shapes that contain the qualities of simplicity and regularity are more readily perceived than others that do not possess these qualities.
 -Finally, psychologists tell us that shapes having familiarity are more quickly
@@ -413,22 +427,11 @@ recognized than nonsense shapes or those that have no meaning.
 -The cartographer can efficiently communicate with this kind of map if he has preserved particular elements of the original outline and incorporated them in the new shape.
 -
 @NISCC 
+
+
+
 -->
 
-
-
-'In Australia the urban federal constituencies occupy only a tenth of the land, but contain nine tenths of the people. It would be almost unthinkable to show election results for that country on a conventional equal land area map.'
-This 1966 cartogram uses mostly straight lines, and the result looks very little like the geographical shape of Australia.
-
-'Given the increasingly uneven population distribution of the United States and the growing social divides between the populations of neighbourhoods living at different densities, the need for cartograms like this is greater now than ever.'
-
-
-
-
-Used in displays of the UK by Howe in 1986 cited by @HEDP
-<!--
-# Temporal displays
--->
 
  
 Tobler's method and the many implementations that 'elaborated' on it are derived from 'numerical approximations to a pair of equations'[@ACTUC]. They all operate through incremental adjustments, and can produce wildly different outcomes from small changes in the inputs.
