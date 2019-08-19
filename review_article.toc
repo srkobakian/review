@@ -7,7 +7,8 @@
 \contentsline {subsection}{\numberline {2.3}Cartograms as an alternative display}{6}{subsection.2.3}% 
 \contentsline {subsubsection}{\numberline {2.3.1}Contiguous}{8}{subsubsection.2.3.1}% 
 \contentsline {subsubsection}{\numberline {2.3.2}Non-Contiguous}{9}{subsubsection.2.3.2}% 
+\contentsline {subsubsection}{\numberline {2.3.3}Dorling}{9}{subsubsection.2.3.3}% 
 \contentsline {section}{\numberline {3}A critique of mapping methods}{11}{section.3}% 
 \contentsline {section}{\numberline {4}Animation and Interactivity}{11}{section.4}% 
-\contentsline {section}{\numberline {5}Acknowledgements}{11}{section.5}% 
-\contentsline {section}{\numberline {6}References}{11}{section.6}% 
+\contentsline {section}{\numberline {5}Acknowledgements}{12}{section.5}% 
+\contentsline {section}{\numberline {6}References}{12}{section.6}% 
