@@ -177,25 +177,25 @@ knitr::include_graphics("figures/choropleth_grid.png")
 
 ### Supporting material in cancer atlases
 
-The presentation of indicators in atlases can also be in found in bars, tables and scatterplots. This is a useful alternative display, it is not the only additional display as an atlas is often supplemented with supporting statistics. When presenting cancer atlases, @MACM believes the intuition derived from maps must be 'validated by rigorous statistical analyses.' This opinion contradicts Cruickshank's (1947) as cited by @DMAHP, which discusses using visuals as 'formal statistical assessment of the spatial pattern'. @CPISACA suggests additional materials such as 'good tables, graphs, and explanatory text' support understanding and inference derived from maps, ensuring the message communicated will be consistent across a range of viewers. 
+The primary display of an atlas is often the choropleth map. The presentation of materials in atlases can also utilise bar charts, tables and scatterplots, these are useful alternative displays. They are not only used as an additional display for the cancer incidence and mortality rates, as an atlas is often supplemented with supporting statistics. When presenting cancer atlases, @MACM believes the intuition derived from maps must be 'validated by rigorous statistical analyses.' This opinion contradicts Cruickshank's (1947) as cited by @DMAHP, which discusses using visuals as 'formal statistical assessment of the spatial pattern'. @CPISACA suggests additional materials such as 'good tables, graphs, and explanatory text' support understanding and inference derived from maps, ensuring the message communicated will be consistent across a range of viewers. 
 The interactivity of the more modern maps enabled supplementary information to be incorporated without cluttering the screen, such as in a tool tip feature. 
 
 <!-- geographic hierarchies  -->
-While atlases are often used to describe differences between areas, the may allow statistics to be displayed at different levels of aggregation. World atlases can allow for displays of data aggregated into continents, country, states or provinces [@IARC_3].
+Cancer atlases are often used to describe differences between areas, they may allow statistics to be displayed at different levels of aggregation. World atlases can allow for displays of data aggregated into continents, country, states or provinces [@IARC_3].
 
 <!-- population distribution -->
-It is likely that each population area will have a different amount of people, information regarding the distribution of population levels may be provided in a table or histogram display [@NICR_1]. Atlases could also connect the population to the land available to them by communicating population density.
+It is likely that each population area will have a different amount of people, information regarding the distribution of population levels may be provided in a table or histogram display [@NICR_1]. Atlases could also connect the population to the land available to them by communicating population density as is shown in the United States map examples.
 
 <!-- demographics: sex, race,  -->
 
 <!-- statistical uncertainty -->
-These additional statistics often include a measure of the statistical uncertainty of the values of the statistics presented in a choropleth.
+The additional statistics often also include a measure of the statistical uncertainty of the cancer statistics presented in a choropleths. <!-- reference Aus cancer atlas DMAQ?-->
 
 
 <!-- Socioeconomic Indicators -->
 There may also be demographic information provided regarding each population area drawn on the maps.
 This information could include a socioeconomic indicators such as unemployment, education level attained.
-The areas may be ranked and the statistics could be presented as categories describing the ranking.
+The areas are usually ranked and allocated to quintiles to be presented as categories describing the ranking.
 
 
 
@@ -217,6 +217,7 @@ The atlases are not only maps. Many provide additional information to help users
 These additional pieces of information can help to validate, explain or explore relationships between cancer incidence and survival rates.
 
 Table: \label{tab:supporting-stats} Supporting statistics in public facing atlases
+
 | Atlas                    | Geographic hierarchies | Population Distributions | Demographics | Statistical Uncertainty | Socioeconomic Indicators |
 |--------------------------|------------------------|--------------------------|--------------|-------------------------|--------------------------|
 | All Ireland Cancer Atlas |                        |                          |              |                         |                          |
