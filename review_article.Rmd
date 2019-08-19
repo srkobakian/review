@@ -57,6 +57,8 @@ Presenting statistics as visualisations requires transforming individual observa
 Visualising diseases on maps is often the first step in exploratory spatial data analysis and effectively helps in the formulation of hypotheses [@MTMSIH]. 
 Disease maps help to present geographic patterns that may have been overlooked in a table, obscuring the geospatially related statistics [@SAMGIS].
 By providing a visual representation of cancer outcomes, geographic patterns of disease are able to be identified and effectively addressed.
+@SE recognises one of the key challenges with mapping spatial patterns of disease is the design of visualisations.
+This paper addresses the visualisation techniques and their applications to cancer statistics. Highlighting the differences and historic use of these displays.
 
 # Disease mapping methods
 
@@ -115,24 +117,32 @@ Table: \label{tab:measures} Measures used to report cancer statistics
 |6. Age Adjusted Rate per 100,000| #5 standardised by age structure or region|   
 |7. New cancer cases per 100,000|Specific methods could not be found|   
 |8. Count|Crude cancer counts|  
-|9. Below or above Expected|Alternative expression of the SIR|   
+|9. Below or above Expected|Alternative expression of the SIR|
+
 
 <!-- Cancer atlas literature -->
 
+The atlas of Cancer in Queensland [@DACQ] focussed on highlighting the difference in experience for those living in rural and disadvantaged areas. They used Standardised Incidence Ratios modelled via Bayesian methods, and explored the information presented in a range of selected atlases. These atlases provided Incidence, Survival and Mortality rates to the public on Areal or Isopleth map bases.
+
+The presentation of these rates considered not only the map base, but also appropriate choices of colour blind friendly colour schemes, and categories of the values to highlight signifcantly different areas.
 <!--
 
 Examples of atlases:
 Kraak 1998, Kraak and Ormeling 2011
 Bertin 1967
+Coleman MP, Gatta G, Verdecchia A, Esteve J, Sant M, Storm H, Allemani C,Ciccolallo L, Santaquilani M, Berrino F:EUROCARE-3 summary: cancersurvival in Europe at the end of the 20th century.Ann Oncol2003,14(Suppl 5):v128-149
 
+National Cancer Institute:Cancer Trends Progress Report - 2009/2010 UpdateBethesda: NCI, NIH, DHHS; 2010
 
-Current atlases utilising choropleth methods 
-- include Australia: 
+Pickle LW:A history and critique of U.S. mortality atlases.Spatial andSpatio-temporal Epidemiology2009,1:3-17.
 
-cites: Cancer Mortality Atlas of EU and of the European Economic Area last published 8 years ago
-@MTMSIH Bayesian disease mapping methods for areal data - explains key concepts applied to create an atlas
-Explores Australia as a case study, utilising QLD SA2 areas
+Mason TJ, McKay FW, Hoover R, Blot WJ, Fraumeni JF:Atlas of cancermortality for U.S. counties: 1950-1969Washington: U.S. Govt. Printing Office;1975.
+howmick T, Robinson AC, Gruver A, MacEachren AM, Lengerich EJ:Distributed usability evaluation of the Pennsylvania Cancer Atlas.Int JHealth Geogr2008,7:36.
 
+Queensland Cancer Registry:Cancer in Queensland: Incidence, Mortality,Survival and Prevalence,1982 to 2007Brisbane: QCR, Cancer CouncilQueensland and Queensland Health; 2010.
+
+New York State Department of Health Maps of Cancer Incidence byCounty.[http://www.health.state.ny.us/statistics/cancer/registry/cntymaps/index.htm].
+Quinn M, Wood H, Cooper N, Rowan S, Eds:Cancer Atlas of the UnitedKingdom and Ireland 1991-2000.London: Office for National Statistics;2005.
 -->
 
 
@@ -319,17 +329,15 @@ An intentional goal when creating the 1966 Census population cartogram for Canad
 
 
 To be able to recognise the significant changes, a reader will usually have to know the initial geography to find the differences in the new cartogram layout [@NAC]. Tobler's Conformal mapping means to preserve angles
-locally so that the shapes of very small areas on a traditional map and a cartogram would be similar.
-@CBATCC presents this issue as conflicting tasks or aims, to adjust region sizes and retain region shapes. Distortion of region shapes on the contiguous cartogram presents an additional hurdle to visual recognition and this hurdle is not only eliminated on the noncontiguous cartogram but is replaced by the meaningful empty-space property [@NAC, @ECGC].
+locally so that the shapes of small areas on a traditional map and a cartogram would be similar.
+@CBATCC presents this issue as conflicting tasks or aims, to adjust region sizes and retain region shapes. 
+@MDAC define the term 'mosaic cartograms' for hexagonal tile displays, where the amount of tiles for each area can be used to communicate the statistic of regions. 
+The complexity of the boundaries can be adjusted in the resulting display, as the size of the tiles used allows a trade-off be made between boundary complexity and simplicity.
+
 
 <!--
-
- 
 Tobler's method and the many implementations that 'elaborated' on it are derived from 'numerical approximations to a pair of equations'[@ACTUC]. They all operate through incremental adjustments, and can produce wildly different outcomes from small changes in the inputs.
  
-@TFYCC Value-Area Cartograms. In these cartograms a region,country, or continent is subdivided into small regions, each of which is represented by a rectangle. This rectangle is proportionate in area to the value which it represents in certain statistical distributions. The regions are grouped in approximately the same positions as they are on the map.
-
-
 Computer generated map examples:  @HEDP
 (Hopps et al. 1968; Armstrong 1972). There
 has followed a flood of disease atlases, mainly concentrating on the modem problems of cancer and degenerative diseases from countries as scattered as the United States (Burbank 1971; Mason et al. 1975, 1976; Pickle et al. 1987), the Soviet Union (Levin 1980), Japan (Shigematsu 1977), the Federal Republic of Germany
@@ -341,6 +349,7 @@ has followed a flood of disease atlases, mainly concentrating on the modem probl
 Non-Contiguous cartograms succeed in maintaing the shape of the areas presented.
 Each area stays in a similar position to their location on a choropleth map. The choropleth map base is often also plotted as a comparison point to highlight the change in area. The addition is the gap between areas, created as each individual area shrinks or grows according the associated value of the statistic. @NAC discusses creation of these maps, the significance of the empty areas left between the geographic boundaries and the new shape, and the 'degree of difference from the original map that is the real message' of these displays.
 
+As the trade-off regarding boundaries approaches simplicity, the distortion of region shapes on the contiguous cartogram presents an additional hurdle to visual recognition and this hurdle is not only eliminated on the noncontiguous cartogram but is replaced by the meaningful empty-space property [@NAC, @ECGC].
 The shapes are valuable for recognition and allows users to orient themselves on the display. Map creators can efficiently communicate with this kind of map by keeping the outlines or particular elements of the original in the new shape [@NISCC].
 The scale of the areas does not impact on the shape recognition. However it may impact on the visibility of all areas if small areas expand beyond their boundaries.
 
@@ -349,7 +358,7 @@ The scale of the areas does not impact on the shape recognition. However it may 
 knitr::include_graphics("figures/ggncont.png")
 ```
 
-### Dorling
+### Alternative Displays
 
 Daniel Dorling presented an alternative to highlight the spatial distribution and neighbourhood relationships without complex distortions of borders and boundaries. This approach opposes preserving the intricate shape details.
 This concept is founded in the simple question put forward by Daniel Dorling -@ACTUC:
@@ -364,15 +373,9 @@ To produce a compelling map, a gravity model is applied to avoid overlaps, and k
 knitr::include_graphics("figures/ggdorl.png")
 ```
 
-### Alternative displays
+The groundwork for the simplistic approach had been laid in the mid 1930's be Raisz. @TFYCC quotes the official definition of Value-Area Cartograms, the simplistic displays which represent each area as a single rectangle, sized according to the value of the statistic.
+This rectangluar display also allows for tiling, where geographic neighbours also share rectangle borders. 
 
-Original value by area cartograms, especially the tile method, laid the foundation for the modern alternative displays.
-
-
-
-@MDAC define the term 'mosaic cartograms'. 
-Compare amount of tiles to contrast population of regions.
-'Cartograms show a data value per input region by scaling each region such that its area is proportional to its data value. Mosaic cartograms show data in multiples of tiles, hence the input data must consist of, or be cast into, small integer units.'
 
 
 # A critique of mapping methods
@@ -453,13 +456,5 @@ assuming that neighbouring μi are correlated leads to a ‘clustering’ prior
 
 
 <!--
-@SE Researchers mapping spatial patterns of disease
-for small areas are confronted with a number of
-challenges, including cartographic design, the
-modifiable area unit problem, and also the “small
-number” problem, where some places have no,
-or few, disease events and/or a low population at
-risk of contracting the disease.
-
 -->
 
