@@ -177,19 +177,26 @@ knitr::include_graphics("figures/choropleth_grid.png")
 
 ### Supporting material in cancer atlases
 
-A map communicates quickly and draws attention to prominent geographies, but an atlas is often supplemented with supporting statistics. Cruickshank's (1947) as cited by @DMAHP, discusses using visuals as 'formal statistical assessment of the spatial pattern'. However, when presenting cancer atlases, @MACM believes the intuition derived must be 'validated by rigorous statistical analyses.' @CPISACA suggests 'good tables, graphs, and explanatory text' support understanding and inference derived from maps will be consistent across a range of viewers. 
+The presentation of indicators in atlases can also be in found in bars, tables and scatterplots. This is a useful alternative display, it is not the only additional display as an atlas is often supplemented with supporting statistics. When presenting cancer atlases, @MACM believes the intuition derived from maps must be 'validated by rigorous statistical analyses.' This opinion contradicts Cruickshank's (1947) as cited by @DMAHP, which discusses using visuals as 'formal statistical assessment of the spatial pattern'. @CPISACA suggests additional materials such as 'good tables, graphs, and explanatory text' support understanding and inference derived from maps, ensuring the message communicated will be consistent across a range of viewers. 
 The interactivity of the more modern maps enabled supplementary information to be incorporated without cluttering the screen, such as in a tool tip feature. 
 
 <!-- geographic hierarchies  -->
+While atlases are often used to describe differences between areas, the may allow statistics to be displayed at different levels of aggregation. World atlases can allow for displays of data aggregated into continents, country, states or provinces [@IARC_3].
+
+<!-- population distribution -->
+It is likely that each population area will have a different amount of people, information regarding the distribution of population levels may be provided in a table or histogram display [@NICR_1]. Atlases could also connect the population to the land available to them by communicating population density.
+
+<!-- demographics: sex, race,  -->
 
 <!-- statistical uncertainty -->
 These additional statistics often include a measure of the statistical uncertainty of the values of the statistics presented in a choropleth.
-In the review of atlases in the public domain, atlases were considered to report uncertainty to the non-expert user if they included a measure of statistical uncertainty either within or alongside the map. Maps that only reported this information within the supplementary material were not considered to have directly attempted to report uncertainty. The maps considered used standard and well known measures including credible intervals and standard deviation, statistical significance, box plots and distributions. The maps employing uncertainty ranged from static pdfs or infographics, to interactive online resources.
-
-<!-- demographics -->
 
 
-<!-- sex, race,  -->
+<!-- Socioeconomic Indicators -->
+There may also be demographic information provided regarding each population area drawn on the maps.
+This information could include a socioeconomic indicators such as unemployment, education level attained.
+The areas may be ranked and the statistics could be presented as categories describing the ranking.
+
 
 
 
@@ -206,34 +213,37 @@ Not all maps had a national focus and ten covered a region or state rather than 
 
 ### Examples of supporting statistics in public facing atlases
 
+The atlases are not only maps. Many provide additional information to help users understand and interpret the spatial distribution. Table \ref{tab:supporting-stats} explores the use of these supports in a variety of online map sources. Demographics include information regarding the age and sex distribution of the areas presented. Socioeconomic indicators include Unemployment rates of regions, Remoteness and Education levels achieved. Statistical uncertainty is communicated through a Confidence (CI) interval, statistical significance levels, Boxplots, Distribution plots, and reporting the Sample Size and Standard Deviations.
+These additional pieces of information can help to validate, explain or explore relationships between cancer incidence and survival rates.
+
+Table: \label{tab:supporting-stats} Supporting statistics in public facing atlases
+| Atlas                    | Geographic hierarchies | Population Distributions | Demographics | Statistical Uncertainty | Socioeconomic Indicators |
+|--------------------------|------------------------|--------------------------|--------------|-------------------------|--------------------------|
+| All Ireland Cancer Atlas |                        |                          |              |                         |                          |
+|                          |                        |                          |              |                         |                          |
+|                          |                        |                          |              |                         |                          |
+
+<!-- geographic hierarchies  -->
+While atlases are often used to describe differences between areas, the may allow statistics to be displayed at different levels of aggregation. World atlases can allow for displays of data aggregated into continents, country, states or provinces [@IARC_3].
+
+<!-- population distribution -->
+It is likely that each population area will have a different amount of people, information regarding the distribution of population levels may be provided in a table or histogram display [@NICR_1]. Atlases could also connect the population to the land available to them by communicating population density.
+
+
+<!-- statistical uncertainty -->
+These additional statistics often include a measure of the statistical uncertainty of the values of the statistics presented in a choropleth.
+In the review of atlases in the public domain, atlases were considered to report uncertainty to the non-expert user if they included a measure of statistical uncertainty either within or alongside the map. The maps considered used standard and well known measures including credible intervals and standard deviation, statistical significance, box plots and distributions. The maps employing uncertainty ranged from static pdfs or infographics, to interactive online resources.
 Close to half of the atlases identified (42%, n=14) included some measure of uncertainty. The most common measure used to represent uncertainty were credible or confidence intervals (CIs).
-Methods for representing sources of uncertainty information can be visualised or communicated in different ways, examples identified through this grey literature review are listed below. 
 
-<!--
-Create a table:
-cofactors: Greater capital city regions, states, socio demographic status, Remoteness
+<!-- Demographics -->
+Age groups, 
 
-
-Supplementary stats
-stat        | Literature examples | Public atlas examples
-uncertainty |      ...            |    ...
-co factor(1)|      ...            |    ...
-co factor(2)|      ...            |    ...
--->
+<!-- Socioeconomic Indicators -->
 
 
 
 
-Table: (\#tab:method-exp) Implicit and explicit measures of uncertainty.
 
-|Measure | Example | 
-|:-------------------------|:-------------------------------------------|
-|CI Interval |Figures 3.1, 3.2, 3.3|
-|Statistical Significance|Textured overlay on top of coloured regions used to indicate statistical significance|
-|Distribution|Figure 3.4|
-|Boxplots|Figures 3.4, 3.5|
-|Sample Size|Textured overlay or lack of colour on a region, was used to show regions with small sample size|
-|Standard deviation |Figure 3.6 - the second map in the bottom right corner shows standard deviation|
 
 
 ## Cartograms as an alternative display
