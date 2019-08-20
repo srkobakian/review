@@ -196,7 +196,7 @@ choropleth_grid <- gridExtra::grid.arrange(
   grid::rasterGrob(plot10),
   grid::rasterGrob(plot11), 
   grid::rasterGrob(plot12),
-  grid::rasterGrob(plot13), 
+  #grid::rasterGrob(plot13), 
   grid::rasterGrob(plot14), 
   grid::rasterGrob(plot15),
   grid::rasterGrob(plot16),
