@@ -53,14 +53,23 @@ This has spurred innovations over the previous centuries to enhance maps to effe
 
 
 The visualisation methods used to present cancer statistics will depend on the intended message and users of the map. 
+<<<<<<< Updated upstream
 Presenting statistics as visualisations requires transforming individual observations into aggregations of communities as geographical units.
 Visualising diseases on maps is often the first step in exploratory spatial data analysis and effectively helps in the formulation of hypotheses [@MTMSIH]. 
 Disease maps help to present geographic patterns that may have been overlooked in a table, obscuring the geospatially related statistics [@SAMGIS].
 By providing a visual representation of cancer outcomes, geographic patterns of disease are able to be identified and effectively addressed.
 @SE recognises one of the key challenges with mapping spatial patterns of disease is the design of visualisations.
 This paper addresses the visualisation techniques and their applications to cancer statistics. Highlighting the differences and historic use of these displays.
+=======
+Transforming statistics to visualisations takes advantage of the human visual system, which has been demonstrated to an effective communication channel for a wide range of audiences (insert munzer reference). Visualising cancer statistics enables the non-expert audience to access the outputs of complicated spatial epidemeaological analyses. These visualisation show individual observations, or observation points, aggregated into communities and geographical units.
+Visualising diseases on maps is often the first step in exploratory spatial data analysis and effectively helps in the formulation of hypotheses [@MTMSIH]. 
+Disease maps help to present geographic patterns that may have been overlooked in a table, obscuring the geospatially related statistics [@SAMGIS].
+By providing a visual representation of cancer statistics, geographic patterns of disease are able to be identified, nvestigated further and/or effectively addressed.
+
+>>>>>>> Stashed changes
 
 # Disease mapping methods
+<!-- insert paragraph summarising/ stating the different types of maps used for cancer mapping. --->
 
 ## Current best practice map displays for cancer data
 
@@ -71,8 +80,15 @@ Figure 1 shows a choropleth map where each state of the United States of America
 Identifying and explaining spatial structures, patterns, and processes involves considering the individuals in communities and organising communities into representable units [@SAMGIS]. 
 A choropleth is constructed by drawing the geographic or political boundaries, and filling the shapes with colours to represent values of a measured variable [@EI].
 Early versions of choropleth maps used symbols or patterns instead of colour.
+<<<<<<< Updated upstream
 As an alternative storage device to a table, it preserves locations for geographically ordered data, with usage dating back to the 1800s [@GOINO].
 @CPISACA discuss the use of choropleths to visualise cancer data, and @DMAHP gives an overview of the development of these maps for displaying disease data.
+=======
+@CPISACA discusses their use in visualising cancer data, and @DMAHP gives an overview of the development of these maps for displaying disease data.
+Just as geographers are no longer the only creators of maps, @CPISACA suggests the audiences of spatial health data analysis have extended beyond researchers to the public, policymakers and the media. As such, many examples of choropleth maps are found on the websites of government, media, health and other public facing organisations (insert ref for Jessie's grey lit review).
+A choropleth map is a true map of the topology, constructed for visual inspection of spatial patterns across a familiar geographic form. 
+Figure 1 shows a choropleth map where each state of the United States of America is coloured by the average annual rate of new cases of lung and bronchus cancer from years 2012 to 2016.
+>>>>>>> Stashed changes
 
 ```{r choro, fig.cap = "A choropleth map of the United States of America. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. The state of Utah has an unusually low rate of lung and bronchus incidence. The state of Kentucky is high, the surrounding states also have high rates. There is a pattern of average higher rates toward the East Coast and lower rates toward the West Coast.", message=FALSE, warning=FALSE, fig.align='center', out.width='80%'}
 knitr::include_graphics("figures/ggchoro.png")
@@ -100,7 +116,11 @@ These atlases were key to developing hypotheses regarding areas with unusually h
 <!-- Measures reported in cancer atlases -->
 Almost 100 years of cancer mapping in the United States and the United Kingdom has seen increased effectiveness in the presentation cancer statistics.
 Mortality rates are now often presented as relative rates of risk across the population, and age adjusted to correct for the higher prevalence of cancers in older populations.
+<<<<<<< Updated upstream
 Howe [-@HEDP] describes Stock's development of the standardised mortality ratios through the 1930s. Table \ref{tab:measures} presents summarises the measures presented in published cancer atlases, and provides a definition of each measure.
+=======
+Howe [-@HEDP] describes Stock's development of the standardised mortality ratios through the 1930s. Table \ref{measures} summarises the measures presented in published cancer atlases, between 2005 and 2015 and provides a definition of each measure.
+>>>>>>> Stashed changes
 
 Table: \label{tab:measures} Measures used to report cancer statistics
 
@@ -146,41 +166,66 @@ Quinn M, Wood H, Cooper N, Rowan S, Eds:Cancer Atlas of the UnitedKingdom and Ir
 -->
 
 
+<<<<<<< Updated upstream
 ```{r choropleth-grid-create, message=FALSE, eval = FALSE}
+=======
+```{r choropleth-grid-create, echo=FALSE, message=FALSE, eval = FALSE,}
+>>>>>>> Stashed changes
 library(grid)
 library(png)
 library(gridExtra)
 
-plot1 <- png::readPNG('cancer_map_images/choropleths/1.png')
-plot2 <- png::readPNG('cancer_map_images/choropleths/14.choropleth1.png')
-plot3 <- png::readPNG('cancer_map_images/choropleths/15.choropleth.png')
-plot4 <- png::readPNG('cancer_map_images/choropleths/3.choropleth.png')
-plot5 <- png::readPNG('cancer_map_images/choropleths/5.choropleth.png')
+plot1 <- png::readPNG('cancer_map_images/choropleths/15.choropleth.png')
+plot2 <- png::readPNG('cancer_map_images/choropleths/25.choropleth.png')
+plot3 <- png::readPNG('cancer_map_images/choropleths/1.png')
+plot4 <- png::readPNG('cancer_map_images/choropleths/29.choropleth.png')
+plot5 <- png::readPNG('cancer_map_images/choropleths/30.choropleth.png')
 plot6 <- png::readPNG('cancer_map_images/choropleths/6.choropleth.png')
-plot6 <- png::readPNG('cancer_map_images/choropleths/7.choropleth.png')
-plot7 <- png::readPNG('cancer_map_images/choropleths/8.choropleth.png')
+plot7 <- png::readPNG('cancer_map_images/choropleths/8.choropleth2.png')
 plot8 <- png::readPNG('cancer_map_images/choropleths/20.choropleth1.png')
-plot9 <- png::readPNG('cancer_map_images/choropleths/21.choropleth2.png')
+plot9 <- png::readPNG('cancer_map_images/choropleths/7.choropleth.png')
 plot10 <- png::readPNG('cancer_map_images/choropleths/23.choropleth.png')
 plot11 <- png::readPNG('cancer_map_images/choropleths/24.choropleth.png')
-plot12 <- png::readPNG('cancer_map_images/choropleths/25.choropleth.png')
+plot12 <- png::readPNG('cancer_map_images/choropleths/14.choropleth1.png')
 plot13 <- png::readPNG('cancer_map_images/choropleths/26.choropleth.png')
 plot14 <- png::readPNG('cancer_map_images/choropleths/27.choropleth.png')
-plot15 <- png::readPNG('cancer_map_images/choropleths/29.choropleth.png')
-plot16 <- png::readPNG('cancer_map_images/choropleths/30.choropleth.png')
+plot15 <- png::readPNG('cancer_map_images/choropleths/21.choropleth2.png')
+plot16 <- png::readPNG('cancer_map_images/choropleths/3.choropleth.png')
+plot17 <- png::readPNG('cancer_map_images/choropleths/5.choropleth.png')
 
 
-choropleth_grid <- gridExtra::grid.arrange(grid::rasterGrob(plot1),grid::rasterGrob(plot2), grid::rasterGrob(plot3), 
-                        grid::rasterGrob(plot4), grid::rasterGrob(plot5), grid::rasterGrob(plot6),
-                        grid::rasterGrob(plot7), grid::rasterGrob(plot8), grid::rasterGrob(plot9),
-                        grid::rasterGrob(plot10),grid::rasterGrob(plot11), grid::rasterGrob(plot12), 
-                        grid::rasterGrob(plot13), grid::rasterGrob(plot14), grid::rasterGrob(plot15), 
-                        grid::rasterGrob(plot16), nrow=4)
+choropleth_grid <- gridExtra::grid.arrange(
+  grid::rasterGrob(plot1), 
+  grid::rasterGrob(plot2), 
+  grid::rasterGrob(plot3), 
+  grid::rasterGrob(plot4), 
+  grid::rasterGrob(plot5), 
+  grid::rasterGrob(plot6),
+  grid::rasterGrob(plot7), 
+  grid::rasterGrob(plot8), 
+  grid::rasterGrob(plot9),
+  grid::rasterGrob(plot10),
+  grid::rasterGrob(plot11), 
+  grid::rasterGrob(plot12),
+  grid::rasterGrob(plot13), 
+  grid::rasterGrob(plot14), 
+  grid::rasterGrob(plot15),
+  grid::rasterGrob(plot16),
+  grid::rasterGrob(plot17))
 
+<<<<<<< Updated upstream
 ggsave(filename = "figures/choropleth_grid.png", plot = choropleth_grid, device = "png", width = 6, height = 5, dpi = 300)
 ```
 
 ```{r choropleth-grid-print, echo = FALSE, results = "asis"}
+=======
+
+ggsave(choropleth_grid, filename = "figures/choropleth_grid.png", device = "png", width = 12, height = 6)
+
+```
+
+```{r choropleth-grid-print, echo = FALSE, out.width= '100%', fig.cap = "Example choropleth cancer map images (ref)"}
+>>>>>>> Stashed changes
 knitr::include_graphics("figures/choropleth_grid.png")
 ```
 
