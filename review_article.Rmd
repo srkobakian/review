@@ -67,7 +67,7 @@ This paper addresses the visualisation techniques and their applications to canc
 <!-- what is a choropleth map -->
 A choropleth map is used to display the characteristics of a spatial relationship of measurements. 
 A choropleth map is a true map of the topology, constructed for visual inspection of spatial patterns on a familiar geographic form. 
-Figure \ref{fig:choro} shows a choropleth map where each state of the United States of America is coloured by the average annual rate of new cases of lung and bronchus cancer from years 2012 to 2016.
+\ref{fig:choro} 1 shows a choropleth map where each state of the United States of America is coloured by the average annual rate of new cases of lung and bronchus cancer from years 2012 to 2016.
 Identifying and explaining spatial structures, patterns, and processes involves considering the individuals in communities and organising communities into representable units [@SAMGIS]. 
 A choropleth is constructed by drawing the geographic or political boundaries, and filling the shapes with colours to represent values of a measured variable [@EI].
 Early versions of choropleth maps used symbols or patterns instead of colour.
@@ -125,8 +125,6 @@ Table: \label{tab:measures} Measures used to report cancer statistics
 The atlas of Cancer in Queensland [@DACQ] focussed on highlighting the difference in experience for those living in rural and disadvantaged areas. They used Standardised Incidence Ratios modelled via Bayesian methods, and explored the information presented in a range of selected atlases. These atlases provided Incidence, Survival and Mortality rates to the public on Areal or Isopleth map bases.
 
 The presentation of these rates considered not only the map base, but also appropriate choices of colour blind friendly colour schemes, and categories of the values to highlight signifcantly different areas.
-
-
 <!--
 
 Examples of atlases:
@@ -225,36 +223,38 @@ Not all maps had a national focus and ten covered a region or state rather than 
 
 ### Examples of supporting statistics in public facing atlases
 
-The atlases provided additional information to help users understand and interpret the spatial distribution presented. Table \ref{tab:supporting-stats} explores the use of these supports in a variety of online map sources. Demographics include information regarding the age and sex distribution of the areas presented. Socioeconomic indicators include Unemployment rates of regions, Remoteness and Education levels achieved. Statistical uncertainty is communicated through a Confidence (CI) interval, statistical significance levels, Boxplots, Distribution plots, and reporting the Sample Size and Standard Deviations.
+The atlases provided additional information to help users understand and interpret the spatial distribution presented. The use of these supports were found in a variety of online map sources.
 These additional pieces of information can help to validate, explain or explore relationships between cancer incidence and survival rates.
 
-Table: \label{tab:supporting-stats} Supporting statistics in public facing atlases
-
-| Atlas                    | Geographic hierarchies | Population Distributions | Demographics | Statistical Uncertainty | Socioeconomic Indicators |
-|--------------------------|------------------------|--------------------------|--------------|-------------------------|--------------------------|
-| All Ireland Cancer Atlas |                        |                          |              |                         |                          |
-|                          |                        |                          |              |                         |                          |
-|                          |                        |                          |              |                         |                          |
-
-<!-- geographic hierarchies  -->
-While atlases are often used to describe differences between areas, the may allow statistics to be displayed at different levels of aggregation. World atlases can allow for displays of data aggregated into continents, country, states or provinces [@IARC_3].
-
-<!-- population distribution -->
-It is likely that each population area will have a different amount of people, information regarding the distribution of population levels may be provided in a table or histogram display [@NICR_1]. Atlases could also connect the population to the land available to them by communicating population density.
+#### Geographic hierarchies
+While atlases are often used to describe differences between areas, statistics may be displayed at different levels of aggregation. The World Health Organisation and UN Regions can also be used to aggregate areas [@IARC_3].
+World atlases can allow for displays of data aggregated into continents, countries, states, provinces and congressional districts [@USCS].
 
 
-<!-- statistical uncertainty -->
-These additional statistics often include a measure of the statistical uncertainty of the values of the statistics presented in a choropleth.
-In the review of atlases in the public domain, atlases were considered to report uncertainty to the non-expert user if they included a measure of statistical uncertainty either within or alongside the map. The maps considered used standard and well known measures including credible intervals and standard deviation, statistical significance, box plots and distributions. The maps employing uncertainty ranged from static pdfs or infographics, to interactive online resources.
+#### Population distribution
+It is likely that each population area will have a different amount of people, information regarding the distribution of population levels may be provided in a table or histogram display [@NICR_1]. 
+Atlases have the opportunity to connect the population to the land available to them by communicating population density.
+
+
+#### Statistical uncertainty
+Statistical uncertainty is communicated through a Confidence (CI) interval, statistical significance levels, Boxplots, Distribution plots, and reporting the Sample Size and Standard Deviations.
+The additional statistics often include a measure of the statistical uncertainty of the values of the statistics presented in a choropleth.
+In the review of atlases in the public domain, atlases were considered to report uncertainty to the non-expert user if they included a measure of statistical uncertainty either within or alongside the map. 
+The maps considered used standard and well known measures including credible intervals and standard deviation, statistical significance, box plots and distributions.
+The maps employing uncertainty ranged from static pdfs or infographics, to interactive online resources.
 Close to half of the atlases identified (42%, n=14) included some measure of uncertainty. The most common measure used to represent uncertainty were credible or confidence intervals (CIs).
 
-<!-- Demographics -->
-Atlases often specified their use of gender in the diplays. Atlases that allowed for inteaction also allowed users to select between displays for males, females or both depending on the type of cancers explored.
-<!-- Socioeconomic Indicators -->
-Few atlases also explored the impact of rurality on cancer rates. 
+#### Demographics
+Demographics include information regarding the age and sex distribution of the areas presented. 
+<!-- sex -->
+Sex is an important cofactor for cancer atlases. 
+As some cancers are sex specific, and others may be found in both males and females, atlases often specify their use of gender in the diplays. 
+Atlases can allow for interaction as users can select between displays for males, females or both depending on the type of cancers explored.
 
-
-
+#### Socioeconomic indicators
+Socioeconomic indicators can explain how the experience of cancer prevalence varies for various members of a society.
+These indicators include unemployment rates, poverty rates and percentages, remoteness and education levels achieved though only a few atlases also explored the impact of rurality on cancer rates. 
+The Human Development Index can be used to understand the socioeconomic experience of a community, as can the Income levels as measured by World bank list of economies[@IARC_3]. 
 
 ## Cartograms as an alternative display
 
@@ -330,8 +330,7 @@ Examples include Tobler’s Pseudo-Cartogram Method, Dorling’s Cellular Automa
 An intentional goal when creating the 1966 Census population cartogram for Canada was to maintain contiguity, while attempting to keep the actual shape of places. The end result was a 'very accurate isodemo-graphic map of Canada'. This intentional design goal coincided with the rising interest in urban geography and presentation of social statistics. 
 
 
-To be able to recognise the significant changes, a reader will usually have to know the initial geography to find the differences in the new cartogram layout [@NAC]. Tobler's Conformal mapping means to preserve angles
-locally so that the shapes of small areas on a traditional map and a cartogram would be similar.
+To be able to recognise the significant changes, a reader will usually have to know the initial geography to find the differences in the new cartogram layout [@NAC]. Tobler's Conformal mapping means to preserve angles locally so that the shapes of small areas on a traditional map and a cartogram would be similar.
 @CBATCC presents this issue as conflicting tasks or aims, to adjust region sizes and retain region shapes. 
 @MDAC define the term 'mosaic cartograms' for hexagonal tile displays, where the amount of tiles for each area can be used to communicate the statistic of regions. 
 The complexity of the boundaries can be adjusted in the resulting display, as the size of the tiles used allows a trade-off be made between boundary complexity and simplicity.
@@ -391,15 +390,6 @@ There are two keys presented by @SAMGIS to drive the choice of display:
  - the properties of the visualisation, and 
  - the ease or accuracy of information extraction for map users
 
-
-
-<!-- @CPISACA contrasted several online atlases in a 2006 paper, consider for structure? 
-
-(only worth including if it is possible for us to implement)
-Tabular form comparing and contrasting
-- Relationship to geography
-- Show using cancer examples
--->
 
 # Animation and Interactivity
 
