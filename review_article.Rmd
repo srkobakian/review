@@ -372,11 +372,11 @@ This rectangular display also allows for tiling, where geographic neighbours als
 >"designing a map tailored to precise goals [is] easier than forcing a single map to accommodate diverse objectives" @CPISACA
 
 Waldo Tobler [-@TVSSS] explores many graphical techniques, and suggests there are particular methods for particular purposes. To choose an appropriate map display, the map creator must consider the intended user, and message the map will communicate.
-It is the objectives of the investigator that will drive the choice of representation [@CPISACA]. 
+Techonology has played an enormous role in increasing the opportunities for map makers.
+The computation and graphics power have made creation, alteration and interactivity possible.
+The internet has made communication of scientific data and results increasingly accessible.
+Creating maps of dieases now involves more decisions as these options have expanded and it is the objectives of the investigator that will drive the choices. @CPISACA and @SAMGIS have provided suggestions and comments to help map creators best communicate their health data and spatial analyses.
 
-There are two keys presented by @SAMGIS to drive the choice of display: 
- - the properties of the visualisation, and 
- - the ease or accuracy of information extraction for map users
 
 <!-- Choropleths, true topology, geographic distance, good for showing geographic importance -->
 Visualisation properties have been explored across several disease mapping displays.
@@ -409,22 +409,43 @@ Population affects are highlighted by these displays, as this display allows a m
 
 # Animation and Interactivity
 
-Recent developments in technology allowed interactive web atlases.
+Traditionally, epidemiologists as disease mappers would have understood the characteristics of a disease lifespan and movements. they would have also considered the interactions between geography, the environment and the people captured by a display.
+It is important for map creators to develop and then test the message being communicated, epidemiologists are able to do this with their expert knowledge.
+Static visualisations can help to aid the written results provided by experts, and pairing an explanation with a map or diagram can help to draw attention to a point, group or area of interest. They have the caveat of a need to provide enough information for the static displays to be understandable out of their original context.
 
->"Where control of the message is important, static maps will continue to be the most effective, although good tables, graphs, and explanatory text are still needed in order to ensure that different people will see the same thing in the maps" @CPISACA
+Recent developments in technology have created an opportunity to migrate atlases from paper displays in books to interactive web atlases.
+The medium chosen to communicate health data should always be driven by the message to communicate and the needs of the audience. This can be seen as a continuum, where the message is most important, static or animated graphics allw control over the display and interpretation. Where the needs of the audience is changeable and is the priority, the map creator can allow interactivity for map users to explore. 
 
-The intention of interactivity and animation is to allow users to answer their own questions.
+<!-- Animations -->
+@CPISACA provide weather maps as well developed and appropriate examples of spatial displays to communicate to the general public and encourage those creating disease maps to leverage the success of weather displays.
+The movement of a weather system will follow a forecasted path, the animation will communicate this as all map users can follow the path of the system across the geography over a specified period of time.
 
-<!--
-Using e-Delphi to Evaluate the Pennsylvania Cancer Atlas - explains PCA and reasons for interactivity.
--->
 
-<!--
-@ECGC ?? Highlight the value of animating contiguous to see changes over time, US can be recognisable but animation aides interpretation 
--->
+
+<!-- Interactivity-->
+The move from static, print media displays toward interactivity allow users to develop maps to ask and answer their own questions.
+Developmets and adoptions of this technology has allowed map users more control of the message displayed.
+They are able to see the familiar shapes, zoom in to explore densely populated communities, or change the display completely to highlight the population space.
+@CPISACA provide three questions that are generally when using a disease map:
+
+- What is the mortality rate in a certain area?
+- Are there geographic trends in the data, or regions of unusually high or low rates?
+- Is the lung cancer mortality pattern similar to the pattern of smoking prevalence shown in a companion map?
+
+
+A single map display historically created by epidemiologists, may not effectively answer all three at the same time.
+Especially when areas are small and hard to identify in a display.
+However, with the ability to animate, map creators can specify and answer these questions by directing the attention of a map user to the areas of interest. Animations can be used to control the message being communicated by capturing and directing attention of users, it will also ensure all users follow the same interpretive path, as their eyes are drawn across the map to the same comparison points.
+
+This oppportunity provides room to move away from the traditional approach of a single map for a single use, into a more explorative territory. Interactivity allows users to drive their own exploration, controlling a display through variable controls, links, tool tips, and data selection tools [@TGA]. 
+
 
 # Acknowledgements
 
+We thank Dr Susanna Cramb (Spatial Modeller, Cancer Council Queensland) and Dr Peter Baade (Senior Research Fellow, Cancer Council Queensland) for providing the opportunity to cover this exploration of disease mapping methods in writing.
+This literature review would not be possible without the opportunity provided by Queesnland University of Technology, and Cancer Council Queensland, and the roles of Professor Kerrie Mengersen (Professor of Statistics, Science and Engineering Faculty, QUT) and Dr Earl Duncan (Research Associate at ARC Centre of Excellence for Mathematical & Statistical Frontiers, QUT) in contributing to the Australian Cancer Atlas and supervision of Stephanie's Research Masters.
+
+It was in the development of this online cancer atlas that methods for disease map displays, and visual communication strategies were explored. We are thankful for the opportunity to write about these visualisation displays and the situations in which they are appropriate.
 
 
 # References
