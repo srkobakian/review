@@ -44,11 +44,11 @@ Current exploratory practices: Cartograms: cont, non cont, (tilegrams, dorlings)
 Suggested uses of 
 -->
 
-Geospatial statistics have been presented and stored on maps for centuries.
-Maps connect data for areas to the geographical representation which is usually familiar to the audience.
-However, it is not enough for areas on maps to be recognisable, the distribution of the statistic must also be visible.
-Cancer statistics directly represent and relate to the people living within individual geographical areas.
-It is reasonable to explore views that enhance the communication of the cancer statistics, especially as in these situations the people are of interest, not the land they live on. 
+Cancer statistics directly represent and relate to the people living within geographical areas.
+Geospatial statistics have been presented on maps to communicate information to the general public for centuries as they utilise familiar geographic shapes.
+The mapping of diseases summarises spatial variations and can be considered a descriptive statistic of the relationship between a disease and the underlying geography [@SEMA].
+The distribution of the statistic must be visible, it is not enough for areas on maps to be recognisable.
+It is reasonable to explore views that enhance the communication of the cancer statistics, especially as it is the people that are of interest, not the land they live on. 
 This has spurred innovations over the previous centuries to enhance maps to effectively communicate cancer outcomes, and health outcomes more broadly.
 
 
@@ -185,29 +185,6 @@ knitr::include_graphics("figures/choropleth_grid.png")
 ```
 
 
-### Supporting material in cancer atlases
-
-The primary display of an atlas is often the choropleth map. The presentation of materials in atlases can also utilise bar charts, tables and scatterplots, these are useful alternative displays. They are not only used as an additional display for the cancer incidence and mortality rates, as an atlas is often supplemented with supporting statistics. When presenting cancer atlases, @MACM believes the intuition derived from maps must be 'validated by rigorous statistical analyses.' This opinion contradicts Cruickshank's (1947) as cited by @DMAHP, which discusses using visuals as 'formal statistical assessment of the spatial pattern'. @CPISACA suggests additional materials such as 'good tables, graphs, and explanatory text' support understanding and inference derived from maps, ensuring the message communicated will be consistent across a range of viewers. 
-The interactivity of the more modern maps enabled supplementary information to be incorporated without cluttering the screen, such as in a tool tip feature. 
-
-<!-- geographic hierarchies  -->
-Cancer atlases are often used to describe differences between areas, they may allow statistics to be displayed at different levels of aggregation. World atlases can allow for displays of data aggregated into continents, country, states or provinces [@IARC_3].
-
-<!-- population distribution -->
-It is likely that each population area will have a different amount of people, information regarding the distribution of population levels may be provided in a table or histogram display [@NICR_1]. Atlases could also connect the population to the land available to them by communicating population density as is shown in the United States map examples.
-
-<!-- demographics: sex, race,  -->
-
-<!-- statistical uncertainty -->
-The additional statistics often also include a measure of the statistical uncertainty of the cancer statistics presented in a choropleths. <!-- reference Aus cancer atlas DMAQ?-->
-
-
-<!-- Socioeconomic Indicators -->
-There may also be demographic information provided regarding each population area drawn on the maps.
-This information could include a socioeconomic indicators such as unemployment, education level attained.
-The areas are usually ranked and allocated to quintiles to be presented as categories describing the ranking.
-
-
 
 
 ## Publicly available atlases using choropleth methods
@@ -221,22 +198,31 @@ Only one map was published by a commercial entity.
 The cancer atlases covered geographies from all around the world, but only four were global atlases. Most focussed on single nations, the United States was considered by eleven atlases, the United Kingdom by seven, followed by three of Australia, two of Canada, and one of each from Switzerland, Germany, Norway. One atlas covered the European Union.
 Not all maps had a national focus and ten covered a region or state rather than an entire nation. The states or counties/regions covered were South Australia (AUS), Queensland (AUS), Ontario (CAN), Valencia (Spain), Pennsylvania county Massachusetts (US), New Hampshire (US), Cape Cod (US), Missouri (US), Florida (US), New York State (US) and Arizona (US).
 
-### Examples of supporting statistics in public facing atlases
+## Supporting statistics in public facing atlases
 
+The primary display of an atlas is often the choropleth map.
+Cruickshank's (1947) as cited by @DMAHP, discusses using visuals as 'formal statistical assessment of the spatial pattern'. 
+Atlases can also utilise bar charts, tables and scatterplots as useful alternative displays. 
+These displays can present the cancer incidence and mortality rates, as well as the supporting statistics of the atlas. 
+When presenting cancer atlases, @MACM believes the intuition derived from maps must be 'validated by rigorous statistical analyses.'
+@CPISACA suggests additional materials such as 'good tables, graphs, and explanatory text' support understanding and inference derived from maps, ensuring the message communicated will be consistent across a range of viewers. 
+The interactivity of modern maps enables supplementary information to be incorporated without cluttering the screen, such as in a tool tip feature. 
 The atlases provided additional information to help users understand and interpret the spatial distribution presented. The use of these supports were found in a variety of online map sources.
 These additional pieces of information can help to validate, explain or explore relationships between cancer incidence and survival rates.
 
-#### Geographic hierarchies
+### Geographic hierarchies
 While atlases are often used to describe differences between areas, statistics may be displayed at different levels of aggregation. The World Health Organisation and UN Regions can also be used to aggregate areas [@IARC_3].
 World atlases can allow for displays of data aggregated into continents, countries, states, provinces and congressional districts [@USCS].
 
 
-#### Population distribution
+### Population distribution
 It is likely that each population area will have a different amount of people, information regarding the distribution of population levels may be provided in a table or histogram display [@NICR_1]. 
 Atlases have the opportunity to connect the population to the land available to them by communicating population density.
+Atlases can also connect the population to the land available to them by communicating population density as is shown in the United States map examples.
 
 
-#### Statistical uncertainty
+
+### Statistical uncertainty
 Statistical uncertainty is communicated through a Confidence (CI) interval, statistical significance levels, Boxplots, Distribution plots, and reporting the Sample Size and Standard Deviations.
 The additional statistics often include a measure of the statistical uncertainty of the values of the statistics presented in a choropleth.
 In the review of atlases in the public domain, atlases were considered to report uncertainty to the non-expert user if they included a measure of statistical uncertainty either within or alongside the map. 
@@ -244,17 +230,19 @@ The maps considered used standard and well known measures including credible int
 The maps employing uncertainty ranged from static pdfs or infographics, to interactive online resources.
 Close to half of the atlases identified (42%, n=14) included some measure of uncertainty. The most common measure used to represent uncertainty were credible or confidence intervals (CIs).
 
-#### Demographics
+### Demographics
 Demographics include information regarding the age and sex distribution of the areas presented. 
 <!-- sex -->
 Sex is an important cofactor for cancer atlases. 
 As some cancers are sex specific, and others may be found in both males and females, atlases often specify their use of gender in the diplays. 
 Atlases can allow for interaction as users can select between displays for males, females or both depending on the type of cancers explored.
 
-#### Socioeconomic indicators
+### Socioeconomic indicators
 Socioeconomic indicators can explain how the experience of cancer prevalence varies for various members of a society.
 These indicators include unemployment rates, poverty rates and percentages, remoteness and education levels achieved though only a few atlases also explored the impact of rurality on cancer rates. 
 The Human Development Index can be used to understand the socioeconomic experience of a community, as can the Income levels as measured by World bank list of economies[@IARC_3]. 
+The areas are usually ranked and allocated to quintiles to be presented as categories describing the ranking.
+
 
 ## Cartograms as an alternative display
 
@@ -391,6 +379,8 @@ There are two keys presented by @SAMGIS to drive the choice of display:
  - the ease or accuracy of information extraction for map users
 
 
+
+
 # Animation and Interactivity
 
 Recent developments in technology allowed interactive web atlases.
@@ -445,8 +435,3 @@ Using prediction:
 assuming that neighbouring μi are correlated leads to a ‘clustering’ prior
 
 -->
-
-
-<!--
--->
-
