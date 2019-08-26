@@ -124,7 +124,7 @@ Table: \label{tab:measures} Measures used to report cancer statistics
 
 The atlas of Cancer in Queensland [@DACQ] focussed on highlighting the difference in experience for those living in rural and disadvantaged areas. They used Standardised Incidence Ratios modelled via Bayesian methods, and explored the information presented in a range of selected atlases. These atlases provided Incidence, Survival and Mortality rates to the public on Areal or Isopleth map bases.
 
-The presentation of these rates considered not only the map base, but also appropriate choices of colour blind friendly colour schemes, and categories of the values to highlight signifcantly different areas.
+The presentation of these rates considered not only the map base, but also appropriate choices of colour blind friendly colour schemes, and categories of the values to highlight significantly different areas.
 <!--
 
 Examples of atlases:
@@ -202,7 +202,7 @@ Not all maps had a national focus and ten covered a region or state rather than 
 
 The primary display of an atlas is often the choropleth map.
 Cruickshank's (1947) as cited by @DMAHP, discusses using visuals as 'formal statistical assessment of the spatial pattern'. 
-Atlases can also utilise bar charts, tables and scatterplots as useful alternative displays. 
+Atlases can also utilise bar charts, tables and scatter-plots as useful alternative displays. 
 These displays can present the cancer incidence and mortality rates, as well as the supporting statistics of the atlas. 
 When presenting cancer atlases, @MACM believes the intuition derived from maps must be 'validated by rigorous statistical analyses.'
 @CPISACA suggests additional materials such as 'good tables, graphs, and explanatory text' support understanding and inference derived from maps, ensuring the message communicated will be consistent across a range of viewers. 
@@ -234,13 +234,13 @@ Close to half of the atlases identified (42%, n=14) included some measure of unc
 Demographics include information regarding the age and sex distribution of the areas presented. 
 <!-- sex -->
 Sex is an important cofactor for cancer atlases. 
-As some cancers are sex specific, and others may be found in both males and females, atlases often specify their use of gender in the diplays. 
+As some cancers are sex specific, and others may be found in both males and females, atlases often specify their use of gender in the displays. 
 Atlases can allow for interaction as users can select between displays for males, females or both depending on the type of cancers explored.
 
-### Socioeconomic indicators
-Socioeconomic indicators can explain how the experience of cancer prevalence varies for various members of a society.
+### Socio-economic indicators
+Socio-economic indicators can explain how the experience of cancer prevalence varies for various members of a society.
 These indicators include unemployment rates, poverty rates and percentages, remoteness and education levels achieved though only a few atlases also explored the impact of rurality on cancer rates. 
-The Human Development Index can be used to understand the socioeconomic experience of a community, as can the Income levels as measured by World bank list of economies[@IARC_3]. 
+The Human Development Index can be used to understand the socio-economic experience of a community, as can the Income levels as measured by World bank list of economies[@IARC_3]. 
 The areas are usually ranked and allocated to quintiles to be presented as categories describing the ranking.
 
 
@@ -335,7 +335,7 @@ has followed a flood of disease atlases, mainly concentrating on the modem probl
 
 ### Non-Contiguous
 
-Non-Contiguous cartograms succeed in maintaing the shape of the areas presented.
+Non-Contiguous cartograms succeed in maintaining the shape of the areas presented.
 Each area stays in a similar position to their location on a choropleth map. The choropleth map base is often also plotted as a comparison point to highlight the change in area. The addition is the gap between areas, created as each individual area shrinks or grows according the associated value of the statistic. @NAC discusses creation of these maps, the significance of the empty areas left between the geographic boundaries and the new shape, and the 'degree of difference from the original map that is the real message' of these displays.
 
 As the trade-off regarding boundaries approaches simplicity, the distortion of region shapes on the contiguous cartogram presents an additional hurdle to visual recognition and this hurdle is not only eliminated on the noncontiguous cartogram but is replaced by the meaningful empty-space property [@NAC, @ECGC].
@@ -355,7 +355,7 @@ This concept is founded in the simple question put forward by Daniel Dorling -@A
 >"If, for instance, it is desirable that areas on a map have boundaries which are as simple as possible, why not draw the areas as simple shapes in the first place?"
 
 He answers this with his implementation of maps created with 'the simplest of all shapes'. He acknowledged the sophistication of contiguous cartograms but critiqued their 'very complex shapes'.
-Circular cartograms use the same simple shapes for every region represented, and size the shapes according to the statistic represented or the population for a base map. This familar shape may be more effective for understanding the spatial distribution than contiguous cartograms, as the 'nonsense' shapes used have 'no meaning' after distortions are applied @NISCC.
+Circular cartograms use the same simple shapes for every region represented, and size the shapes according to the statistic represented or the population for a base map. This familiar shape may be more effective for understanding the spatial distribution than contiguous cartograms, as the 'nonsense' shapes used have 'no meaning' after distortions are applied @NISCC.
 To produce a compelling map, a gravity model is applied to avoid overlaps, and keep spatial relationships with neighbouring areas over many iterations. This implementation can work for up to 'one hundred thousand' areas.
  
 ```{r ggdorl, fig.cap = "A dorling cartogram of the Unites States of America. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. Each state has been represented by a circle, but the size was determined by the population of the state in 2015. The North East states remain closer to their neighbours, and may be displaced from their geographic location. The sparsity of the population in the Mid West is highlight by the distance between the circles, located at the geographic centroids.", message=FALSE, warning=FALSE, fig.align='center', out.width='80%'}
@@ -363,11 +363,11 @@ knitr::include_graphics("figures/ggdorl.png")
 ```
 
 The groundwork for the simplistic approach had been laid in the mid 1930's be Raisz. @TFYCC quotes the official definition of Value-Area Cartograms, the simplistic displays which represent each area as a single rectangle, sized according to the value of the statistic.
-This rectangluar display also allows for tiling, where geographic neighbours also share rectangle borders. 
+This rectangular display also allows for tiling, where geographic neighbours also share rectangle borders. 
 
 
 
-# A critique of mapping methods
+# A discussion of mapping methods
 
 >"designing a map tailored to precise goals [is] easier than forcing a single map to accommodate diverse objectives" @CPISACA
 
@@ -378,6 +378,32 @@ There are two keys presented by @SAMGIS to drive the choice of display:
  - the properties of the visualisation, and 
  - the ease or accuracy of information extraction for map users
 
+<!-- Choropleths, true topology, geographic distance, good for showing geographic importance -->
+Visualisation properties have been explored across several disease mapping displays.
+Choropleth displays utilise more traditional cartographic methods, this means they are usually true to the topography.
+Tobler's work highlights the need for consideration of the transformation of the globe to a 2D space.
+When there is a relationship between the cancer type being mapped and geographical features, a choropleth map would pair this information visually.
+These maps are best used when the geography is of importance to the data in the display.
+Users can identify the areas relevant to them by the familiar boundaries, and can easily contrast the experience of geographic neighbours.
+
+
+<!-- Cartograms, sacrifice geography, focus on the outliers/ relationships in data space -->
+Pairing geography and cancer data was historically the work of epidemiologists, however it did not require them to be the map designer.
+This was expected as cartographers were the creators of geographic displays, and epidemiologists utilised the maps that had been prepared in advance.
+This disconnect did not allow the map to be prepared with the data in mind.
+Cartogram methods began exploring the concept of diagrammatic cartograms, displays that highlighted the importance of data, as well as the geography.
+This approach began a shift in the focus and responsibility of map creators.
+Cartogram displays began incorporating the statistics and population into the design of the display. 
+Shifting and sometimes sacrificing familiar boundaries to draw attention to outliers in the data space or population density.
+The difference between the familiar map display helps highlight the impact of the disease on communities.
+
+
+<!-- Alternatives, remove geographic shapes, keep spatial relationship, focus on the outliers/ relationships in population space -->
+By removing the unexpected boundaries and shapes, the spatial distribution is the primary concept communicated by the display.
+Areas that are geographically close will maintain connectedness in some way, but the population and the statistic will take precedence.
+These alternatives are especially helpful for data aggregations where administrative boundaries break populations into groups.
+The experience of each collective may be worth considering as their experiences may be similar in terms of the services and facilities they share.
+Population affects are highlighted by these displays, as this display allows a more equitable view of each community, and does not minimise those that operate on a smaller geographic scale.
 
 
 
