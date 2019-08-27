@@ -146,7 +146,7 @@ Quinn M, Wood H, Cooper N, Rowan S, Eds:Cancer Atlas of the UnitedKingdom and Ir
 -->
 
 
-```{r choropleth-grid-create, message=FALSE, eval = FALSE}
+```{r choropleth-grid-create, message=FALSE}
 library(grid)
 library(png)
 library(gridExtra)
