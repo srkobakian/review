@@ -66,7 +66,7 @@ This paper addresses the visualisation techniques and their applications to canc
 
 <!-- what is a choropleth map -->
 A choropleth map is used to display the characteristics of a spatial relationship of measurements. 
-A choropleth map is a true map of the topology, constructed for visual inspection of spatial patterns on a familiar geographic form. 
+They are true maps of the topology, constructed for visual inspection of spatial patterns on a familiar geographic form. Classed choropleth maps break a continuous variable into a small set of categories, often quintiles, and use a gradual colour scheme to shade all areas that fall in the same category [@CPISACA].
 \ref{fig:choro} 1 shows a choropleth map where each state of the United States of America is coloured by the average annual rate of new cases of lung and bronchus cancer from years 2012 to 2016.
 Identifying and explaining spatial structures, patterns, and processes involves considering the individuals in communities and organising communities into representable units [@SAMGIS]. 
 A choropleth is constructed by drawing the geographic or political boundaries, and filling the shapes with colours to represent values of a measured variable [@EI].
@@ -369,9 +369,8 @@ This rectangular display also allows for tiling, where geographic neighbours als
 
 # A discussion of mapping methods
 
->"designing a map tailored to precise goals [is] easier than forcing a single map to accommodate diverse objectives" @CPISACA
-
-Waldo Tobler [-@TVSSS] explores many graphical techniques, and suggests there are particular methods for particular purposes. To choose an appropriate map display, the map creator must consider the intended user, and message the map will communicate.
+To choose an appropriate map display, the map creator must consider the intended user, and message the map will communicate.
+To discover whether the display is appropriate, consider the  
 Techonology has played an enormous role in increasing the opportunities for map makers.
 The computation and graphics power have made creation, alteration and interactivity possible.
 The internet has made communication of scientific data and results increasingly accessible.
