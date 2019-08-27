@@ -60,9 +60,7 @@ By providing a visual representation of cancer outcomes, geographic patterns of 
 @SE recognises one of the key challenges with mapping spatial patterns of disease is the design of visualisations.
 This paper addresses the visualisation techniques and their applications to cancer statistics. Highlighting the differences and historic use of these displays.
 
-# Disease mapping methods
-
-## Current best practice map displays for cancer data
+# Map displays for disease data
 
 <!-- what is a choropleth map -->
 A choropleth map is used to display the characteristics of a spatial relationship of measurements. 
@@ -187,7 +185,7 @@ knitr::include_graphics("figures/choropleth_grid.png")
 
 
 
-## Publicly available atlases using choropleth methods
+# Publicly available atlases
 
 Cancer maps are effective communication tools for a general public or non-expert audience. They are commonly used in the public domain to communicate results of sophisticated statistical analyses.
 The heavy use of choropleth maps within the research literature is also reflected in the types of maps that are found in the public domain.
@@ -244,7 +242,9 @@ The Human Development Index can be used to understand the socio-economic experie
 The areas are usually ranked and allocated to quintiles to be presented as categories describing the ranking.
 
 
-## Cartograms as an alternative display
+# Alternative displays
+
+## Cartograms
 
 <!-- What is a cartogram? -->
 A cartogram alters the map base with the intention of improving the presentation of the statistic of interest. For a single variable of interest, each map area is changed to emphasise the distribution by representing the corresponding value, in comparison to the value of the other areas [@ACCAC].
@@ -347,7 +347,7 @@ The scale of the areas does not impact on the shape recognition. However it may 
 knitr::include_graphics("figures/ggncont.png")
 ```
 
-### Alternative Displays
+### Alternatives 
 
 Daniel Dorling presented an alternative to highlight the spatial distribution and neighbourhood relationships without complex distortions of borders and boundaries. This approach opposes preserving the intricate shape details.
 This concept is founded in the simple question put forward by Daniel Dorling -@ACTUC:
@@ -365,9 +365,7 @@ knitr::include_graphics("figures/ggdorl.png")
 The groundwork for the simplistic approach had been laid in the mid 1930's be Raisz. @TFYCC quotes the official definition of Value-Area Cartograms, the simplistic displays which represent each area as a single rectangle, sized according to the value of the statistic.
 This rectangular display also allows for tiling, where geographic neighbours also share rectangle borders. 
 
-
-
-# A discussion of mapping methods
+# Comparison of mapping methods
 
 To choose an appropriate map display, the map creator must consider the intended user, and message the map will communicate.
 To discover whether the display is appropriate, consider the  
