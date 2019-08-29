@@ -144,7 +144,7 @@ Quinn M, Wood H, Cooper N, Rowan S, Eds:Cancer Atlas of the UnitedKingdom and Ir
 -->
 
 
-```{r choropleth-grid-create, message=FALSE}
+```{r choropleth-grid-create, message=FALSE, fig.cap = "Public facing choropleth cancer maps. [Globocan 2012: Estimated  Cancer Incidence, Mortality and Prevalence](http://globocan.iarc.fr/Pages/Map.aspx), "}
 library(grid)
 library(png)
 library(gridExtra)
@@ -169,7 +169,8 @@ plot17 <- png::readPNG('cancer_map_images/choropleths/5.choropleth.png')
 
 
 
-choropleth_grid <- gridExtra::grid.arrange(grid::rasterGrob(plot1),
+choropleth_grid <- gridExtra::grid.arrange(
+                  grid::rasterGrob(plot1),
                   grid::rasterGrob(plot2), 
                   grid::rasterGrob(plot3),                
                   grid::rasterGrob(plot4), 
