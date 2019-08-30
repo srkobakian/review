@@ -48,8 +48,8 @@ Cancer statistics directly represent and relate to the people living within geog
 Geospatial statistics have been presented on maps to communicate information to the general public for centuries as they utilise familiar geographic shapes.
 The mapping of diseases summarises spatial variations and can be considered a descriptive statistic of the relationship between a disease and the underlying geography [@SEMA].
 The distribution of the statistic must be visible, it is not enough for areas on maps to be recognisable.
-It is reasonable to explore views that enhance the communication of the cancer statistics, especially as it is the people that are of interest, not the land they live on. 
-This has spurred innovations over the previous centuries to enhance maps to effectively communicate cancer outcomes, and health outcomes more broadly.
+It is important to explore map views and designs that enhance the communication of the cancer statistics, especially as it is the populations that live on the land that are of interest, not the land itself. 
+This has spurred innovations over the previous centuries to enhance maps to effectively communicate both cancer outcomes and health outcomes more broadly.
 
 
 The visualisation methods used to present cancer statistics will depend on the intended message and users of the map. 
