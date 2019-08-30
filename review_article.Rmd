@@ -218,9 +218,7 @@ When presenting cancer maps, @MACM believes the intuition derived from maps must
 
 **Interactivity**   
 
-The interactivity of modern maps enables supplementary information to be incorporated without cluttering the screen, such as in a tool tip feature. 
-The atlases provided additional information to help users understand and interpret the spatial distribution presented. The use of these supports were found in a variety of online map sources.
-These additional pieces of information can help to validate, explain or explore relationships between cancer incidence and survival rates.
+The interactivity of modern maps enables supplementary information to be incorporated without cluttering the screen, such as in a tool tip feature. The use of these supports were found in a variety of online map sources. These interactive features provide additional information to help users understand and interpret the spatial distribution presented, as well as validate, explain or explore the presented statistics and their relationships to each other and/or their underlying spatial distribution. The interactive features of the publically avaialble maps identified by @roberts2019communication were....... 
 
 ### Geographic hierarchies
 While atlases are often used to describe differences between areas, statistics may be displayed at different levels of aggregation. The World Health Organisation and UN Regions can also be used to aggregate areas [@IARC_3].

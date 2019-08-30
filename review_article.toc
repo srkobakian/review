@@ -4,7 +4,7 @@
 \contentsline {subsection}{\numberline {3.1}Supplementary statistics in public facing atlases}{6}{subsection.3.1}
 \contentsline {subsubsection}{\numberline {3.1.1}Geographic hierarchies}{6}{subsubsection.3.1.1}
 \contentsline {subsubsection}{\numberline {3.1.2}Population distribution}{6}{subsubsection.3.1.2}
-\contentsline {subsubsection}{\numberline {3.1.3}Statistical uncertainty}{6}{subsubsection.3.1.3}
+\contentsline {subsubsection}{\numberline {3.1.3}Statistical uncertainty}{7}{subsubsection.3.1.3}
 \contentsline {subsubsection}{\numberline {3.1.4}Demographics}{7}{subsubsection.3.1.4}
 \contentsline {subsubsection}{\numberline {3.1.5}Socio-economic indicators}{7}{subsubsection.3.1.5}
 \contentsline {section}{\numberline {4}Alternative displays}{7}{section.4}
