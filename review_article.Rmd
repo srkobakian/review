@@ -144,7 +144,13 @@ Quinn M, Wood H, Cooper N, Rowan S, Eds:Cancer Atlas of the UnitedKingdom and Ir
 -->
 
 
-```{r choropleth-grid-create, message=FALSE, fig.cap = "Public facing choropleth cancer maps. [Globocan 2012: Estimated  Cancer Incidence, Mortality and Prevalence](http://globocan.iarc.fr/Pages/Map.aspx), "}
+```{r choropleth-grid-create, message=FALSE, fig.caption = "Public facing choropleth cancer maps. From right to left and top to bottom: [1. Globocan 2012: Estimated  Cancer Incidence, Mortality and Prevalence](http://globocan.iarc.fr/Pages/Map.aspx),  [2. Bowel Cancer Australia Atlas](http://www.bowelcanceratlas.org/), [3. Atlas of Cancer in QLD - Lung cancer in males](https://cancerqld.org.au/research/queensland-cancer-statistics/queensland-cancer-atlas/)"}
+
+
+
+# fig.cap = "Public facing choropleth cancer maps. From right to left and top to bottom: [1. Globocan 2012: Estimated  Cancer Incidence, Mortality and Prevalence](http://globocan.iarc.fr/Pages/Map.aspx),  [2. Bowel Cancer Australia Atlas](http://www.bowelcanceratlas.org/), [3. Atlas of Cancer in QLD - Lung cancer in males](https://cancerqld.org.au/research/queensland-cancer-statistics/queensland-cancer-atlas/),(http://www.cancer-rates.info/naaccr/), [5. Atlas of Childhood Cancer in Ontario](http://www.pogo.ca/research-data/pogo-atlas/), 6. An Atlas of Cancer in South Australia](https://www.cancersa.org.au/assets/images/pdfs/An%20Atlas%20of%20Cancer%20in%20South%20Australia%20-%20Full%20Report.pdf ), [7. The Environment and Health Atlas of England and Wales](http://www.envhealthatlas.co.uk/eha/Breast/), [8. Map of Cancer Mortality Rates in Spain]() "}
+
+
 library(grid)
 library(png)
 library(gridExtra)
@@ -184,6 +190,7 @@ ggsave(filename = "figures/choropleth_grid.png", plot = choropleth_grid, device 
 ```
 
 ```{r choropleth-grid-print, echo = FALSE, results = "asis"}
+
 #knitr::include_graphics("figures/choropleth_grid.png")
 ```
 
