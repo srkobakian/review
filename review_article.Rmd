@@ -361,12 +361,11 @@ knitr::include_graphics("figures/ggncont.png")
 
 ### Alternatives 
 
-Daniel Dorling presented an alternative to highlight the spatial distribution and neighbourhood relationships without complex distortions of borders and boundaries. This approach opposes preserving the intricate shape details.
-This concept is founded in the simple question put forward by Daniel Dorling -@ACTUC:
+Daniel Dorling presented an alternative display engineere to highlight the spatial distribution and neighbourhood relationships without complex distortions of borders and boundaries. This approach opposes preserving the intricate shape details and is founded in the simple question put forward by Daniel Dorling -@ACTUC:
 
 >"If, for instance, it is desirable that areas on a map have boundaries which are as simple as possible, why not draw the areas as simple shapes in the first place?"
 
-He answers this with his implementation of maps created with 'the simplest of all shapes'. He acknowledged the sophistication of contiguous cartograms but critiqued their 'very complex shapes'.
+He acknowledged the sophistication of contiguous cartograms but critiqued their 'very complex shapes', he answers this with his implementation of maps created using 'the simplest of all shapes'. 
 Circular cartograms use the same simple shapes for every region represented, and size the shapes according to the statistic represented or the population for a base map. This familiar shape may be more effective for understanding the spatial distribution than contiguous cartograms, as the 'nonsense' shapes used have 'no meaning' after distortions are applied @NISCC.
 To produce a compelling map, a gravity model is applied to avoid overlaps, and keep spatial relationships with neighbouring areas over many iterations. This implementation can work for up to 'one hundred thousand' areas.
  
@@ -374,8 +373,18 @@ To produce a compelling map, a gravity model is applied to avoid overlaps, and k
 knitr::include_graphics("figures/ggdorl.png")
 ```
 
-The groundwork for the simplistic approach had been laid in the mid 1930's be Raisz. @TFYCC quotes the official definition of Value-Area Cartograms, the simplistic displays which represent each area as a single rectangle, sized according to the value of the statistic.
+The groundwork for the simplistic approach had been laid in the mid 1930's be Raisz. 
+@TFYCC quotes the official definition of Value-Area Cartograms, the simplistic displays which represent each area as a single rectangle, sized according to the value of the statistic.
 This rectangular display also allows for tiling, where geographic neighbours also share rectangle borders. 
+
+Square grids have been used by FiveThirtyEight, Bloomberg Business, The Guardian, The Washington Post, The New York Times and NPR. Where each area is represented by a square of the same dimensions.
+An example is provided in \ref{fig:ggtilegram}
+
+
+```{r ggtilegram, fig.cap = "A tilegram of the Unites States of America. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. Each state has been represented by a square, each square is the same size. The neighbouring states are easily contrasted, however the north east regions has been displaced from their geographic location. The sparsity of the population in the Mid West is highlight by the light yellow colour, the age adjusted rate in Kentucky is the darkest and its neighbours are similar..", message=FALSE, warning=FALSE, fig.align='center', out.width='80%'}
+knitr::include_graphics("figures/ggtilegram.png")
+```
+
 
 # Comparison of mapping methods
 
@@ -414,13 +423,12 @@ Table: \label{tab:methods} Mapping methods used to display cancer statistics
 
 |  | Choropleth | Contiguous Cartogram | Non-contiguous Cartogram | Dorling | Tilegrams |
 |:---------------------------------------------------:|------------|----------------------|--------------------------|---------|-----------|
-| Feature Preservation: |  |  |  |  |  |
+| Feature preservation: |  |  |  |  |  |
 | Preserves shapes | Y | N | Y | N | N |
 | Preserves neighbours | Y | Y | Y | S | S |
 | Uniform use of shape | N | N | N | Y | Y |
 | Statistical transformation of the base map: |  |  |  |  |  |
-| Used for Bi-variate maps eg. population & statistic | N | Y | Y | Y | Y |
-|  |  |  |  |  |  |
+| Used for bi-variate maps eg. population & statistic | N | Y | Y | Y | Y |
 
 
 Creating maps of dieases now involves more decisions to be made by map makers, rather than cartographers. 
