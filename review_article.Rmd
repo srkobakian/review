@@ -197,26 +197,28 @@ ggsave(filename = "figures/choropleth_grid.png", plot = choropleth_grid, device 
 
 # Publicly available atlases
 
-Cancer maps are effective communication tools for a general public or non-expert audience. They are commonly used in the public domain to communicate results of sophisticated statistical analyses.
-The heavy use of choropleth maps within the research literature is also reflected in the types of maps that are found in the public domain.
-A grey literature review of cancer atlases available in the public domain<!--(ref Jessie)--> identified 33 cancer atlases published on the internet between January 2010 and November 2015. These choropleth maps were mostly published by non-commercial organisations, including not-for-profits, government, research organisations, advocacy groups or government funded partnerships.
-Only one map was published by a commercial entity. 
+Cancer maps are effective tools for communicating to wide range of audiences, including the general public and others not trained in statistical analyses. These visualisation enable these non-expert audiences to access the outputs of sophisticated statistical analyses. Cruickshank's (1947) as cited by @DMAHP, discusses using visuals as a 'formal statistical assessment of the spatial pattern'. Overwhelmingly cancer maps utilised to communicate to the public and other non-expert audiences are choropleths. A grey literature review of cancer atlases available in the public domain [@roberts2019communication] identified 33 cancer atlases published on the internet between January 2010 and November 2015, all of which were choropleths. These maps were published by non-commercial organisations, including not-for-profits, government, research organisations, advocacy groups or government funded partnerships.Only one map was published by a commercial entity.  The use of choropleths within the public domain mirrors the heavy use of choropleth maps within the research literature, discussed above. 
+
+
  
 <!-- geographic coverage-->
-The cancer atlases covered geographies from all around the world, but only four were global atlases. Most focussed on single nations, the United States was considered by eleven atlases, the United Kingdom by seven, followed by three of Australia, two of Canada, and one of each from Switzerland, Germany, Norway. One atlas covered the European Union.
-Not all maps had a national focus and ten covered a region or state rather than an entire nation. The states or counties/regions covered were South Australia (AUS), Queensland (AUS), Ontario (CAN), Valencia (Spain), Pennsylvania county Massachusetts (US), New Hampshire (US), Cape Cod (US), Missouri (US), Florida (US), New York State (US) and Arizona (US).
+<!-- is this that interesting to the reader-->
+The cancer atlases covered geographies from all around the world, but only four were global atlases. Most focused on single nations, the United States was considered by eleven atlases, the United Kingdom by seven, followed by three of Australia, two of Canada, and one of each from Switzerland, Germany, Norway. One atlas covered the European Union.
+Not all maps had a national focus and ten covered a region or state rather than an entire nation. The states or counties/regions covered were South Australia (AUS), Queensland (AUS), Ontario (CAN), Valencia (Spain), Pennsylvania county Massachusetts (US), New Hampshire (US), Cape Cod (US), Missouri (US), Florida (US), New York State (US) and Arizona (US). Figure 2.a.b and c show a global, national and state choropleth respectively. 
 
-## Supporting statistics in public facing atlases
+<!-- While there is significant variation across these maps in terms of the measure represented, the scale of the map, the colour choices, the legend design and supplementary/supporting statistics, the mapping approach has not changes and almost exclusively only choropleth maps are used. Unlike innovation in spatial statistical methods, interactity, data collection and record keeping little work has been done to implement different mapping approaches -->
 
-The primary display of an atlas is often the choropleth map.
-Cruickshank's (1947) as cited by @DMAHP, discusses using visuals as 'formal statistical assessment of the spatial pattern'. 
-Atlases can also utilise bar charts, tables and scatter-plots as useful alternative displays. 
-These displays can present the cancer incidence and mortality rates, as well as the supporting statistics of the atlas. 
-When presenting cancer atlases, @MACM believes the intuition derived from maps must be 'validated by rigorous statistical analyses.'
-@CPISACA suggests additional materials such as 'good tables, graphs, and explanatory text' support understanding and inference derived from maps, ensuring the message communicated will be consistent across a range of viewers. 
-The interactivity of modern maps enables supplementary information to be incorporated without cluttering the screen, such as in a tool tip feature. 
-The atlases provided additional information to help users understand and interpret the spatial distribution presented. The use of these supports were found in a variety of online map sources.
-These additional pieces of information can help to validate, explain or explore relationships between cancer incidence and survival rates.
+## Supplementary statistics in public facing atlases
+
+While cancer maps are powerful visualisations that summarise complex statistical analyses, the statistics represented in these maps cannot tell the entire story. Supplementary graphs and plots are often included that add more depth and more information to the map. Maps can also utilise bar charts, tables and scatter-plots as useful additional displays. 
+These displays can provide alternative views of the cancer statistics, as well as the supporting statistical outputs such as error, confidence intervals, distributions, sample/population sizes, standard deviation, as well as others.. 
+When presenting cancer maps, @MACM believes the intuition derived from maps must be 'validated by rigorous statistical analyses.' These supplementary statistics aim to enable this validation. @CPISACA suggests additional materials such as 'good tables, graphs, and explanatory text' support understanding and inference derived from maps, ensuring the message communicated will be consistent across a range of viewers. 
+
+<!-- insert figure with 3 examples of supplementary graphs-->
+
+**Interactivity**   
+
+The interactivity of modern maps enables supplementary information to be incorporated without cluttering the screen, such as in a tool tip feature. The use of these supports were found in a variety of online map sources. These interactive features provide additional information to help users understand and interpret the spatial distribution presented, as well as validate, explain or explore the presented statistics and their relationships to each other and/or their underlying spatial distribution. The interactive features of the publically avaialble maps identified by @roberts2019communication were....... 
 
 ### Geographic hierarchies
 While atlases are often used to describe differences between areas, statistics may be displayed at different levels of aggregation. The World Health Organisation and UN Regions can also be used to aggregate areas [@IARC_3].
