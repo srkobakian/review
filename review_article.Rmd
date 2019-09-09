@@ -239,13 +239,11 @@ Atlases have the opportunity to connect the population to the land available to 
 Atlases can also connect the population to the land available to them by communicating population density as is shown in the United States map examples.
 
 
-
 ### Statistical uncertainty
-Statistical uncertainty is communicated through a Confidence (CI) interval, statistical significance levels, Boxplots, Distribution plots, and reporting the Sample Size and Standard Deviations.
 The additional statistics often include a measure of the statistical uncertainty of the values of the statistics presented in a choropleth.
-In the review of atlases in the public domain, atlases were considered to report uncertainty to the non-expert user if they included a measure of statistical uncertainty either within or alongside the map. 
-The maps considered used standard and well known measures including credible intervals and standard deviation, statistical significance, box plots and distributions.
-The maps employing uncertainty ranged from static pdfs or infographics, to interactive online resources.
+In the review of atlases in the public domain, atlases were considered to report uncertainty to the non-expert user if they included a measure of statistical uncertainty either within or alongside the map [@@roberts2019communication]. 
+The maps considered used standard and well known measures including credible intervals and standard deviation, statistical significance, box plots and distributions. Other methods involve providing adjacent maps or overlapping maps with symbols [@VSSDCUC].
+The maps employing uncertainty ranged from static pdfs or infographics, to interactive online resources. Communicating the uncertainty associated with the estimates through a confidence (CI) interval, statistical significance levels, boxplots, distribution plots, and reporting sample size and standard deviations.
 Close to half of the atlases identified (42%, n=14) included some measure of uncertainty. The most common measure used to represent uncertainty were credible or confidence intervals (CIs).
 
 ### Demographics
@@ -287,7 +285,7 @@ knitr::include_graphics("figures/ggchoroCRS.png")
 ```
 
 <!-- Denominators -->
-
+Event cartograms change the area of regions on a map depending on the amount of disease related events, but this does not consider the effects of land area and population [@VSSDCUC].
 The purposeful distortion of the map space, transformed according to population density, is beneficial when a uniform density of the map base is desired. Population then becomes a uniformly distributed background for the statistic presented [@GOINO]. @ACTUC suggests 'population distribution is often extremely uneven in former British colonies', this makes the distortion necessary [@CTTMB].
 When implementing a distortion of the geographical shape according to population, the resulting display is an area cartogram [@NAC], population-by-area cartogram [@TAAM], or iso-demographic map.
 
@@ -382,15 +380,17 @@ To produce a compelling map, a gravity model is applied to avoid overlaps, and k
 knitr::include_graphics("figures/ggdorl.png")
 ```
 
-The groundwork for the simplistic approach had been laid in the mid 1930's be Raisz. 
+The groundwork for this approach had been laid in the mid 1930's by Raisz, and rectangular cartograms provide dramatic comparisons and are especially useful for correcting misconceptions communicated by geographic maps. 
 @TFYCC quotes the official definition of Value-Area Cartograms, the simplistic displays which represent each area as a single rectangle, sized according to the value of the statistic.
-This rectangular display also allows for tiling, where geographic neighbours also share rectangle borders. 
-
+This rectangular display also allows for tiling, where geographic neighbours placed in suitable relative positions also share borders, however contiguity may be sacrificed [@CDWCS].
+Rectangular cartograms allow for bivariate displays, population can be effectively communicated by the size of each rectangular, and a second variable can be communicated using colour [@ORC]. 
 
 A similar method, where each geographic area is represented using a square, tesselated to create a square grid. This method has been used by FiveThirtyEight, Bloomberg Business, The Guardian, The Washington Post, The New York Times and NPR.
 Each area is represented by a square of the same dimensions.
 Figure \ref{fig:ggtilegram} shows a square tilegram representing each state using a single square.
 
+
+Recommended criteria to contrast mapping methods include average cartographic error, and maximum cartographic error, correct adjacencies, maximum aspect ratio, and suitable relative positions [@ORC]. However, this does not consider the issues with actually producing rectangular cartograms. Algorithms for the creation of rectangular cartograms
 
 
 ```{r ggtilegram, fig.cap = "A tilegram of the Unites States of America. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. Each state has been represented by a square, each square is the same size. The neighbouring states are easily contrasted, however the north east regions has been displaced from their geographic location. The sparsity of the population in the Mid West is highlight by the light yellow colour, the age adjusted rate in Kentucky is the darkest and its neighbours are similar.", message=FALSE, warning=FALSE, out.width='80%'}
@@ -415,8 +415,7 @@ Users can identify the areas relevant to them by the familiar boundaries, and ca
 <!-- Cartograms, sacrifice geography, focus on the outliers/ relationships in data space -->
 Pairing geography and cancer data was historically the work of epidemiologists, however it did not require them to be the map designer.
 This was expected as cartographers were the creators of geographic displays, and epidemiologists utilised the maps that had been prepared in advance.
-This disconnect did not allow the map to be prepared with the data in mind.
-Cartogram methods began exploring the concept of diagrammatic cartograms, displays that highlighted the importance of data, as well as the geography.
+Cartograms with the population variable used for base map distortion can be seen as density equalising maps, that reduce the visual prominence of low-population areas [@VSSDCUC].
 This approach began a shift in the focus and responsibility of map creators.
 Cartogram displays began incorporating the statistics and population into the design of the display. 
 Shifting and sometimes sacrificing familiar boundaries to draw attention to outliers in the data space or population density.
@@ -447,6 +446,7 @@ Creating maps of dieases now involves more decisions to be made by map makers, r
 Techonology has played an enormous role in increasing the opportunities for map makers.
 The computation and graphics power have made creation, alteration and interactivity possible.
 as these options have expanded and it is the objectives of the investigator that will drive the choices. @CPISACA and @SAMGIS have provided suggestions and comments to help map creators best communicate their health data and spatial analyses.
+
 
 # Animation and Interactivity
 
