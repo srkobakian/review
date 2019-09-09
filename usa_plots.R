@@ -20,6 +20,7 @@ library(spData)
 library(ggthemes)
 library(maptools)
 library(sf)
+library(cartogram)
 
 # read in data
 cancer <- read_csv("data/USCSlung.csv") %>% rename(NAME = Area)
@@ -53,8 +54,6 @@ ggchoro
 
 ###############################################################################
 # Cartograms
-#install.packages("cartogram")
-library(cartogram)
 
 # Contiguous Cartograms
 cont <- cartogram_cont(cancer,
