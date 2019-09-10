@@ -71,15 +71,37 @@ The paper is organised as follows.  The next section describes the choropleth ma
 <!-- what is a choropleth map -->
 A choropleth map is used to display the characteristics of a spatial relationship of measurements. 
 They are true maps of the topology, constructed for visual inspection of spatial patterns on a familiar geographic form. Classed choropleth maps break a continuous variable into a small set of categories, often quintiles, and use a gradual colour scheme to shade all areas that fall in the same category [@CPISACA].
-\ref{fig:choro} 1 shows a choropleth map where each state of the United States of America is coloured by the average annual rate of new cases of lung and bronchus cancer from years 2012 to 2016.
+Figure \ref{fig:choro} shows a choropleth map of the average annual rate of new cases of lung and bronchus cancer from years 2012 to 2016 in the USA. Data is extracted from XXX. XXX What do the values mean? What is the rate? Is is 40 per 100,000 or 1 million or 10,000?
 Identifying and explaining spatial structures, patterns, and processes involves considering the individuals in communities and organising communities into representable units [@SAMGIS]. 
 A choropleth is constructed by drawing the geographic or political boundaries, and filling the shapes with colours to represent values of a measured variable [@EI].
 Early versions of choropleth maps used symbols or patterns instead of colour.
 As an alternative storage device to a table, it preserves locations for geographically ordered data, with usage dating back to the 1800s [@GOINO].
 @CPISACA discuss the use of choropleths to visualise cancer data, and @DMAHP gives an overview of the development of these maps for displaying disease data.
 
-```{r choro, fig.cap = "A choropleth map of the United States of America. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. The state of Utah has an unusually low rate of lung and bronchus incidence. The state of Kentucky is high, the surrounding states also have high rates. There is a pattern of average higher rates toward the East Coast and lower rates toward the West Coast.", message=FALSE, warning=FALSE, out.width='80%'}
-knitr::include_graphics("figures/ggchoro.png")
+```{r choro, fig.cap = "Choropleth map of the average age-adjusted rate of new cases of lung and bronchus cancer 2012-2016 in the USA. XXX What is the rate of? Per how many people? Utah has an unusually low rate and Kentucky is high. There is generally a west to east trend, with higher rates towards the easern states.", message=FALSE, warning=FALSE, out.width='100%', fig.align='center', fig.width=12}
+library(sugarbag)
+library(tidyverse)
+library(spData)
+library(ggthemes)
+library(maptools)
+library(sf)
+library(cartogram)
+#knitr::include_graphics("figures/ggchoro.png")
+# read in data
+cancer <- read_csv("data/USCSlung.csv") %>% rename(NAME = Area)
+
+# Join polygons to data
+data(us_states)
+cancer <- left_join(us_states, cancer, by = c("NAME"))
+cancer <- st_transform(cancer, 3857)
+
+b <- st_bbox(cancer)
+ggplot(cancer) + 
+  geom_sf(aes(fill = AgeAdjustedRate)) +
+  scale_fill_distiller("Age-adjusted rate (per 1000)", type = "seq", palette = "YlOrRd",  direction = 1) + 
+  #coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
+  theme_void() +
+  theme(legend.position ="bottom", legend.key.width = unit(2, "cm"))
 ```
 
 <!-- psychology -->
