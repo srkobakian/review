@@ -47,21 +47,24 @@ Current exploratory practices: Cartograms: cont, non cont, (tilegrams, dorlings)
 Suggested uses of 
 -->
 
-Cancer statistics directly represent and relate to the people living within geographical areas.
-Geospatial statistics have been presented on maps to communicate information to the general public for centuries as they utilise familiar geographic shapes.
+<!-- What data are we working with, why, what are the purposes -->
+Cancer statistics represent information on people, usually delivered as an aggregated value for a geopolitical area. Presenting statistics requires transforming individual observations into aggregations of communities as geographical units, in large part for privacy protection or political and policy purposes.  The information could be as simple as counts per area (e.g. state, province, local government area, post/zip code). Counts alone is not sufficient on which to compare different areas, because the populations of different areas are likely different. In this case, the counts data needs to be merged with population data to appropriately calibrate it to incidence, for example, rate per 100000 people.  This type of data is collected on a routine basis for public health purposes, and may be made available to the general public as a service to the community. The task, then, is to examine what are the usual ways to communicate cancer statistics, to the public, are there alternative approaches, and what are the pros and cons of these choices. 
+
+<!-- Geospatial statistics have been presented on maps to communicate information to the general public for centuries as they utilise familiar geographic shapes.
 The mapping of diseases summarises spatial variations and can be considered a descriptive statistic of the relationship between a disease and the underlying geography [@SEMA].
 The distribution of the statistic must be visible, it is not enough for areas on maps to be recognisable.
 It is important to explore map views and designs that enhance the communication of the cancer statistics, especially as it is the populations that live on the land that are of interest, not the land itself. 
-This has spurred innovations over the previous centuries to enhance maps to effectively communicate both cancer outcomes and health outcomes more broadly.
+This has spurred innovations over the previous centuries to enhance maps to effectively communicate both cancer outcomes and health outcomes more broadly.-->
 
-
-The visualisation methods used to present cancer statistics will depend on the intended message and users of the map. 
-Presenting statistics as visualisations requires transforming individual observations into aggregations of communities as geographical units.
-Visualising diseases on maps is often the first step in exploratory spatial data analysis and effectively helps in the formulation of hypotheses [@MTMSIH]. 
-Disease maps help to present geographic patterns that may have been overlooked in a table, obscuring the geospatially related statistics [@SAMGIS].
-By providing a visual representation of cancer outcomes, geographic patterns of disease are able to be identified and effectively addressed.
+<!-- Ways to visualise, whats our hypothesis -->
+A common approach to communicate cancer statistics, is to display statistics on a map. This is a disease map: the statistic is mapped to colour and the geographic region is filled with this colour. The viewer would then be able to examine the spatial distribution of the disease incidence, where there is a trend in longitude or latitude, or rural vs urban, or coastal vs inland, or even specific hotspots of the disease. Visualising diseases on maps is often the first step in exploratory spatial data analysis and effectively helps in the formulation of hypotheses [@MTMSIH]. Disease maps help to present geographic patterns that may have been overlooked in a table, obscuring the geospatially related statistics [@SAMGIS].
+By providing a visual representation of cancer outcomes, geographic patterns of disease are able to be identified and effectively addressed with public healh policy and actions.
 @SE recognises one of the key challenges with mapping spatial patterns of disease is the design of visualisations.
 This paper addresses the visualisation techniques and their applications to cancer statistics. Highlighting the differences and historic use of these displays.
+
+<!-- Structure of the paper -->
+The paper is organised as follows.  The next section describes the choropleth map which is the common approach to disease maps. Section XXX surveys atlases in use today. Section XXX describes an alternative display, the cartogram what may be useful for countries that have heterogeneously sized geographic units. The pros and cons of these approaches is discussed in Section XXX. Interactivity options are described in Section XXX, and the paper finishes with a discussion. 
+
 
 # Map displays for disease data
 
