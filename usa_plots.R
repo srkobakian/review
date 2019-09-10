@@ -1,7 +1,7 @@
 #USA Cancer Data
 
-#  United States Cancer Statistics: Data Visualizations
-#The official federal statistics on cancer incidence and deaths, produced by the Centers for Disease Control and Prevention (CDC) and the National Cancer Institute (NCI).
+# United States Cancer Statistics: Data Visualizations
+# The official federal statistics on cancer incidence and deaths, produced by the Centers for Disease Control and Prevention (CDC) and the National Cancer Institute (NCI).
 
 # https://gis.cdc.gov/cancer/USCS/DataViz.html
 
