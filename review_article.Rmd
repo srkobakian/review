@@ -287,7 +287,7 @@ knitr::include_graphics("figures/ggchoroCRS.png")
 <!-- Denominators -->
 Event cartograms change the area of regions on a map depending on the amount of disease related events, but this does not consider the effects of land area and population [@VSSDCUC].
 The purposeful distortion of the map space, transformed according to population density, is beneficial when a uniform density of the map base is desired. Population then becomes a uniformly distributed background for the statistic presented [@GOINO]. @ACTUC suggests 'population distribution is often extremely uneven in former British colonies', this makes the distortion necessary [@CTTMB].
-When implementing a distortion of the geographical shape according to population, the resulting display is an area cartogram [@NAC], population-by-area cartogram [@TAAM], or iso-demographic map.
+When implementing a distortion of the geographical shape according to population, the resulting display is an area cartogram [@NAC], or population-by-area cartogram [@TAAM].
 
 <!-- Why transform?-->
 <!-- Common variables used to create cartograms, e.g. population, mortality -->
@@ -489,8 +489,11 @@ Interactivity allows users to drive their own exploration, controlling a display
 
 # Acknowledgements
 
+We would like to acknowledge Dr Earl Duncan (Research Associate at ARC Centre of Excellence for Mathematical & Statistical Frontiers, QUT). His time and effort given to edit and comment on this paper was invaluable.
+
+
 We thank Dr Susanna Cramb (Spatial Modeller, Cancer Council Queensland) and Dr Peter Baade (Senior Research Fellow, Cancer Council Queensland) for providing the opportunity to cover this exploration of disease mapping methods in writing.
-This literature review would not be possible without the opportunity provided by Queesnland University of Technology, and Cancer Council Queensland, and the roles of Professor Kerrie Mengersen (Professor of Statistics, Science and Engineering Faculty, QUT) and Dr Earl Duncan (Research Associate at ARC Centre of Excellence for Mathematical & Statistical Frontiers, QUT) in contributing to the Australian Cancer Atlas and supervision of Stephanie's Research Masters.
+This literature review would not be possible without the opportunity provided by Queesnland University of Technology, and Cancer Council Queensland, and the roles of Professor Kerrie Mengersen (Professor of Statistics, Science and Engineering Faculty, QUT) and Dr Earl Duncan in contributing to the Australian Cancer Atlas and supervision of Stephanie's Research Masters.
 
 It was in the development of this online cancer atlas that methods for disease map displays, and visual communication strategies were explored. We are thankful for the opportunity to write about these visualisations and the situations in which they are appropriate.
 
