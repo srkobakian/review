@@ -173,14 +173,14 @@ Quinn M, Wood H, Cooper N, Rowan S, Eds:Cancer Atlas of the UnitedKingdom and Ir
 
 
 
-```{r choropleth-grid-create, message=FALSE, fig.cap = "Public facing choropleth cancer maps.[a. The Environment and Health Atlas of England and Wales](http://www.envhealthatlas.co.uk/eha/Breast/) (Lung cancer in females)  (Incidence rates per 100,000 for all cancers, male and female),  [b. Bowel Cancer Australia Atlas](http://www.bowelcanceratlas.org/), [c. Atlas of Cancer in QLD - Relative incidence ration, Lung cancer in males](https://cancerqld.org.au/research/queensland-cancer-statistics/queensland-cancer-atlas/), [d. Globocan 2012: Estimated  Cancer Incidence, Mortality and Prevalence](http://globocan.iarc.fr/Pages/Map.aspx), [e. United States Cancer Statistics: An Interactive Cancer Statistics Website](https://nccd.cdc.gov/DCPC_INCA/) (Incidence rate per 100,000, all cancer types, men and women), [f. Map of Cancer Mortality Rates in Spain](http://elpais.com/elpais/2014/10/06/media/1412612722_141933.html) (Relative risk, Lung cancer, men vs women), [g. An Atlas of Cancer in South Australia](https://www.cancersa.org.au/assets/images/pdfs/An%20Atlas%20of%20Cancer%20in%20South%20Australia%20-%20Full%20Report.pdf) (Incidence rate per 100,000, lung cancer in females) "}
+```{r choropleth-grid-create, message=FALSE, fig.cap = "Public facing choropleth cancer maps.[a. The Environment and Health Atlas of England and Wales](http://www.envhealthatlas.co.uk/eha/Breast/) (Lung cancer in females)  (Incidence rates per 100,000 for all cancers, male and female), [b. Globocan 2012: Estimated  Cancer Incidence, Mortality and Prevalence](http://globocan.iarc.fr/Pages/Map.aspx),  [c. Atlas of Cancer in QLD - Relative incidence ration, Lung cancer in males](https://cancerqld.org.au/research/queensland-cancer-statistics/queensland-cancer-atlas/), [d. Bowel Cancer Australia Atlas](http://www.bowelcanceratlas.org/), [e. United States Cancer Statistics: An Interactive Cancer Statistics Website](https://nccd.cdc.gov/DCPC_INCA/) (Incidence rate per 100,000, all cancer types, men and women), [f. Map of Cancer Mortality Rates in Spain](http://elpais.com/elpais/2014/10/06/media/1412612722_141933.html) (Relative risk, Lung cancer, men vs women), [g. An Atlas of Cancer in South Australia](https://www.cancersa.org.au/assets/images/pdfs/An%20Atlas%20of%20Cancer%20in%20South%20Australia%20-%20Full%20Report.pdf) (Incidence rate per 100,000, lung cancer in females) "}
 library(cowplot)
 
 # Import the images
 plot1 <- png::readPNG('cancer_map_images/choropleths/21.choropleth.png')
-plot2 <- png::readPNG('cancer_map_images/choropleths/15.choropleth.png')
+plot2 <- png::readPNG('cancer_map_images/choropleths/3.choropleth.png') 
 plot3 <- png::readPNG('cancer_map_images/choropleths/25.choropleth.png')
-plot4 <- png::readPNG('cancer_map_images/choropleths/3.choropleth.png') 
+plot4 <- png::readPNG('cancer_map_images/choropleths/15.choropleth.png')
 plot5 <- png::readPNG('cancer_map_images/choropleths/7.choropleth.png')
 plot6 <- png::readPNG('cancer_map_images/choropleths/23.choropleth.png')
 plot7 <- png::readPNG('cancer_map_images/choropleths/26.choropleth.png')
@@ -194,7 +194,7 @@ ggdraw() +
   draw_plot(rasterGrob(plot6), 0, 0, .66, .5) +
   draw_plot(rasterGrob(plot7), .66, 0, .33, .5) +
   draw_plot_label(c("a", "b", "c", "d", "e", "f", "g"), 
-    c(0.015, 0.33, 0.63, 0.015, 0.33, 0.015, 0.63), 
+    c(0.015, 0.33, 0.63, 0.015, 0.33, 0.014, 0.63), 
     c(0.99, 0.99, 0.99, 0.74, 0.74, 0.49, 0.49), size = 15)
 
 ggsave(filename = "figures/choropleth_grid.png", 
@@ -312,7 +312,7 @@ knitr::include_graphics("figures/ggchoroCRS.png")
 <!-- Denominators -->
 Event cartograms change the area of regions on a map depending on the amount of disease related events, but this does not consider the effects of land area and population [@VSSDCUC].
 The purposeful distortion of the map space, transformed according to population density, is beneficial when a uniform density of the map base is desired. Population then becomes a uniformly distributed background for the statistic presented [@GOINO]. @ACTUC suggests 'population distribution is often extremely uneven in former British colonies', this makes the distortion necessary [@CTTMB].
-When implementing a distortion of the geographical shape according to population, the resulting display is an area cartogram [@NAC], population-by-area cartogram [@TAAM], or iso-demographic map.
+When implementing a distortion of the geographical shape according to population, the resulting display is an area cartogram [@NAC], or population-by-area cartogram [@TAAM].
 
 <!-- Why transform?-->
 <!-- Common variables used to create cartograms, e.g. population, mortality -->
@@ -460,12 +460,11 @@ Table: \label{tab:methods} Mapping methods used to display cancer statistics
 
 |  | Choropleth | Contiguous | Non-contiguous | Dorling | Tilegrams |
 |:-----------:|------------|-----------|---------------|---------|-----------|
-| Feature preservation: |  |  |  |  |  |
 | Preserves shapes | Y | N | Y | N | N |
 | Preserves neighbours | Y | Y | Y | S | S |
 | Uniform use of shape | N | N | N | Y | Y |
-| Bivariate display* | N | Y | Y | Y | Y |
-* A bivariate display refers to a map that allows two variables to be plotted. One variable via the size of the area, and another by filling the area with a colour.
+| Bivariate display^[A bivariate display refers to a map that allows two variables to be plotted. One variable via the size of the area, and another by filling the area with a colour.] | N | Y | Y | Y | Y |
+
 
 Creating maps of dieases now involves more decisions to be made by map makers, rather than cartographers. 
 Techonology has played an enormous role in increasing the opportunities for map makers.
@@ -489,11 +488,9 @@ Where the needs of the audience is changeable and is the priority, the map creat
 <!-- Animations -->
 @CPISACA provide weather maps as well developed and appropriate examples of spatial displays to communicate to the general public, and encourage those creating disease maps to leverage the success of weather displays.
 The movement of a weather system will follow a forecasted path, the animation will communicate this so that all map users can follow the path of the weather system across the geography over a specified period of time.
+In the disease mapping space, the Australian Cancer Atlas [-@TACA] provides [tours](
+https://atlas.cancer.org.au/app/tour/lungcancer) which change the display to draw user's attention to areas on the map that are relevant to the story. This directs user's attention and gives them tools to plan their own exploration.
 
-
-The move from static, print media displays toward interactivity allow users to develop maps to ask and answer their own questions.
-Developmets and adoptions of this technology has allowed map users more control of the message displayed.
-Users are able to see the familiar shapes, zoom in to explore densely populated communities, or change the display completely to highlight the population space.
 @CPISACA provide three questions that are generally when using a disease map:
 
 - What is the mortality rate in a certain area?
@@ -507,15 +504,21 @@ However, with the ability to animate, map creators can specify and answer these 
 Animations can be used to control the message being communicated by capturing and directing attention of users, it will also ensure all users follow the same interpretive path, as their eyes are drawn across the map to the same comparison points.
 
 <!-- Interactivity-->
+The move from static, print media displays toward interactivity allow users to develop maps to ask and answer their own questions.
+Developmets and adoptions of this technology has allowed map users more control of the message displayed.
+Users are able to see the familiar shapes, zoom in to explore densely populated communities, or change the display completely to highlight the population space.
+
 This oppportunity provides room to move away from the traditional approach of a single map for a single use, into a more explorative territory.
 Interactivity allows users to drive their own exploration, controlling a display through variable controls, links, tool tips, and data selection tools [@TGA]. 
 
 
-
 # Acknowledgements
 
+We would like to acknowledge Dr Earl Duncan (Research Associate at ARC Centre of Excellence for Mathematical & Statistical Frontiers, QUT). His time and effort given to edit and comment on this paper was invaluable.
+
+
 We thank Dr Susanna Cramb (Spatial Modeller, Cancer Council Queensland) and Dr Peter Baade (Senior Research Fellow, Cancer Council Queensland) for providing the opportunity to cover this exploration of disease mapping methods in writing.
-This literature review would not be possible without the opportunity provided by Queesnland University of Technology, and Cancer Council Queensland, and the roles of Professor Kerrie Mengersen (Professor of Statistics, Science and Engineering Faculty, QUT) and Dr Earl Duncan (Research Associate at ARC Centre of Excellence for Mathematical & Statistical Frontiers, QUT) in contributing to the Australian Cancer Atlas and supervision of Stephanie's Research Masters.
+This literature review would not be possible without the opportunity provided by Queesnland University of Technology, and Cancer Council Queensland, and the roles of Professor Kerrie Mengersen (Professor of Statistics, Science and Engineering Faculty, QUT) and Dr Earl Duncan in contributing to the Australian Cancer Atlas and supervision of Stephanie's Research Masters.
 
 It was in the development of this online cancer atlas that methods for disease map displays, and visual communication strategies were explored. We are thankful for the opportunity to write about these visualisations and the situations in which they are appropriate.
 
