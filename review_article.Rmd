@@ -63,7 +63,7 @@ By providing a visual representation of cancer outcomes, geographic patterns of 
 This paper addresses the visualisation techniques and their applications to cancer statistics. Highlighting the differences and historic use of these displays.
 
 <!-- Structure of the paper -->
-The paper is organised as follows.  The next section describes the choropleth map which is the common approach to disease maps. Section \ref{public} surveys atlases in use today. The (#alternative) describes an alternative display, the cartogram what may be useful for countries that have heterogeneously sized geographic units. The pros and cons of these approaches is discussed in Section [Comparison of mapping methods](#compare). Disease maps are more useful when made interactive, and common options are described in Section [Animation and Interactivity](#interacting), along with a discussion of benefits and disadvantages. The last section summarises the paper and discusses future directions. 
+The paper is organised as follows.  The next section describes the choropleth map which is the common approach to disease maps. Section XXX surveys atlases in use today. Section XXX describes an alternative display, the cartogram what may be useful for countries that have heterogeneously sized geographic units. The pros and cons of these approaches is discussed in Section  XXX. Disease maps are more useful when made interactive, and common options are described in Section  XXX, along with a discussion of benefits and disadvantages. The last section summarises the paper and discusses future directions. 
 
 
 # Map displays for disease data {#choropleths}
@@ -122,7 +122,7 @@ library(cowplot)
 
 # Import the images
 plot1 <- png::readPNG('cancer_map_images/choropleths/21.choropleth.png')
-plot2 <- png::readPNG('cancer_map_images/choropleths/3.choropleth.png') 
+plot2 <- png::readPNG('cancer_map_images/choropleths/3.choropleth.png')
 plot3 <- png::readPNG('cancer_map_images/choropleths/25.choropleth.png')
 plot4 <- png::readPNG('cancer_map_images/choropleths/15.choropleth.png')
 plot5 <- png::readPNG('cancer_map_images/choropleths/7.choropleth.png')
@@ -144,8 +144,6 @@ ggdraw() +
 ggsave(filename = "figures/choropleth_grid.png", 
   device = "png", width = 6, height = 5, dpi = 300)
 ```
-
-
 
 # Cancer atlases
 
@@ -239,28 +237,6 @@ These additional displays of the cancer distribution can provide alternative vie
 When presenting cancer maps, @MACM believes the intuition derived from maps must be 'validated by rigorous statistical analyses', the supplementary statistics help for this validation.
 
 
-```{r supp-grid-create, fig.cap = "Interactive controls of displays in public facing choropleth cancer maps. [a. Globocan 2018: Cancer Today](http://globocan.iarc.fr/Pages/Map.aspx)(Controls for indicator, sex, age groups, continents, and cancer types) , [b. Bowel Cancer Australia Atlas](http://www.bowelcanceratlas.org/) (Controls for indicator, age, year, and geographical areas), [c. The Cancer Atlas ](http://canceratlas.cancer.org/data/#?view=map&metric=INCID_ALL_M) (Controls for predetermined combinations of cancer type or risk factors, mortality or incidence, and gender) [d. Global Cancer Map](http://globalcancermap.com/) (Controls for indicator, and cancer type), [e. United States Cancer Statistics: Data Visualizations](https://gis.cdc.gov/Cancer/USCS/DataViz.html) (Controls for demographics, trends, geography, indicators, risk factors, sex, cancer type, and year)."}
-i1 <- png::readPNG('cancer_map_images/interactivity/3.interactivity.png')
-i2 <- png::readPNG('cancer_map_images/interactivity/15.interactivity.png')
-i3 <- png::readPNG('cancer_map_images/interactivity/4.interactivity.png')
-i4 <- png::readPNG('cancer_map_images/interactivity/5.interactivity.png')
-i5 <- png::readPNG('cancer_map_images/interactivity/7.interactivity.png')
-
-ggdraw() +
-  draw_plot(rasterGrob(i1), 0,  0.13,   .28,  .83) + #a
-  draw_plot(rasterGrob(i2), 0.32, 0.56, .68, .4) + #b
-  draw_plot(rasterGrob(i3), 0.32, 0.41, .68, .13) + #c
-  draw_plot(rasterGrob(i4), 0.32, 0.14, .68, .25) + #d
-  draw_plot(rasterGrob(i5), 0, 0, 1, .13) + #e
-  draw_plot_label(c("a", "b", "c", "d", "e"), 
-    c(0.01, 0.3, 0.3, 0.3, 0.01), 
-    c(0.99, 0.99, 0.59, 0.40, 0.19), size = 15)
-
-ggsave(filename = "figures/supp_grid.png", device = "png", 
-  width = 6, height = 5, dpi = 300)
-```
-
-
 The interactivity of modern mapping methods enable supplementary information to be incorporated without cluttering the screen.
 Tool tip features and drop down menus allow for user exploration, small screens are not a problem with the flexibility provided by zooming and panning [@HTLWM].
 This allows relationships between spatial areas and diseases to be explored with sophistication in nontraditional but still 'cognitively accesible' ways [@TNTEA].
@@ -269,6 +245,28 @@ These interactive features provide an opportunity for users to explore additiona
 This directly enables epidemiologists to explore spatial distributions of cancer statistics.
 The interactive features of the publically available maps identified by @roberts2019communication include exploration of geographic hierarchies, population distribution, statistical uncertainty, demographics and socio-economic indicators.
 @TNTEA suggested LM plots as a solution to linking cartography and statistical graphics.
+
+
+```{r supp-grid-create, fig.cap = "Interactive controls of displays in public facing choropleth cancer maps. [a. Globocan 2018: Cancer Today](http://globocan.iarc.fr/Pages/Map.aspx)(Controls for indicator, sex, age groups, continents, and cancer types) , [b. Bowel Cancer Australia Atlas](http://www.bowelcanceratlas.org/) (Controls for indicator, age, year, and geographical areas), [c. The Cancer Atlas ](http://canceratlas.cancer.org/data/#?view=map&metric=INCID_ALL_M) (Controls for predetermined combinations of cancer type or risk factors, mortality or incidence, and gender) [d. Global Cancer Map](http://globalcancermap.com/) (Controls for indicator, and cancer type), [e. United States Cancer Statistics: Data Visualizations](https://gis.cdc.gov/Cancer/USCS/DataViz.html) (Controls for demographics, trends, geography, indicators, risk factors, sex, cancer type, and year)."}
+i1 <- png::readPNG('cancer_map_images/interactivity/3.interactivity.png') # b in choro grid
+i2 <- png::readPNG('cancer_map_images/interactivity/15.interactivity.png') # d in choro grid
+i3 <- png::readPNG('cancer_map_images/interactivity/4.interactivity.png')
+i4 <- png::readPNG('cancer_map_images/interactivity/5.interactivity.png')
+i5 <- png::readPNG('cancer_map_images/interactivity/7.interactivity.png') # e in choro grid
+
+ggdraw() +
+  draw_plot(rasterGrob(i1), 0,  0.13,   .28,  .83) + #a
+  draw_plot(rasterGrob(i2), 0.32, 0.56, .68, .4) + #b
+  draw_plot(rasterGrob(i3), 0.32, 0.41, .68, .13) + #c
+  draw_plot(rasterGrob(i4), 0.32, 0.14, .68, .25) + #d
+  draw_plot(rasterGrob(i5), 0, 0, 1, .13) + #e
+  draw_plot_label(c("i", "ii", "iii", "iv", "v"), 
+    c(0.01, 0.3, 0.3, 0.3, 0.01), 
+    c(0.99, 0.99, 0.57, 0.40, 0.15), size = 15)
+
+ggsave(filename = "figures/supp_grid.png", device = "png", 
+  width = 6, height = 5, dpi = 300)
+```
 
 ### Geographic hierarchies
 While atlases are often used to describe differences between areas, statistics may be displayed at different levels of aggregation. The World Health Organisation and UN Regions can also be used to aggregate areas [@IARC_3].
@@ -283,7 +281,7 @@ Atlases can also connect the population to the land available to them by communi
 
 ### Statistical uncertainty
 The additional statistics often include a measure of the statistical uncertainty of the values of the statistics presented in a choropleth.
-In the review of atlases in the public domain, atlases were considered to report uncertainty to the non-expert user if they included a measure of statistical uncertainty either within or alongside the map [@@roberts2019communication]. 
+In the review of atlases in the public domain, atlases were considered to report uncertainty to the non-expert user if they included a measure of statistical uncertainty either within or alongside the map [@roberts2019communication]. 
 The maps considered used standard and well known measures including credible intervals and standard deviation, statistical significance, box plots and distributions. Other methods involve providing adjacent maps or overlapping maps with symbols [@VSSDCUC].
 The maps employing uncertainty ranged from static pdfs or infographics, to interactive online resources. Communicating the uncertainty associated with the estimates through a confidence (CI) interval, statistical significance levels, boxplots, distribution plots, and reporting sample size and standard deviations.
 Close to half of the atlases identified (42%, n=14) included some measure of uncertainty. The most common measure used to represent uncertainty were credible or confidence intervals (CIs).
