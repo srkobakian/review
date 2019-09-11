@@ -213,6 +213,17 @@ Figure \@ref(choropleth-grid-create) displays a global (b), national (a,d,e,f) a
 
 <!-- While there is significant variation across these maps in terms of the measure represented, the scale of the map, the colour choices, the legend design and supplementary/supporting statistics, the mapping approach has not changes and almost exclusively only choropleth maps are used. Unlike innovation in spatial statistical methods, interactity, data collection and record keeping little work has been done to implement different mapping approaches -->
 
+The interactivity of modern mapping methods enable supplementary information to be incorporated without cluttering the screen.
+Tool tip features and drop down menus allow for user exploration, small screens are not a problem with the flexibility provided by zooming and panning [@HTLWM].
+This allows relationships between spatial areas and diseases to be explored with sophistication in nontraditional but still 'cognitively accesible' ways [@TNTEA].
+The use of these supports were found in a many online diease mapmap sources.
+These interactive features provide an opportunity for users to explore additional information to help users understand and interpret the spatial distribution presented, as well as validate, explain or explore the presented statistics and their relationships to each other and/or their underlying spatial distribution. 
+This directly enables epidemiologists to explore spatial distributions of cancer statistics.
+The interactive features of the publically available maps identified by @roberts2019communication include exploration of geographic hierarchies, population distribution, statistical uncertainty, demographics and socio-economic indicators.
+@TNTEA suggested LM plots as a solution to linking cartography and statistical graphics.
+
+
+
 ## Supplementary statistics in public facing atlases
 
 Cancer maps are powerful visualisations that summarise complex statistical analyses, however the statistics represented in these maps cannot tell the entire story.
