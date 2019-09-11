@@ -63,22 +63,25 @@ By providing a visual representation of cancer outcomes, geographic patterns of 
 This paper addresses the visualisation techniques and their applications to cancer statistics. Highlighting the differences and historic use of these displays.
 
 <!-- Structure of the paper -->
-The paper is organised as follows.  The next section, [Map displays for disease data](#choropleths), describes the choropleth map which is the common approach to disease maps. Section [Publicly available atlases](#public) surveys atlases in use today. The [Alternative displays](#alternative) describes an alternative display, the cartogram what may be useful for countries that have heterogeneously sized geographic units. The pros and cons of these approaches is discussed in Section [Comparison of mapping methods](#compare). Disease maps are more useful when made interactive, and common options are described in Section [Animation and Interactivity](#interacting), along with a discussion of benefits and disadvantages. The last section summarises the paper and discusses future directions. 
+The paper is organised as follows.  The next section describes the choropleth map which is the common approach to disease maps. Section \ref{public} surveys atlases in use today. The (#alternative) describes an alternative display, the cartogram what may be useful for countries that have heterogeneously sized geographic units. The pros and cons of these approaches is discussed in Section [Comparison of mapping methods](#compare). Disease maps are more useful when made interactive, and common options are described in Section [Animation and Interactivity](#interacting), along with a discussion of benefits and disadvantages. The last section summarises the paper and discusses future directions. 
 
 
 # Map displays for disease data {#choropleths}
 
 <!-- what is a choropleth map -->
-A choropleth map is used to display the characteristics of a spatial relationship of measurements. 
-They are true maps of the topology, constructed for visual inspection of spatial patterns on a familiar geographic form. Classed choropleth maps break a continuous variable into a small set of categories, often quintiles, and use a gradual colour scheme to shade all areas that fall in the same category [@CPISACA].
-Figure \ref{fig:choro} shows a classed choropleth map of the United States. Each state has been coloured according to the average age-adjusted rate per 100,000 people, of new cases of lung and bronchus for females and males from 2012 to 2016.
-The data was extracted from the [official federal statistics](https://gis.cdc.gov/cancer/USCS/DataViz.html) on cancer incidence and deaths, produced by the Centers for Disease Control and Prevention (CDC) and the National Cancer Institute (NCI). 
+A choropleth map is used to display the spatial relationship of measurements. The geography  is faithfully rendered, and the colour rendering is designed to reveal spatial patterns among data values. A choropleth is constructed by drawing the geographic or political boundaries, and filling the shapes with colours to represent values of a measured variable [@EI]. 
+Figure \ref{fig:choro} shows a choropleth of age-adjusted rate (per 100,000 people) of new cases of lung and bronchus in the USA, averaged over 2012 through 2016. The data was extracted from the [official federal statistics](https://gis.cdc.gov/cancer/USCS/DataViz.html) on cancer incidence and deaths, produced by the Centers for Disease Control and Prevention (CDC) and the National Cancer Institute (NCI).  
 
-Identifying and explaining spatial structures, patterns, and processes involves considering the individuals in communities and organising communities into representable units [@SAMGIS]. 
-A choropleth is constructed by drawing the geographic or political boundaries, and filling the shapes with colours to represent values of a measured variable [@EI].
+<!-- history and types of choropleths, variations -->
 Early versions of choropleth maps used symbols or patterns instead of colour.
-As an alternative storage device to a table, it preserves locations for geographically ordered data, with usage dating back to the 1800s [@GOINO].
-@CPISACA discuss the use of choropleths to visualise cancer data, and @DMAHP gives an overview of the development of these maps for displaying disease data.
+As an alternative storage device to a table, it preserves locations for geographically ordered data, with usage dating back to the 1800s [@GOINO] XXX Is this the right reference here? It doesn't seem to match the statement of early examples. Maybe you want to reference Dupin's map? @CPISACA discuss the use of choropleths to visualise cancer data, and @DMAHP gives an overview of the development of these maps for displaying disease data.
+
+<!-- psychology -->
+Utilising the state boundaries can make a map familiar to read [@CIBMUK], and allows viewers to visually infer the spatial relationships in the data, i.e. how cancer rate differs across the states. The familiarity of the geography is a worthy consideration when presenting results of spatial analysis. Just as geographers are no longer the only creators of maps, @CPISACA suggests the audiences of spatial health data analysis have extended beyond researchers to the public, policymakers and the media.
+
+<!-- how do we use choropleth's -->
+Identifying and explaining spatial structures, patterns, and processes involves considering the individuals in communities and organising communities into representable units [@SAMGIS]. In Figure \ref{fig:choro}, a west to east spatial trend  of increasing rates, can be seen. There is also a spatial outlier -- Utah has a noticeably lower rate that its neighbours. Also Kentucky has a noticeably high rate, and Maine also has a higher rate than its neighbours. There is something of a cluster of higher rates around the tobacco states. 
+
 
 ```{r choro, fig.cap = "Choropleth map of the average age-adjusted rate per 100,000 people, of new cases of lung and bronchus cancer 2012-2016 in the USA. Utah has an unusually low rate and Kentucky is high. There is generally a west to east trend, with higher rates towards the easern states.", message=FALSE, warning=FALSE, out.width='100%', fig.align='center', fig.width=12}
 library(sugarbag)
@@ -100,19 +103,51 @@ cancer <- st_transform(cancer, 3857)
 b <- st_bbox(cancer)
 ggplot(cancer) + 
   geom_sf(aes(fill = AgeAdjustedRate)) +
-  scale_fill_distiller("Age-adjusted rate (per 1000)", type = "seq", palette = "YlOrRd",  direction = 1) + 
+  scale_fill_distiller("Age-adjusted rate \n (per 100,000)", type = "seq", palette = "YlOrRd",  direction = 1) + 
   #coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
   theme_void() +
   theme(legend.position ="bottom", legend.key.width = unit(2, "cm"))
 ```
 
-<!-- psychology -->
-Utilising the familiar state boundaries can make a map intuitive to read [@CIBMUK], and allow viewers to visually infer the spatial relationships in the data, i.e. how cancer rate differs across the states.
-The familiarity of the geography is a worthy consideration when presenting results of spatial analysis. Just as geographers are no longer the only creators of maps, @CPISACA suggests the audiences of spatial health data analysis have extended beyond researchers to the public, policymakers and the media.
+<!-- potential problems -->
 While the areas are recognisable shapes, they are often politically driven boundaries with individual areas being of non-uniform size, containing different population densities and subject to change over time. 
 The different population and geographical sizes of administrative areas can attract attention to the shades of the unpopulated but large areas [@EI]. 
 Choropleths can inhibit visual inference when presenting human related statistics as the display may draw attention from the 'potentially more important results in the more populous communities' [@SE]. 
 
+
+
+
+```{r choropleth-grid-create, message=FALSE, fig.cap = "Public facing choropleth cancer maps.[a. The Environment and Health Atlas of England and Wales](http://www.envhealthatlas.co.uk/eha/Breast/) (Lung cancer in females)  (Incidence rates per 100,000 for all cancers, male and female), [b. Globocan 2012: Estimated  Cancer Incidence, Mortality and Prevalence](http://globocan.iarc.fr/Pages/Map.aspx),  [c. Atlas of Cancer in QLD - Relative incidence ration, Lung cancer in males](https://cancerqld.org.au/research/queensland-cancer-statistics/queensland-cancer-atlas/), [d. Bowel Cancer Australia Atlas](http://www.bowelcanceratlas.org/), [e. United States Cancer Statistics: An Interactive Cancer Statistics Website](https://nccd.cdc.gov/DCPC_INCA/) (Incidence rate per 100,000, all cancer types, men and women), [f. Map of Cancer Mortality Rates in Spain](http://elpais.com/elpais/2014/10/06/media/1412612722_141933.html) (Relative risk, Lung cancer, men vs women), [g. An Atlas of Cancer in South Australia](https://www.cancersa.org.au/assets/images/pdfs/An%20Atlas%20of%20Cancer%20in%20South%20Australia%20-%20Full%20Report.pdf) (Incidence rate per 100,000, lung cancer in females)"}
+library(cowplot)
+
+# Import the images
+plot1 <- png::readPNG('cancer_map_images/choropleths/21.choropleth.png')
+plot2 <- png::readPNG('cancer_map_images/choropleths/3.choropleth.png') 
+plot3 <- png::readPNG('cancer_map_images/choropleths/25.choropleth.png')
+plot4 <- png::readPNG('cancer_map_images/choropleths/15.choropleth.png')
+plot5 <- png::readPNG('cancer_map_images/choropleths/7.choropleth.png')
+plot6 <- png::readPNG('cancer_map_images/choropleths/23.choropleth.png')
+plot7 <- png::readPNG('cancer_map_images/choropleths/26.choropleth.png')
+
+ggdraw() +
+  draw_plot(rasterGrob(plot1), 0, .75, 0.33, .25) +
+  draw_plot(rasterGrob(plot2), 0.33, 0.75, 0.33, .25) +
+  draw_plot(rasterGrob(plot3), 0.66, 0.5, .33, .5) +
+  draw_plot(rasterGrob(plot4), 0, 0.5, .33, .25) +
+  draw_plot(rasterGrob(plot5), 0.33, 0.5, .33, .25) +
+  draw_plot(rasterGrob(plot6), 0, 0, .66, .5) +
+  draw_plot(rasterGrob(plot7), .66, 0, .33, .5) +
+  draw_plot_label(c("a", "b", "c", "d", "e", "f", "g"), 
+    c(0.015, 0.33, 0.63, 0.015, 0.33, 0.014, 0.63), 
+    c(0.98, 0.98, 0.98, 0.74, 0.74, 0.47, 0.47), size = 15)
+
+ggsave(filename = "figures/choropleth_grid.png", 
+  device = "png", width = 6, height = 5, dpi = 300)
+```
+
+
+
+# Cancer atlases
 
 <!-- Displaying of cancer data on choropleths -->
 Choropleth maps can be useful devices for communicating information to public on a familiar map base.
@@ -173,43 +208,12 @@ New York State Department of Health Maps of Cancer Incidence byCounty.[http://ww
 Quinn M, Wood H, Cooper N, Rowan S, Eds:Cancer Atlas of the UnitedKingdom and Ireland 1991-2000.London: Office for National Statistics;2005.
 -->
 
+Cancer maps are effective tools for communicating to wide range of audiences, including the general public and others not trained in statistical analyses. These visualisation enable thse non-expert audiences to access the outputs of sophisticated statistical analyses. Cruickshank's (1947) as cited by @DMAHP, discusses using visuals as a 'formal statistical assessment of the spatial pattern'. Overwhelmingly cancer maps utilised to communicate to the public and other non-expert audiences are choropleths. 
 
+## Overview of publicly available atlases
 
-```{r choropleth-grid-create, message=FALSE, fig.cap = "Public facing choropleth cancer maps.[a. The Environment and Health Atlas of England and Wales](http://www.envhealthatlas.co.uk/eha/Breast/) (Lung cancer in females)  (Incidence rates per 100,000 for all cancers, male and female), [b. Globocan 2012: Estimated  Cancer Incidence, Mortality and Prevalence](http://globocan.iarc.fr/Pages/Map.aspx),  [c. Atlas of Cancer in QLD - Relative incidence ration, Lung cancer in males](https://cancerqld.org.au/research/queensland-cancer-statistics/queensland-cancer-atlas/), [d. Bowel Cancer Australia Atlas](http://www.bowelcanceratlas.org/), [e. United States Cancer Statistics: An Interactive Cancer Statistics Website](https://nccd.cdc.gov/DCPC_INCA/) (Incidence rate per 100,000, all cancer types, men and women), [f. Map of Cancer Mortality Rates in Spain](http://elpais.com/elpais/2014/10/06/media/1412612722_141933.html) (Relative risk, Lung cancer, men vs women), [g. An Atlas of Cancer in South Australia](https://www.cancersa.org.au/assets/images/pdfs/An%20Atlas%20of%20Cancer%20in%20South%20Australia%20-%20Full%20Report.pdf) (Incidence rate per 100,000, lung cancer in females)"}
-library(cowplot)
-
-# Import the images
-plot1 <- png::readPNG('cancer_map_images/choropleths/21.choropleth.png')
-plot2 <- png::readPNG('cancer_map_images/choropleths/3.choropleth.png') 
-plot3 <- png::readPNG('cancer_map_images/choropleths/25.choropleth.png')
-plot4 <- png::readPNG('cancer_map_images/choropleths/15.choropleth.png')
-plot5 <- png::readPNG('cancer_map_images/choropleths/7.choropleth.png')
-plot6 <- png::readPNG('cancer_map_images/choropleths/23.choropleth.png')
-plot7 <- png::readPNG('cancer_map_images/choropleths/26.choropleth.png')
-
-ggdraw() +
-  draw_plot(rasterGrob(plot1), 0, .75, 0.33, .25) +
-  draw_plot(rasterGrob(plot2), 0.33, 0.75, 0.33, .25) +
-  draw_plot(rasterGrob(plot3), 0.66, 0.5, .33, .5) +
-  draw_plot(rasterGrob(plot4), 0, 0.5, .33, .25) +
-  draw_plot(rasterGrob(plot5), 0.33, 0.5, .33, .25) +
-  draw_plot(rasterGrob(plot6), 0, 0, .66, .5) +
-  draw_plot(rasterGrob(plot7), .66, 0, .33, .5) +
-  draw_plot_label(c("a", "b", "c", "d", "e", "f", "g"), 
-    c(0.015, 0.33, 0.63, 0.015, 0.33, 0.014, 0.63), 
-    c(0.98, 0.98, 0.98, 0.74, 0.74, 0.47, 0.47), size = 15)
-
-ggsave(filename = "figures/choropleth_grid.png", 
-  device = "png", width = 6, height = 5, dpi = 300)
-```
-
-
-
-# Publicly available atlases
-
-Cancer maps are effective tools for communicating to wide range of audiences, including the general public and others not trained in statistical analyses. These visualisation enable thse non-expert audiences to access the outputs of sophisticated statistical analyses. Cruickshank's (1947) as cited by @DMAHP, discusses using visuals as a 'formal statistical assessment of the spatial pattern'. Overwhelmingly cancer maps utilised to communicate to the public and other non-expert audiences are choropleths. A grey literature review of cancer atlases available in the public domain [@roberts2019communication] identified 33 cancer atlases published on the internet between January 2010 and November 2015, all of which were choropleths. These maps were published by non-commercial organisations, including not-for-profits, government, research organisations, advocacy groups or government funded partnerships.Only one map was published by a commercial entity.  The use of choropleths within the public domain mirrors the heavy use of choropleth maps within the research literature, discussed above. 
-The cancer atlases covered geographies from all around the world, most focused on single nations.
-Figure \@ref(choropleth-grid-create) displays a global (b), national (a,d,e,f) and state (c,g) choropleths. 
+@roberts2019communication identified 33 publicly available cancer atlases, published between January 2010 and November 2015. All of these use choropleth maps. All but one of these were published by non-commercial organisations, including not-for-profits, government, research organisations, advocacy groups or government funded partnerships. The use of choropleths within the public domain mirrors the heavy use of choropleth maps within the research literature, discussed above. 
+The cancer atlases covered geographies from all around the world, most focused on single nations. Figure \@ref(choropleth-grid-create) displays a global (b), national (a,d,e,f) and state (c,g) choropleths. 
 
 <!-- While there is significant variation across these maps in terms of the measure represented, the scale of the map, the colour choices, the legend design and supplementary/supporting statistics, the mapping approach has not changes and almost exclusively only choropleth maps are used. Unlike innovation in spatial statistical methods, interactity, data collection and record keeping little work has been done to implement different mapping approaches -->
 
@@ -223,8 +227,9 @@ The interactive features of the publically available maps identified by @roberts
 @TNTEA suggested LM plots as a solution to linking cartography and statistical graphics.
 
 
+XXX more details on the examples in the next figure
 
-## Supplementary statistics in public facing atlases
+## Common statistics displayed
 
 Cancer maps are powerful visualisations that summarise complex statistical analyses, however the statistics represented in these maps cannot tell the entire story.
 Supplementary graphs and plots are often included to add more depth and information to the map.
@@ -297,8 +302,9 @@ These rates may also be explored as percentages above or below the mean or media
 The Human Development Index can be used to understand the socio-economic experience of a community, as can the Income levels as measured by World bank list of economies[@IARC_3]. 
 The areas are usually ranked and allocated to quintiles to be presented as categories describing the ranking.
 
+## Interaction with atlases
 
-# Alternative displays {#alternative}
+# Cartograms and other spatially warped displays {#alternative}
 
 ## Cartograms
 
@@ -403,7 +409,7 @@ The scale of the areas does not impact on the shape recognition. However it may 
 knitr::include_graphics("figures/ggncont.png")
 ```
 
-### Alternatives 
+### Dorling
 
 Daniel Dorling presented an alternative display engineere to highlight the spatial distribution and neighbourhood relationships without complex distortions of borders and boundaries. This approach opposes preserving the intricate shape details and is founded in the simple question put forward by Daniel Dorling -@ACTUC:
 
@@ -429,13 +435,15 @@ Figure \ref{fig:ggtilegram} shows a square tilegram representing each state usin
 
 Recommended criteria to contrast mapping methods include average cartographic error, and maximum cartographic error, correct adjacencies, maximum aspect ratio, and suitable relative positions [@ORC]. However, this does not consider the issues with actually producing rectangular cartograms. Algorithms for the creation of rectangular cartograms
 
+## Tilegram
 
 ```{r ggtilegram, fig.cap = "A tilegram of the Unites States of America. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. Each state has been represented by a square, each square is the same size. The neighbouring states are easily contrasted, however the north east regions has been displaced from their geographic location. The sparsity of the population in the Mid West is highlight by the light yellow colour, the age adjusted rate in Kentucky is the darkest and its neighbours are similar.", message=FALSE, warning=FALSE, out.width='80%'}
 knitr::include_graphics("figures/ggtilegram.png")
 ```
 
+Bob Rudis, geogrid
 
-# Comparison of mapping methods (#compare)
+# Comparison of maps and cartograms {#compare}
 
 
 
