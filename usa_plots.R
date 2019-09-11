@@ -1,7 +1,7 @@
 #USA Cancer Data
 
-#  United States Cancer Statistics: Data Visualizations
-#The official federal statistics on cancer incidence and deaths, produced by the Centers for Disease Control and Prevention (CDC) and the National Cancer Institute (NCI).
+# United States Cancer Statistics: Data Visualizations
+# The official federal statistics on cancer incidence and deaths, produced by the Centers for Disease Control and Prevention (CDC) and the National Cancer Institute (NCI).
 
 # https://gis.cdc.gov/cancer/USCS/DataViz.html
 
@@ -20,6 +20,7 @@ library(spData)
 library(ggthemes)
 library(maptools)
 library(sf)
+library(cartogram)
 
 # read in data
 cancer <- read_csv("data/USCSlung.csv") %>% rename(NAME = Area)
@@ -39,6 +40,7 @@ ggplot(cancer, aes(x = total_pop_15 )) + geom_density()
 title <- ""
   #"Average rate of incidence for lung and bronchus for females and males in the United States 2012-2016, \n where the size of each state has been adjusted for population"
 
+###############################################################################
 # Create a choropleth
 ggchoro <- ggplot(cancer) + 
   geom_sf(aes(fill = AgeAdjustedRate)) +
@@ -47,12 +49,11 @@ ggchoro <- ggplot(cancer) +
   coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
   theme_void() +
   theme(legend.position ="bottom")
-ggsave(filename = "figures/ggchoro.png", device = "png", width = 12, height = 6)
+ggsave(filename = "figures/ggchoro.png", device = "png", dpi = 300,  width = 12, height = 6)
 ggchoro
 
+###############################################################################
 # Cartograms
-#install.packages("cartogram")
-library(cartogram)
 
 # Contiguous Cartograms
 cont <- cartogram_cont(cancer,
@@ -63,9 +64,10 @@ ggcont <- ggplot(cont) +
   scale_fill_distiller(type = "seq", palette = "YlOrRd",  direction = 1) + 
   coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
   theme_void() +   theme(legend.position ="bottom")
-ggsave(filename = "figures/ggcont.png", device = "png", width = 12, height = 6)
+ggsave(filename = "figures/ggcont.png", device = "png", dpi = 300,  width = 12, height = 6)
 ggcont
 
+###############################################################################
 # Non - Contiguous Cartograms
 # Needs a scaling factor
 
@@ -85,10 +87,11 @@ ggncont <- ggplot(ncont) +
   scale_fill_distiller(type = "seq", palette = "YlOrRd",  direction = 1) + 
   coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
   theme_void() + theme(legend.position ="bottom")
-ggsave(filename = "figures/ggncont.png", device = "png", width = 12, height = 6)
+ggsave(filename = "figures/ggncont.png", device = "png", dpi = 300,  width = 12, height = 6)
 ggncont
 
 
+###############################################################################
 # Non - Contiguous Dorling Cartograms
 dorl <- cartogram_dorling(cancer,
   weight = "total_pop_15") %>% st_as_sf()
@@ -98,26 +101,28 @@ ggdorl <- ggplot(dorl) +
   scale_fill_distiller(type = "seq", palette = "YlOrRd",  direction = 1) + 
   coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
   theme_void() + theme(legend.position ="bottom")
-ggsave(filename = "figures/ggdorl.png", device = "png", width = 12, height = 6)
+ggsave(filename = "figures/ggdorl.png", device = "png", dpi = 300,  width = 12, height = 6)
 ggdorl
 
 
 
 # Centroid Cartograms
-cancer <- cancer %>% 
-  sf::st_centroid(geometry) %>% 
-  sf::st_coordinates() %>% as_tibble() %>% bind_cols(cancer, .)
+# cancer <- cancer %>% 
+#   sf::st_centroid(geometry) %>% 
+#   sf::st_coordinates() %>% as_tibble() %>% bind_cols(cancer, .)
+# 
+# ggdot <- ggplot(cancer) + 
+#   geom_point(aes(X,Y, colour = AgeAdjustedRate)) + 
+#   geom_sf(data=cancer, fill = NA, colour = "grey") +
+#   ggtitle(title) +
+#   scale_colour_distiller(type = "seq", palette = "YlOrRd",  direction = 1) + 
+#   coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
+#   theme_void() + theme(legend.position ="bottom")
+# ggsave(filename = "figures/ggdot.png", device = "png", dpi = 300,  width = 12, height = 6)
+# ggdot
 
-ggdot <- ggplot(cancer) + 
-  geom_point(aes(X,Y, colour = AgeAdjustedRate)) + 
-  geom_sf(data=cancer, fill = NA, colour = "grey") +
-  ggtitle(title) +
-  scale_colour_distiller(type = "seq", palette = "YlOrRd",  direction = 1) + 
-  coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
-  theme_void() + theme(legend.position ="bottom")
-ggsave(filename = "figures/ggdot.png", device = "png", width = 12, height = 6)
-ggdot
 
+###############################################################################
 # Choropleth projections
 # 3857, 2163, 4326, 2955
 ggchoro1 <- ggplot(st_transform(cancer, 3857)) + 
@@ -147,7 +152,27 @@ ggchoro4 <- ggplot(st_transform(cancer, 2955)) +
 ggchoroCRS <- gridExtra::grid.arrange(ggchoro1, ggchoro2, ggchoro3, ggchoro4)
 
 ggsave(filename = "figures/ggchoroCRS.png", plot = ggchoroCRS,
-  device = "png", width = 12, height = 6)
+  device = "png", dpi = 300,  width = 12, height = 6)
+
+
+###############################################################################
+#Tilegram
+library(statebins)
+
+## US example
+ggtilegram <- left_join(adat, cancer %>% rename(state = NAME)) %>%
+  statebins(
+    value_col = "AgeAdjustedRate", 
+    name = "AgeAdjustedRate"
+  ) +
+  labs(title = "") + 
+  theme_void() + theme(legend.position ="bottom") +
+  scale_fill_distiller(type = "seq", palette = "YlOrRd",  direction = 1)
+
+ggsave(filename = "figures/ggtilegram.png", plot = ggtilegram,
+  device = "png", dpi = 300,  width = 12, height = 6)
+
+
 
 
 #####
@@ -184,4 +209,4 @@ chloropleth_grid <- gridExtra::grid.arrange(grid::rasterGrob(plot1),grid::raster
   grid::rasterGrob(plot16), nrow=4)
 
 
-ggsave(filename = "figures/choropleth_grid.png", plot = choropleth_grid, device = "png", width = 12, height = 6)
+ggsave(filename = "figures/choropleth_grid.png", plot = choropleth_grid, device = "png", dpi = 300,  width = 12, height = 6)
