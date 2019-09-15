@@ -53,8 +53,8 @@ ggchoro <- ggplot(cancer) +
   #coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
   theme_void() +
   theme(legend.position ="bottom")
-ggsave(filename = "figures/ggchoro.png", device = "png", dpi = 300,  width = 12, height = 6)
 ggchoro
+ggsave(filename = "figures/ggchoro.png", device = "png", dpi = 300,  width = 12, height = 6)
 
 ###############################################################################
 # Cartograms
@@ -181,37 +181,22 @@ ggsave(filename = "figures/ggtilegram.png", plot = ggtilegram,
 cancermap <- st_transform(cancer, "+proj=longlat +datum=WGS84 +no_defs")
 centroids <- create_centroids(cancermap, "NAME")
 grid <- create_grid(centroids = centroids, 
-  hex_size = 2,buffer_dist = 5)
+  hex_size = 2.2 ,buffer_dist = 5)
 hexmap <- allocate(
   centroids = centroids, hex_grid = grid, 
-  sf_id = "NAME", hex_size = 2, hex_filter = 5, 
-  #focal_points = tibble(point = "mean", longitude = mean(centroids$longitude), latitude = mean(centroids$latitude)), 
+  sf_id = "NAME", hex_size = 2.2, hex_filter = 5, 
+  focal_points = tibble(point = "mean", longitude = mean(centroids$longitude), latitude = mean(centroids$latitude)), 
   verbose = TRUE, width = 30
   )
 
-hexagons <- fortify_hexagon(hexmap, sf_id = "NAME", hex_size = 2) %>%  
-  left_join(st_drop_geometry(sa3lung))
-
-create_polygons <- function(x){
-  polygon <- st_multipoint(as.matrix(bind_rows(x)), dim = "XY") %>% st_cast("POLYGON")
-  return(polygon)
-}
-
-hexpolygons <- hexagons %>% 
-  st_as_sf(., coords = c("long", "lat")) %>% 
-  group_by(NAME) %>%
-  st_cast("POLYGON")
-
-hexagons <- cancer %>% 
-  st_drop_geometry() %>% 
-  arrange(NAME) %>% 
-  mutate(geometry = st_geometry(hexpolygons$geometry)) %>% 
-  st_as_sf() %>% st_set_crs(., 3112)
+hexagons <- fortify_hexagon(hexmap, sf_id = "NAME", hex_size = 2.5) %>%  
+  left_join(st_drop_geometry(cancer))
 
 gghexmap <- ggplot(hexagons) + 
-  geom_sf(aes(fill = AgeAdjustedRate), colour = NA) + 
+  geom_polygon(aes(x= long, y = lat, group = NAME, 
+                   fill = AgeAdjustedRate), colour = NA) + 
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) +
-  theme_map() + theme(legend.position ="bottom")
+  theme_map() + theme(legend.position ="bottom") + coord_equal()
 gghexmap
 ggsave(filename = "figures/gghexmap.png", plot = gghexmap,
   device = "png", dpi = 300,  width = 12, height = 6)

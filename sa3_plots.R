@@ -54,7 +54,6 @@ sa3lung <- sa3lung %>%
 aus_ggchoro <- ggplot(sa3lung) + 
   geom_sf(aes(fill = `Age-standardised rate (per 100,000)`), colour = NA) +
   scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1, na.value = "light grey") + 
-  ggtitle(title) +
   theme_void() +
   coord_sf(crs = CRS("+init=epsg:3112"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
   theme(legend.position ="bottom") + 
@@ -112,8 +111,7 @@ dorl <- sa3lung %>% cartogram_dorling(.,
 aus_ggdorl <- ggplot(dorl) + 
   geom_sf(aes(fill = `Age-standardised rate (per 100,000)`)) + 
   scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1) + 
-  coord_sf(crs = CRS("+init=epsg:3112"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
-  theme_void() + theme(legend.position ="bottom")
+ theme_void() + theme(legend.position ="bottom")
 aus_ggdorl
 ggsave(filename = "figures/aus_ggdorl.png", device = "png", dpi = 300,  width = 12, height = 6)
 
@@ -132,28 +130,11 @@ hexmap <- allocate(
 hexagons <- fortify_hexagon(hexmap, sf_id = "sa3_name_2016", hex_size = 0.7) %>% 
   left_join(st_drop_geometry(sa3lung))
 
-create_polygons <- function(x){
-  polygon <- st_multipoint(as.matrix(bind_rows(x)), dim = "XY") %>% st_cast("POLYGON")
-  return(polygon)
-}
-
-hexpolygons <- hexagons %>% 
-  st_as_sf(., coords = c("long", "lat")) %>% 
-  group_by(sa3_name_2016) %>%
-  st_cast("POLYGON")
-  
-hexagons <- sa3lung %>% 
-  st_drop_geometry() %>% 
-  arrange(sa3_name_2016) %>% 
-  mutate(geometry = st_geometry(hexpolygons$geometry)) %>% 
-  st_as_sf() %>% st_set_crs(., 3112) %>% 
-  ungroup()
-  
-
 aus_gghexmap <- ggplot(hexagons) + 
-  geom_sf(aes(fill = `Age-standardised rate (per 100,000)`), colour = NA) + 
+  geom_polygon(aes(x= long, y = lat, group = sa3_name_2016, 
+                   fill = `Age-standardised rate (per 100,000)`), colour = NA) + 
   scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1) +
-  #coord_sf(crs = 3112, xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
+  coord_equal() +
   theme_void() + theme(legend.position ="bottom")
 aus_gghexmap
 ggsave(filename = "figures/aus_gghexmap.png", plot = aus_gghexmap,
