@@ -21,13 +21,17 @@ library(ggthemes)
 library(maptools)
 library(sf)
 library(cartogram)
+library(grid)
+library(png)
+library(gridExtra)
 
 # read in data
 cancer <- read_csv("data/USCSlung.csv") %>% rename(NAME = Area)
 
 
 # Join polygons to data
-data(us_states)
+# devtools::install_github("hrbrmstr/albersusa")
+library(albersusa)
 cancer <- left_join(us_states, cancer, by = c("NAME"))
 cancer <- st_transform(cancer, 3857)
 
@@ -43,10 +47,10 @@ title <- ""
 ###############################################################################
 # Create a choropleth
 ggchoro <- ggplot(cancer) + 
-  geom_sf(aes(fill = AgeAdjustedRate)) +
-  scale_fill_distiller(type = "seq", palette = "YlOrRd",  direction = 1) + 
+  geom_sf(aes(fill = AgeAdjustedRate), colour = NA) +
+  scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
   ggtitle(title) +
-  coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
+  #coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
   theme_void() +
   theme(legend.position ="bottom")
 ggsave(filename = "figures/ggchoro.png", device = "png", dpi = 300,  width = 12, height = 6)
@@ -59,10 +63,10 @@ ggchoro
 cont <- cartogram_cont(cancer,
   weight = "total_pop_15") %>% st_as_sf()
 ggcont <- ggplot(cont) + 
-  geom_sf(aes(fill = AgeAdjustedRate)) + 
+  geom_sf(aes(fill = AgeAdjustedRate), colour = NA) + 
   ggtitle(title) +
-  scale_fill_distiller(type = "seq", palette = "YlOrRd",  direction = 1) + 
-  coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
+  scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
+  #coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
   theme_void() +   theme(legend.position ="bottom")
 ggsave(filename = "figures/ggcont.png", device = "png", dpi = 300,  width = 12, height = 6)
 ggcont
@@ -76,19 +80,19 @@ cancer %>%
   ggplot(.) +
   geom_density(aes(x = sva)) + geom_vline(aes(xintercept = 5))
 
-# The state of Vermonet is used as the anchor unit
+# The state of Vermont is used as the anchor unit
 
 ncont <- cartogram_ncont(cancer, k = 1/5,
   weight = "total_pop_15") %>% st_as_sf()
 ggncont <- ggplot(ncont) + 
-  geom_sf(aes(fill = AgeAdjustedRate)) + 
+  geom_sf(aes(fill = AgeAdjustedRate), colour = NA) + 
   geom_sf(data=cancer, fill = NA, colour = "grey") +
   ggtitle(title) + 
-  scale_fill_distiller(type = "seq", palette = "YlOrRd",  direction = 1) + 
-  coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
+  scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
+  #coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
   theme_void() + theme(legend.position ="bottom")
-ggsave(filename = "figures/ggncont.png", device = "png", dpi = 300,  width = 12, height = 6)
 ggncont
+ggsave(filename = "figures/ggncont.png", device = "png", dpi = 300,  width = 12, height = 6)
 
 
 ###############################################################################
@@ -96,15 +100,16 @@ ggncont
 dorl <- cartogram_dorling(cancer,
   weight = "total_pop_15") %>% st_as_sf()
 ggdorl <- ggplot(dorl) + 
-  geom_sf(aes(fill = AgeAdjustedRate)) + 
+  geom_sf(aes(fill = AgeAdjustedRate), colour = NA) + 
   ggtitle(title) +
-  scale_fill_distiller(type = "seq", palette = "YlOrRd",  direction = 1) + 
-  coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
+  scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
+  #coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
   theme_void() + theme(legend.position ="bottom")
 ggsave(filename = "figures/ggdorl.png", device = "png", dpi = 300,  width = 12, height = 6)
 ggdorl
 
 
+###############################################################################
 
 # Centroid Cartograms
 # cancer <- cancer %>% 
@@ -115,7 +120,7 @@ ggdorl
 #   geom_point(aes(X,Y, colour = AgeAdjustedRate)) + 
 #   geom_sf(data=cancer, fill = NA, colour = "grey") +
 #   ggtitle(title) +
-#   scale_colour_distiller(type = "seq", palette = "YlOrRd",  direction = 1) + 
+#   scale_colour_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
 #   coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
 #   theme_void() + theme(legend.position ="bottom")
 # ggsave(filename = "figures/ggdot.png", device = "png", dpi = 300,  width = 12, height = 6)
@@ -126,26 +131,26 @@ ggdorl
 # Choropleth projections
 # 3857, 2163, 4326, 2955
 ggchoro1 <- ggplot(st_transform(cancer, 3857)) + 
-  geom_sf(aes(fill = AgeAdjustedRate)) +
-  scale_fill_distiller(type = "seq", palette = "YlOrRd",  direction = 1) + 
+  geom_sf(aes(fill = AgeAdjustedRate), colour = NA) +
+  scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
   ggtitle("a. The United States using EPSG: 3857") +
   theme_void()+ guides(fill = FALSE)
 
 ggchoro2 <- ggplot(st_transform(cancer, 2163)) + 
-  geom_sf(aes(fill = AgeAdjustedRate)) +
-  scale_fill_distiller(type = "seq", palette = "YlOrRd",  direction = 1) + 
+  geom_sf(aes(fill = AgeAdjustedRate), colour = NA) +
+  scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
   ggtitle("b. The United States using EPSG: 2163") +
   theme_void()+ guides(fill = FALSE)
 
 ggchoro3 <- ggplot(st_transform(cancer, 4326)) + 
-  geom_sf(aes(fill = AgeAdjustedRate)) +
-  scale_fill_distiller(type = "seq", palette = "YlOrRd",  direction = 1) + 
+  geom_sf(aes(fill = AgeAdjustedRate), colour = NA) +
+  scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
   ggtitle("c. The United States using EPSG: 4326") +
   theme_void()+ guides(fill = FALSE)
 
 ggchoro4 <- ggplot(st_transform(cancer, 2955)) + 
-  geom_sf(aes(fill = AgeAdjustedRate)) +
-  scale_fill_distiller(type = "seq", palette = "YlOrRd",  direction = 1) + 
+  geom_sf(aes(fill = AgeAdjustedRate), colour = NA) +
+  scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
   ggtitle("d. The United States using EPSG: 2955") +
   theme_void() + guides(fill = FALSE)
 
@@ -167,20 +172,60 @@ ggtilegram <- left_join(adat, cancer %>% rename(state = NAME)) %>%
   ) +
   labs(title = "") + 
   theme_void() + theme(legend.position ="bottom") +
-  scale_fill_distiller(type = "seq", palette = "YlOrRd",  direction = 1)
+  scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1)
 
 ggsave(filename = "figures/ggtilegram.png", plot = ggtilegram,
   device = "png", dpi = 300,  width = 12, height = 6)
 
 
+cancermap <- st_transform(cancer, "+proj=longlat +datum=WGS84 +no_defs")
+centroids <- create_centroids(cancermap, "NAME")
+grid <- create_grid(centroids = centroids, 
+  hex_size = 2,buffer_dist = 5)
+hexmap <- allocate(
+  centroids = centroids, hex_grid = grid, 
+  sf_id = "NAME", hex_size = 2, hex_filter = 5, 
+  #focal_points = tibble(point = "mean", longitude = mean(centroids$longitude), latitude = mean(centroids$latitude)), 
+  verbose = TRUE, width = 30
+  )
+
+hexagons <- fortify_hexagon(hexmap, sf_id = "NAME", hex_size = 2) %>%  
+  left_join(st_drop_geometry(sa3lung))
+
+create_polygons <- function(x){
+  polygon <- st_multipoint(as.matrix(bind_rows(x)), dim = "XY") %>% st_cast("POLYGON")
+  return(polygon)
+}
+
+hexpolygons <- hexagons %>% 
+  st_as_sf(., coords = c("long", "lat")) %>% 
+  group_by(NAME) %>%
+  st_cast("POLYGON")
+
+hexagons <- cancer %>% 
+  st_drop_geometry() %>% 
+  arrange(NAME) %>% 
+  mutate(geometry = st_geometry(hexpolygons$geometry)) %>% 
+  st_as_sf() %>% st_set_crs(., 3112)
+
+gghexmap <- ggplot(hexagons) + 
+  geom_sf(aes(fill = AgeAdjustedRate), colour = NA) + 
+  scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) +
+  theme_map() + theme(legend.position ="bottom")
+gghexmap
+ggsave(filename = "figures/gghexmap.png", plot = gghexmap,
+  device = "png", dpi = 300,  width = 12, height = 6)
+
+
+
+usa_grid <- gridExtra::grid.arrange(ggcont, ggncont, ggdorl, gghexmap, nrow = 2)
+ggsave(filename = "figures/usa_grid.png", plot = usa_grid,
+  device = "png", dpi = 300,  width = 12, height = 6)
 
 
 #####
 # Choropleth grid
 
-library(grid)
-library(png)
-library(gridExtra)
 
 plot1 <- png::readPNG('cancer_map_images/chloropleths/1.png')
 plot2 <- png::readPNG('cancer_map_images/chloropleths/14.chloropleth1.png')
@@ -210,3 +255,4 @@ chloropleth_grid <- gridExtra::grid.arrange(grid::rasterGrob(plot1),grid::raster
 
 
 ggsave(filename = "figures/choropleth_grid.png", plot = choropleth_grid, device = "png", dpi = 300,  width = 12, height = 6)
+

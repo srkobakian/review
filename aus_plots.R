@@ -2,19 +2,19 @@
 library(sugarbag)
 library(tidyverse)
 
-# Find the shape file
-aus <- file.choose()
+# 
+# # Filter islands
+# aus_sf <- aus_sf %>% 
+#   filter(!(SA2_NAME11 %in% 
+#       c("Christmas Island", "Cocos (Keeling) Islands", "Lord Howe Island")))
 
-# Read in shape file, and simplify
-aus_sf <- read_shape(shp_path = aus, simplify = TRUE, keep = 0.05)
+# Join with cancer data from AIHW
+#https://www.aihw.gov.au/getmedia/df6732ee-5246-4c9f-a458-df85c88fc512/aihw-can-108-cancer-SA3-incidence-mortality.xls.aspx
 
-# Filter islands
-aus_sf <- aus_sf %>% 
-  filter(!(SA2_NAME11 %in% 
-      c("Christmas Island", "Cocos (Keeling) Islands", "Lord Howe Island")))
+library(readxl)
+cimar_sa3 <- read_excel("data/cimar-sa3.xls", 
+  sheet = "Incidence Persons", range = "A3:Z337")
 
-# Join with cancer data
-SIR <- read_csv("data/SIR Downloadable Data.csv") 
 
 SIR <- SIR %>%
   filter(Year == "2010-2014") 
