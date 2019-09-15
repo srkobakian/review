@@ -361,23 +361,22 @@ There are many alternatives to consider, the intended audience of the map, and i
 
 
 
-```{r ggcont, fig.cap = "A contiguous cartogram map of the United States of America. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. Each stated shape has been distorted according to the population of the state in 2015. The state of California has become much larger due to it's large population density. This draws attention to the densely populated North East region, and detracts from the less populated Mid West.", message=FALSE, warning=FALSE, out.width='80%'}
-knitr::include_graphics("figures/ggcont.png")
-```
+```{r ggcartograms, fig.cap = "Alternative maps of the United States of America. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. Each stated shape has been distorted according to the population of the state in 2015. The state of California has become much larger due to it's large population density. This draws attention to the densely populated North East region, and detracts from the less populated Mid West.", message=FALSE, warning=FALSE, out.width='100%'}
+g1 <- png::readPNG("figures/ggcont.png")
+g2 <- png::readPNG("figures/ggncont.png")
+g3 <- png::readPNG("figures/ggdorl.png")
+g4 <- png::readPNG("figures/gghexmap.png")
+#knitr::include_graphics("figures/usa_grid.png")
 
-
-```{r ggncont, fig.cap = "A Non - contiguous cartogram map of the United States of America. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. Each state shape has been maintained, but the size has altered according to the population of the state in 2015. The state of California has remained closer to it's original size than it's surrounding states. The North East states have remained closer to their geographical size, in the case of Massachusetts and Connecticut. This draws attention to the densely populated North East region, and the sparse Mid West.", message=FALSE, warning=FALSE, out.width='80%'}
-knitr::include_graphics("figures/ggncont.png")
-```
-
-
-```{r ggdorl, fig.cap = "A dorling cartogram of the Unites States of America. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. Each state has been represented by a circle, but the size was determined by the population of the state in 2015. The North East states remain closer to their neighbours, and may be displaced from their geographic location. The sparsity of the population in the Mid West is highlight by the distance between the circles, located at the geographic centroids.", message=FALSE, warning=FALSE, out.width='80%', fig.align='center', fig.width=12}
-knitr::include_graphics("figures/ggdorl.png")
-```
-
-
-```{r gghexmap, fig.cap = "A hexagon tesselation map of the Unites States of America. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. Each state has been represented by a square, each square is the same size. The neighbouring states are easily contrasted, however the north east regions has been displaced from their geographic location. The sparsity of the population in the Mid West is highlight by the light yellow colour, the age adjusted rate in Kentucky is the darkest and its neighbours are similar.", message=FALSE, warning=FALSE, out.width='80%'}
-knitr::include_graphics("figures/gghexmap.png")
+library(cowplot)
+ggdraw() +
+  draw_plot(rasterGrob(g1), 0, .5, 0.5, 0.5) +
+  draw_plot(rasterGrob(g2), 0.5, 0.5, 0.5, 0.5) +
+  draw_plot(rasterGrob(g3), 0.0, 0.0, 0.5, 0.5) +
+  draw_plot(rasterGrob(g4), 0.5, 0, 0.5, 0.5)+
+  draw_plot_label(c("a", "b", "c", "d"), 
+    c(0, .5, 0, 0.5), 
+    c(1, 1, .5, .5), size = 15)
 ```
 
 Table: \label{tab:usa} Maps used to present statistics for the Uited States of America

@@ -196,7 +196,7 @@ gghexmap <- ggplot(hexagons) +
   geom_polygon(aes(x= long, y = lat, group = NAME, 
                    fill = AgeAdjustedRate), colour = NA) + 
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) +
-  theme_map() + theme(legend.position ="bottom") + coord_equal()
+  theme_void() + theme(legend.position ="bottom") + coord_equal()
 gghexmap
 ggsave(filename = "figures/gghexmap.png", plot = gghexmap,
   device = "png", dpi = 300,  width = 12, height = 6)
