@@ -117,7 +117,7 @@ Choropleths can inhibit visual inference when presenting human related statistic
 
 
 
-```{r choropleth-grid-create, message=FALSE, fig.cap = "Publicly available choropleth cancer maps, published between 2010 and 2015. Sourced from: @roberts2019communication"}
+```{r choropleth-grid-create, message=FALSE, warning = FALSE, fig.cap = "Publicly available choropleth cancer maps, published between 2010 and 2015. Sourced from: @roberts2019communication", out.width='100%', fig.align='center', fig.width=12}
 library(cowplot)
 
 # Import the images
@@ -246,13 +246,19 @@ Figure 2.g shows the [incidence rate of childhood cancers](https://www.pogo.ca/w
 
 <!-- map is on pg 41 or pdf report-->
 
-The interactivity of modern mapping methods enable supplementary information to be incorporated without cluttering the screen.
-Tool tip features and drop down menus allow for user exploration, small screens are not a problem with the flexibility provided by zooming and panning [@HTLWM].
-This allows relationships between spatial areas and diseases to be explored with sophistication in nontraditional but still 'cognitively accesible' ways [@TNTEA].
-The use of these supports were found in a many online diease mapmap sources.
-These interactive features provide an opportunity for users to explore additional information to help users understand and interpret the spatial distribution presented, as well as validate, explain or explore the presented statistics and their relationships to each other and/or their underlying spatial distribution. 
+Modern mapping methods have the opportunity to incorporate interactive features.
+This enables supplementary information to be incorporated into online atlases without cluttering the screen.
+Tool tip features and drop down menus allow for user exploration with zooming and panning features to allow flexibility in the display [@HTLWM].
+The use of these supports were found in a many online disease map sources.
 This directly enables epidemiologists to explore spatial distributions of cancer statistics.
-The interactive features of the publically available maps identified by @roberts2019communication include exploration of geographic hierarchies, population distribution, statistical uncertainty, demographics and socio-economic indicators.
+Basic interactivity is often implemented by controls outside of the plot space [@TGA],
+this exchanges an image or set of data for another.
+Some more advanced interactions include direct interactions with the plot via the use of overlaid tool tip features, very few cancer atlases involve complex selection interactivity.
+
+
+These interactive features provide an opportunity for users to explore the additional information available. This helps users to understand and interpret the spatial distribution presented, as well as validate, explain or explore the presented statistics and their relationships to each other and/or their underlying spatial distribution. 
+This allows relationships between spatial areas and diseases to be explored with sophistication in nontraditional but still 'cognitively accesible' ways [@TNTEA].
+The interactive features of the publically available maps identified by @roberts2019communication allow the exploration of geographic hierarchies, population distribution, statistical uncertainty, demographics and socio-economic indicators.
 @TNTEA suggested LM plots as a solution to linking cartography and statistical graphics.
 
 
@@ -541,22 +547,11 @@ as these options have expanded and it is the objectives of the investigator that
 
 # Animation and Interactivity {#ch:interacting}
 
-Traditionally, epidemiologists as disease mappers would have considered the interactions between the spatial distribution of a diesease, the environment and the people captured by a display.
-Recent developments in technology have created an opportunity to migrate atlases from paper map collections to web atlases.
-The medium chosen to communicate health data should always be driven by the message to communicate and the needs of the audience.
-Where the message is most important, static or animated graphics allow control over the display and interpretation.
-It is important for map creators to develop and then test the message being communicated, epidemiologists are able to do this with their expert knowledge.
-Static visualisations can help to aid the written results provided by experts, and pairing an explanation with a map or diagram can help to draw attention to a point, group or area of interest.
-Static maps do have the caveat of needing to provide enough information for the display to be understandable out of the original context.
-Animations do not tolerate or require user input, this makes them useful for directed descriptions of processes, such as directing attention to a particular region or time period [@HTLWM].
-Where the needs of the audience is changeable and is the priority, the map creator can allow interactivity for map users to explore. 
-
-
-<!-- Animations -->
-@CPISACA provide weather maps as well developed and appropriate examples of spatial displays to communicate to the general public, and encourage those creating disease maps to leverage the success of weather displays.
-The movement of a weather system will follow a forecasted path, the animation will communicate this so that all map users can follow the path of the weather system across the geography over a specified period of time.
-In the disease mapping space, the Australian Cancer Atlas [-@TACA] provides [tours](
-https://atlas.cancer.org.au/app/tour/lungcancer) which change the display to draw user's attention to areas on the map that are relevant to the story. This directs user's attention and gives them tools to plan their own exploration.
+Epidemiologists consider the interactions between the spatial distribution of a disease, the environment and the people affected.
+Recent developments in technology have created an opportunity to migrate the presentation of epidological results from atlases in paper map collections to web atlases.
+When the map is supplementary to the discussion, static visualisations can help to aid the written results provided by experts, and pairing an explanation with a map or diagram can help to draw attention to a point, group or area of interest.
+Static maps often need to include enough information for the display to be understandable out of the original context.
+There are now many suitable methods and mediums to communicate health data, the choice between them should always be driven by the intended message to communicate and the needs of the audience.
 
 @CPISACA provide three questions that are generally when using a disease map:
 
@@ -564,20 +559,45 @@ https://atlas.cancer.org.au/app/tour/lungcancer) which change the display to dra
 - Are there geographic trends in the data, or regions of unusually high or low rates?
 - Is the lung cancer mortality pattern similar to the pattern of smoking prevalence shown in a companion map?
 
-
 A single map display historically created by epidemiologists, may not effectively answer all three at the same time.
 This is especially true when areas are small and difficult to identify in a display.
 However, with the ability to animate, map creators can specify and answer these questions by directing the attention of a map user to the areas of interest.
-Animations can be used to control the message being communicated by capturing and directing attention of users, it will also ensure all users follow the same interpretive path, as their eyes are drawn across the map to the same comparison points.
 
-<!-- Interactivity-->
+
+<!-- Animations -->
+Animations provide a linear, fixed narrative to passive users, communicating a message by capturing and directing attention [@TGA].
+@TGA suggests the use of moving objects demands attention by taking advantage of the behaviour of the visual cognition system.
+They can be produced to not tolerate or require user input, creating useful, directed descriptions of processes, such as highlighting a particular region or time period [@HTLWM].
+Animations ensure all users follow the same interpretive path but creators cannnot control the level of engagement.
+
+Animations can be implemented to allow users varying degrees of control. 
+A basic form of interactivty with animations is the play, pause and rewind of films, where the film is intended to be watched in one direction but the position in the animation can be controlled.
+@CPISACA provide weather maps as well developed and appropriate examples of spatial displays to communicate to the general public, and encourage those creating disease maps to leverage the success of weather displays.
+The movement of a weather system will follow a forecasted path, the animation will communicate this so that all map users can follow the path of the weather system across the geography over a specified period of time.
+More complex animations may include steps, when user interaction via clicks animates the display between stages. 
+The Australian Cancer Atlas [-@TACA] provides [tours](
+https://atlas.cancer.org.au/app/tour/lungcancer) which change the display to draw user's attention to areas on the map that are relevant to the story.
+This directs user's attention and gives them tools to plan their own exploration.
+
+
+<!-- Interactivity (Compare movies or tv to video games) -->
 The move from static, print media displays toward interactivity allow users to develop maps to ask and answer their own questions.
+Where the needs of the audience is changeable and is the priority, the map creator can allow interactivity for map users to explore. 
+
 Developmets and adoptions of this technology has allowed map users more control of the message displayed.
 Users are able to see the familiar shapes, zoom in to explore densely populated communities, or change the display completely to highlight the population space.
 
 This oppportunity provides room to move away from the traditional approach of a single map for a single use, into a more explorative territory.
 Interactivity allows users to drive their own exploration, controlling a display through variable controls, links, tool tips, and data selection tools [@TGA]. 
 
+
+Where the message is most important, static or animated graphics allow control over the display and interpretation.
+However before publishing, it is important for map creators to develop and then test the message being communicated, this task requires expert knowledge.
+
+<!--
+A complex directed animation approach is implemented in steps by Google Earth, in their use of stories. Within these directed steps users have the opportunity to use interactive controls to change the map directions or watch videos. 
+One popular implementation communicates Dr. Jane Goodall's life journey using Google Earth displays of significant locations such as her birthplace Bournemouth, England and Tanzania's Gombe National Park. 
+-->
 
 # Acknowledgements
 
