@@ -130,6 +130,21 @@ hexmap <- allocate(
 hexagons <- fortify_hexagon(hexmap, sf_id = "sa3_name_2016", hex_size = 0.7) %>% 
   left_join(st_drop_geometry(sa3lung))
 
+hexagons_sf <- hexagons %>% 
+  select(sa3_name_2016, long, lat) %>% 
+  sf::st_as_sf(coords = c("long", "lat"), crs = 4283) %>%
+  group_by(sa3_name_2016) %>% 
+  summarise(do_union = FALSE) %>%
+  st_cast("POLYGON")
+
+# Remove geometry of sa3 geographic areas
+sa3_ng <- sf::st_drop_geometry(sa3lung)
+
+hex <- sa3lung %>% 
+  # ensure correct order by ordering alphabetically
+  arrange(sa3_name_2016) %>% 
+  mutate(geometry = hexagons_sf$geometry)
+
 aus_gghexmap <- ggplot(hexagons) + 
   geom_polygon(aes(x= long, y = lat, group = sa3_name_2016, 
                    fill = `Age-standardised rate (per 100,000)`), colour = NA) + 
