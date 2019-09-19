@@ -217,48 +217,59 @@ The cancer atlases identified by @roberts2019communication covered geographies f
 
 ### The Environment and Health Atlas of England and Wales
 
-Figure 2.a contains [The Environmental and Health Atlas of England and Wales](http://www.envhealthatlas.co.uk/eha/Breast/). This map shows the relative risk for women developing lunch cancer across England and Wales in 2010. The cancer data used to generate this map came from Office for National Statistics (ONS) (England) and from the Welsh Cancer Intelligence and Surveillance Unit (WCISU).    
+Figure 2.a contains an image from the *[The Environmental and Health Atlas of England and Wales](http://www.envhealthatlas.co.uk/eha/Breast/)*. This map shows the relative risk for women developing lung cancer in England and Wales in 2010. The cancer data used to generate this map came from Office for National Statistics (ONS) (England) and from the Welsh Cancer Intelligence and Surveillance Unit (WCISU).    
 
 
 ### Globocan 2012: Estimated Cancer Incidence, Mortality and Prevalence Worldwide
 
-The map seen in Figure 2.b is from the [Globocan 2012: Estimated  Cancer Incidence, Mortality and Prevalence](http://globocan.iarc.fr/Pages/Map.aspx). This global map shows age standardized incidence rates (per 100,000) of all cancers for both men and women at national level, for 2018. This map is published by the [World Health Organisation's International Agency for Research on Cancer](https://www.iarc.fr/). Data was sourced from cancer registries in each country, contributing registries can be seen in the supplementary material on the cancer atlas website. 
+The map seen in Figure 2.b is from the *[Globocan 2012: Estimated  Cancer Incidence, Mortality and Prevalence](http://globocan.iarc.fr/Pages/Map.aspx)*. This global map shows age standardized incidence rates (per 100,000) for all invasive cancers for both men and women, aggregated at a national level for 2018. This map is published by the [World Health Organisation's International Agency for Research on Cancer](https://www.iarc.fr/). Data was sourced from cancer registries in each country, contributing registries can be seen in the supplementary material on the cancer atlas website. 
 
 
 ### Atlas of Cancer in Queensland 
 
-Figure 2.c shows the [The Atlas of Cancer in QLD](https://cancerqld.org.au/research/queensland-cancer-statistics/queensland-cancer-atlas/). This map was published by the Queensland Cancer Council and shows the relative incidence ratio of lung cancer in males in the state of QLD within Australia (1998 - 2007). Data to generate this map was sourced from the [Queensland Cancer Registry](https://cancerqld.org.au/research/cancer-registries/queensland-cancer-registry/).  
+Figure 2.c shows an extract from the *[The Atlas of Cancer in QLD](https://cancerqld.org.au/research/queensland-cancer-statistics/queensland-cancer-atlas/)*. This map was published by the Queensland Cancer Council and shows the relative incidence ratio of lung cancer in males in the state of QLD within Australia based on data from 1998 to 2007. Data to generate this map was sourced from the *[Queensland Cancer Registry](https://cancerqld.org.au/research/cancer-registries/queensland-cancer-registry/)*.  
 
 ### Bowel Cancer Australia Atlas 
-Figure 2.d shows the [Bowel Cancer Australia Atlas](http://www.bowelcanceratlas.org/). Published by [Bowel Cancer Australia](https://www.bowelcanceraustralia.org/) (Australia). This map shows the percentage of males between 50 - 54 years of age that diagnosed with bowel cancer in 2016 in Australia. The source of the data is not provided.  
+Figure 2.d shows the *[Bowel Cancer Australia Atlas](http://www.bowelcanceratlas.org/)*. Published by *[Bowel Cancer Australia](https://www.bowelcanceraustralia.org/)* (Australia). This map shows the percentage of Australian males between 50 - 54 years of age that diagnosed with bowel cancer in 2016 in Australia. The source of the data is not provided.  
 
 ### United States Cancer Statistics: An Interactive Cancer Statistics Website
-The [United States Cancer Statistics: An Interactive Cancer Statistics Website](https://nccd.cdc.gov/DCPC_INCA/) can be seen in Figure 2.e. This map contains  the Incidence rate per 100,000, of all cancer types for man and women in the United States for 2016, aggregated at the state level. The map was published by the [Centers for Disease Control and Prevention](https://www.cdc.gov/). Incidence data seen in this map were compiled from cancer registries meeting U.S. Cancer Statistics data quality criteria covering 100% of the U.S. population.
+The *[United States Cancer Statistics: An Interactive Cancer Statistics Website](https://nccd.cdc.gov/DCPC_INCA/)* can be seen in Figure 2.e. This map contains  the incidence rate per 100,000, of all cancer types for men and women in the United States in 2016, aggregated at the state level. The map was published by the *[Centers for Disease Control and Prevention](https://www.cdc.gov/)*. Incidence data seen in this map were compiled from cancer registries meeting U.S. Cancer Statistics data quality criteria covering 100% of the U.S. population.
 
 <!-- suggested citations: U.S. Cancer Statistics Working Group. U.S. Cancer Statistics Data Visualizations Tool, based on November 2018 submission data (1999-2016): U.S. Department of Health and Human Services, Centers for Disease Control and Prevention and National Cancer Institute; www.cdc.gov/cancer/dataviz, June 2019.-->
 
 ### Map of Cancer Mortality Rates in Spain
-The [Map of Cancer Mortality Rates in Spain](http://elpais.com/elpais/2014/10/06/media/1412612722_141933.html) can be seen in Figure 2.f. The side by side maps show relative risk of lung cancer for men vs women based on data from 2004 - 2008. The source of the data and statistical methods are unknown. 
+The *[Map of Cancer Mortality Rates in Spain](http://elpais.com/elpais/2014/10/06/media/1412612722_141933.html)* can be seen in Figure 2.f. The side by side maps show relative risk of lung cancer for men vs women based on data from 2004 to 2008. The source of the data and statistical methods are unknown. 
 
 ### Atlas of Childhood Cancer in Ontario 
-Figure 2.g shows the [incidence rate of childhood cancers](https://www.pogo.ca/wp-content/uploads/2015/02/POGO_CC-Atlas-3-Incidence_Feb-2015.pdf) per 100,000, by census division, age 0-14, in Ontario, from 1995 to 2004.
+Figure 2.g shows an extract from the Atlas of Childhood Cancer in Ontario and specifically displays the *[incidence rate of childhood cancers](https://www.pogo.ca/wp-content/uploads/2015/02/POGO_CC-Atlas-3-Incidence_Feb-2015.pdf)* per 100,000 (by census division) for children aged 0-14, in Ontario from 1995 to 2004.
 
 <!-- map is on pg 41 or pdf report-->
 
-Modern mapping methods have the opportunity to incorporate interactive features.
-This enables supplementary information to be incorporated into online atlases without cluttering the screen.
-Tool tip features and drop down menus allow for user exploration with zooming and panning features to allow flexibility in the display [@HTLWM].
-The use of these supports were found in a many online disease map sources.
-This directly enables epidemiologists to explore spatial distributions of cancer statistics.
-Basic interactivity is often implemented by controls outside of the plot space [@TGA],
-this exchanges an image or set of data for another.
-Some more advanced interactions include direct interactions with the plot via the use of overlaid tool tip features, very few cancer atlases involve complex selection interactivity.
+## Interactivity
+
+One of the concerns of adding too much information to a map is the fear of cognitive overload [@mcgranaghan1993cartographic] in which the the user reaches an information threshold, beyond which will not be able to make sense of the information. These concerns are not unfounded, complexity and density of representation methods appear to overwhelm novice decision makers, while experts are able to use the detail more readily when making-decisions [@cliburn2002design]. Interactivity is a design feature within modern mapping methods that can be used to incorporate additional information and complexity without overloading the user.
+
+Interactivity enables supplementary information to be incorporated into online atlases without cluttering the display. Interactive design features found in online cancer maps include tool tip features, drop down menus, data selection, zooming and panning allow users to explore the map as they want more information and allow flexibility in the display [@HTLWM]. The use of these supports were found in various online cancer maps identified by @roberts2019communication. The controls for basic interactive features are often placed outside of the plot space [@TGA], thus the map image is updated/replaced as the user interacts with the controls. For example, changing the population age or other demographic variables. Some more advanced interactions include direct interactions with the plot via the use of overlaid tool tip features, very few cancer atlases involve these more complex selection interactivities. 
+
+(insert figure of both types of interactivity)
+
+Additionally, interactivity allows the user to toggle between different variables, map views or multiple realizations of possible future scenarios [@goodchild1994introduction]. Thus providing additional mechanisms for the users comprehension as well as the uncertainty of the available information (@maceachren1992visualizing; @van1994visualization). 
 
 
-These interactive features provide an opportunity for users to explore the additional information available. This helps users to understand and interpret the spatial distribution presented, as well as validate, explain or explore the presented statistics and their relationships to each other and/or their underlying spatial distribution. 
-This allows relationships between spatial areas and diseases to be explored with sophistication in nontraditional but still 'cognitively accesible' ways [@TNTEA].
-The interactive features of the publically available maps identified by @roberts2019communication allow the exploration of geographic hierarchies, population distribution, statistical uncertainty, demographics and socio-economic indicators.
-@TNTEA suggested LM plots as a solution to linking cartography and statistical graphics.
+These interactive features provide an opportunity for users to explore the additional information available. This helps users to understand and interpret the spatial distribution presented, as well as validate, explain or explore the presented statistics and their relationships to each other and/or their underlying spatial distribution. This allows relationships between spatial areas and diseases to be explored with sophistication in non-traditional but still 'cognitively accesible' ways [@TNTEA]. The interactive features of the publically available maps identified by @roberts2019communication allow the exploration of geographic hierarchies, population distribution, statistical uncertainty, demographics and socio-economic indicators.
+@TNTEA suggested LM plots as a solution to linking cartography and statistical graphics. 
+
+(insert figures showing different interactivity)
+
+
+
+<!-- 
+
+Technological advances may provide a solution to this through the use of interactivity, animation, and sound as additional channels for representing uncertainty information without interfering with the ability to see any features that are present in the display [@maceachren1992visualizing]. However, if uncertainty information is perceived as integral and inseparable from the data it is associated with, assumptions of uncertainty creating cognitive overload may not be as valid. 
+
+-->
+
+ 
 
 
 XXX more details on the examples in the next figure
@@ -359,7 +370,7 @@ World map projections reflect the frequent perspectives used to view the earth. 
 If the statistic presented on the map base relies on physical distance and is influenced by the topology there is no transformation needed, beyond choosing a reasonable projection. 
 
 
-```{r choroCRS, fig.cap = "Four choropleth maps of the United States of America using various coordinate reference systems. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. The map projections alter the shapes and angles of the boundaries of each state. Maps a and b are similar in their straight edges, unlike maps c and d which curve on the northern United States border.", message=FALSE, warning=FALSE, out.width='80%', fig.align='center', fig.width=12}
+```{r choroCRS, fig.cap = "Four choropleth maps of the United States of America using various coordinate reference systems. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. The map projections alter the shapes and angles of the boundaries of each state. Maps a and b are similar in their straight edges, unlike maps c and d which curve on the northern United States border.", message=FALSE, warning=FALSE, out.width='100%', fig.align='center', fig.width=12}
 knitr::include_graphics("figures/ggchoroCRS.png")
 ```
 
@@ -397,18 +408,19 @@ There are many alternatives to consider, the intended audience of the map, and i
 
 
 
-```{r ggcartograms, fig.cap = "Alternative maps of the United States of America. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. Each stated shape has been distorted according to the population of the state in 2015. The state of California has become much larger due to it's large population density. This draws attention to the densely populated North East region, and detracts from the less populated Mid West.", message=FALSE, warning=FALSE, out.width='100%'}
-usa1 <- png::readPNG("figures/ggcont.png")
-usa2 <- png::readPNG("figures/ggncont.png")
-usa3 <- png::readPNG("figures/ggdorl.png")
-#usa4 <- png::readPNG("figures/gghexmap.png")
+```{r ggcartograms, fig.cap = "Common alternatives to maps, showing the same information as in Figure \ref{choroCRS} for the United States of America: (a) contiguous cartogram, (b) non-contiguous, shape-preserved cartogram, (c)  Dorling cartogram (non-contiguous), (d) hexmap (non-contiguous). In (a) - (c) the state has been resized, and reshaped, to match the 2015 population of the state. This provides a better sense of the extent of disease relative to the population in the country, and can help alleviate losing information about physically small but population dense states. In the hexmap (d) each state is given equal size, and thus equal emphasis.", message=FALSE, warning=FALSE, out.width='100%'}
+g1 <- png::readPNG("figures/ggcont.png")
+g2 <- png::readPNG("figures/ggncont.png")
+g3 <- png::readPNG("figures/ggdorl.png")
+g4 <- png::readPNG("figures/gghexmap.png")
+#knitr::include_graphics("figures/usa_grid.png")
 
 library(cowplot)
 ggdraw() +
-  draw_plot(rasterGrob(usa1), 0, .5, 0.5, 0.5) +
-  draw_plot(rasterGrob(usa2), 0.5, 0.5, 0.5, 0.5) +
-  draw_plot(rasterGrob(usa3), 0.0, 0.0, 0.5, 0.5) +
-  #draw_plot(rasterGrob(usa4), 0.5, 0, 0.5, 0.5)+
+  draw_plot(rasterGrob(g1), 0, .5, 0.5, 0.5) +
+  draw_plot(rasterGrob(g2), 0.5, 0.5, 0.5, 0.5) +
+  draw_plot(rasterGrob(g3), 0.0, 0.0, 0.5, 0.5) +
+  draw_plot(rasterGrob(g4), 0.5, 0, 0.5, 0.5)+
   draw_plot_label(c("a", "b", "c", "d"), 
     c(0, .5, 0, 0.5), 
     c(1, 1, .5, .5), size = 15) +
