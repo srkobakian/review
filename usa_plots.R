@@ -68,8 +68,10 @@ ggcont <- ggplot(cont) +
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
   #coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
   theme_void() +   theme(legend.position ="bottom")
-ggsave(filename = "figures/ggcont.png", device = "png", dpi = 300,  width = 12, height = 6)
+
+save(cont, file = "data/cont.rda")
 ggcont
+ggsave(filename = "figures/ggcont.png", device = "png", dpi = 300,  width = 12, height = 6)
 
 ###############################################################################
 # Non - Contiguous Cartograms
@@ -91,6 +93,8 @@ ggncont <- ggplot(ncont) +
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
   #coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
   theme_void() + theme(legend.position ="bottom")
+
+save(ncont, "data/ncont.rda")
 ggncont
 ggsave(filename = "figures/ggncont.png", device = "png", dpi = 300,  width = 12, height = 6)
 
@@ -192,15 +196,30 @@ hexmap <- allocate(
 hexagons <- fortify_hexagon(hexmap, sf_id = "NAME", hex_size = 2.5) %>%  
   left_join(st_drop_geometry(cancer))
 
-gghexmap <- ggplot(hexagons) + 
-  geom_polygon(aes(x= long, y = lat, group = NAME, 
-                   fill = AgeAdjustedRate), colour = NA) + 
+hexagons_sf <- hexagons %>% 
+  select(NAME, long, lat) %>% 
+  sf::st_as_sf(coords = c("long", "lat"), crs = 4283) %>%
+  group_by(NAME) %>% 
+  summarise(do_union = FALSE) %>%
+  st_cast("POLYGON")
+
+# Remove geometry of sa3 geographic areas
+cancer_ng <- sf::st_drop_geometry(cancer)
+
+hex <- cancer_ng %>% 
+  # ensure correct order by ordering alphabetically
+  arrange(NAME) %>% 
+  mutate(geometry = hexagons_sf$geometry) %>% st_as_sf()
+
+
+gghexmap <- ggplot(hex) + 
+  geom_sf(aes(fill = AgeAdjustedRate), colour = NA) + 
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) +
-  theme_void() + theme(legend.position ="bottom") + coord_equal()
+  theme_void() + theme(legend.position ="bottom") 
+
 gghexmap
 ggsave(filename = "figures/gghexmap.png", plot = gghexmap,
   device = "png", dpi = 300,  width = 12, height = 6)
-
 
 
 usa_grid <- gridExtra::grid.arrange(ggcont, ggncont, ggdorl, gghexmap, nrow = 2)

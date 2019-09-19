@@ -69,6 +69,7 @@ aus_ggchoro
 cont <- sa3lung %>% 
   cartogram_cont(.,
   weight = "Population") %>% st_as_sf()
+save(cont, "data/auscont.rda")
 aus_ggcont <- ggplot(cont) + 
   geom_sf(aes(fill = `Age-standardised rate (per 100,000)`)) + 
   scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1) + 
@@ -76,7 +77,6 @@ aus_ggcont <- ggplot(cont) +
   theme_void() +   theme(legend.position ="bottom")
 aus_ggcont
 ggsave(filename = "figures/aus_ggcont.png", device = "png", dpi = 300,  width = 12, height = 6)
-aus_ggcont
 
 
 ###############################################################################
@@ -120,14 +120,14 @@ ggsave(filename = "figures/aus_ggdorl.png", device = "png", dpi = 300,  width = 
 sa3lungmap <- st_transform(sa3lung, "+proj=longlat +datum=WGS84 +no_defs")
 centroids <- create_centroids(sa3lungmap, "sa3_name_2016")
 grid <- create_grid(centroids = centroids, 
-  hex_size = 0.7,buffer_dist = 5)
+  hex_size = 0.8,buffer_dist = 5)
 hexmap <- allocate(
   centroids = centroids, hex_grid = grid, 
-  sf_id = "sa3_name_2016", hex_size = 0.7, hex_filter = 8, 
+  sf_id = "sa3_name_2016", hex_size = 0.8, hex_filter = 8, 
   focal_points = capital_cities, verbose = TRUE, width = 30
 )
 
-hexagons <- fortify_hexagon(hexmap, sf_id = "sa3_name_2016", hex_size = 0.7) %>% 
+hexagons <- fortify_hexagon(hexmap, sf_id = "sa3_name_2016", hex_size = 0.8) %>% 
   left_join(st_drop_geometry(sa3lung))
 
 hexagons_sf <- hexagons %>% 
