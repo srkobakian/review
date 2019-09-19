@@ -246,31 +246,7 @@ Figure 2.g shows an extract from the Atlas of Childhood Cancer in Ontario and sp
 
 <!-- map is on pg 41 or pdf report-->
 
-## Interactivity
 
-One of the concerns of adding too much information to a map is the fear of cognitive overload [@mcgranaghan1993cartographic] in which the the user reaches an information threshold, beyond which will not be able to make sense of the information. These concerns are not unfounded, complexity and density of representation methods appear to overwhelm novice decision makers, while experts are able to use the detail more readily when making-decisions [@cliburn2002design]. Interactivity is a design feature within modern mapping methods that can be used to incorporate additional information and complexity without overloading the user.
-
-Interactivity enables supplementary information to be incorporated into online atlases without cluttering the display. Interactive design features found in online cancer maps include tool tip features, drop down menus, data selection, zooming and panning allow users to explore the map as they want more information and allow flexibility in the display [@HTLWM]. The use of these supports were found in various online cancer maps identified by @roberts2019communication. The controls for basic interactive features are often placed outside of the plot space [@TGA], thus the map image is updated/replaced as the user interacts with the controls. For example, changing the population age or other demographic variables. Some more advanced interactions include direct interactions with the plot via the use of overlaid tool tip features, very few cancer atlases involve these more complex selection interactivities. 
-
-(insert figure of both types of interactivity)
-
-Additionally, interactivity allows the user to toggle between different variables, map views or multiple realizations of possible future scenarios [@goodchild1994introduction]. Thus providing additional mechanisms for the users comprehension as well as the uncertainty of the available information (@maceachren1992visualizing; @van1994visualization). 
-
-
-These interactive features provide an opportunity for users to explore the additional information available. This helps users to understand and interpret the spatial distribution presented, as well as validate, explain or explore the presented statistics and their relationships to each other and/or their underlying spatial distribution. This allows relationships between spatial areas and diseases to be explored with sophistication in non-traditional but still 'cognitively accesible' ways [@TNTEA]. The interactive features of the publically available maps identified by @roberts2019communication allow the exploration of geographic hierarchies, population distribution, statistical uncertainty, demographics and socio-economic indicators.
-@TNTEA suggested LM plots as a solution to linking cartography and statistical graphics. 
-
-(insert figures showing different interactivity)
-
-
-
-<!-- 
-
-Technological advances may provide a solution to this through the use of interactivity, animation, and sound as additional channels for representing uncertainty information without interfering with the ability to see any features that are present in the display [@maceachren1992visualizing]. However, if uncertainty information is perceived as integral and inseparable from the data it is associated with, assumptions of uncertainty creating cognitive overload may not be as valid. 
-
--->
-
- 
 
 
 XXX more details on the examples in the next figure
@@ -350,6 +326,30 @@ The Human Development Index can be used to understand the socio-economic experie
 The areas are often ranked and allocated to quintiles, each quintile can be presented as categories describing the ranking.
 
 ## Interaction with atlases
+
+One of the concerns of adding too much information to a map is the fear of cognitive overload [@mcgranaghan1993cartographic] in which the the user reaches an information threshold, beyond which will not be able to make sense of the information. These concerns are not unfounded, complexity and density of representation methods appear to overwhelm novice decision makers, while experts are able to use the detail more readily when making-decisions [@cliburn2002design]. Interactivity is a design feature within modern mapping methods that can be used to incorporate additional information and complexity without overloading the user.
+
+Interactivity enables supplementary information to be incorporated into online atlases without cluttering the display. Interactive design features found in online cancer maps include tool tip features, drop down menus, data selection, zooming and panning allow users to explore the map as they want more information and allow flexibility in the display [@HTLWM]. The use of these supports were found in various online cancer maps identified by @roberts2019communication. The controls for basic interactive features are often placed outside of the plot space [@TGA], thus the map image is updated/replaced as the user interacts with the controls. For example, changing the population age or other demographic variables. Some more advanced interactions include direct interactions with the plot via the use of overlaid tool tip features, very few cancer atlases involve these more complex selection interactivities. 
+
+(insert figure of both types of interactivity)
+
+Additionally, interactivity allows the user to toggle between different variables, map views or multiple realizations of possible future scenarios [@goodchild1994introduction]. Thus providing additional mechanisms for the users comprehension as well as the uncertainty of the available information (@maceachren1992visualizing; @van1994visualization). 
+
+
+These interactive features provide an opportunity for users to explore the additional information available. This helps users to understand and interpret the spatial distribution presented, as well as validate, explain or explore the presented statistics and their relationships to each other and/or their underlying spatial distribution. This allows relationships between spatial areas and diseases to be explored with sophistication in non-traditional but still 'cognitively accesible' ways [@TNTEA]. The interactive features of the publically available maps identified by @roberts2019communication allow the exploration of geographic hierarchies, population distribution, statistical uncertainty, demographics and socio-economic indicators.
+@TNTEA suggested LM plots as a solution to linking cartography and statistical graphics. 
+
+(insert figures showing different interactivity)
+
+
+
+<!-- 
+
+Technological advances may provide a solution to this through the use of interactivity, animation, and sound as additional channels for representing uncertainty information without interfering with the ability to see any features that are present in the display [@maceachren1992visualizing]. However, if uncertainty information is perceived as integral and inseparable from the data it is associated with, assumptions of uncertainty creating cognitive overload may not be as valid. 
+
+-->
+
+ 
 
 # Cartograms and other spatially warped displays {#ch:alternatives}
 
