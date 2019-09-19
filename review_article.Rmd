@@ -521,9 +521,11 @@ Recommended criteria to contrast mapping methods include average cartographic er
 
 ## Tilegram
 
+<!--
 ```{r ggtilegram, fig.cap = "A tilegram of the Unites States of America. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. Each state has been represented by a square, each square is the same size. The neighbouring states are easily contrasted, however the north east regions has been displaced from their geographic location. The sparsity of the population in the Mid West is highlight by the light yellow colour, the age adjusted rate in Kentucky is the darkest and its neighbours are similar.", message=FALSE, warning=FALSE, out.width='80%'}
 knitr::include_graphics("figures/ggtilegram.png")
 ```
+-->
 
 Bob Rudis, geogrid
 
