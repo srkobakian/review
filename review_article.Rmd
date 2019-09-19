@@ -401,14 +401,14 @@ There are many alternatives to consider, the intended audience of the map, and i
 usa1 <- png::readPNG("figures/ggcont.png")
 usa2 <- png::readPNG("figures/ggncont.png")
 usa3 <- png::readPNG("figures/ggdorl.png")
-usa4 <- png::readPNG("figures/gghexmap.png")
+#usa4 <- png::readPNG("figures/gghexmap.png")
 
 library(cowplot)
 ggdraw() +
   draw_plot(rasterGrob(usa1), 0, .5, 0.5, 0.5) +
   draw_plot(rasterGrob(usa2), 0.5, 0.5, 0.5, 0.5) +
   draw_plot(rasterGrob(usa3), 0.0, 0.0, 0.5, 0.5) +
-  draw_plot(rasterGrob(usa4), 0.5, 0, 0.5, 0.5)+
+  #draw_plot(rasterGrob(usa4), 0.5, 0, 0.5, 0.5)+
   draw_plot_label(c("a", "b", "c", "d"), 
     c(0, .5, 0, 0.5), 
     c(1, 1, .5, .5), size = 15) +
