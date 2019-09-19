@@ -412,7 +412,7 @@ There are many alternatives to consider, the intended audience of the map, and i
 g1 <- png::readPNG("figures/ggcont.png")
 g2 <- png::readPNG("figures/ggncont.png")
 g3 <- png::readPNG("figures/ggdorl.png")
-g4 <- png::readPNG("figures/gghexmap.png")
+#g4 <- png::readPNG("figures/gghexmap.png")
 #knitr::include_graphics("figures/usa_grid.png")
 
 library(cowplot)
@@ -420,7 +420,7 @@ ggdraw() +
   draw_plot(rasterGrob(g1), 0, .5, 0.5, 0.5) +
   draw_plot(rasterGrob(g2), 0.5, 0.5, 0.5, 0.5) +
   draw_plot(rasterGrob(g3), 0.0, 0.0, 0.5, 0.5) +
-  draw_plot(rasterGrob(g4), 0.5, 0, 0.5, 0.5)+
+  #draw_plot(rasterGrob(g4), 0.5, 0, 0.5, 0.5)+
   draw_plot_label(c("a", "b", "c", "d"), 
     c(0, .5, 0, 0.5), 
     c(1, 1, .5, .5), size = 15) +
