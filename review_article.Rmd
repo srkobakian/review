@@ -370,7 +370,7 @@ World map projections reflect the frequent perspectives used to view the earth. 
 If the statistic presented on the map base relies on physical distance and is influenced by the topology there is no transformation needed, beyond choosing a reasonable projection. 
 
 
-```{r choroCRS, fig.cap = "Four choropleth maps of the United States of America using various coordinate reference systems. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. The map projections alter the shapes and angles of the boundaries of each state. Maps a and b are similar in their straight edges, unlike maps c and d which curve on the northern United States border.", message=FALSE, warning=FALSE, out.width='80%', fig.align='center', fig.width=12}
+```{r choroCRS, fig.cap = "Four choropleth maps of the United States of America using various coordinate reference systems. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. The map projections alter the shapes and angles of the boundaries of each state. Maps a and b are similar in their straight edges, unlike maps c and d which curve on the northern United States border.", message=FALSE, warning=FALSE, out.width='100%', fig.align='center', fig.width=12}
 knitr::include_graphics("figures/ggchoroCRS.png")
 ```
 
@@ -408,7 +408,7 @@ There are many alternatives to consider, the intended audience of the map, and i
 
 
 
-```{r ggcartograms, fig.cap = "Alternative maps of the United States of America. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. Each stated shape has been distorted according to the population of the state in 2015. The state of California has become much larger due to it's large population density. This draws attention to the densely populated North East region, and detracts from the less populated Mid West.", message=FALSE, warning=FALSE, out.width='100%'}
+```{r ggcartograms, fig.cap = "Common alternatives to maps, showing the same information as in Figure \ref{choroCRS} for the United States of America: (a) contiguous cartogram, (b) non-contiguous, shape-preserved cartogram, (c)  Dorling cartogram (non-contiguous), (d) hexmap (non-contiguous). In (a) - (c) the state has been resized, and reshaped, to match the 2015 population of the state. This provides a better sense of the extent of disease relative to the population in the country, and can help alleviate losing information about physically small but population dense states. In the hexmap (d) each state is given equal size, and thus equal emphasis.", message=FALSE, warning=FALSE, out.width='100%'}
 g1 <- png::readPNG("figures/ggcont.png")
 g2 <- png::readPNG("figures/ggncont.png")
 g3 <- png::readPNG("figures/ggdorl.png")
