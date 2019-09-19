@@ -15,11 +15,10 @@ yolo: yes
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, cache = TRUE, fig.height = 5)
+knitr::opts_chunk$set(echo = FALSE, fig.height = 5)
 library(ggplot2)
-library(grid)
 library(png)
-library(gridExtra)
+library(grid)
 ```
 <!--
 
@@ -92,7 +91,6 @@ library(ggthemes)
 library(maptools)
 library(sf)
 library(cartogram)
-#knitr::include_graphics("figures/ggchoro.png")
 # read in data
 cancer <- read_csv("data/USCSlung.csv") %>% rename(NAME = Area)
 
@@ -139,7 +137,8 @@ ggdraw() +
   draw_plot(rasterGrob(plot7), .66, 0, .33, .5) +
   draw_plot_label(c("a", "b", "c", "d", "e", "f", "g"), 
     c(0.015, 0.33, 0.63, 0.015, 0.33, 0.014, 0.63), 
-    c(0.98, 0.98, 0.98, 0.74, 0.74, 0.47, 0.47), size = 15)
+    c(0.98, 0.98, 0.98, 0.74, 0.74, 0.47, 0.47), size = 15) +
+  theme_set(theme_cowplot())
 
 ggsave(filename = "figures/choropleth_grid.png", 
   device = "png", width = 6, height = 5, dpi = 300)
@@ -299,7 +298,8 @@ ggdraw() +
   draw_plot(rasterGrob(i5), 0, 0, 1, .13) + #e
   draw_plot_label(c("i", "ii", "iii", "iv", "v"), 
     c(0.01, 0.3, 0.3, 0.3, 0.01), 
-    c(0.99, 0.99, 0.57, 0.40, 0.15), size = 15)
+    c(0.99, 0.99, 0.57, 0.40, 0.15), size = 15) + 
+  theme_set(theme_cowplot())
 
 ggsave(filename = "figures/supp_grid.png", device = "png", 
   width = 6, height = 5, dpi = 300)
@@ -398,24 +398,24 @@ There are many alternatives to consider, the intended audience of the map, and i
 
 
 ```{r ggcartograms, fig.cap = "Alternative maps of the United States of America. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. Each stated shape has been distorted according to the population of the state in 2015. The state of California has become much larger due to it's large population density. This draws attention to the densely populated North East region, and detracts from the less populated Mid West.", message=FALSE, warning=FALSE, out.width='100%'}
-g1 <- png::readPNG("figures/ggcont.png")
-g2 <- png::readPNG("figures/ggncont.png")
-g3 <- png::readPNG("figures/ggdorl.png")
-g4 <- png::readPNG("figures/gghexmap.png")
-#knitr::include_graphics("figures/usa_grid.png")
+usa1 <- png::readPNG("figures/ggcont.png")
+usa2 <- png::readPNG("figures/ggncont.png")
+usa3 <- png::readPNG("figures/ggdorl.png")
+usa4 <- png::readPNG("figures/gghexmap.png")
 
 library(cowplot)
 ggdraw() +
-  draw_plot(rasterGrob(g1), 0, .5, 0.5, 0.5) +
-  draw_plot(rasterGrob(g2), 0.5, 0.5, 0.5, 0.5) +
-  draw_plot(rasterGrob(g3), 0.0, 0.0, 0.5, 0.5) +
-  draw_plot(rasterGrob(g4), 0.5, 0, 0.5, 0.5)+
+  draw_plot(rasterGrob(usa1), 0, .5, 0.5, 0.5) +
+  draw_plot(rasterGrob(usa2), 0.5, 0.5, 0.5, 0.5) +
+  draw_plot(rasterGrob(usa3), 0.0, 0.0, 0.5, 0.5) +
+  draw_plot(rasterGrob(usa4), 0.5, 0, 0.5, 0.5)+
   draw_plot_label(c("a", "b", "c", "d"), 
     c(0, .5, 0, 0.5), 
-    c(1, 1, .5, .5), size = 15)
+    c(1, 1, .5, .5), size = 15) +
+  theme_set(theme_cowplot())
 ```
 
-Table: \label{tab:usa} Maps used to present statistics for the Uited States of America
+Table: \label{tab:usa} Maps used to present statistics for the United States of America
 
 |Map display |Details| 
 |:--------------------|:------------------------------------------------|  
@@ -423,6 +423,25 @@ Table: \label{tab:usa} Maps used to present statistics for the Uited States of A
 |b. Non - Contiguous|A Non - contiguous cartogram map of the United States of America. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. Each state shape has been maintained, but the size has altered according to the population of the state in 2015. The state of California has remained closer to it's original size than it's surrounding states. The North East states have remained closer to their geographical size, in the case of Massachusetts and Connecticut. This draws attention to the densely populated North East region, and the sparse Mid West.|
 |Dorling|A dorling cartogram of the Unites States of America. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. Each state has been represented by a circle, but the size was determined by the population of the state in 2015. The North East states remain closer to their neighbours, and may be displaced from their geographic location. The sparsity of the population in the Mid West is highlight by the distance between the circles, located at the geographic centroids.|
 |Hexagon Tesselation|A hexagon tesselation map of the Unites States of America. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. Each state has been represented by a square, each square is the same size. The neighbouring states are easily contrasted, however the north east regions has been displaced from their geographic location. The sparsity of the population in the Mid West is highlight by the light yellow colour, the age adjusted rate in Kentucky is the darkest and its neighbours are similar.|
+
+
+```{r auscartograms, fig.cap = "Alternative maps of the United States of America. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. Each stated shape has been distorted according to the population of the state in 2015. The state of California has become much larger due to it's large population density. This draws attention to the densely populated North East region, and detracts from the less populated Mid West.", message=FALSE, warning=FALSE, out.width='100%'}
+aus1 <- png::readPNG("figures/aus_ggcont.png")
+aus2 <- png::readPNG("figures/aus_ggncont.png")
+aus3 <- png::readPNG("figures/aus_ggdorl.png")
+aus4 <- png::readPNG("figures/aus_gghexmap.png")
+
+library(cowplot)
+ggdraw() +
+  draw_plot(rasterGrob(aus1), 0, .5, 0.5, 0.5) +
+  draw_plot(rasterGrob(aus2), 0.5, 0.5, 0.5, 0.5) +
+  draw_plot(rasterGrob(aus3), 0.0, 0.0, 0.5, 0.5) +
+  draw_plot(rasterGrob(aus4), 0.5, 0, 0.5, 0.5)+
+  draw_plot_label(c("a", "b", "c", "d"), 
+    c(0, .5, 0, 0.5), 
+    c(1, 1, .5, .5), size = 15) +
+  theme_set(theme_cowplot())
+```
 
 
 ### Contiguous
@@ -545,23 +564,38 @@ The computation and graphics power have made creation, alteration and interactiv
 as these options have expanded and it is the objectives of the investigator that will drive the choices. @CPISACA and @SAMGIS have provided suggestions and comments to help map creators best communicate their health data and spatial analyses.
 
 
-# Animation and Interactivity {#ch:interacting}
-
-Epidemiologists consider the interactions between the spatial distribution of a disease, the environment and the people affected.
+# Interactivity and Animation  {#ch:interacting}
+<!--
 Recent developments in technology have created an opportunity to migrate the presentation of epidological results from atlases in paper map collections to web atlases.
-When the map is supplementary to the discussion, static visualisations can help to aid the written results provided by experts, and pairing an explanation with a map or diagram can help to draw attention to a point, group or area of interest.
+Pairing an explanation with a map or diagram can help to draw attention to a point, group or area of interest.
+Maps may form supplementary material to the discussion, in this case static visualisations can help to aid written results. 
 Static maps often need to include enough information for the display to be understandable out of the original context.
-There are now many suitable methods and mediums to communicate health data, the choice between them should always be driven by the intended message to communicate and the needs of the audience.
+-->
 
-@CPISACA provide three questions that are generally when using a disease map:
+There are now many suitable methods and mediums to communicate health data.
+The choice between them should always be driven by the intended message to be communicated and the needs of the audience.
+
+@CPISACA provide three questions that are generally asked when using a disease map:
 
 - What is the mortality rate in a certain area?
 - Are there geographic trends in the data, or regions of unusually high or low rates?
 - Is the lung cancer mortality pattern similar to the pattern of smoking prevalence shown in a companion map?
 
-A single map display historically created by epidemiologists, may not effectively answer all three at the same time.
+A single map display may not effectively answer all three at the same time.
 This is especially true when areas are small and difficult to identify in a display.
-However, with the ability to animate, map creators can specify and answer these questions by directing the attention of a map user to the areas of interest.
+However, with the ability to interact with a map, or animate the display, map creators can specify and answer these questions by directing the attention of a map user to the areas of interest.
+
+
+<!-- Interactivity (Compare movies or tv to video games) -->
+The progress from static print media displays to interactive methods has allowed users to develop maps to ask and answer their own questions.
+Where the needs of the audience is changeable and is the priority, the map creator can allow interactivity for map users to explore. 
+This oppportunity provides an alternative to the traditional approach of a single map for a single use, into a more explorative territory.
+Interactivity allows users to drive their own exploration, controlling a display through variable controls, links, tool tips, and data selection tools [@TGA]. 
+
+Developmets and adoptions of this technology has allowed map users more control of the message displayed. Figure \ref{fig:supp-grid-create} presents the control menus for several online cancer atlases.
+Users can select combinations of cancer type, gender, and other factors to answers questions relevant to them and their work.
+Users can use these controls to change the layer of geography shown, such as continents or countries, states or counties. Thess display can show familiar shapes for users to orient themselves on the map, then zoom in to explore densely populated communities.
+
 
 
 <!-- Animations -->
@@ -574,25 +608,12 @@ Animations can be implemented to allow users varying degrees of control.
 A basic form of interactivty with animations is the play, pause and rewind of films, where the film is intended to be watched in one direction but the position in the animation can be controlled.
 @CPISACA provide weather maps as well developed and appropriate examples of spatial displays to communicate to the general public, and encourage those creating disease maps to leverage the success of weather displays.
 The movement of a weather system will follow a forecasted path, the animation will communicate this so that all map users can follow the path of the weather system across the geography over a specified period of time.
-More complex animations may include steps, when user interaction via clicks animates the display between stages. 
+More complex animations may include steps, when user interaction via clicks animates the display between stages.
+This approach is implemented by Google Earth 
+Where the message is most important, static or animated graphics allow control over the display and interpretation.
 The Australian Cancer Atlas [-@TACA] provides [tours](
 https://atlas.cancer.org.au/app/tour/lungcancer) which change the display to draw user's attention to areas on the map that are relevant to the story.
 This directs user's attention and gives them tools to plan their own exploration.
-
-
-<!-- Interactivity (Compare movies or tv to video games) -->
-The move from static, print media displays toward interactivity allow users to develop maps to ask and answer their own questions.
-Where the needs of the audience is changeable and is the priority, the map creator can allow interactivity for map users to explore. 
-
-Developmets and adoptions of this technology has allowed map users more control of the message displayed.
-Users are able to see the familiar shapes, zoom in to explore densely populated communities, or change the display completely to highlight the population space.
-
-This oppportunity provides room to move away from the traditional approach of a single map for a single use, into a more explorative territory.
-Interactivity allows users to drive their own exploration, controlling a display through variable controls, links, tool tips, and data selection tools [@TGA]. 
-
-
-Where the message is most important, static or animated graphics allow control over the display and interpretation.
-However before publishing, it is important for map creators to develop and then test the message being communicated, this task requires expert knowledge.
 
 <!--
 A complex directed animation approach is implemented in steps by Google Earth, in their use of stories. Within these directed steps users have the opportunity to use interactive controls to change the map directions or watch videos. 
@@ -609,16 +630,17 @@ This literature review would not be possible without the opportunity provided by
 
 It was in the development of this online cancer atlas that methods for disease map displays, and visual communication strategies were explored. We are thankful for the opportunity to write about these visualisations and the situations in which they are appropriate.
 
+Several R [@R] packages were used to produce this paper.
+For data analysis the tidyverse package [@tidyverse] provided many useful functions.
+ggplot2 package [@ggplot2] was used to create maps, with RColorBrewer package [@RColorBrewer] providing additional colour palettes and ggthemes [@ggthemes] package providing themes.
+The png package [@png] was used to access png images taken from online web atlases, cowplot package [@cowplot] was used to arrange these plots into grouped images.
+
+The following packages were used to create tranformations from the sf [@sf] geographical shapes of the states of America [@spData] and the XXX Australian Statistical Areas (Level 3):
+The cartogram [@cartogram] package creates contiguous, non-contiguous and Dorling cartgorams.
+Hexagon tilegram displays were created using the sugarbag package [@sugarbag].
+
 
 # References
-
-<!--
-# Software
-Commonly available tools to implement.
--->
-@tidyerse for data analysis, @spData and @sf to implement plotting of spatial data.
-@sugarbag to create hexagon tessellation. @ggthemes to enhance plot displays.
-@cartogram for contiguous and non-contiguous cartogram displays.
 
 
 <!--
