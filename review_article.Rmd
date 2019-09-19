@@ -144,6 +144,7 @@ ggsave(filename = "figures/choropleth_grid.png",
   device = "png", width = 6, height = 5, dpi = 300)
 ```
 
+
 # Cancer atlases {#ch:public}
 
 <!-- Displaying of cancer data on choropleths -->
@@ -351,7 +352,10 @@ The areas are often ranked and allocated to quintiles, each quintile can be pres
 
 ## Interaction with atlases
 
-# Cartograms and other spatially warped displays {#ch:alternatives}
+# Alternatives to choropleth maps {#ch:alternatives}
+
+## Micromaps
+XXX Something needs to be said about micromaps https://cran.r-project.org/web/packages/micromapST/vignettes/JSSmicromapSTv63i03.pdf
 
 ## Cartograms
 
@@ -586,6 +590,10 @@ Maps may form supplementary material to the discussion, in this case static visu
 Static maps often need to include enough information for the display to be understandable out of the original context.
 -->
 
+XXX Define interactivity, and also animation
+
+
+
 There are now many suitable methods and mediums to communicate health data.
 The choice between them should always be driven by the intended message to be communicated and the needs of the audience.
 
@@ -633,6 +641,13 @@ This directs user's attention and gives them tools to plan their own exploration
 A complex directed animation approach is implemented in steps by Google Earth, in their use of stories. Within these directed steps users have the opportunity to use interactive controls to change the map directions or watch videos. 
 One popular implementation communicates Dr. Jane Goodall's life journey using Google Earth displays of significant locations such as her birthplace Bournemouth, England and Tanzania's Gombe National Park. 
 -->
+
+- the arcGIS standard https://pro.arcgis.com/en/pro-app/help/mapping/animation/overview-of-animation.htm
+- very general infovis reference that refers to Buja, Cook, Swayne distinguishing between direct manipulation and interactive graphics https://hal.inria.fr/tel-01096366/file/VA2_PERIN_CHARLES_17112014.pdf
+- explanation of inetractivity and direct manipulation: https://books.google.com.au/books?id=A6TMqxkW-EoC&pg=PA6&lpg=PA6&dq=direct+manipulation+%22swayne%22+%22klinke%22&source=bl&ots=tXYKP8JbbV&sig=ACfU3U3KhN-_YNt_UV5SmThsl4D2gY9A4g&hl=en&sa=X&ved=2ahUKEwj6u9vgqtzkAhVKeysKHQ6iByUQ6AEwA3oECAgQAQ#v=onepage&q=direct%20manipulation%20%22swayne%22%20%22klinke%22&f=false
+- might be useful to look at https://towardsdatascience.com/a-complete-guide-to-an-interactive-geographical-map-using-python-f4c5197e23e0
+- a classic http://www.cs.umd.edu/hcil/trs/2001-08/2001-08.html
+- this is one reference that maybe yoou have missed: https://alsino.io/static/papers/BeyondChoropleths_AlsinoSkowronnek.pdf
 
 # Acknowledgements
 
