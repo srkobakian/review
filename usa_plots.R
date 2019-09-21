@@ -30,8 +30,6 @@ cancer <- read_csv("data/USCSlung.csv") %>% rename(NAME = Area)
 
 
 # Join polygons to data
-# devtools::install_github("hrbrmstr/albersusa")
-library(albersusa)
 cancer <- left_join(us_states, cancer, by = c("NAME"))
 cancer <- st_transform(cancer, 3857)
 
@@ -54,7 +52,10 @@ ggchoro <- ggplot(cancer) +
   theme_void() +
   theme(legend.position ="bottom")
 ggchoro
-ggsave(filename = "figures/ggchoro.png", device = "png", dpi = 300,  width = 12, height = 6)
+#ggsave(filename = "figures/ggchoro.png", device = "png", dpi = 300, width = 7, height = 6)
+
+usa_legend <- get_legend(ggchoro)
+save(usa_legend, file = "usa_legend.rda")
 
 ###############################################################################
 # Cartograms
@@ -67,11 +68,11 @@ ggcont <- ggplot(cont) +
   ggtitle(title) +
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
   #coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
-  theme_void() +   theme(legend.position ="bottom")
+  theme_void() + guides(fill = FALSE)
 
 save(cont, file = "data/cont.rda")
 ggcont
-ggsave(filename = "figures/ggcont.png", device = "png", dpi = 300,  width = 12, height = 6)
+ggsave(filename = "figures/ggcont.png", device = "png", dpi = 300, width = 7, height = 6)
 
 ###############################################################################
 # Non - Contiguous Cartograms
@@ -92,11 +93,11 @@ ggncont <- ggplot(ncont) +
   ggtitle(title) + 
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
   #coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
-  theme_void() + theme(legend.position ="bottom")
+  theme_void() + guides(fill = FALSE)
 
 save(ncont, "data/ncont.rda")
 ggncont
-ggsave(filename = "figures/ggncont.png", device = "png", dpi = 300,  width = 12, height = 6)
+ggsave(filename = "figures/ggncont.png", device = "png", dpi = 300, width = 7, height = 6)
 
 
 ###############################################################################
@@ -108,8 +109,8 @@ ggdorl <- ggplot(dorl) +
   ggtitle(title) +
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
   #coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
-  theme_void() + theme(legend.position ="bottom")
-ggsave(filename = "figures/ggdorl.png", device = "png", dpi = 300,  width = 12, height = 6)
+  theme_void()+ guides(fill = FALSE)
+ggsave(filename = "figures/ggdorl.png", device = "png", dpi = 300, width = 7, height = 6)
 ggdorl
 
 
@@ -126,8 +127,8 @@ ggdorl
 #   ggtitle(title) +
 #   scale_colour_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
 #   coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
-#   theme_void() + theme(legend.position ="bottom")
-# ggsave(filename = "figures/ggdot.png", device = "png", dpi = 300,  width = 12, height = 6)
+#   theme_void()+ guides(fill = FALSE)
+# ggsave(filename = "figures/ggdot.png", device = "png", dpi = 300, width = 7, height = 6)
 # ggdot
 
 
@@ -161,7 +162,7 @@ ggchoro4 <- ggplot(st_transform(cancer, 2955)) +
 ggchoroCRS <- gridExtra::grid.arrange(ggchoro1, ggchoro2, ggchoro3, ggchoro4)
 
 ggsave(filename = "figures/ggchoroCRS.png", plot = ggchoroCRS,
-  device = "png", dpi = 300,  width = 12, height = 6)
+  device = "png", dpi = 300, width = 7, height = 6)
 
 
 ###############################################################################
@@ -175,20 +176,20 @@ ggtilegram <- left_join(adat, cancer %>% rename(state = NAME)) %>%
     name = "AgeAdjustedRate"
   ) +
   labs(title = "") + 
-  theme_void() + theme(legend.position ="bottom") +
+  theme_void()+ guides(fill = FALSE) +
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1)
 
 ggsave(filename = "figures/ggtilegram.png", plot = ggtilegram,
-  device = "png", dpi = 300,  width = 12, height = 6)
+  device = "png", dpi = 300, width = 7, height = 6)
 
 
 cancermap <- st_transform(cancer, "+proj=longlat +datum=WGS84 +no_defs")
 centroids <- create_centroids(cancermap, "NAME")
 grid <- create_grid(centroids = centroids, 
-  hex_size = 2.2 ,buffer_dist = 5)
+  hex_size = 2.5 ,buffer_dist = 5)
 hexmap <- allocate(
   centroids = centroids, hex_grid = grid, 
-  sf_id = "NAME", hex_size = 2.2, hex_filter = 5, 
+  sf_id = "NAME", hex_size = 2.5, hex_filter = 5, 
   focal_points = tibble(point = "mean", longitude = mean(centroids$longitude), latitude = mean(centroids$latitude)), 
   verbose = TRUE, width = 30
   )
@@ -215,16 +216,16 @@ hex <- cancer_ng %>%
 gghexmap <- ggplot(hex) + 
   geom_sf(aes(fill = AgeAdjustedRate), colour = NA) + 
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) +
-  theme_void() + theme(legend.position ="bottom") 
+  theme_void()+ guides(fill = FALSE) 
 
 gghexmap
 ggsave(filename = "figures/gghexmap.png", plot = gghexmap,
-  device = "png", dpi = 300,  width = 12, height = 6)
+  device = "png", dpi = 300, width = 7, height = 6)
 
 
 usa_grid <- gridExtra::grid.arrange(ggcont, ggncont, ggdorl, gghexmap, nrow = 2)
 ggsave(filename = "figures/usa_grid.png", plot = usa_grid,
-  device = "png", dpi = 300,  width = 12, height = 6)
+  device = "png", dpi = 300, width = 7, height = 6)
 
 
 #####
@@ -258,5 +259,5 @@ chloropleth_grid <- gridExtra::grid.arrange(grid::rasterGrob(plot1),grid::raster
   grid::rasterGrob(plot16), nrow=4)
 
 
-ggsave(filename = "figures/choropleth_grid.png", plot = choropleth_grid, device = "png", dpi = 300,  width = 12, height = 6)
+ggsave(filename = "figures/choropleth_grid.png", plot = choropleth_grid, device = "png", dpi = 300, width = 7, height = 6)
 

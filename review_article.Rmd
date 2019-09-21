@@ -15,7 +15,7 @@ yolo: yes
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, fig.height = 5)
+knitr::opts_chunk$set(echo = FALSE)
 library(ggplot2)
 library(png)
 library(grid)
@@ -69,7 +69,7 @@ The paper is organised as follows. The next section describes the choropleth map
 
 <!-- what is a choropleth map -->
 A choropleth map is used to display the spatial relationship of measurements by shading areas of a map. The geography is faithfully rendered, and the colour rendering is designed to reveal spatial patterns among data values. A choropleth is constructed by drawing the geographic or political boundaries, and filling the shapes with colours to represent values of a measured variable [@EI]. 
-Figure \ref{fig:choro} shows a choropleth of age-adjusted rate (per 100,000 people) of new cases of lung and bronchus in the USA, averaged over 2012 through 2016. The data was extracted from the official federal statistics by @usa_lung on cancer incidence and deaths, produced by the Centers for Disease Control and Prevention (CDC) and the National Cancer Institute (NCI).
+Figure \ref{fig:choroCRS} shows a choropleth of age-adjusted rate (per 100,000 people) of new cases of lung and bronchus in the USA, averaged over 2012 through 2016. The data was extracted from the official federal statistics by @usa_lung on cancer incidence and deaths, produced by the Centers for Disease Control and Prevention (CDC) and the National Cancer Institute (NCI).
 
 <!-- history and types of choropleths, variations -->
 Early versions of choropleth maps used symbols or patterns instead of colour.
@@ -80,33 +80,8 @@ Utilising the state boundaries can make a map familiar to read [@CIBMUK], and al
 The familiarity of the geography is a worthy consideration when presenting results of spatial analysis. Just as geographers are no longer the only creators of maps, @CPISACA suggests the audiences of spatial health data analysis have extended beyond researchers to the public, policymakers and the media.
 
 <!-- how do we use choropleth's -->
-Identifying and explaining spatial structures, patterns, and processes involves considering the individuals in communities and organising communities into representable units [@SAMGIS]. In Figure \ref{fig:choro}, a west to east spatial trend of increasing rates, can be seen. There is also a spatial outlier -- Utah has a noticeably lower rate that its neighbours. Also Kentucky has a noticeably high rate, and Maine also has a higher rate than its neighbours. There is something of a cluster of higher rates around the tobacco states. 
+Identifying and explaining spatial structures, patterns, and processes involves considering the individuals in communities and organising communities into representable units [@SAMGIS]. In Figure \ref{fig:choroCRS}, a west to east spatial trend of increasing rates, can be seen. There is also a spatial outlier -- Utah has a noticeably lower rate that its neighbours. Also Kentucky has a noticeably high rate, and Maine also has a higher rate than its neighbours. There is something of a cluster of higher rates around the tobacco states. 
 
-
-```{r choro, fig.cap = "Choropleth map of the average age-adjusted rate per 100,000 people, of new cases of lung and bronchus cancer 2012-2016 in the USA. Utah has an unusually low rate and Kentucky is high. There is generally a west to east trend, with higher rates towards the easern states.", message=FALSE, warning=FALSE, out.width='100%', fig.align='center', fig.width=12}
-library(sugarbag)
-library(tidyverse)
-library(spData)
-library(ggthemes)
-library(maptools)
-library(sf)
-library(cartogram)
-# read in data
-cancer <- read_csv("data/USCSlung.csv") %>% rename(NAME = Area)
-
-# Join polygons to data
-data(us_states)
-cancer <- left_join(us_states, cancer, by = c("NAME"))
-cancer <- st_transform(cancer, 3857)
-
-b <- st_bbox(cancer)
-ggplot(cancer) + 
-  geom_sf(aes(fill = AgeAdjustedRate), colour = NA) +
-  scale_fill_distiller("Age-adjusted rate \n (per 100,000)", type = "seq", palette = "RdPu",  direction = 1) + 
-  #coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
-  theme_void() +
-  theme(legend.position ="bottom", legend.key.width = unit(2, "cm"))
-```
 
 <!-- potential problems -->
 While the areas are recognisable shapes, they are often politically driven boundaries with individual areas being of non-uniform size, containing different population densities and subject to change over time. 
@@ -115,7 +90,7 @@ Choropleths can inhibit visual inference when presenting human related statistic
 
 
 
-```{r choropleth-grid-create, message=FALSE, warning = FALSE, fig.cap = "Publicly available choropleth cancer maps, published between 2010 and 2015. Sourced from: @roberts2019communication", out.width='100%', fig.align='center', fig.width=12}
+```{r choropleth-grid-create, message=FALSE, warning = FALSE, fig.cap = "Publicly available choropleth cancer maps, published between 2010 and 2015.", out.width='100%', fig.align='center', fig.width=12, fig.height=10}
 library(cowplot)
 
 # Import the images
@@ -137,8 +112,7 @@ ggdraw() +
   draw_plot(rasterGrob(plot7), .66, 0, .33, .5) +
   draw_plot_label(c("a", "b", "c", "d", "e", "f", "g"), 
     c(0.015, 0.33, 0.63, 0.015, 0.33, 0.014, 0.63), 
-    c(0.98, 0.98, 0.98, 0.74, 0.74, 0.47, 0.47), size = 15) +
-  theme_set(theme_cowplot())
+    c(0.99, 0.99, 0.99, 0.74, 0.74, 0.47, 0.47), size = 20)
 
 ggsave(filename = "figures/choropleth_grid.png", 
   device = "png", width = 6, height = 5, dpi = 300)
@@ -251,50 +225,8 @@ One of the concerns of adding too much information to a map is the fear of cogni
 
 Interactivity enables supplementary information to be incorporated into online atlases without cluttering the display. Interactive design features found in online cancer maps include tool tip features, drop down menus, data selection, zooming and panning allow users to explore the map as they want more information and allow flexibility in the display [@HTLWM]. The use of these supports were found in various online cancer maps identified by @roberts2019communication. The controls for basic interactive features are often placed outside of the plot space [@TGA], thus the map image is updated/replaced as the user interacts with the controls. For example, changing the population age or other demographic variables. Some more advanced interactions include direct interactions with the plot via the use of overlaid tool tip features, very few cancer atlases involve these more complex selection interactivities. 
 
-(insert figure of both types of interactivity)
 
-Additionally, interactivity allows the user to toggle between different variables, map views or multiple realizations of possible future scenarios [@goodchild1994introduction]. Thus providing additional mechanisms for the users comprehension as well as the uncertainty of the available information (@maceachren1992visualizing; @van1994visualization). 
-
-
-These interactive features provide an opportunity for users to explore the additional information available. This helps users to understand and interpret the spatial distribution presented, as well as validate, explain or explore the presented statistics and their relationships to each other and/or their underlying spatial distribution. This allows relationships between spatial areas and diseases to be explored with sophistication in non-traditional but still 'cognitively accesible' ways [@TNTEA]. The interactive features of the publically available maps identified by @roberts2019communication allow the exploration of geographic hierarchies, population distribution, statistical uncertainty, demographics and socio-economic indicators.
-@TNTEA suggested LM plots as a solution to linking cartography and statistical graphics. 
-
-(insert figures showing different interactivity)
-
-
-
-<!-- 
-
-Technological advances may provide a solution to this through the use of interactivity, animation, and sound as additional channels for representing uncertainty information without interfering with the ability to see any features that are present in the display [@maceachren1992visualizing]. However, if uncertainty information is perceived as integral and inseparable from the data it is associated with, assumptions of uncertainty creating cognitive overload may not be as valid. 
-
--->
-
- 
-
-
-XXX more details on the examples in the next figure
-
-## Common statistics displayed
-
-Cancer maps are powerful visualisations that summarise complex statistical analyses, however the statistics represented in these maps cannot tell the entire story.
-Supplementary graphs and plots are often included to add more depth and information to the map.
-@CPISACA suggests additional materials such as tables, graphs, and text explanations support understanding and inference derived from maps, ensuring the message communicated will be consistent across a range of viewers.
-There are many visualisations used for displays of statistical summaries, these may be dot plots, bar plots, box plots, timesseries plots, cumulative distribution plots, scatter plots, Q-Q plots. 
-These additional displays of the cancer distribution can provide alternative views of the cancer statistics, as well as the supporting statistics including error, confidence intervals, distributions, sample or population sizes, standard deviation and other measures.
-When presenting cancer maps, @MACM believes the intuition derived from maps must be 'validated by rigorous statistical analyses', the supplementary statistics help for this validation.
-
-
-The interactivity of modern mapping methods enable supplementary information to be incorporated without cluttering the screen.
-Tool tip features and drop down menus allow for user exploration, small screens are not a problem with the flexibility provided by zooming and panning [@HTLWM].
-This allows relationships between spatial areas and diseases to be explored with sophistication in nontraditional but still 'cognitively accesible' ways [@TNTEA].
-The use of these supports were found in a many online diease mapmap sources.
-These interactive features provide an opportunity for users to explore additional information to help users understand and interpret the spatial distribution presented, as well as validate, explain or explore the presented statistics and their relationships to each other and/or their underlying spatial distribution. 
-This directly enables epidemiologists to explore spatial distributions of cancer statistics.
-The interactive features of the publically available maps identified by @roberts2019communication include exploration of geographic hierarchies, population distribution, statistical uncertainty, demographics and socio-economic indicators.
-@TNTEA suggested LM plots as a solution to linking cartography and statistical graphics.
-
-
-```{r supp-grid-create, fig.cap = "Interactive controls of displays in publicly available choropleth cancer maps. [a. Globocan 2018: Cancer Today](http://globocan.iarc.fr/Pages/Map.aspx)(Controls for indicator, sex, age groups, continents, and cancer types) , [b. Bowel Cancer Australia Atlas](http://www.bowelcanceratlas.org/) (Controls for indicator, age, year, and geographical areas), [c. The Cancer Atlas ](http://canceratlas.cancer.org/data/#?view=map&metric=INCID_ALL_M) (Controls for predetermined combinations of cancer type or risk factors, mortality or incidence, and gender) [d. Global Cancer Map](http://globalcancermap.com/) (Controls for indicator, and cancer type), [e. United States Cancer Statistics: Data Visualizations](https://gis.cdc.gov/Cancer/USCS/DataViz.html) (Controls for demographics, trends, geography, indicators, risk factors, sex, cancer type, and year)."}
+```{r supp-grid-create, fig.cap = "Interactive controls of displays in publicly available choropleth cancer maps. [a. Globocan 2018: Cancer Today](http://globocan.iarc.fr/Pages/Map.aspx)(Controls for indicator, sex, age groups, continents, and cancer types) , [b. Bowel Cancer Australia Atlas](http://www.bowelcanceratlas.org/) (Controls for indicator, age, year, and geographical areas), [c. The Cancer Atlas ](http://canceratlas.cancer.org/data/#?view=map&metric=INCID_ALL_M) (Controls for predetermined combinations of cancer type or risk factors, mortality or incidence, and gender) [d. Global Cancer Map](http://globalcancermap.com/) (Controls for indicator, and cancer type), [e. United States Cancer Statistics: Data Visualizations](https://gis.cdc.gov/Cancer/USCS/DataViz.html) (Controls for demographics, trends, geography, indicators, risk factors, sex, cancer type, and year).", fig.width = 12, fig.height = 9}
 i1 <- png::readPNG('cancer_map_images/interactivity/3.interactivity.png') # b in choro grid
 i2 <- png::readPNG('cancer_map_images/interactivity/15.interactivity.png') # d in choro grid
 i3 <- png::readPNG('cancer_map_images/interactivity/4.interactivity.png')
@@ -309,12 +241,40 @@ ggdraw() +
   draw_plot(rasterGrob(i5), 0, 0, 1, .13) + #e
   draw_plot_label(c("i", "ii", "iii", "iv", "v"), 
     c(0.01, 0.3, 0.3, 0.3, 0.01), 
-    c(0.99, 0.99, 0.57, 0.40, 0.15), size = 15) + 
-  theme_set(theme_cowplot())
+    c(0.99, 0.99, 0.57, 0.40, 0.15), size = 20)
 
 ggsave(filename = "figures/supp_grid.png", device = "png", 
-  width = 6, height = 5, dpi = 300)
+  width = 6, height = 6, dpi = 300)
 ```
+
+
+The interactivity of modern mapping methods enable supplementary information to be incorporated without cluttering the screen.
+Additionally, interactivity allows the user to toggle between different variables, map views or multiple realizations of possible future scenarios [@goodchild1994introduction]. Thus providing additional mechanisms for the users comprehension as well as the uncertainty of the available information (@maceachren1992visualizing; @van1994visualization). 
+
+
+These interactive features provide an opportunity for users to explore the additional information available.
+Tool tip features and drop down menus allow for user exploration, small screens are not a problem with the flexibility provided by zooming and panning [@HTLWM]. This allows relationships between spatial areas and diseases to be explored with sophistication in nontraditional but still 'cognitively accesible' ways [@TNTEA].This helps users to understand and interpret the spatial distribution presented, as well as validate, explain or explore the presented statistics and their relationships to each other and/or their underlying spatial distribution. This allows relationships between spatial areas and diseases to be explored with sophistication in non-traditional but still 'cognitively accesible' ways [@TNTEA]. The interactive features of the publically available maps identified by @roberts2019communication allow the exploration of geographic hierarchies, population distribution, statistical uncertainty, demographics and socio-economic indicators.
+@TNTEA suggested LM plots as a solution to linking cartography and statistical graphics. 
+
+
+<!-- 
+
+Technological advances may provide a solution to this through the use of interactivity, animation, and sound as additional channels for representing uncertainty information without interfering with the ability to see any features that are present in the display [@maceachren1992visualizing]. However, if uncertainty information is perceived as integral and inseparable from the data it is associated with, assumptions of uncertainty creating cognitive overload may not be as valid. 
+
+-->
+
+ 
+
+## Common statistics displayed
+
+Cancer maps are powerful visualisations that summarise complex statistical analyses, however the statistics represented in these maps cannot tell the entire story.
+Supplementary graphs and plots are often included to add more depth and information to the map.
+@CPISACA suggests additional materials such as tables, graphs, and text explanations support understanding and inference derived from maps, ensuring the message communicated will be consistent across a range of viewers.
+There are many visualisations used for displays of statistical summaries, these may be dot plots, bar plots, box plots, timesseries plots, cumulative distribution plots, scatter plots, Q-Q plots. 
+These additional displays of the cancer distribution can provide alternative views of the cancer statistics, as well as the supporting statistics including error, confidence intervals, distributions, sample or population sizes, standard deviation and other measures.
+When presenting cancer maps, @MACM believes the intuition derived from maps must be 'validated by rigorous statistical analyses', the supplementary statistics help for this validation.
+
+
 
 ### Geographic hierarchies
 
@@ -349,7 +309,6 @@ These rates may also be explored as percentages above or below the mean or media
 The Human Development Index can be used to understand the socio-economic experience of a community, as well as Income levels which can be sourced from the World Bank list of economies [@IARC_3]. 
 The areas are often ranked and allocated to quintiles, each quintile can be presented as categories describing the ranking.
 
-## Interaction with atlases
 
 # Cartograms and other spatially warped displays {#ch:alternatives}
 
@@ -412,19 +371,21 @@ There are many alternatives to consider, the intended audience of the map, and i
 g1 <- png::readPNG("figures/ggcont.png")
 g2 <- png::readPNG("figures/ggncont.png")
 g3 <- png::readPNG("figures/ggdorl.png")
-#g4 <- png::readPNG("figures/gghexmap.png")
+g4 <- png::readPNG("figures/gghexmap.png")
 #knitr::include_graphics("figures/usa_grid.png")
+
+load("usa_legend.rda")
 
 library(cowplot)
 ggdraw() +
-  draw_plot(rasterGrob(g1), 0, .5, 0.5, 0.5) +
-  draw_plot(rasterGrob(g2), 0.5, 0.5, 0.5, 0.5) +
-  draw_plot(rasterGrob(g3), 0.0, 0.0, 0.5, 0.5) +
-  #draw_plot(rasterGrob(g4), 0.5, 0, 0.5, 0.5)+
+  draw_plot(rasterGrob(g1), 0, .5, 0.5, 0.45) +
+  draw_plot(rasterGrob(g2), 0.5, 0.5, 0.5, 0.45) +
+  draw_plot(rasterGrob(g3), 0.0, 0.0, 0.5, 0.45) +
+  draw_plot(rasterGrob(g4), 0.5, 0, 0.5, 0.45) +
+  draw_plot(usa_legend, 0, 0, 1, 0.1) +
   draw_plot_label(c("a", "b", "c", "d"), 
     c(0, .5, 0, 0.5), 
-    c(1, 1, .5, .5), size = 15) +
-  theme_set(theme_cowplot())
+    c(1, 1, .5, .5), size = 20)
 ```
 
 Table: \label{tab:usa} Maps used to present statistics for the United States of America
@@ -451,8 +412,7 @@ ggdraw() +
   draw_plot(rasterGrob(aus4), 0.5, 0, 0.5, 0.5)+
   draw_plot_label(c("a", "b", "c", "d"), 
     c(0, .5, 0, 0.5), 
-    c(1, 1, .5, .5), size = 15) +
-  theme_set(theme_cowplot())
+    c(1, 1, .5, .5), size = 20)
 ```
 
 
@@ -514,12 +474,22 @@ Rectangular cartograms allow for bivariate displays, population can be effective
 
 A similar method, where each geographic area is represented using a square, tesselated to create a square grid. This method has been used by FiveThirtyEight, Bloomberg Business, The Guardian, The Washington Post, The New York Times and NPR.
 Each area is represented by a square of the same dimensions.
-Figure \ref{fig:ggtilegram} shows a square tilegram representing each state using a single square.
+Figure \ref{fig:ggcartograms} d shows a hexagon tilegram representing each state using a single square.
 
 
 Recommended criteria to contrast mapping methods include average cartographic error, and maximum cartographic error, correct adjacencies, maximum aspect ratio, and suitable relative positions [@ORC]. However, this does not consider the issues with actually producing rectangular cartograms. Algorithms for the creation of rectangular cartograms
 
 ## Tilegram
+
+A tilegram provides a tesselated display of consistent shapes.
+Each tile is usally one unit of measurement, this could be geographic regions such as states, or population based where one tile is used for a consistent measure of population.
+<!-- cite mosiac cartograms --> 
+<!--XXX cite geogrid here?-->
+A simple tilegram may present the states in a tesselated grid display, where geographic neighbours are found next to each other, with some neccessary displacement employed for regions with more than four neighbours.
+These tiles may be labelled or coloured to represent a value.
+A data visualisation can be geographically faceted, so that a smaller visualisation of equal size is created for each geographic subset of the data. This requires grid displays that are often created once by hand and reused.
+
+
 
 <!--
 ```{r ggtilegram, fig.cap = "A tilegram of the Unites States of America. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. Each state has been represented by a square, each square is the same size. The neighbouring states are easily contrasted, however the north east regions has been displaced from their geographic location. The sparsity of the population in the Mid West is highlight by the light yellow colour, the age adjusted rate in Kentucky is the darkest and its neighbours are similar.", message=FALSE, warning=FALSE, out.width='80%'}
@@ -538,27 +508,33 @@ Visualisation properties have been explored across several disease mapping displ
 To choose an appropriate map display, the map creator must consider the intended user, and message the map will communicate.
 Choropleth displays utilise more traditional cartographic methods, they are usually true to the topography, displaying familiar boundaries of countries, states or administrative areas.
 Choropleth methods require a decision to be made about the projection of the display, in this case aim to find a map projection that gives the least distorted representation of the geography [@UMPT].
-When there is a relationship between the cancer type being mapped and geographical features, a choropleth map would pair this information visually.
+When there is a relationship between the cancer type being mapped and geographical features, a choropleth map would pair this information visually. However these displays are limited to univariate displays, usually presented by filling each area with a colour.
 These maps are best used when the geography is of importance to the data in the display.
+They favor geographically large regions and small regions are often represented by inset displays that zoom in on a geographic area containing many small regions, this is seen in Figure \ref{fig:choroleth-grid-create} c of the state of Queensland, where the capital city Brisbane is highlighted by the inset map. 
 Users can identify the areas relevant to them by the familiar boundaries, and can easily contrast the experience of geographic neighbours.
 
 
 <!-- Cartograms, sacrifice geography, focus on the outliers/ relationships in data space -->
-Pairing geography and cancer data was historically the work of epidemiologists, however it did not require them to be the map designer.
-This was expected as cartographers were the creators of geographic displays, and epidemiologists utilised the maps that had been prepared in advance.
-Cartograms with the population variable used for base map distortion can be seen as density equalising maps, that reduce the visual prominence of low-population areas [@VSSDCUC].
-This approach began a shift in the focus and responsibility of map creators.
-Cartogram displays began incorporating the statistics and population into the design of the display. 
-Shifting and sometimes sacrificing familiar boundaries to draw attention to outliers in the data space or population density.
+Cartographers were historically the creators of geographic displays, and epidemiologists utilised the maps that had been prepared in advance.
+Cartograms with the population variable used to distortion the geographic map can be used as density equalising maps, that reduce the visual prominence of low-population areas [@VSSDCUC]. 
+Cartogram displays incorporate the statistics and population into the design of the display,
+shifting and sometimes sacrificing familiar boundaries to draw attention to outliers in the data space or population density.
+The unusual shapes are difficult to compare and can prevent comparison of the statistic. Cartograms also favour extreme statistics in the positive direction. Small extreme values are often lost due to the resulting small sized areas the do not draw user's attention.
+The change in the map can also provide opportunities for bivariate displays, using the change in area for one variable, and colour for another.
 The difference between the familiar map display helps highlight the impact of the disease on communities.
 
 
 <!-- Alternatives, remove geographic shapes, keep spatial relationship, focus on the outliers/ relationships in population space -->
-By removing the unexpected boundaries and shapes, the spatial distribution is the primary concept communicated by the display.
-Areas that are geographically close will maintain connectedness in some way, but the population and the statistic will take precedence.
+Alternative maps may replace the unexpected boundaries and shapes with familiar, simple shapes. This makes the spatial distribution the primary concept communicated by the display.
+Areas that are geographically close will maintain connectedness in some way, but the population and the statistic will dominate.
+Tilegram displays may only allow one variable to be visualised if each region is given consistent map space, this occurs in geofaceting. 
+Dorlings provide bivariate displays as they use the size of the shape for one variable, and colour for another.
 These alternatives are especially helpful for data aggregations where administrative boundaries break populations into groups.
-The experience of each collective may be worth considering as their experiences may be similar in terms of the services and facilities they share.
-Population affects are highlighted by these displays, as this display allows a more equitable view of each community, and does not minimise those that operate on a smaller geographic scale.
+The experience of each community may be worth considering, as the experiences shared by the population within them may be similar due to the services and facilities they share.
+This display allows a more equitable view of each community, and does not minimise those that operate on a smaller geographic scale.
+
+Faceting provides an opportunity to contrast the overall distribution of variables across a geographic space or collection of geographic areas.
+This display makes is difficult to compare specific regions.
 
 
 Table: \label{tab:methods} Mapping methods used to display cancer statistics

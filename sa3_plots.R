@@ -36,12 +36,14 @@ cimar_sa3 <- cimar_sa3 %>%
 
 # Join with sa3 sf object
 sa3lung <- absmapsdata::sa32016 %>% 
-  left_join(cimar_sa3, by = c("sa3_name_2016"= "Name")) %>%
+  left_join(cimar_sa3, by = c("sa3_name_2016"= "Name")) %>% 
   st_as_sf() %>%
   filter(!is.na(Population)) %>%
+  #mutate(Population = ifelse(is.na(Population), 1, Population)) %>% 
   filter(!st_is_empty(geometry))
 
 sa3lung <- st_transform(sa3lung, 3112)
+#%>%  st_simplify(., preserveTopology = TRUE,  dTolerance = 0) 
 
 b <- st_bbox(sa3lung)
 
@@ -58,26 +60,30 @@ aus_ggchoro <- ggplot(sa3lung) +
   coord_sf(crs = CRS("+init=epsg:3112"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
   theme(legend.position ="bottom") + 
   labs(fill = "Age-standardised rate\n(per 100,000)")
-ggsave(filename = "figures/aus_ggchoro.png", device = "png", dpi = 300,  width = 12, height = 6)
 aus_ggchoro
+ggsave(filename = "figures/aus_ggchoro.png", device = "png", dpi = 300,  width = 7, height = 6)
 
 
 ###############################################################################
 # Cartograms
-
+  
 # Contiguous Cartograms
 cont <- sa3lung %>% 
   cartogram_cont(.,
-  weight = "Population") %>% st_as_sf()
+  weight = "Population", itermax = 15) %>%
+  st_as_sf()
+
 save(cont, "data/auscont.rda")
 aus_ggcont <- ggplot(cont) + 
   geom_sf(aes(fill = `Age-standardised rate (per 100,000)`)) + 
   scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1) + 
   coord_sf(crs = CRS("+init=epsg:3112"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
-  theme_void() +   theme(legend.position ="bottom")
+  theme_void()+guides(fill=FALSE)
 aus_ggcont
-ggsave(filename = "figures/aus_ggcont.png", device = "png", dpi = 300,  width = 12, height = 6)
+ggsave(filename = "figures/aus_ggcont.png", device = "png", dpi = 300,  width = 7, height = 6)
 
+aus_legend <- get_legend(aus_ggchoro)
+save(aus_legend, file = "aus_legend.rda")
 
 ###############################################################################
 # Non - Contiguous Cartograms
@@ -99,9 +105,9 @@ aus_ggncont <- ggplot(ncont) +
   geom_sf(aes(fill = `Age-standardised rate (per 100,000)`), colour = "grey") + 
   coord_sf(crs = CRS("+init=epsg:3112"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
   scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1) + scale_size_identity() + 
-  theme_void() + theme(legend.position ="bottom")
+  theme_void()+guides(fill=FALSE)
 aus_ggncont
-ggsave(filename = "figures/aus_ggncont.png", device = "png", dpi = 300,  width = 12, height = 6)
+ggsave(filename = "figures/aus_ggncont.png", device = "png", dpi = 300,  width = 7, height = 6)
 
 
 ###############################################################################
@@ -111,9 +117,9 @@ dorl <- sa3lung %>% cartogram_dorling(.,
 aus_ggdorl <- ggplot(dorl) + 
   geom_sf(aes(fill = `Age-standardised rate (per 100,000)`)) + 
   scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1) + 
- theme_void() + theme(legend.position ="bottom")
+ theme_void()+guides(fill=FALSE)
 aus_ggdorl
-ggsave(filename = "figures/aus_ggdorl.png", device = "png", dpi = 300,  width = 12, height = 6)
+ggsave(filename = "figures/aus_ggdorl.png", device = "png", dpi = 300,  width = 7, height = 6)
 
 
 ###############################################################################
@@ -150,10 +156,10 @@ aus_gghexmap <- ggplot(hexagons) +
                    fill = `Age-standardised rate (per 100,000)`), colour = NA) + 
   scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1) +
   coord_equal() +
-  theme_void() + theme(legend.position ="bottom")
+  theme_void()+guides(fill=FALSE)
 aus_gghexmap
 ggsave(filename = "figures/aus_gghexmap.png", plot = aus_gghexmap,
-  device = "png", dpi = 300,  width = 12, height = 6)
+  device = "png", dpi = 300,  width = 7, height = 6)
 
 
 ###############################################################################
@@ -161,4 +167,4 @@ ggsave(filename = "figures/aus_gghexmap.png", plot = aus_gghexmap,
 
 aus_grid <- gridExtra::grid.arrange(aus_ggcont, aus_ggncont, aus_ggdorl, aus_gghexmap, nrow = 2)
 ggsave(filename = "figures/aus_grid.png", plot = aus_grid,
-  device = "png", dpi = 300,  width = 12, height = 6)
+  device = "png", dpi = 300,  width = 7, height = 6)
