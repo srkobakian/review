@@ -118,6 +118,7 @@ ggsave(filename = "figures/choropleth_grid.png",
   device = "png", width = 6, height = 5, dpi = 300)
 ```
 
+
 # Cancer atlases {#ch:public}
 
 <!-- Displaying of cancer data on choropleths -->
@@ -263,7 +264,6 @@ Technological advances may provide a solution to this through the use of interac
 
 -->
 
- 
 
 ## Common statistics displayed
 
@@ -310,7 +310,34 @@ The Human Development Index can be used to understand the socio-economic experie
 The areas are often ranked and allocated to quintiles, each quintile can be presented as categories describing the ranking.
 
 
+One of the concerns of adding too much information to a map is the fear of cognitive overload [@mcgranaghan1993cartographic] in which the the user reaches an information threshold, beyond which will not be able to make sense of the information. These concerns are not unfounded, complexity and density of representation methods appear to overwhelm novice decision makers, while experts are able to use the detail more readily when making-decisions [@cliburn2002design]. Interactivity is a design feature within modern mapping methods that can be used to incorporate additional information and complexity without overloading the user.
+
+Interactivity enables supplementary information to be incorporated into online atlases without cluttering the display. Interactive design features found in online cancer maps include tool tip features, drop down menus, data selection, zooming and panning allow users to explore the map as they want more information and allow flexibility in the display [@HTLWM]. The use of these supports were found in various online cancer maps identified by @roberts2019communication. The controls for basic interactive features are often placed outside of the plot space [@TGA], thus the map image is updated/replaced as the user interacts with the controls. For example, changing the population age or other demographic variables. Some more advanced interactions include direct interactions with the plot via the use of overlaid tool tip features, very few cancer atlases involve these more complex selection interactivities. 
+
+(insert figure of both types of interactivity)
+
+Additionally, interactivity allows the user to toggle between different variables, map views or multiple realizations of possible future scenarios [@goodchild1994introduction]. Thus providing additional mechanisms for the users comprehension as well as the uncertainty of the available information (@maceachren1992visualizing; @van1994visualization). 
+
+
+These interactive features provide an opportunity for users to explore the additional information available. This helps users to understand and interpret the spatial distribution presented, as well as validate, explain or explore the presented statistics and their relationships to each other and/or their underlying spatial distribution. This allows relationships between spatial areas and diseases to be explored with sophistication in non-traditional but still 'cognitively accesible' ways [@TNTEA]. The interactive features of the publically available maps identified by @roberts2019communication allow the exploration of geographic hierarchies, population distribution, statistical uncertainty, demographics and socio-economic indicators.
+@TNTEA suggested LM plots as a solution to linking cartography and statistical graphics. 
+
+(insert figures showing different interactivity)
+
+
+
+<!-- 
+
+Technological advances may provide a solution to this through the use of interactivity, animation, and sound as additional channels for representing uncertainty information without interfering with the ability to see any features that are present in the display [@maceachren1992visualizing]. However, if uncertainty information is perceived as integral and inseparable from the data it is associated with, assumptions of uncertainty creating cognitive overload may not be as valid. 
+
+-->
+
+ 
+
 # Cartograms and other spatially warped displays {#ch:alternatives}
+
+## Micromaps
+XXX Something needs to be said about micromaps https://cran.r-project.org/web/packages/micromapST/vignettes/JSSmicromapSTv63i03.pdf
 
 ## Cartograms
 
@@ -562,6 +589,10 @@ Maps may form supplementary material to the discussion, in this case static visu
 Static maps often need to include enough information for the display to be understandable out of the original context.
 -->
 
+XXX Define interactivity, and also animation
+
+
+
 There are now many suitable methods and mediums to communicate health data.
 The choice between them should always be driven by the intended message to be communicated and the needs of the audience.
 
@@ -609,6 +640,13 @@ This directs user's attention and gives them tools to plan their own exploration
 A complex directed animation approach is implemented in steps by Google Earth, in their use of stories. Within these directed steps users have the opportunity to use interactive controls to change the map directions or watch videos. 
 One popular implementation communicates Dr. Jane Goodall's life journey using Google Earth displays of significant locations such as her birthplace Bournemouth, England and Tanzania's Gombe National Park. 
 -->
+
+- the arcGIS standard https://pro.arcgis.com/en/pro-app/help/mapping/animation/overview-of-animation.htm
+- very general infovis reference that refers to Buja, Cook, Swayne distinguishing between direct manipulation and interactive graphics https://hal.inria.fr/tel-01096366/file/VA2_PERIN_CHARLES_17112014.pdf
+- explanation of inetractivity and direct manipulation: https://books.google.com.au/books?id=A6TMqxkW-EoC&pg=PA6&lpg=PA6&dq=direct+manipulation+%22swayne%22+%22klinke%22&source=bl&ots=tXYKP8JbbV&sig=ACfU3U3KhN-_YNt_UV5SmThsl4D2gY9A4g&hl=en&sa=X&ved=2ahUKEwj6u9vgqtzkAhVKeysKHQ6iByUQ6AEwA3oECAgQAQ#v=onepage&q=direct%20manipulation%20%22swayne%22%20%22klinke%22&f=false
+- might be useful to look at https://towardsdatascience.com/a-complete-guide-to-an-interactive-geographical-map-using-python-f4c5197e23e0
+- a classic http://www.cs.umd.edu/hcil/trs/2001-08/2001-08.html
+- this is one reference that maybe yoou have missed: https://alsino.io/static/papers/BeyondChoropleths_AlsinoSkowronnek.pdf
 
 # Acknowledgements
 
