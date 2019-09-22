@@ -10,6 +10,20 @@ library(maptools)
 library(sf)
 library(cartogram)
 
+
+# Filter for centroids only within longitudes
+checkgeom <- function(x){
+  xval <- st_coordinates(x)[[2]]
+  
+  if (xval < 109){return(FALSE)}
+  if (xval > 155){return(FALSE)}
+  return(TRUE)
+}
+
+sa3lung <- absmapsdata::sa32016 %>% 
+  filter(!st_is_empty(geometry)) %>%
+  filter(checkgeom(x = geometry))
+
 # Join with cancer data from AIHW
 #https://www.aihw.gov.au/getmedia/df6732ee-5246-4c9f-a458-df85c88fc512/aihw-can-108-cancer-SA3-incidence-mortality.xls.aspx
 
@@ -28,30 +42,31 @@ cimar_sa3 <- read_excel("data/cimar-sa3.xls",
   filter(!(Name %in% c("Name", "Australia"))) %>% 
   mutate(Population = as.numeric(Population))
 
-
 # Filter for desired areas
 cimar_sa3 <- cimar_sa3 %>% 
-  filter(!(Name %in% 
-    c("Christmas Island", "Cocos (Keeling) Islands", "Lord Howe Island", "Jervis Bay")))
+  filter((Name %in% sa3lung$sa3_name_2016))
 
 # Join with sa3 sf object
-sa3lung <- absmapsdata::sa32016 %>% 
-  left_join(cimar_sa3, by = c("sa3_name_2016"= "Name")) %>% 
+sa3lung <- sa3lung %>% 
+  left_join(cimar_sa3, by = c("sa3_name_2016" = "Name")) %>% 
   st_as_sf() %>%
-  filter(!is.na(Population)) %>%
-  #mutate(Population = ifelse(is.na(Population), 1, Population)) %>% 
+  #filter(!is.na(Population)) %>%
+  mutate(Population = as.numeric(ifelse(is.na(Population), 1, Population)),
+         `Age-standardised rate (per 100,000)` = as.numeric(ifelse(is.na(`Age-standardised rate (per 100,000)`),
+                                                        1, `Age-standardised rate (per 100,000)`))) %>% 
   filter(!st_is_empty(geometry))
 
 sa3lung <- st_transform(sa3lung, 3112)
-#%>%  st_simplify(., preserveTopology = TRUE,  dTolerance = 0) 
 
 b <- st_bbox(sa3lung)
+b["xmin"]<- -2181807
+b["xmax"]<- 1933081
+
+aus <- absmapsdata::state2016 %>% 
+  filter(!(state_name_2016 == "Other Territories"))
 
 ###############################################################################
 
-sa3lung <- sa3lung %>% 
-  mutate(`Age-standardised rate (per 100,000)` = as.numeric(`Age-standardised rate (per 100,000)`))
-  
 # Create a choropleth
 aus_ggchoro <- ggplot(sa3lung) + 
   geom_sf(aes(fill = `Age-standardised rate (per 100,000)`), colour = NA) +
@@ -97,27 +112,49 @@ sa3lung %>%
 
 # The sa3 of Albury is used as the anchor unit
 
-ncont <- cartogram_ncont(sa3lung, k = 1/2,
+ncont <- cartogram_ncont(sa3lung, k = 1/5,
   weight = "Population") %>% st_as_sf() %>% 
   rename(`Age-standardised rate (per 100,000)` = `Age.standardised.rate..per.100.000.`)
 aus_ggncont <- ggplot(ncont) + 
-  geom_sf(data=sa3lung, fill = NA, colour = "grey", size = 0.001) +
-  geom_sf(aes(fill = `Age-standardised rate (per 100,000)`), colour = "grey") + 
-  coord_sf(crs = CRS("+init=epsg:3112"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
-  scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1) + scale_size_identity() + 
+  geom_sf(data=aus, fill = NA, colour = "grey", size = 0.001) +
+  geom_rect(aes(xmin =-1736000, xmax = -1639000, ymin=-3824000, ymax=-3672300), fill = NA, colour = "black") +
+  geom_sf(aes(fill = `Age-standardised rate (per 100,000)`)) + 
+  coord_sf(crs = CRS("+init=epsg:3112"), xlim =
+             c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
+  scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1) + 
+  scale_size_identity() + 
   theme_void()+guides(fill=FALSE)
 aus_ggncont
-ggsave(filename = "figures/aus_ggncont.png", device = "png", dpi = 300,  width = 7, height = 6)
+
+perth_ggncont <- ggplot(ncont %>% filter(gcc_name_2016 == "Greater Perth")) + 
+  geom_rect(aes(xmin =-1736000, xmax = -1639000, ymin=-3824000, ymax=-3672300), fill = NA, colour = "black") +
+  geom_sf(data= sa3lung %>% filter(gcc_name_2016 == "Greater Perth"),
+          fill = NA, colour = "grey", size = 0.001) +
+  geom_sf(aes(fill = `Age-standardised rate (per 100,000)`)) + 
+  scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1) + 
+  scale_size_identity() + theme_void() +
+  guides(fill=FALSE)
+perth_ggncont
+
+library(cowplot)
+full_ggncont <- ggdraw() + 
+  draw_plot(aus_ggncont, 0, 0, 1, 1) +
+  draw_plot(perth_ggncont, 0.33, 0.10, 0.25, 0.25)
+full_ggncont
+ggsave(filename = "figures/aus_ggncont.png", plot = full_ggncont,
+       device = "png", dpi = 300,  width = 7, height = 6)
 
 
 ###############################################################################
 # Non - Contiguous Dorling Cartograms
 dorl <- sa3lung %>% cartogram_dorling(.,
   weight = "Population") %>% st_as_sf()
+d <- st_bbox(dorl)
 aus_ggdorl <- ggplot(dorl) + 
   geom_sf(aes(fill = `Age-standardised rate (per 100,000)`)) + 
   scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1) + 
- theme_void()+guides(fill=FALSE)
+  coord_sf(crs = CRS("+init=epsg:3112"), xlim = c(d["xmin"], d["xmax"]), ylim = c(d["ymin"], d["ymax"])) +
+  theme_void()+guides(fill=FALSE)
 aus_ggdorl
 ggsave(filename = "figures/aus_ggdorl.png", device = "png", dpi = 300,  width = 7, height = 6)
 
@@ -126,14 +163,14 @@ ggsave(filename = "figures/aus_ggdorl.png", device = "png", dpi = 300,  width = 
 sa3lungmap <- st_transform(sa3lung, "+proj=longlat +datum=WGS84 +no_defs")
 centroids <- create_centroids(sa3lungmap, "sa3_name_2016")
 grid <- create_grid(centroids = centroids, 
-  hex_size = 0.8,buffer_dist = 5)
+  hex_size = 0.75,buffer_dist = 5)
 hexmap <- allocate(
   centroids = centroids, hex_grid = grid, 
-  sf_id = "sa3_name_2016", hex_size = 0.8, hex_filter = 8, 
+  sf_id = "sa3_name_2016", hex_size = 0.75, hex_filter = 8, 
   focal_points = capital_cities, verbose = TRUE, width = 30
 )
 
-hexagons <- fortify_hexagon(hexmap, sf_id = "sa3_name_2016", hex_size = 0.8) %>% 
+hexagons <- fortify_hexagon(hexmap, sf_id = "sa3_name_2016", hex_size = 0.75) %>% 
   left_join(st_drop_geometry(sa3lung))
 
 hexagons_sf <- hexagons %>% 
@@ -151,11 +188,11 @@ hex <- sa3lung %>%
   arrange(sa3_name_2016) %>% 
   mutate(geometry = hexagons_sf$geometry)
 
-aus_gghexmap <- ggplot(hexagons) + 
-  geom_polygon(aes(x= long, y = lat, group = sa3_name_2016, 
-                   fill = `Age-standardised rate (per 100,000)`), colour = NA) + 
-  scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1) +
-  coord_equal() +
+aus_gghexmap <- ggplot(hex) + 
+  geom_sf(data=aus, fill = NA, colour = "grey", size = 0.001) +
+  geom_sf(aes(fill = `Age-standardised rate (per 100,000)`), colour = NA) + 
+  coord_sf(crs = CRS("+init=epsg:3112"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
+  scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1) + scale_size_identity() + 
   theme_void()+guides(fill=FALSE)
 aus_gghexmap
 ggsave(filename = "figures/aus_gghexmap.png", plot = aus_gghexmap,
