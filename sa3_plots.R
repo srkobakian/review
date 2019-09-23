@@ -64,6 +64,9 @@ aus_ggchoro
 ggsave(filename = "figures/aus_ggchoro.png", device = "png", dpi = 300,  width = 7, height = 6)
 
 
+aus_legend <- get_legend(aus_ggchoro)
+save(aus_legend, file = "figures/aus_legend.rda")
+
 ###############################################################################
 # Cartograms
   
@@ -82,8 +85,6 @@ aus_ggcont <- ggplot(cont) +
 aus_ggcont
 ggsave(filename = "figures/aus_ggcont.png", device = "png", dpi = 300,  width = 7, height = 6)
 
-aus_legend <- get_legend(aus_ggchoro)
-save(aus_legend, file = "aus_legend.rda")
 
 ###############################################################################
 # Non - Contiguous Cartograms

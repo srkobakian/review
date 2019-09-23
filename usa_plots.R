@@ -13,7 +13,6 @@
 # 2012-2016
 
 # Export
-
 library(sugarbag)
 library(tidyverse)
 library(spData)
@@ -21,6 +20,7 @@ library(ggthemes)
 library(maptools)
 library(sf)
 library(cartogram)
+library(cowplot)
 library(grid)
 library(png)
 library(gridExtra)
@@ -55,7 +55,7 @@ ggchoro
 #ggsave(filename = "figures/ggchoro.png", device = "png", dpi = 300, width = 7, height = 6)
 
 usa_legend <- get_legend(ggchoro)
-save(usa_legend, file = "usa_legend.rda")
+save(usa_legend, file = "figures/usa_legend.rda")
 
 ###############################################################################
 # Cartograms
