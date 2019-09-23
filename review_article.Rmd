@@ -524,7 +524,7 @@ Recommended criteria to contrast mapping methods include average cartographic er
 A tilegram provides a tessellated display of consistent shapes.
 Each tile is usually one unit of measurement, this could be geographic regions such as states, or population based where one tile is used for a consistent measure of population.
 <!-- cite mosaic cartograms --> 
-<!--XXX cite geogrid here?-->
+
 A simple tilegram may present the states in a tessellated grid display, where geographic neighbours are found next to each other, with some necessary displacement employed for regions with more than four neighbours.
 These tiles may be labelled or coloured to represent a value.
 A data visualisation can be geographically faceted, so that a smaller visualisation of equal size is created for each geographic subset of the data. This requires grid displays that are often created once by hand and reused.
@@ -542,25 +542,23 @@ Bob Rudis, geogrid
 # Comparison of maps and cartograms {#ch:compare}
 
 
-
 <!-- Choropleths, true topology, geographic distance, good for showing geographic importance -->
-Visualisation properties have been explored across several disease mapping displays.
 To choose an appropriate map display, the map creator must consider the intended user, and message the map will communicate.
 Choropleth displays utilise more traditional cartographic methods, they are usually true to the topography, displaying familiar boundaries of countries, states or administrative areas.
 Choropleth methods require a decision to be made about the projection of the display, in this case aim to find a map projection that gives the least distorted representation of the geography [@UMPT].
-When there is a relationship between the cancer type being mapped and geographical features, a choropleth map would pair this information visually. However these displays are limited to uni-variate displays, usually presented by filling each area with a colour.
-These maps are best used when the geography is of importance to the data in the display.
-They favor geographically large regions and small regions are often represented by inset displays that zoom in on a geographic area containing many small regions, this is seen in Figure \ref{fig:choropleth-grid-create} c of the state of Queensland, where the capital city Brisbane is highlighted by the inset map. 
-Users can identify the areas relevant to them by the familiar boundaries, and can easily contrast the experience of geographic neighbours.
+When there is a relationship between the variable being mapped and geographical features, a choropleth map would pair this information visually.
+However a choropleth is limited to a uni-variate display, presenting a spatial distribution by filling each area with a colour.
+These displays favor geographically large regions over small regions, though inset displays are often used to zoom in on a geographic area containing many small regions, this is seen in Figure \ref{fig:choropleth-grid-create} c of the state of Queensland, where the capital city Brisbane is highlighted by the inset map. 
+Users can identify the areas relevant to them by the familiar boundaries, and can easily contrast the experience of geographic neighbours. The map is reusable and fit for many purposes.
 
 
 <!-- Cartograms, sacrifice geography, focus on the outliers/ relationships in data space -->
 Cartographers were historically the creators of geographic displays, and epidemiologists utilised the maps that had been prepared in advance.
-Cartograms with the population variable used to distortion the geographic map can be used as density equalising maps, that reduce the visual prominence of low-population areas [@VSSDCUC]. 
+Cartograms with the population variable used to distortion the geographic map regions and boundaries are density equalising maps, that reduce the visual prominence of large, but low-population areas [@VSSDCUC]. 
 Cartogram displays incorporate the statistics and population into the design of the display,
-shifting and sometimes sacrificing familiar boundaries to draw attention to outliers in the data space or population density.
-The unusual shapes are difficult to compare and can prevent comparison of the statistic. Cartograms also favour extreme statistics in the positive direction. Small extreme values are often lost due to the resulting small sized areas the do not draw user's attention.
-The change in the map can also provide opportunities for bi-variate displays, using the change in area for one variable, and colour for another.
+shifting and sometimes sacrificing familiar boundaries to draw attention to large outliers in the data space or population density.
+The unusual shapes are not longer familiar and may be difficult to compare. This can prevent effective comparison of the statistic. Cartograms also favour extreme statistics in the positive direction. Small extreme values are often lost due to the resulting small sized areas the do not draw user's attention.
+The change in the map based on one variable provides the opportunity for bi-variate displays, using the change in area for one variable, and colour for another.
 The difference between the familiar map display helps highlight the impact of the disease on communities.
 
 
