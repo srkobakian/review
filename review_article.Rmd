@@ -141,18 +141,18 @@ Table: \label{tab:measures} Measures used to report cancer statistics
 
 |Measure |Details| 
 |:--------------------|:------------------------------------------------|  
-|1. IR (Incidence Ratio)|$(IR)_i=\frac{(Incidence\ Rate)_i}{Average\ Incidence\ Rate}$, |
+|1. Count|Crude cancer counts|
+|2. Rate per 100,000|Cancer incidence per 100,000 population|  
+|3. New cancer cases per 100,000|Specific methods could not be found|   
+|4. IR (Incidence Ratio)|$(IR)_i=\frac{(Incidence\ Rate)_i}{Average\ Incidence\ Rate}$, |
 ||Cancer incidence rate in region $i$ over the average cancer incidence rate for the total region|
-|2. SIR (Standardised Incidence Ratio)| IR standardised by age structure in each region $i$|
-|3. RER |$RER = \frac{(Cancer\ related\ mortality)_i}{Average\ cancer\ related\ mortality}$|
+|5. Age Adjusted Rate per 100,000| #5 standardised by age structure or region|   
+|6. Age Adjusted Relative Risk| RR standardised by age structure in each region $i$|  
+|7. SIR (Standardised Incidence Ratio)| IR standardised by age structure in each region $i$|
+|8. Below or above Expected|Alternative expression of the SIR|
+|9. RER |$RER = \frac{(Cancer\ related\ mortality)_i}{Average\ cancer\ related\ mortality}$|
 |(Relative Excess Risk)|Represents the estimate of cancer related mortality within five years of diagnosis|
-||Also referred to as 'excess hazard ratio'|
-|4. Age Adjusted Relative Risk| RR standardised by age structure in each region $i$|   
-|5. Rate per 100,000|Cancer incidence per 100,000 population|  
-|6. Age Adjusted Rate per 100,000| #5 standardised by age structure or region|   
-|7. New cancer cases per 100,000|Specific methods could not be found|   
-|8. Count|Crude cancer counts|  
-|9. Below or above Expected|Alternative expression of the SIR|
+||Also referred to as 'excess hazard ratio'| 
 
 
 <!-- Cancer atlas literature -->
@@ -245,7 +245,7 @@ ggdraw() +
     c(0.99, 0.99, 0.57, 0.40, 0.15), size = 20)
 
 ggsave(filename = "figures/supp_grid.png", device = "png", 
-  width = 6, height = 6, dpi = 300)
+  width = 12, height = 9, dpi = 300)
 ```
 
 
@@ -330,15 +330,16 @@ Technological advances may provide a solution to this through the use of interac
 
  
 
-# Cartograms and other spatially warped displays {#ch:alternatives}
+# Alternative to choropleths {#ch:alternatives}
 
 ## Micromaps
 
-Choropleths are univariate displays, they do not inherently support multi-dimensionality. This makes it difficult to pair demographic, environmental and other factors with spatial distributions.
-@MMST present linked micromap plots as a solution to the issue of multi-dimensionality when visually linking geographic and statistical data.
-This design is widely used in online atlas displays, it groups areas of similar values for one variable, and uses the additional columns to provide displays that contrast the states in each group by other variables.
-The display juxtaposes of choropleth maps and statistical plots.
-Showing one map per group of the key separating variable, in a row with each additional statistical plot.
+Choropleths are univariate displays, they do not inherently support multi-dimensionality
+This makes it difficult to pair demographic, environmental and other factors with spatial distributions.
+@MMST present linked micromap plots as a solution to the issue of multi-dimensionality to visually link geographic and statistical data.
+This design is widely used in online atlas displays, it groups areas based on their value for one variable, and uses  additional columns to provide displays that contrast the areas in each group by other variables.
+The display juxtaposes of choropleth maps and statistical plots;
+it shows one map per group of the key separating variable, in a row with each additional statistical plot.
 
 <!--
 Visualizing Data Patterns with Micromaps.
@@ -525,11 +526,8 @@ A tilegram provides a tessellated display of consistent shapes.
 Each tile is usually one unit of measurement, this could be geographic regions such as states, or population based where one tile is used for a consistent measure of population.
 <!-- cite mosaic cartograms --> 
 
-A simple tilegram may present the states in a tessellated grid display, where geographic neighbours are found next to each other, with some necessary displacement employed for regions with more than four neighbours.
+A simple tilegram presents the areas in a tessellated grid display, where geographic neighbours are found next to each other, with some necessary displacement employed for regions with more than four neighbours.
 These tiles may be labelled or coloured to represent a value.
-A data visualisation can be geographically faceted, so that a smaller visualisation of equal size is created for each geographic subset of the data. This requires grid displays that are often created once by hand and reused.
-
-
 
 <!--
 ```{r ggtilegram, fig.cap = "A tilegram of the Unites States of America. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. Each state has been represented by a square, each square is the same size. The neighbouring states are easily contrasted, however the north east regions has been displaced from their geographic location. The sparsity of the population in the Mid West is highlight by the light yellow colour, the age adjusted rate in Kentucky is the darkest and its neighbours are similar.", message=FALSE, warning=FALSE, out.width='80%'}
@@ -537,7 +535,13 @@ knitr::include_graphics("figures/ggtilegram.png")
 ```
 -->
 
-Bob Rudis, geogrid
+Tilegrams can be extended to allow more than just simple colouring of tiles to present data.
+Geofaceting utilises a grid display, the arrangement of tiles creates a grid that mimics the geographic topology of the set of areas @IGF. 
+Like tilegrams the arrangement of the areas can be reused for other spatial distribution visulisations.
+Unlike tilegrams geofaceting replicates visualisations for each geographic subset of the data.
+The amount of information able to be communicated has increased from one value per region to one visualisation, this is a more flexible display, especially as it provides a simple way to communicate time series data.
+
+
 
 # Comparison of maps and cartograms {#ch:compare}
 

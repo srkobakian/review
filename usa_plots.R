@@ -167,22 +167,6 @@ ggsave(filename = "figures/ggchoroCRS.png", plot = ggchoroCRS,
 
 
 ###############################################################################
-#Tilegram
-library(statebins)
-
-## US example
-ggtilegram <- left_join(adat, cancer %>% rename(state = NAME)) %>%
-  statebins(
-    value_col = "AgeAdjustedRate", 
-    name = "AgeAdjustedRate"
-  ) +
-  labs(title = "") + 
-  theme_void()+ guides(fill = FALSE) +
-  scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1)
-
-ggsave(filename = "figures/ggtilegram.png", plot = ggtilegram,
-  device = "png", dpi = 300, width = 7, height = 6)
-
 
 cancermap <- st_transform(cancer, "+proj=longlat +datum=WGS84 +no_defs")
 centroids <- create_centroids(cancermap, "NAME")
@@ -228,3 +212,43 @@ ggsave(filename = "figures/gghexmap.png", plot = gghexmap,
 usa_grid <- gridExtra::grid.arrange(ggcont, ggncont, ggdorl, gghexmap, nrow = 2)
 ggsave(filename = "figures/usa_grid.png", plot = usa_grid,
   device = "png", dpi = 300, width = 7, height = 6)
+
+###############################################################################
+
+
+# Tilegram
+library(statebins)
+
+## US example
+ggtilegram <- statebins(cancer %>% rename(state = NAME),
+    value_col = "AgeAdjustedRate", 
+    name = "AgeAdjustedRate",type = "seq", palette = "RdPu",  direction = 1
+  ) +
+  labs(title = "") + 
+  theme_void() + guides(fill = FALSE)
+ggtilegram
+ggsave(filename = "figures/ggtilegram.png", plot = ggtilegram,
+  device = "png", dpi = 300, width = 7, height = 6)
+
+
+# Geofacet
+library(geofacet)
+# read in data
+cancer_f <- read_csv("data/USCS_lung_f.csv") %>% mutate(Sex = "F")
+cancer_m <- read_csv("data/USCS_lung_m.csv") %>% mutate(Sex = "M")
+
+ggfacet <- bind_rows(cancer_f, cancer_m) %>% 
+    mutate(state = gsub("'", "", Area),
+    AgeAdjustedRate = parse_number(AgeAdjustedRate)) %>% 
+  select(state, Sex, AgeAdjustedRate) %>% 
+  ggplot() + 
+  geom_col(aes(x = Sex, y = AgeAdjustedRate, fill = Sex)) + 
+  scale_fill_brewer(type = "qual", palette = "Pastel1",  direction = 1) + 
+  theme_minimal() + 
+  facet_geo(~ state, grid = "us_state_grid2",label = "code")+
+  theme(legend.position ="bottom")
+
+ggfacet
+ggsave(filename = "figures/ggfacet.png", plot = ggfacet,
+  device = "png", dpi = 300, width = 7, height = 6)
+
