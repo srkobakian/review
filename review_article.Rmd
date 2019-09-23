@@ -340,13 +340,13 @@ This makes it difficult to pair demographic, environmental and other factors wit
 This design is widely used in online atlas displays, it groups areas based on their value for one variable, and uses  additional columns to provide displays that contrast the areas in each group by other variables.
 The display juxtaposes of choropleth maps and statistical plots;
 it shows one map per group of the key separating variable, in a row with each additional statistical plot.
+Linked micromaps predominantly utilise the choropleth map for displays of spatial distributions.
+It is one of several alternative displays that allow maps to become bi-variate displays.
 
 <!--
 Visualizing Data Patterns with Micromaps.
 Two new templates for epidemiology applications: linkedmicromap plots and conditioned choropleth maps-->
 
-Linked micromaps predominantly utilise the choropleth map for displays of spatial distributions.
-It is one of several alternative displays that allow maps to become bi-variate displays.
 
 
 ## Cartograms
@@ -519,27 +519,45 @@ Figure \ref{fig:ggcartograms} d shows a hexagon tilegram representing each state
 
 
 Recommended criteria to contrast mapping methods include average cartographic error, and maximum cartographic error, correct adjacency, maximum aspect ratio, and suitable relative positions [@ORC]. However, this does not consider the issues with actually producing rectangular cartograms. Algorithms for the creation of rectangular cartograms
+              
+## Tile map
 
-## Tilegram
-
-A tilegram provides a tessellated display of consistent shapes.
+A Tile map provides a tessellated display of consistent shapes.
 Each tile is usually one unit of measurement, this could be geographic regions such as states, or population based where one tile is used for a consistent measure of population.
 <!-- cite mosaic cartograms --> 
 
-A simple tilegram presents the areas in a tessellated grid display, where geographic neighbours are found next to each other, with some necessary displacement employed for regions with more than four neighbours.
+A simple Tile map presents the areas in a tessellated grid display, where geographic neighbours are found next to each other, with some necessary displacement employed for regions with more than four neighbours.
 These tiles may be labelled or coloured to represent a value.
+Tile maps may be difficult to create, they are best created manually, with additional time and care required as the amount of geographic areas to include increases.
 
-<!--
-```{r ggtilegram, fig.cap = "A tilegram of the Unites States of America. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. Each state has been represented by a square, each square is the same size. The neighbouring states are easily contrasted, however the north east regions has been displaced from their geographic location. The sparsity of the population in the Mid West is highlight by the light yellow colour, the age adjusted rate in Kentucky is the darkest and its neighbours are similar.", message=FALSE, warning=FALSE, out.width='80%'}
-knitr::include_graphics("figures/ggtilegram.png")
+```{r ggtilemap, fig.cap = "A Tile map and geofaceted map of the Unites States of America. Each state has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. Each state has been represented by a square, each square is the same size. The neighbouring states are easily contrasted, however the north east regions has been displaced from their geographic location. The sparsity of the population in the Mid West is highlight by the light yellow colour, the age adjusted rate in Kentucky is the darkest and its neighbours are similar.", message=FALSE, warning=FALSE, fig.width=12, fig.height=6}
+  
+# Import the images
+t1 <- png::readPNG('figures/ggtilegram.png')
+t2 <- png::readPNG('figures/ggfacet.png')
+
+ggdraw() +
+  draw_plot(rasterGrob(t1), 0, 0, 1, 1) +
+  draw_plot(rasterGrob(t2), 1, 0, 1, 1) +
+  draw_plot_label(c("a", "b"), 
+    c(0.01, 0.51), 
+    c(0.48, 0.48), size = 20)
+
+ggsave(filename = "figures/choropleth_grid.png", 
+  device = "png", width = 12, height = 6, dpi = 300)
+
 ```
--->
 
+
+
+## Geofaceting
 Tilegrams can be extended to allow more than just simple colouring of tiles to present data.
-Geofaceting utilises a grid display, the arrangement of tiles creates a grid that mimics the geographic topology of the set of areas @IGF. 
-Like tilegrams the arrangement of the areas can be reused for other spatial distribution visulisations.
-Unlike tilegrams geofaceting replicates visualisations for each geographic subset of the data.
-The amount of information able to be communicated has increased from one value per region to one visualisation, this is a more flexible display, especially as it provides a simple way to communicate time series data.
+@IGF formalises the term geofaceting to describe a grid display, the arrangement of tiles to create a grid that mimics the geographic topology of the set of areas. 
+Like tilegrams, the arrangement of the areas can be reused for other spatial distribution visulisations.
+Geofaceting have the functionality of facets, often used to replicate visualisations for each subset of the data, in this case the data subsets are geographic.
+The amount of information able to be communicated has increased from one value per region in a tilegram to one visualisation, this is a more flexible display.
+Virtually any plot display can be fit into the tile representing the areas, allowing displays of multiple variables or values per geographic entity.
+As the amount of areas increase care must be taken to ensure legibility of the displays.
 
 
 
@@ -624,15 +642,20 @@ However, with the ability to interact with a map, or animate the display, map cr
 
 <!-- Interactivity (Compare movies or tv to video games) -->
 The progress from static print media displays to interactive methods has allowed users to develop maps to ask and answer their own questions.
-Where the needs of the audience is changeable and is the priority, the map creator can allow interactivity for map users to explore. 
+Where the needs of the audience is changeable and is the priority, the map creator can allow interactivity for map users to explore a data set through dynamic interactions that allow inspection of the data from many views [@DQBCM].
+Interaction covers manipulation of the graph directly, via the graph controls or command-line [@RPIG].
+
+
 This opportunity provides an alternative to the traditional approach of a single map for a single use, into a more exploratory territory.
-Interactivity allows users to drive their own exploration, controlling a display through variable controls, links, tool tips, and data selection tools [@TGA].
+Interactivity allows users to drive their own exploration, controlling a display through variable controls, links, tool tips, and data selection tools [@TGA]. Tooltips allow users to obtain additional information regarding specific geographic areas.
 Direct manipulation of web displays allow continuous view of the map, which change due to the physical actions of users. The affects of these actions are rapid, incremental, and reversible @DMIV.
 
 Developments and adoptions of this technology has allowed map users more control of the message displayed. Figure \ref{fig:interacting} presents the control menus for several online cancer atlases.
-Users can select combinations of cancer type, gender, and other factors to answers questions relevant to them and their work.
-Users can use these controls to change the layer of geography shown, such as continents or countries, states or counties. These display can show familiar shapes for users to orient themselves on the map, then zoom in to explore densely populated communities.
-
+The user interface for these online atlases allow combinations of cancer type, gender, and other factors to be shown on the map display.
+These controls may also change the geographies shown, such as continents or countries, states or counties. These display can show familiar shapes for users to orient themselves on the map, then zoom in to explore densely populated communities.
+Interactions with online atlases can also change the amount of detail shown regarding the display.
+It is uncommon to see linked displays utilised in online atlases, but there are several frameworks that support interactive displays of multivariate data.
+Linked displays allow for direct manipulation, @RPIG uses Swayne and Klinke's definition of high level interaction that occurs via data selection or brushing tools that highlight subsets of graphical elements such as polygons or points. Queries form a low level interaction, returning values or information used in the graphical display without referring to the original data source.
 
 
 <!-- Animations -->
@@ -647,7 +670,6 @@ A basic form of interactivity with animations is the play, pause and rewind of f
 @CPISACA provide weather maps as well developed and appropriate examples of spatial displays to communicate to the general public, and encourage those creating disease maps to leverage the success of weather displays.
 The movement of a weather system will follow a forecasted path, the animation will communicate this so that all map users can follow the path of the weather system across the geography over a specified period of time.
 More complex animations may include steps, when user interaction via clicks animates the display between stages.
-This approach is implemented by Google Earth 
 Where the message is most important, static or animated graphics allow control over the display and interpretation.
 The Australian Cancer Atlas [-@TACA] provides [tours](
 https://atlas.cancer.org.au/app/tour/lungcancer) which change the display to draw user's attention to areas on the map that are relevant to the story.
@@ -663,7 +685,7 @@ One popular implementation communicates Dr. Jane Goodall's life journey using Go
 - explanation of inetractivity and direct manipulation: https://books.google.com.au/books?id=A6TMqxkW-EoC&pg=PA6&lpg=PA6&dq=direct+manipulation+%22swayne%22+%22klinke%22&source=bl&ots=tXYKP8JbbV&sig=ACfU3U3KhN-_YNt_UV5SmThsl4D2gY9A4g&hl=en&sa=X&ved=2ahUKEwj6u9vgqtzkAhVKeysKHQ6iByUQ6AEwA3oECAgQAQ#v=onepage&q=direct%20manipulation%20%22swayne%22%20%22klinke%22&f=false
 - might be useful to look at https://towardsdatascience.com/a-complete-guide-to-an-interactive-geographical-map-using-python-f4c5197e23e0
 - a classic http://www.cs.umd.edu/hcil/trs/2001-08/2001-08.html
-- this is one reference that maybe yoou have missed: https://alsino.io/static/papers/BeyondChoropleths_AlsinoSkowronnek.pdf
+- this is one reference that maybe you have missed: https://alsino.io/static/papers/BeyondChoropleths_AlsinoSkowronnek.pdf
 
 # Acknowledgements
 
