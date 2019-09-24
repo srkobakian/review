@@ -220,21 +220,23 @@ ggsave(filename = "figures/usa_grid.png", plot = usa_grid,
 library(statebins)
 
 ## US example
-ggtilegram <- statebins(cancer %>% rename(state = NAME),
+ggtilegram <- cancer %>% rename(state = NAME) %>% 
+  statebins(., state_col = "state",
     value_col = "AgeAdjustedRate", 
-    name = "AgeAdjustedRate",type = "seq", palette = "RdPu",  direction = 1
+    name = "AgeAdjustedRate",
+    type = "seq", palette = "RdPu",  direction = 1
   ) +
-  labs(title = "") + 
   theme_void() +
   theme(legend.position ="bottom")
 ggtilegram
 ggsave(filename = "figures/ggtilegram.png", plot = ggtilegram,
-  device = "png", dpi = 300, width = 7, height = 6)
+  device = "png", dpi = 300, width =10, height = 8)
 
 
 # Geofacet
 library(geofacet)
-us_grid <- read_csv("us_grid.csv")
+library(geogrid)
+us_grid <- read_csv("us_grid.csv") %>% filter(col>1)
 
 # read in data
 cancer_f <- read_csv("data/USCS_lung_f.csv") %>% mutate(Sex = "F")
@@ -248,16 +250,17 @@ cancer_mf <- bind_rows(cancer_f, cancer_m) %>%
 ggfacet <- ggplot(cancer_mf) + 
   geom_col(aes(x = Sex, y = AgeAdjustedRate, fill = Sex)) + 
   scale_fill_brewer(type = "qual", palette = "Pastel1",  direction = 1) + 
-  theme_void() + 
   facet_geo(~ state, grid = us_grid, label = "code") +
-  theme(legend.position ="bottom")
+  theme_classic() + 
+  theme(legend.position ="bottom",axis.title.y=element_blank(), axis.text.y = element_text(colour = "black"))
 
 ggfacet
 ggsave(filename = "figures/ggfacet.png", plot = ggfacet,
-  device = "png", dpi = 300, width = 7, height = 6)
+  device = "png", dpi = 300, width = 10, height = 8)
 
-
-p <- plot_grid(ggtilegram, ggfacet, labels = c('A', 'B'), label_size = 12, align = v, )
+p <- plot_grid(rasterGrob(png::readPNG("figures/ggtilegram.png")),
+          rasterGrob(png::readPNG("figures/ggfacet.png")), 
+          labels = c('A', 'B'), label_size = 20, ncol = 1)
 
 ggsave(filename = "figures/gggrids.png", plot = p,
-  device = "png", dpi = 300, width = 12, height = 6)
+  device = "png", dpi = 300, width = 8, height = 16)
