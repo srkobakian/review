@@ -453,24 +453,11 @@ A contiguous cartogram maintains connectivity of the map regions while areas are
 From a computer graphics perspective, @ACA explain the application of 'map deformation' to account for the value assigned to each area, they provide three methods for creating value-by-area cartograms.
 Examples include Tobler’s Pseudo-Cartogram Method, Dorling’s Cellular Automaton Method [-@ACTUC], Radial Expansion Method of Selvin et al., Rubber Sheet Method of Dougenik et al., Gusein-Zade and Tikunov’s Line Integral Method, Constraint-Based Method (Kocmoud and House) [-@CBATCC].
 
-
-
-An intentional goal when creating the 1966 Census population cartogram for Canada was to maintain contiguity, while attempting to keep the actual shape of places. The end result was a 'very accurate isodemo-graphic map of Canada'. This intentional design goal coincided with the rising interest in urban geography and presentation of social statistics. 
-
+An intentional goal when creating the 1966 Census population cartogram for Canada was to maintain contiguity, while attempting to keep the actual shape of places. The end result was a 'very accurate isodemo-graphic map of Canada'. This intentional design goal coincided with the rising interest in urban geography and presentation of social statistics. Figure \ref{fig:ggcartograms} a shows a population contiguous cartogram of the United States. All states are visible and the shape of the United States overall is still recognisable.
+In contrast, Figure \ref{fig:auscartograms} a shows an Australian contiguous cartogram also based on population. The south east is completely distorted, areas with low popuation are still large very the map, as their initial area was used to determine the area allocated in the contiguous cartogram.
 
 To be able to recognise the significant changes, a reader will usually have to know the initial geography to find the differences in the new cartogram layout [@NAC]. Tobler's Conformal mapping means to preserve angles locally so that the shapes of small areas on a traditional map and a cartogram would be similar.
 @CBATCC presents this issue as conflicting tasks or aims, to adjust region sizes and retain region shapes. 
-@MDAC define the term 'mosaic cartograms' for hexagonal tile displays, where the number of tiles for each area can be used to communicate the statistic of regions. 
-The complexity of the boundaries can be adjusted in the resulting display, as the size of the tiles used allows a trade-off be made between boundary complexity and simplicity.
-
-
-<!--
-Tobler's method and the many implementations that 'elaborated' on it are derived from 'numerical approximations to a pair of equations'[@ACTUC]. They all operate through incremental adjustments, and can produce wildly different outcomes from small changes in the inputs.
- 
-Computer generated map examples:  @HEDP
-(Hopps et al. 1968; Armstrong 1972). There
-has followed a flood of disease atlases, mainly concentrating on the modem problems of cancer and degenerative diseases from countries as scattered as the United States (Burbank 1971; Mason et al. 1975, 1976; Pickle et al. 1987), the Soviet Union (Levin 1980), Japan (Shigematsu 1977), the Federal Republic of Germany
--->
 
 
 ### Non-Contiguous
@@ -480,8 +467,9 @@ Each area stays in a similar position to their location on a choropleth map. The
 
 As the trade-off regarding boundaries approaches simplicity, the distortion of region shapes on the contiguous cartogram presents an additional hurdle to visual recognition and this hurdle is not only eliminated on the non-contiguous cartogram but is replaced by the meaningful empty-space property [@NAC, @ECGC].
 The shapes are valuable for recognition and allows users to orient themselves on the display. Map creators can efficiently communicate with this kind of map by keeping the outlines or particular elements of the original in the new shape [@NISCC].
-The scale of the areas does not impact on the shape recognition. However it may impact on the visibility of all areas if small areas expand beyond their boundaries.
-
+The scale of the areas does not impact on the shape recognition.
+However it may impact on the visibility of all areas if small areas expand beyond their boundaries. 
+Figure \ref{fig:ggcartograms} b shows small overlaps in the north east region of the United States. These overlaps are also shown in the non-contiguous cartogram of Australia in Figure \ref{fig:auscartograms} b.
 
 
 ### Dorling
@@ -493,7 +481,8 @@ Daniel Dorling presented an alternative display engineers to highlight the spati
 He acknowledged the sophistication of contiguous cartograms but critiqued their 'very complex shapes,' he answers this with his implementation of maps created using 'the simplest of all shapes'. 
 Circular cartograms use the same simple shapes for every region represented, and resizes the shapes according to the statistic represented or the population for a base map. This familiar shape may be more effective for understanding the spatial distribution than contiguous cartograms, as the 'nonsense' shapes used have 'no meaning' after distortions are applied @NISCC.
 To produce a compelling map, a gravity model is applied to avoid overlaps, and keep spatial relationships with neighbouring areas over many iterations. This implementation can work for up to 'one hundred thousand' areas.
- 
+Figure \ref{fig:ggcartograms} c shows the displacement of the north east region of the United States in the Dorling cartogram, the rest of the country is still recognisable.
+This displacement is shown to an extreme in \ref{fig:auscartograms} c the Dorling cartogram of Australia.
 
 The groundwork for this approach had been laid in the mid 1930's by Raisz, and rectangular cartograms provide dramatic comparisons and are especially useful for correcting misconceptions communicated by geographic maps. 
 @TFYCC quotes the official definition of Value-Area Cartograms, the simplistic displays which represent each area as a single rectangle, sized according to the value of the statistic.
@@ -502,7 +491,7 @@ Rectangular cartograms allow for bi-variate displays, population can be effectiv
 
 A similar method, where each geographic area is represented using a square, tessellated to create a square grid. This method has been used by FiveThirtyEight, Bloomberg Business, The Guardian, The Washington Post, The New York Times and NPR.
 Each area is represented by a square of the same dimensions.
-Figure \ref{fig:ggcartograms} d shows a hexagon tile map representing each state using a single square.
+Figure \ref{fig:ggcartograms} d shows a hexagon tile map representing each state using a single hexagon.
 
 
 Recommended criteria to contrast mapping methods include average cartographic error, and maximum cartographic error, correct adjacency, maximum aspect ratio, and suitable relative positions [@ORC]. However, this does not consider the issues with actually producing rectangular cartograms. Algorithms for the creation of rectangular cartograms
@@ -516,6 +505,10 @@ Each tile is usually one unit of measurement, this could be geographic regions s
 A simple tile map presents the areas in a tessellated grid display, where geographic neighbours are found next to each other, with some necessary displacement employed for regions with more than four neighbours.
 These tiles may be labelled or coloured to represent a value.
 Tile maps may be difficult to create, they are best created manually, with additional time and care required as the amount of geographic areas to include increases.
+@MDAC define the term 'mosaic cartograms' for hexagonal tile displays, where the number of tiles for each area can be used to communicate the statistic of regions. 
+The complexity of the boundaries can be adjusted in the resulting display, as the size of the tiles used allows a trade-off be made between boundary complexity and simplicity.
+
+
 
 ```{r ggtilemap, fig.cap = "A tile map and geofaceted map of the Unites States of America. Each state in the tile map has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. Each state has been represented by a square, each square is the same size. The geofaceted map allows the rates for males and females to be contrasted. It has the same layout as the tile map, but shows more information per state than ", message=FALSE, warning=FALSE, fig.width=12, fig.height=6, out.width = "100%"}
 knitr::include_graphics("figures/gggrids.png")
@@ -555,7 +548,6 @@ shifting and sometimes sacrificing familiar boundaries to draw attention to larg
 The unusual shapes are not longer familiar and may be difficult to compare. This can prevent effective comparison of the statistic. Cartograms also favour extreme statistics in the positive direction. Small extreme values are often lost due to the resulting small sized areas the do not draw user's attention.
 The change in the map based on one variable provides the opportunity for bi-variate displays, using the change in area for one variable, and colour for another.
 The difference between the familiar map display helps highlight the impact of the disease on communities.
-
 
 <!-- Alternatives, remove geographic shapes, keep spatial relationship, focus on the outliers/ relationships in population space -->
 Alternative maps may replace the unexpected boundaries and shapes with familiar, simple shapes. This makes the spatial distribution the primary concept communicated by the display.
@@ -639,6 +631,18 @@ User interaction more allow clicks to progress between stages of more complex an
 The Australian Cancer Atlas [-@TACA] provides [tours](
 https://atlas.cancer.org.au/app/tour/lungcancer) which change the display to draw user's attention to areas on the map that are relevant to the story.
 This implementation of animation gives users tools to plan their own exploration.
+
+```{r animating, fig.cap = "Animations in publicly available choropleth cancer maps. [a. Map of Cancer Mortality Rates in Spain](http://www.geeitema.org/AtlasET/atlas.jsp?causa=e27MEPOC)(Controls for indicator, sex, age groups, continents, and cancer types) , [b. Breast Cancer Mortality in Canada](http://www.ehatlas.ca/light-pollution/maps/breast-cancer-mortality) (Controls for indicator, age, year, and geographical areas)", fig.width = 12, fig.height = 9}
+a1 <- png::readPNG("cancer_map_images/animation/23.animation.png")
+a2 <- png::readPNG("cancer_map_images/animation/2.animation.png")
+
+ggdraw() +
+  draw_plot(rasterGrob(a1), 0, 0, 0.3, 1) +
+  draw_plot(rasterGrob(a2), 0.3, 0, 0.7, 1) +
+  draw_plot_label(c("I", "II"), 
+    c(0, .3), c(1, 1), size = 20)
+```
+
 
 
 # Acknowledgements
