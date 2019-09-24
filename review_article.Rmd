@@ -40,12 +40,6 @@ Cartogram applications should point to examples of cancer outcomes, with the mai
 \section*{Abstract}
 
 # Introduction
-<!--
-Current best practices: Choropleths
-Current exploratory practices: Cartograms: cont, non cont, (tilegrams, Dorlings)
-Suggested uses of 
--->
-
 <!-- What data are we working with, why, what are the purposes -->
 Cancer statistics represent information on people, usually delivered as an aggregated value for a geopolitical area. Presenting statistics requires transforming individual observations into aggregations of communities as geographical units, in large part for privacy protection or political and policy purposes.  The information could be as simple as counts per area (e.g. state, province, local government area, post/zip code). Counts alone is not sufficient on which to compare different areas, because the populations of different areas are likely different. In this case, the counts data needs to be merged with population data to appropriately calibrate it to incidence, for example, rate per 100000 people.  This type of data is collected on a routine basis for public health purposes, and may be made available to the general public as a service to the community. The task, then, is to examine what are the usual ways to communicate cancer statistics, to the public, are there alternative approaches, and what are the pros and cons of these choices. 
 
@@ -508,7 +502,7 @@ Rectangular cartograms allow for bi-variate displays, population can be effectiv
 
 A similar method, where each geographic area is represented using a square, tessellated to create a square grid. This method has been used by FiveThirtyEight, Bloomberg Business, The Guardian, The Washington Post, The New York Times and NPR.
 Each area is represented by a square of the same dimensions.
-Figure \ref{fig:ggcartograms} d shows a hexagon tilegram representing each state using a single square.
+Figure \ref{fig:ggcartograms} d shows a hexagon tile map representing each state using a single square.
 
 
 Recommended criteria to contrast mapping methods include average cartographic error, and maximum cartographic error, correct adjacency, maximum aspect ratio, and suitable relative positions [@ORC]. However, this does not consider the issues with actually producing rectangular cartograms. Algorithms for the creation of rectangular cartograms
@@ -523,18 +517,18 @@ A simple tile map presents the areas in a tessellated grid display, where geogra
 These tiles may be labelled or coloured to represent a value.
 Tile maps may be difficult to create, they are best created manually, with additional time and care required as the amount of geographic areas to include increases.
 
-```{r ggtilemap, fig.cap = "A tile map and geofaceted map of the Unites States of America. Each state in the tilegram has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. Each state has been represented by a square, each square is the same size. The geofaceted map allows the rates for males and females to be contrasted. It has the same layout as the tilegram, but shows more information per state than ", message=FALSE, warning=FALSE, fig.width=12, fig.height=6, out.width = "100%"}
+```{r ggtilemap, fig.cap = "A tile map and geofaceted map of the Unites States of America. Each state in the tile map has been coloured according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. Each state has been represented by a square, each square is the same size. The geofaceted map allows the rates for males and females to be contrasted. It has the same layout as the tile map, but shows more information per state than ", message=FALSE, warning=FALSE, fig.width=12, fig.height=6, out.width = "100%"}
 knitr::include_graphics("figures/gggrids.png")
 ```
 
 
 
 ## Geofaceting
-Tilegrams can be extended to allow more than just simple colouring of tiles to present data.
+Tile maps can be extended to allow more than just simple colouring of tiles to present data.
 @IGF formalises the term geofaceting to describe a grid display, the arrangement of tiles to create a grid that mimics the geographic topology of the set of areas. 
-Like tilegrams, the arrangement of the areas can be reused for other spatial distribution visulisations.
+Like tile maps, the arrangement of the areas can be reused for other spatial distribution visulisations.
 Geofaceting have the functionality of facets, often used to replicate visualisations for each subset of the data, in this case the data subsets are geographic.
-The amount of information able to be communicated has increased from one value per region in a tilegram to one visualisation, this is a more flexible display.
+The amount of information able to be communicated has increased from one value per region in a tile map to one visualisation, this is a more flexible display.
 Virtually any plot display can be fit into the tile representing the areas, allowing displays of multiple variables or values per geographic entity.
 As the amount of areas increase care must be taken to ensure legibility of the displays.
 @RPIG acknowledges that this display suffers when the areas have very irregular shapes and large size disparities, as manual creation of the grid is still required.
@@ -566,7 +560,7 @@ The difference between the familiar map display helps highlight the impact of th
 <!-- Alternatives, remove geographic shapes, keep spatial relationship, focus on the outliers/ relationships in population space -->
 Alternative maps may replace the unexpected boundaries and shapes with familiar, simple shapes. This makes the spatial distribution the primary concept communicated by the display.
 Areas that are geographically close will maintain connectedness in some way, but the population and the statistic will dominate.
-Tilegram displays may only allow one variable to be visualised if each region is given consistent map space, this occurs in geofaceting. 
+Tile map displays may only allow one variable to be visualised if each region is given consistent map space, this occurs in geofaceting. 
 Dorlings provide bi-variate displays as they use the size of the shape for one variable, and colour for another.
 These alternatives are especially helpful for data aggregations where administrative boundaries break populations into groups.
 The experience of each community may be worth considering, as the experiences shared by the population within them may be similar due to the services and facilities they share.
@@ -579,7 +573,7 @@ This display makes is difficult to compare specific regions.
 Table: \label{tab:methods} Mapping methods used to display cancer statistics
 
 
-|  | Choropleth | Contiguous | Non-contiguous | Dorling | Tilegrams |
+|  | Choropleth | Contiguous | Non-contiguous | Dorling | Tile maps |
 |:-----------:|------------|-----------|---------------|---------|-----------|
 | Preserves shapes | Y | N | Y | N | N |
 | Preserves neighbours | Y | Y | Y | S | S |
@@ -662,9 +656,9 @@ For data analysis the tidyverse package [@tidyverse] provided many useful functi
 ggplot2 package [@ggplot2] was used to create maps, with RColorBrewer package [@RColorBrewer] providing additional colour palettes and ggthemes [@ggthemes] package providing themes.
 The png package [@png] was used to access png images taken from online web atlases, cowplot package [@cowplot] was used to arrange these plots into grouped images.
 
-The following packages were used to create transformations from the sf [@sf] geographical shapes of the states of America [@spData] and the XXX Australian Statistical Areas (Level 3):
+The following packages were used to create transformations from the sf [@sf] geographical shapes of the states of America [@spData] and the Australian Statistical Areas (Level 3):
 The cartogram [@cartogram] package creates contiguous, non-contiguous and Dorling cartograms.
-Hexagon tilegram displays were created using the sugarbag package [@sugarbag].
+Hexagon tile map displays were created using the sugarbag package [@sugarbag].
 
 
 # References
