@@ -225,7 +225,8 @@ ggtilegram <- statebins(cancer %>% rename(state = NAME),
     name = "AgeAdjustedRate",type = "seq", palette = "RdPu",  direction = 1
   ) +
   labs(title = "") + 
-  theme_void() + guides(fill = FALSE)
+  theme_void() +
+  theme(legend.position ="bottom")
 ggtilegram
 ggsave(filename = "figures/ggtilegram.png", plot = ggtilegram,
   device = "png", dpi = 300, width = 7, height = 6)
@@ -233,22 +234,30 @@ ggsave(filename = "figures/ggtilegram.png", plot = ggtilegram,
 
 # Geofacet
 library(geofacet)
+us_grid <- read_csv("us_grid.csv")
+
 # read in data
 cancer_f <- read_csv("data/USCS_lung_f.csv") %>% mutate(Sex = "F")
 cancer_m <- read_csv("data/USCS_lung_m.csv") %>% mutate(Sex = "M")
 
-ggfacet <- bind_rows(cancer_f, cancer_m) %>% 
+cancer_mf <- bind_rows(cancer_f, cancer_m) %>% 
     mutate(state = gsub("'", "", Area),
     AgeAdjustedRate = parse_number(AgeAdjustedRate)) %>% 
-  select(state, Sex, AgeAdjustedRate) %>% 
-  ggplot() + 
+  select(state, Sex, AgeAdjustedRate)
+
+ggfacet <- ggplot(cancer_mf) + 
   geom_col(aes(x = Sex, y = AgeAdjustedRate, fill = Sex)) + 
   scale_fill_brewer(type = "qual", palette = "Pastel1",  direction = 1) + 
-  theme_minimal() + 
-  facet_geo(~ state, grid = "us_state_grid2",label = "code")+
+  theme_void() + 
+  facet_geo(~ state, grid = us_grid, label = "code") +
   theme(legend.position ="bottom")
 
 ggfacet
 ggsave(filename = "figures/ggfacet.png", plot = ggfacet,
   device = "png", dpi = 300, width = 7, height = 6)
 
+
+p <- plot_grid(ggtilegram, ggfacet, labels = c('A', 'B'), label_size = 12, align = v, )
+
+ggsave(filename = "figures/gggrids.png", plot = p,
+  device = "png", dpi = 300, width = 12, height = 6)
