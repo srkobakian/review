@@ -299,12 +299,7 @@ These interactive features provide an opportunity for users to explore the addit
 
 Choropleths are uni-variate displays, they do not inherently support multi-dimensionality.
 This makes it difficult to pair demographic, environmental and other factors with spatial distributions.
-@MMST present linked micromap plots as a solution to the issue of multi-dimensionality to visually link geographic and statistical data.
-This design is widely used in online atlas displays, it groups areas based on their value for one variable, and uses  additional columns to provide displays that contrast the areas in each group by other variables.
-The display juxtaposes of choropleth maps and statistical plots;
-it shows one map per group of the key separating variable, in a row with each additional statistical plot.
-Linked micromaps predominantly utilize the choropleth map for displays of spatial distributions.
-It is one of several alternative displays that allow maps to become bi-variate displays.
+
 
 <!--
 Visualizing Data Patterns with Micromaps.
@@ -503,6 +498,15 @@ Virtually any plot display can be fit into the tile representing the areas, allo
 As the amount of areas increase care must be taken to ensure legibility of the displays.
 @RPIG acknowledges that this display suffers when the areas have very irregular shapes and large size disparities, as manual creation of the grid is still required.
 
+## Micromaps
+
+@MMST present linked micromap plots as a solution to the issue of multi-dimensionality to visually link geographic and statistical data.
+This design is widely used in online atlas displays, it groups areas based on their value for one variable, and uses  additional columns to provide displays that contrast the areas in each group by other variables.
+The display juxtaposes of choropleth maps and statistical plots;
+it shows one map per group of the key separating variable, in a row with each additional statistical plot.
+Linked micromaps predominantly utilize the choropleth map for displays of spatial distributions.
+It is one of several alternative displays that allow maps to become bivariate displays. (XXX Maybe also refer to Petra Kunert's visumap package since bivariate map displays has been raised here)
+
 
 # Comparison of maps and cartograms {#ch:compare}
 
@@ -558,10 +562,17 @@ as these options have expanded and it is the objectives of the investigator that
 
 # Interactivity and Animation  {#ch:interacting}
 
+<!-- this is vague and uninformative 
 There are now many suitable methods and mediums to communicate health data.
-The choice between them should always be driven by the intended message to be communicated and the needs of the audience.
+The choice between them should always be driven by the intended message to be communicated and the needs of the audience.-->
 
-@CPISACA provide three questions that are generally asked when using a disease map:
+Interactivity and animation add the ability to display more information in the same display, without overloading a single display. It is also a way to invite the viewer to engage with the display.  
+
+XXX Define interactivity, define animation
+
+XXX summarise literature on interactivity with maps, and also animation.
+
+Thinking about interactivity in terms of atlas purpose, it is useful to identify the primary questions that might be asked (or communicated). @CPISACA provide three questions that are generally asked when using a disease map:
 
 - What is the mortality rate in a certain area?
 - Are there geographic trends in the data, or regions of unusually high or low rates?
@@ -609,7 +620,7 @@ The Australian Cancer Atlas [-@TACA] provides [tours](
 https://atlas.cancer.org.au/app/tour/lungcancer) which change the display to draw user's attention to areas on the map that are relevant to the story.
 This implementation of animation gives users tools to plan their own exploration.
 
-```{r animating, fig.cap = "Animations in publicly available choropleth cancer maps. [a. Map of Cancer Mortality Rates in Spain](http://www.geeitema.org/AtlasET/atlas.jsp?causa=e27MEPOC)(Controls for indicator, sex, age groups, continents, and cancer types) , [b. Breast Cancer Mortality in Canada](http://www.ehatlas.ca/light-pollution/maps/breast-cancer-mortality) (Controls for indicator, age, year, and geographical areas)", fig.width = 12, fig.height = 9}
+```{r animating, fig.cap = "Interactivity and animations in publicly available choropleth cancer maps. [a. Map of Cancer Mortality Rates in Spain](http://www.geeitema.org/AtlasET/atlas.jsp?causa=e27MEPOC)(Controls for indicator, sex, age groups, continents, and cancer types) , [b. Breast Cancer Mortality in Canada](http://www.ehatlas.ca/light-pollution/maps/breast-cancer-mortality) (Controls for indicator, age, year, and geographical areas)", fig.width = 12, fig.height = 9}
 a1 <- png::readPNG("cancer_map_images/animation/23.animation.png")
 a2 <- png::readPNG("cancer_map_images/animation/2.animation.png")
 
