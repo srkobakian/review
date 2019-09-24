@@ -230,7 +230,7 @@ ggtilegram <- cancer %>% rename(state = NAME) %>%
   theme(legend.position ="bottom")
 ggtilegram
 ggsave(filename = "figures/ggtilegram.png", plot = ggtilegram,
-  device = "png", dpi = 300, width = 7, height = 6)
+  device = "png", dpi = 300, width =10, height = 8)
 
 
 # Geofacet
@@ -251,15 +251,16 @@ ggfacet <- ggplot(cancer_mf) +
   geom_col(aes(x = Sex, y = AgeAdjustedRate, fill = Sex)) + 
   scale_fill_brewer(type = "qual", palette = "Pastel1",  direction = 1) + 
   facet_geo(~ state, grid = us_grid, label = "code") +
-  theme_minimal() + 
-  theme(legend.position ="bottom",axis.title.y=element_blank() )
+  theme_classic() + 
+  theme(legend.position ="bottom",axis.title.y=element_blank(), axis.text.y = element_text(colour = "black"))
 
 ggfacet
 ggsave(filename = "figures/ggfacet.png", plot = ggfacet,
   device = "png", dpi = 300, width = 10, height = 8)
 
 p <- plot_grid(rasterGrob(png::readPNG("figures/ggtilegram.png")),
-              rasterGrob(png::readPNG("figures/ggfacet.png")), labels = c('A', 'B'), label_size = 20)
+          rasterGrob(png::readPNG("figures/ggfacet.png")), 
+          labels = c('A', 'B'), label_size = 20, ncol = 1)
 
 ggsave(filename = "figures/gggrids.png", plot = p,
-  device = "png", dpi = 300, width = 18, height = 9)
+  device = "png", dpi = 300, width = 8, height = 16)
