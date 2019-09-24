@@ -137,7 +137,7 @@ Table: \label{tab:measures} Measures used to report cancer statistics
 |3. New cancer cases per 100,000|Specific methods could not be found|   
 |4. IR (Incidence Ratio)|$(IR)_i=\frac{(Incidence\ Rate)_i}{Average\ Incidence\ Rate}$, |
 ||Cancer incidence rate in region $i$ over the average cancer incidence rate for the total region|
-|5. Age Adjusted Rate per 100,000| #5 standardized by age structure or region|   
+|5. Age Adjusted Rate per 100,000| Standardized by age structure or region|   
 |6. Age Adjusted Relative Risk| RR standardized by age structure in each region $i$|  
 |7. SIR (Standardized Incidence Ratio)| IR standardized by age structure in each region $i$|
 |8. Below or above Expected|Alternative expression of the SIR|
@@ -395,8 +395,8 @@ Table: \label{tab:usa} Maps used to present statistics for the United States of 
 |:--------------------|:------------------------------------------------|  
 |a. contiguous cartogram| Each stated shape has been distorted according to the population of the state in 2015. The state of California has become much larger due to it's large population density. This draws attention to the densely populated North East region, and detracts from the less populated Mid West.|
 |b. Non - Contiguous| The geographic shape of the states has been maintained, but the size has altered according to the population of the state in 2015. The state of California has remained closer to it's original size than it's surrounding states. The North East states have remained closer to their geographical size, in the case of Massachusetts and Connecticut. This draws attention to the densely populated North East region, and the sparse Mid West.|
-|Dorling| The states have been represented by a circle, but the size was determined by the population of the state in 2015. The North East states remain closer to their neighbors, and may be displaced from their geographic location. The sparsity of the population in the Mid West is highlight by the distance between the circles, located at the geographic centroids.|
-|Hexagon Tessellation| Each state is represented by a hexagon of equal size. The neighbouring states are easily contrasted, however the north east regions has been displaced from their geographic location. The sparsity of the population in the Mid West is highlight by the light yellow color, the age adjusted rate in Kentucky is the darkest and its neighbors are similar.|
+|c. Dorling| The states have been represented by a circle, but the size was determined by the population of the state in 2015. The North East states remain closer to their neighbors, and may be displaced from their geographic location. The sparsity of the population in the Mid West is highlight by the distance between the circles, located at the geographic centroids.|
+|d. Hexagon Tessellation| Each state is represented by a hexagon of equal size. The neighbouring states are easily contrasted, however the north east regions has been displaced from their geographic location. The sparsity of the population in the Mid West is highlight by the light yellow color, the age adjusted rate in Kentucky is the darkest and its neighbors are similar.|
 
 
 ```{r auscartograms, fig.cap = "Alternative maps of the United States of America. Each state has been colored according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. Each stated shape has been distorted according to the population of the state in 2015. The state of California has become much larger due to it's large population density. This draws attention to the densely populated North East region, and detracts from the less populated Mid West.", message=FALSE, warning=FALSE, out.width='100%'}
