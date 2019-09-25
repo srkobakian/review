@@ -500,8 +500,8 @@ As the amount of areas increase care must be taken to ensure legibility of the d
 
 ## Micromaps
 
-@MMST present linked micromap plots as a solution to the issue of multi-dimensionality to visually link geographic and statistical data.
-This design is widely used in online atlas displays, it groups areas based on their value for one variable, and uses  additional columns to provide displays that contrast the areas in each group by other variables.
+@MMST present linked micromap plots to visually link geographic and statistical data, this serves as a solution to  multi-dimensionality issues.
+This design is widely used in online atlas displays. Areas are grouped based on their value for one variable, and additional columns provide displays that contrast the areas in each group by other variables.
 The display juxtaposes of choropleth maps and statistical plots;
 it shows one map per group of the key separating variable, in a row with each additional statistical plot.
 Linked micromaps predominantly utilize the choropleth map for displays of spatial distributions.
@@ -562,31 +562,28 @@ as these options have expanded and it is the objectives of the investigator that
 
 # Interactivity and Animation  {#ch:interacting}
 
-<!-- this is vague and uninformative 
-There are now many suitable methods and mediums to communicate health data.
-The choice between them should always be driven by the intended message to be communicated and the needs of the audience.-->
+<!-- XXX Define interactivity, define animation -->
+Interactivity and animation enhance online atlases by enabling additional information to be presented in the same display. Implementing movement and allowing for changes in the display invites the viewer to engage with the display, and the information presented.  
+Interactive methods involve direct manipulation of web displays, keeping a continuous view of the map as it changes due to the physical actions of users. 
+The manipulation of the web display may occur by directly altering the display, clicking the controls or command-line prompts [@RPIG].
+@TGA explains that animations show the transitions between frames in a linear, fixed narrative to passive users, communicating a message by capturing and directing their attention. 
+This does not require direct user interaction on the display, but may allow users to start, pause or end the narrative displayed.
 
-Interactivity and animation add the ability to display more information in the same display, without overloading a single display. It is also a way to invite the viewer to engage with the display.  
-
-XXX Define interactivity, define animation
-
-XXX summarise literature on interactivity with maps, and also animation.
-
-Thinking about interactivity in terms of atlas purpose, it is useful to identify the primary questions that might be asked (or communicated). @CPISACA provide three questions that are generally asked when using a disease map:
+Web atlases have employed interactivity to expand the communicative ability of an atlas.
+It is useful to identify the primary questions that might be asked by atlases users, and allow the display to change to best answer these questions.
+@CPISACA provide three questions that are generally asked when using a disease map:
 
 - What is the mortality rate in a certain area?
 - Are there geographic trends in the data, or regions of unusually high or low rates?
 - Is the lung cancer mortality pattern similar to the pattern of smoking prevalence shown in a companion map?
 
 A single map display may not effectively answer all three at the same time.
-This is especially true when areas are small and difficult to identify in a display.
+This is especially true when some areas are small and difficult to identify in a display.
 However, with the ability to interact with a map, or animate the display, map creators can specify and answer these questions by directing the attention of a map user to the areas of interest.
 
 
 <!-- Interactivity (Compare movies or tv to video games) -->
 The progress from static print media displays to interactive methods allows users to develop maps to ask and answer their own questions.
-Interactive methods involve direct manipulation of web displays, keeping a continuous view of the map, which changes due to the physical actions of users. 
-The manipulation of the graph may occur directly, via the graph controls or the command-line [@RPIG].
 The affects of these actions are rapid, incremental, and reversible @DMIV.
 Where the needs of the audience is changeable and is the priority, the map creator can allow interactivity for map users to explore a data set through dynamic interactions that allow inspection of the data from many views [@DQBCM].
 This opportunity provides an alternative to the traditional approach of a single map for a single use, into a more exploratory territory.
@@ -605,7 +602,6 @@ Interacting with the map returns values or information used in the graphical dis
 
 <!-- Animations -->
 Animations communicate a story, showcasing a critical region by defining and progressing through a small set of keyframes, or waypoints [@ESRI].
-@TGA explains that animations show the transitions between frames in a linear, fixed narrative to passive users, communicating a message by capturing and directing their attention. 
 @TGA suggests the use of moving objects demands attention by taking advantage of the behaviour of the visual cognition system.
 They can be produced to not tolerate or require user input, creating useful, directed descriptions of processes, such as highlighting a particular region or time period [@HTLWM].
 Animations ensure all users follow the same interpretive path but creators cannot control the level of engagement.
