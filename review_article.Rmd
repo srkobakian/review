@@ -487,7 +487,6 @@ knitr::include_graphics("figures/gggrids.png")
 ```
 
 
-
 ## Geofaceting
 Tile maps can be extended to allow more than just simple coloring of tiles to present data.
 @IGF formalizes the term geofaceting to describe a grid display, the arrangement of tiles to create a grid that mimics the geographic topology of the set of areas. 
@@ -498,14 +497,25 @@ Virtually any plot display can be fit into the tile representing the areas, allo
 As the amount of areas increase care must be taken to ensure legibility of the displays.
 @RPIG acknowledges that this display suffers when the areas have very irregular shapes and large size disparities, as manual creation of the grid is still required.
 
-## Micromaps
+## Multivariate displays
 
 @MMST present linked micromap plots to visually link geographic and statistical data, this serves as a solution to  multi-dimensionality issues.
 This design is widely used in online atlas displays. Areas are grouped based on their value for one variable, and additional columns provide displays that contrast the areas in each group by other variables.
 The display juxtaposes of choropleth maps and statistical plots;
 it shows one map per group of the key separating variable, in a row with each additional statistical plot.
-Linked micromaps predominantly utilize the choropleth map for displays of spatial distributions.
-It is one of several alternative displays that allow maps to become bivariate displays. (XXX Maybe also refer to Petra Kunert's visumap package since bivariate map displays has been raised here)
+Linked micromaps predominantly utilize the choropleth map for displays of spatial relationships, that are seen when spatial neighbours are alotted to the same group.
+It is one of several alternative displays that allow maps to become bivariate displays, commonly used to present both an estimate and the associated uncertainty.
+
+
+Bivariate choropleth maps [@VUADBC] blend colour schemes to convey the intersection of categorised levels of an estimate and the associated uncertainty for each spatial area.
+@VUADBC also suggests map pixelation, each region is broken into small pixels, the individual pixels are allocated values that reflect the uncertainty around the area's estimate by creating texture.
+This display can also be animated, with each frame produced by resampling the pixels.
+Areas with uncertain values will flicker more dramatically than areas with more certain values.
+
+
+Solutions have been provided for bi-variate displays for movement data, containing Origin - Destination matrices and flow map representations [@MMTVCG]. 
+This method makes the maps and matrix connections clear, and easy to link geographic areas with link lines not crossing. Bar charts can also be added to these to show group totals.
+
 
 
 # Comparison of maps and cartograms {#ch:compare}
@@ -587,15 +597,19 @@ The progress from static print media displays to interactive methods allows user
 The affects of these actions are rapid, incremental, and reversible @DMIV.
 Where the needs of the audience is changeable and is the priority, the map creator can allow interactivity for map users to explore a data set through dynamic interactions that allow inspection of the data from many views [@DQBCM].
 This opportunity provides an alternative to the traditional approach of a single map for a single use, into a more exploratory territory.
+Dynamic visual interfaces allow users to interaction with spatial information, they respond when users interrogate them for information [@MCRG].
 Interactivity allows users to drive their own exploration, controlling a display through variable controls, links, tool tips, and data selection tools [@TGA]. Tool tips allow users to obtain additional information regarding specific geographic areas.
-
+Interaction allows for the focus of the display to change in spatial scale, or location, through zooming and panning functionality.
 
 Developments and adoptions of this technology has allowed map users more control of the message displayed. Figure \ref{fig:interacting} presents forms of low level interactions with a user interface, these are the control menus for several online cancer atlases.
 The user interface for these online atlases allow combinations of cancer type, gender, and other factors to be shown on the map display.
 These controls may also change the geographies shown, such as continents or countries, states or counties. These displays can show familiar shapes for users to orient themselves on the map, then zoom in to explore densely populated communities.
 Interactions with online atlases can also change the amount of detail shown.
+
+
 It is uncommon to see linked displays utilized in online atlases, but there are several frameworks that support interactive displays of multivariate data.
-Linked displays allow for direct manipulation, @RPIG uses Swayne and Klinke's definition of high level interaction that occurs via data selection or brushing tools that highlight subsets of graphical elements such as polygons or points. 
+Linked displays allow for direct manipulation, @RPIG uses Swayne and Klinke's definition of high level interaction that occurs via data selection or brushing tools that highlight subsets of graphical elements such as polygons or points. Selections can be made statistically through interactions which allow subsets to be selected from statistical displays, such as tables of data.
+Monmonier implemented linking choropleths with statistical plots, adding a geographic component to scatter plots [@MCRG], the use of link allows spatial dimensions to be reserved for geographic locations of areas. The statistical variation of additional variables can be presented in other appropriate displays.
 Low level interaction is more common, this occurs via the user interface or the map.
 Interacting with the map returns values or information used in the graphical display without referring to, of changing, the original data source of the map.
 
