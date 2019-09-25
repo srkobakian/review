@@ -163,33 +163,33 @@ The cancer atlases identified by @roberts2019communication covered geographies f
 
 ### The Environment and Health Atlas of England and Wales
 
-Figure 2.a contains an image from *[The Environmental and Health Atlas of England and Wales](http://www.envhealthatlas.co.uk/eha/Breast/)*. This map shows the relative risk for women developing lung cancer in England and Wales in 2010. The cancer data used to generate this map came from Office for National Statistics (ONS) (England) and from the Welsh Cancer Intelligence and Surveillance Unit (WCISU).    
+Figure 2.a contains an image from *[The Environmental and Health Atlas of England and Wales](http://www.envhealthatlas.co.uk/eha/Breast/)*[@EnvEnglandWales2]. This map shows the relative risk for women developing lung cancer in England and Wales in 2010. The cancer data used to generate this map came from Office for National Statistics (ONS) (England) and from the Welsh Cancer Intelligence and Surveillance Unit (WCISU).    
 
 
 ### Globocan 2012: Estimated Cancer Incidence, Mortality and Prevalence Worldwide
 
-The map seen in Figure 2.b is from the *[Globocan 2012: Estimated  Cancer Incidence, Mortality and Prevalence](http://globocan.iarc.fr/Pages/Map.aspx)*. This global map shows age standardized incidence rates (per 100,000) for all invasive cancers for both men and women, aggregated at a national level for 2018. This map is published by the [World Health organization's International Agency for Research on Cancer](https://www.iarc.fr/). Data was sourced from cancer registries in each country, contributing registries can be seen in the supplementary material on the cancer atlas website. 
+The map seen in Figure 2.b is from the *[Globocan 2012: Estimated  Cancer Incidence, Mortality and Prevalence](http://globocan.iarc.fr/Pages/Map.aspx)* [@Globocan]. This global map shows age standardized incidence rates (per 100,000) for all invasive cancers for both men and women, aggregated at a national level for 2018. This map is published by the [World Health organization's International Agency for Research on Cancer](https://www.iarc.fr/). Data was sourced from cancer registries in each country, contributing registries can be seen in the supplementary material on the cancer atlas website. 
 
 
 ### Atlas of Cancer in Queensland 
 
-Figure 2.c shows an extract from  *[The Atlas of Cancer in QLD](https://cancerqld.org.au/research/queensland-cancer-statistics/queensland-cancer-atlas/)*. This map was published by the Queensland Cancer Council and shows the relative incidence ratio of lung cancer in males in the state of QLD within Australia based on data from 1998 to 2007. Data to generate this map was sourced from the *[Queensland Cancer Registry](https://cancerqld.org.au/research/cancer-registries/queensland-cancer-registry/)*.  
+Figure 2.c shows an extract from  *[The Atlas of Cancer in QLD](https://cancerqld.org.au/research/queensland-cancer-statistics/queensland-cancer-atlas/)* [@QLDcancerAtlas]. This map was published by the Queensland Cancer Council and shows the relative incidence ratio of lung cancer in males in the state of QLD within Australia based on data from 1998 to 2007. Data to generate this map was sourced from the *[Queensland Cancer Registry](https://cancerqld.org.au/research/cancer-registries/queensland-cancer-registry/)*.  
+
+
 
 ### Bowel Cancer Australia Atlas 
-Figure 2.d shows the *[Bowel Cancer Australia Atlas](http://www.bowelcanceratlas.org/)*. Published by *[Bowel Cancer Australia](https://www.bowelcanceraustralia.org/)* (Australia). This map shows the percentage of Australian males between 50 - 54 years of age that diagnosed with bowel cancer in 2016 in Australia. The source of the data is not provided.  
+Figure 2.d shows the *[Bowel Cancer Australia Atlas](http://www.bowelcanceratlas.org/)* [@Bowel]. Published by *[Bowel Cancer Australia](https://www.bowelcanceraustralia.org/)* (Australia). This map shows the percentage of Australian males between 50 - 54 years of age that diagnosed with bowel cancer in 2016 in Australia. The source of the data is not provided.  
 
 ### United States Cancer Statistics: An Interactive Cancer Statistics Website
-The *[United States Cancer Statistics: An Interactive Cancer Statistics Website](https://nccd.cdc.gov/DCPC_INCA/)* can be seen in Figure 2.e. This map contains  the incidence rate per 100,000, of all cancer types for men and women in the United States in 2016, aggregated at the state level. The map was published by the *[Centers for Disease Control and Prevention](https://www.cdc.gov/)*. Incidence data seen in this map were compiled from cancer registries meeting U.S. Cancer Statistics data quality criteria covering 100% of the U.S. population.
+The *[United States Cancer Statistics: An Interactive Cancer Statistics Website](https://nccd.cdc.gov/DCPC_INCA/)* [@USInteractive] can be seen in Figure 2.e. This map contains  the incidence rate per 100,000, of all cancer types for men and women in the United States in 2016, aggregated at the state level. The map was published by the *[Centers for Disease Control and Prevention](https://www.cdc.gov/)*. Incidence data seen in this map were compiled from cancer registries meeting U.S. Cancer Statistics data quality criteria covering 100% of the U.S. population.
 
-<!-- suggested citations: U.S. Cancer Statistics Working Group. U.S. Cancer Statistics Data Visualizations Tool, based on November 2018 submission data (1999-2016): U.S. Department of Health and Human Services, Centers for Disease Control and Prevention and National Cancer Institute; www.cdc.gov/cancer/dataviz, June 2019.-->
 
 ### Map of Cancer Mortality Rates in Spain
-The *[Map of Cancer Mortality Rates in Spain](http://elpais.com/elpais/2014/10/06/media/1412612722_141933.html)* can be seen in Figure 2.f. The side by side maps show relative risk of lung cancer for men vs women based on data from 2004 to 2008. The source of the data and statistical methods are unknown. 
+The *[Map of Cancer Mortality Rates in Spain](http://elpais.com/elpais/2014/10/06/media/1412612722_141933.html)* [@cancerSpain] can be seen in Figure 2.f. The side by side maps show relative risk of lung cancer for men vs women based on data from 2004 to 2008. The source of the data and statistical methods are unknown. 
 
 ### Atlas of Childhood Cancer in Ontario 
-Figure 2.g shows an extract from the Atlas of Childhood Cancer in Ontario and specifically displays the *[incidence rate of childhood cancers](https://www.pogo.ca/wp-content/uploads/2015/02/POGO_CC-Atlas-3-Incidence_Feb-2015.pdf)* per 100,000 (by census division) for children aged 0-14, in Ontario from 1995 to 2004.
+Figure 2.g shows an extract from the Atlas of Childhood Cancer in Ontario and specifically displays the *[incidence rate of childhood cancers](https://www.pogo.ca/wp-content/uploads/2015/02/POGO_CC-Atlas-3-Incidence_Feb-2015.pdf)* [@OntarioPediatric] per 100,000 (by census division) for children aged 0-14, in Ontario from 1995 to 2004.
 
-<!-- map is on pg 41 or pdf report-->
 
 ## Interactivity
 
@@ -564,34 +564,30 @@ as these options have expanded and it is the objectives of the investigator that
 
 <!-- XXX Define interactivity, define animation -->
 Interactivity and animation enhance online atlases by enabling additional information to be presented in the same display. Implementing movement and allowing for changes in the display invites the viewer to engage with the display, and the information presented.  
+
 Interactive methods involve direct manipulation of web displays, keeping a continuous view of the map as it changes due to the physical actions of users. 
 The manipulation of the web display may occur by directly altering the display, clicking the controls or command-line prompts [@RPIG].
 @TGA explains that animations show the transitions between frames in a linear, fixed narrative to passive users, communicating a message by capturing and directing their attention. 
 This does not require direct user interaction on the display, but may allow users to start, pause or end the narrative displayed.
 
-Web atlases have employed interactivity to expand the communicative ability of an atlas.
-It is useful to identify the primary questions that might be asked by atlases users, and allow the display to change to best answer these questions.
-@CPISACA provide three questions that are generally asked when using a disease map:
+Web atlases have employed interactivity and animation to expand the communicative ability of a disease map. It is important to identify the primary questions that might be asked by the users of a map, and allow the display to change to best answer these questions. @CPISACA provide three questions that are generally asked when using a disease map:
 
 - What is the mortality rate in a certain area?
 - Are there geographic trends in the data, or regions of unusually high or low rates?
 - Is the lung cancer mortality pattern similar to the pattern of smoking prevalence shown in a companion map?
 
 A single map display may not effectively answer all three at the same time.
-This is especially true when some areas are small and difficult to identify in a display.
-However, with the ability to interact with a map, or animate the display, map creators can specify and answer these questions by directing the attention of a map user to the areas of interest.
+This is especially true when some areas are small and difficult to identify clearly in a single display or resolution. However, with the ability to interact with a map, or animate the display, map creators can specify and answer these questions by directing the attention of a map user to the areas of interest.
 
 
 <!-- Interactivity (Compare movies or tv to video games) -->
-The progress from static print media displays to interactive methods allows users to develop maps to ask and answer their own questions.
-The affects of these actions are rapid, incremental, and reversible @DMIV.
-Where the needs of the audience is changeable and is the priority, the map creator can allow interactivity for map users to explore a data set through dynamic interactions that allow inspection of the data from many views [@DQBCM].
-This opportunity provides an alternative to the traditional approach of a single map for a single use, into a more exploratory territory.
-Interactivity allows users to drive their own exploration, controlling a display through variable controls, links, tool tips, and data selection tools [@TGA]. Tool tips allow users to obtain additional information regarding specific geographic areas.
+The progress from static print media displays to interactive methods allows users to develop maps to ask and answer their own questions. The affects of these actions are rapid, incremental, and reversible @DMIV. Where the needs of the audience is changeable and is the priority, the map creator can allow interactivity for map users to explore a data set through dynamic interactions that allow inspection of the data from many views [@DQBCM]. 
+
+Interactivity and animation provide an alternative to the traditional approach of a single map for a single use, and enable the map to become more exploratory. Interactivity allows users to drive their own exploration, controlling a display through variable controls, links, tool tips, and data selection tools [@TGA]. Tool tips allow users to obtain additional information regarding specific geographic areas.
 
 
-Developments and adoptions of this technology has allowed map users more control of the message displayed. Figure \ref{fig:interacting} presents forms of low level interactions with a user interface, these are the control menus for several online cancer atlases.
-The user interface for these online atlases allow combinations of cancer type, gender, and other factors to be shown on the map display.
+Development and adoption of this technology has allowed map users more control of the displayed message. Figure \ref{fig:interacting} presents forms of low level interactions with a user interface, these are the control menus for several online cancer atlases.
+The user interface for these online atlases allow combinations of cancer type, gender, and other factors to be shown on the map display and the user to move between and/or compare different views of these variables. 
 These controls may also change the geographies shown, such as continents or countries, states or counties. These displays can show familiar shapes for users to orient themselves on the map, then zoom in to explore densely populated communities.
 Interactions with online atlases can also change the amount of detail shown.
 It is uncommon to see linked displays utilized in online atlases, but there are several frameworks that support interactive displays of multivariate data.
