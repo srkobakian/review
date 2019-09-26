@@ -163,32 +163,32 @@ The cancer atlases identified by @roberts2019communication covered geographies f
 
 ### The Environment and Health Atlas of England and Wales
 
-Figure 2.a contains an image from *[The Environmental and Health Atlas of England and Wales](http://www.envhealthatlas.co.uk/eha/Breast/)*[@EnvEnglandWales2]. This map shows the relative risk for women developing lung cancer in England and Wales in 2010. The cancer data used to generate this map came from Office for National Statistics (ONS) (England) and from the Welsh Cancer Intelligence and Surveillance Unit (WCISU).    
+Figure \ref{fig:choropleth-grid-create}a contains an image from *[The Environmental and Health Atlas of England and Wales](http://www.envhealthatlas.co.uk/eha/Breast/)* [@EnvEnglandWales2]. This map shows the relative risk for women developing lung cancer in England and Wales in 2010. The cancer data used to generate this map came from Office for National Statistics (ONS) (England) and from the Welsh Cancer Intelligence and Surveillance Unit (WCISU).    
 
 
 ### Globocan 2012: Estimated Cancer Incidence, Mortality and Prevalence Worldwide
 
-The map seen in Figure 2.b is from the *[Globocan 2012: Estimated  Cancer Incidence, Mortality and Prevalence](http://globocan.iarc.fr/Pages/Map.aspx)* [@Globocan]. This global map shows age standardized incidence rates (per 100,000) for all invasive cancers for both men and women, aggregated at a national level for 2018. This map is published by the [World Health organization's International Agency for Research on Cancer](https://www.iarc.fr/). Data was sourced from cancer registries in each country, contributing registries can be seen in the supplementary material on the cancer atlas website. 
+The map seen in Figure \ref{fig:choropleth-grid-create}b is from the *[Globocan 2012: Estimated  Cancer Incidence, Mortality and Prevalence](http://globocan.iarc.fr/Pages/Map.aspx)* [@Globocan]. This global map shows age standardized incidence rates (per 100,000) for all invasive cancers for both men and women, aggregated at a national level for 2018. This map is published by the [World Health Organization's International Agency for Research on Cancer](https://www.iarc.fr/). Data was sourced from cancer registries in each country, contributing registries can be seen in the supplementary material on the cancer atlas website. 
 
 
 ### Atlas of Cancer in Queensland 
 
-Figure 2.c shows an extract from  *[The Atlas of Cancer in QLD](https://cancerqld.org.au/research/queensland-cancer-statistics/queensland-cancer-atlas/)* [@QLDcancerAtlas]. This map was published by the Queensland Cancer Council and shows the relative incidence ratio of lung cancer in males in the state of QLD within Australia based on data from 1998 to 2007. Data to generate this map was sourced from the *[Queensland Cancer Registry](https://cancerqld.org.au/research/cancer-registries/queensland-cancer-registry/)*.  
+Figure \ref{fig:choropleth-grid-create}c shows an extract from  *[The Atlas of Cancer in QLD](https://cancerqld.org.au/research/queensland-cancer-statistics/queensland-cancer-atlas/)* [@QLDcancerAtlas]. This map was published by the Queensland Cancer Council and shows the relative incidence ratio of lung cancer in males in the state of QLD within Australia based on data from 1998 to 2007. Data to generate this map was sourced from the *[Queensland Cancer Registry](https://cancerqld.org.au/research/cancer-registries/queensland-cancer-registry/)*.  
 
 
 
 ### Bowel Cancer Australia Atlas 
-Figure 2.d shows the *[Bowel Cancer Australia Atlas](http://www.bowelcanceratlas.org/)* [@Bowel]. Published by *[Bowel Cancer Australia](https://www.bowelcanceraustralia.org/)* (Australia). This map shows the percentage of Australian males between 50 - 54 years of age that diagnosed with bowel cancer in 2016 in Australia. The source of the data is not provided.  
+Figure \ref{fig:choropleth-grid-create}d shows the *[Bowel Cancer Australia Atlas](http://www.bowelcanceratlas.org/)* [@Bowel]. Published by *[Bowel Cancer Australia](https://www.bowelcanceraustralia.org/)* (Australia). This map shows the percentage of Australian males between 50 - 54 years of age that diagnosed with bowel cancer in 2016 in Australia. The source of the data is not provided.  
 
 ### United States Cancer Statistics: An Interactive Cancer Statistics Website
-The *[United States Cancer Statistics: An Interactive Cancer Statistics Website](https://nccd.cdc.gov/DCPC_INCA/)* [@USInteractive] can be seen in Figure 2.e. This map contains  the incidence rate per 100,000, of all cancer types for men and women in the United States in 2016, aggregated at the state level. The map was published by the *[Centers for Disease Control and Prevention](https://www.cdc.gov/)*. Incidence data seen in this map were compiled from cancer registries meeting U.S. Cancer Statistics data quality criteria covering 100% of the U.S. population.
+The *[United States Cancer Statistics: An Interactive Cancer Statistics Website](https://nccd.cdc.gov/DCPC_INCA/)* [@USInteractive] can be seen in Figure \ref{fig:choropleth-grid-create}e. This map contains  the incidence rate per 100,000, of all cancer types for men and women in the United States in 2016, aggregated at the state level. The map was published by the *[Centers for Disease Control and Prevention](https://www.cdc.gov/)*. Incidence data seen in this map were compiled from cancer registries meeting U.S. Cancer Statistics data quality criteria covering 100% of the U.S. population.
 
 
 ### Map of Cancer Mortality Rates in Spain
-The *[Map of Cancer Mortality Rates in Spain](http://elpais.com/elpais/2014/10/06/media/1412612722_141933.html)* [@cancerSpain] can be seen in Figure 2.f. The side by side maps show relative risk of lung cancer for men vs women based on data from 2004 to 2008. The source of the data and statistical methods are unknown. 
+The *[Map of Cancer Mortality Rates in Spain](http://elpais.com/elpais/2014/10/06/media/1412612722_141933.html)* [@cancerSpain] can be seen in Figure \ref{fig:choropleth-grid-create}f. The side by side maps show relative risk of lung cancer for men vs women based on data from 2004 to 2008. The source of the data and statistical methods are unknown. 
 
 ### Atlas of Childhood Cancer in Ontario 
-Figure 2.g shows an extract from the Atlas of Childhood Cancer in Ontario and specifically displays the *[incidence rate of childhood cancers](https://www.pogo.ca/wp-content/uploads/2015/02/POGO_CC-Atlas-3-Incidence_Feb-2015.pdf)* [@OntarioPediatric] per 100,000 (by census division) for children aged 0-14, in Ontario from 1995 to 2004.
+Figure \ref{fig:choropleth-grid-create}g shows an extract from the Atlas of Childhood Cancer in Ontario and specifically displays the *[incidence rate of childhood cancers](https://www.pogo.ca/wp-content/uploads/2015/02/POGO_CC-Atlas-3-Incidence_Feb-2015.pdf)* [@OntarioPediatric] per 100,000 (by census division) for children aged 0-14, in Ontario from 1995 to 2004.
 
 
 ## Common statistics displayed
