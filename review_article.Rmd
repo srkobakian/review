@@ -20,6 +20,7 @@ yolo: yes
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library(ggplot2)
+library(cowplot)
 library(png)
 library(grid)
 ```
@@ -284,8 +285,24 @@ World map projections reflect the frequent perspectives used to view the earth. 
 If the statistic presented on the map base relies on physical distance and is influenced by the topology there is no transformation needed, beyond choosing a reasonable projection. 
 
 
-```{r choroCRS, fig.cap = "Four choropleth maps of the United States of America using various coordinate reference systems. Each state has been colored according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. The map projections alter the shapes and angles of the boundaries of each state. Maps a and b are similar in their straight edges, unlike maps c and d which curve on the northern United States border.", message=FALSE, warning=FALSE, out.width='100%', fig.align='center', fig.width=12}
-knitr::include_graphics("figures/ggchoroCRS.png")
+```{r choroCRS, fig.cap = "Four choropleth maps of the United States of America using various coordinate reference systems. Each state has been colored according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. The map projections alter the shapes and angles of the boundaries of each state. Maps a and b are similar in their straight edges, unlike maps c and d which curve on the northern United States border.", message=FALSE, warning=FALSE, out.width='100%', fig.align='center'}
+#knitr::include_graphics("figures/ggchoroCRS.png")
+c1 <- png::readPNG("figures/gg3857.png")
+c2 <- png::readPNG("figures/gg2163.png")
+c3 <- png::readPNG("figures/gg4326.png")
+c4 <- png::readPNG("figures/gg2955.png")
+#knitr::include_graphics("figures/usa_grid.png")
+load("figures/usa_legend.rda")
+
+ggdraw() +
+  draw_plot(rasterGrob(c1), 0, .55, 0.5,    0.45) +
+  draw_plot(rasterGrob(c2), 0.5, 0.55, 0.5, 0.45) +
+  draw_plot(rasterGrob(c3), 0.0, 0.1, 0.5, 0.45) +
+  draw_plot(rasterGrob(c4), 0.5, 0.1, 0.5,   0.45) +
+  draw_plot(usa_legend, 0, 0, 1, 0.1, scale = 2) +
+  draw_plot_label(c("a", "b", "c", "d"), 
+    c(0, .5, 0, 0.5), 
+    c(1, 1, .5, .5), size = 20)
 ```
 
 <!-- Denominators -->
@@ -331,13 +348,12 @@ g4 <- png::readPNG("figures/gghexmap.png")
 
 load("figures/usa_legend.rda")
 
-library(cowplot)
 ggdraw() +
-  draw_plot(rasterGrob(g1), 0, .5, 0.5, 0.55) +
-  draw_plot(rasterGrob(g2), 0.5, 0.5, 0.5, 0.55) +
-  draw_plot(rasterGrob(g3), 0.0, 0.0, 0.5, 0.55) +
-  draw_plot(rasterGrob(g4), 0.5, 0, 0.5, 0.55) +
-  draw_plot(usa_legend, 0, 0, 1, 0.1) +
+  draw_plot(rasterGrob(g1), 0, .55, 0.5,  0.45) +
+  draw_plot(rasterGrob(g2), 0.5, 0.55, 0.5, 0.45) +
+  draw_plot(rasterGrob(g3), 0.0, 0.1, 0.5, 0.45) +
+  draw_plot(rasterGrob(g4), 0.5, 0.1, 0.5, 0.45) +
+  draw_plot(usa_legend, 0, 0, 1, 0.1, scale = 2) +
   draw_plot_label(c("a", "b", "c", "d"), 
     c(0, .5, 0, 0.5), 
     c(1, 1, .5, .5), size = 20)

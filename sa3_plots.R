@@ -111,13 +111,11 @@ sa3lung %>%
   ggplot(.) +
   geom_density(aes(x = sva)) + geom_vline(aes(xintercept = 7))
 
-# The sa3 of Albury is used as the anchor unit
-
-ncont <- cartogram_ncont(sa3lung, k = 1/5,
+ncont <- cartogram_ncont(sa3lung, k = 1/4,
   weight = "Population") %>% st_as_sf() %>% 
   rename(`Age-standardised rate (per 100,000)` = `Age.standardised.rate..per.100.000.`)
 aus_ggncont <- ggplot(ncont) + 
-  geom_sf(data=aus, fill = NA, colour = "grey", size = 0.001) +
+  geom_sf(data=aus, fill = NA, colour = "grey", size = 0.01) +
   geom_sf(aes(fill = `Age-standardised rate (per 100,000)`), colour = NA) + 
   coord_sf(crs = CRS("+init=epsg:3112"), xlim =
              c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
