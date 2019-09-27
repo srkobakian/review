@@ -111,7 +111,7 @@ sa3lung %>%
   ggplot(.) +
   geom_density(aes(x = sva)) + geom_vline(aes(xintercept = 7))
 
-ncont <- cartogram_ncont(sa3lung, k = 1/4,
+ncont <- cartogram_ncont(sa3lung, k = 1/2,
   weight = "Population") %>% st_as_sf() %>% 
   rename(`Age-standardised rate (per 100,000)` = `Age.standardised.rate..per.100.000.`)
 aus_ggncont <- ggplot(ncont) + 
@@ -200,6 +200,6 @@ ggsave(filename = "figures/aus_gghexmap.png", plot = aus_gghexmap,
 ###############################################################################
 # Aus grid
 
-aus_grid <- gridExtra::grid.arrange(aus_ggcont, aus_ggncont, aus_ggdorl, aus_gghexmap, nrow = 2)
+aus_grid <- gridExtra::grid.arrange(aus_ggcont, full_ggncont, aus_ggdorl, aus_gghexmap, nrow = 2)
 ggsave(filename = "figures/aus_grid.png", plot = aus_grid,
   device = "png", dpi = 300,  width = 7, height = 6)
