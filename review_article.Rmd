@@ -13,7 +13,7 @@ output:
     toc_depth: '3'
 link-citations: yes
 fontsize: 11pt
-biblio-style: vancouver
+csl: vancouver.csl
 yolo: yes
 ---
 
