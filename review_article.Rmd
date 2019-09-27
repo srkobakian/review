@@ -333,10 +333,10 @@ load("figures/usa_legend.rda")
 
 library(cowplot)
 ggdraw() +
-  draw_plot(rasterGrob(g1), 0, .5, 0.5, 0.45) +
-  draw_plot(rasterGrob(g2), 0.5, 0.5, 0.5, 0.45) +
-  draw_plot(rasterGrob(g3), 0.0, 0.0, 0.5, 0.45) +
-  draw_plot(rasterGrob(g4), 0.5, 0, 0.5, 0.45) +
+  draw_plot(rasterGrob(g1), 0, .5, 0.5, 0.55) +
+  draw_plot(rasterGrob(g2), 0.5, 0.5, 0.5, 0.55) +
+  draw_plot(rasterGrob(g3), 0.0, 0.0, 0.5, 0.55) +
+  draw_plot(rasterGrob(g4), 0.5, 0, 0.5, 0.55) +
   draw_plot(usa_legend, 0, 0, 1, 0.1) +
   draw_plot_label(c("a", "b", "c", "d"), 
     c(0, .5, 0, 0.5), 
@@ -364,10 +364,10 @@ load("figures/aus_legend.rda")
 
 library(cowplot)
 ggdraw() +
-  draw_plot(rasterGrob(aus1), 0, .55, 0.5, 0.45) +
-  draw_plot(rasterGrob(aus2), 0.5, 0.55, 0.5, 0.45) +
-  draw_plot(rasterGrob(aus3), 0.0, 0.1, 0.5, 0.45) +
-  draw_plot(rasterGrob(aus4), 0.5, 0.1, 0.5, 0.45) +
+  draw_plot(rasterGrob(aus1), 0, .55, 0.5, 0.55) +
+  draw_plot(rasterGrob(aus2), 0.5, 0.55, 0.5, 0.55) +
+  draw_plot(rasterGrob(aus3), 0.0, 0.1, 0.5, 0.55) +
+  draw_plot(rasterGrob(aus4), 0.5, 0.1, 0.5, 0.55) +
   draw_plot(aus_legend, 0, 0, 1, .1) +
   draw_plot_label(c("a", "b", "c", "d"), 
     c(0, .5, 0, 0.5), 
@@ -550,7 +550,7 @@ A single map display may not effectively answer all three at the same time.
 This is especially true when some areas are small and difficult to identify clearly in a single display or resolution. However, with the ability to interact with a map, or animate the display, map creators can specify and answer these questions by directing the attention of a map user to the areas of interest.
 
 
-## Interaction in publicly available atlases
+## Interaction and animation in publicly available atlases
 
 Interactivity can be implemented within modern mapping methods to incorporate additional information and complexity without overloading the user.
 Adding too much information to a map may create cognitive overload [@mcgranaghan1993cartographic] in which the user reaches an information threshold, beyond which will not be able to make sense of the information. 
@@ -594,7 +594,7 @@ ggsave(filename = "figures/supp_grid.png", device = "png",
   width = 12, height = 9, dpi = 300)
 ```
 
-## Underutilized techniques
+## Under-utilised techniques
 
 It is uncommon to see linked displays utilized in online atlases, but there are several frameworks that support interactive displays of multivariate data. @TNTEA suggested LM plots as a solution to linking cartography and statistical graphics. 
 Linked displays allow for direct manipulation, @RPIG uses Swayne and Klinke's definition of high level interaction that occurs via data selection or brushing tools that highlight subsets of graphical elements such as polygons or points. Selections can be made statistically through interactions which allow subsets to be selected from statistical displays, such as tables of data.
