@@ -531,9 +531,8 @@ The computation and graphics power have made creation, alteration and interactiv
 as these options have expanded and it is the objectives of the investigator that will drive the choices. @CPISACA and @SAMGIS have provided suggestions and comments to help map creators best communicate their health data and spatial analyses.
 
 
-# Interactivity and Animation  {#ch:interacting}
+# User interactions with maps {#ch:interacting}
 
-<!-- XXX Define interactivity, define animation -->
 Interactivity and animation enhance online atlases by enabling additional information to be presented in the same display. Implementing movement and allowing for changes in the display invites the viewer to engage with the display, and the information presented.  
 
 Interactive methods involve direct manipulation of web displays, keeping a continuous view of the map as it changes due to the physical actions of users. 
@@ -551,14 +550,14 @@ A single map display may not effectively answer all three at the same time.
 This is especially true when some areas are small and difficult to identify clearly in a single display or resolution. However, with the ability to interact with a map, or animate the display, map creators can specify and answer these questions by directing the attention of a map user to the areas of interest.
 
 
-## Interactivity
+## Interaction in publicly available atlases
 
 Interactivity can be implemented within modern mapping methods to incorporate additional information and complexity without overloading the user.
 Adding too much information to a map may create cognitive overload [@mcgranaghan1993cartographic] in which the user reaches an information threshold, beyond which will not be able to make sense of the information. 
 Complexity and density of visualization methods can overwhelm novice decision makers, however experts are able to use the detail more readily when making-decisions [@cliburn2002design]. 
 Supplementary information can be incorporated into online atlases without cluttering the display. Interactive design features found in online cancer maps include tool tip features, drop down menus, data selection, zooming and panning.
 Allowing users to explore the map for more information and providing flexibility in the display [@HTLWM]. The use of these supports were found in various online cancer maps identified by @roberts2019communication.
-Additionally, interactivity allows the user to toggle between different variables, map views or multiple realizations of possible future scenarios [@goodchild1994introduction]. Thus providing additional mechanisms for the users comprehension as well as the uncertainty of the available information (@maceachren1992visualizing; @van1994visualization). For example, changing the population, age or other demographic variables.
+Additionally, interactivity allows the user to toggle between different variables, map views or multiple realizations of possible future scenarios [@goodchild1994introduction]. Thus providing additional mechanisms for the users comprehension as well as the uncertainty of the available information [@maceachren1992visualizing, @van1994visualization]. For example, changing the population, age or other demographic variables.
 The controls for basic interactive features are often placed outside of the plot space [@TGA], the map image is updated/replaced as the user interacts with the controls. 
 Some more advanced interactions include direct interactions with the plot via the use of overlaid tool tip features, very few cancer atlases involve these more complex selection interactive capabilities. 
 
@@ -595,6 +594,7 @@ ggsave(filename = "figures/supp_grid.png", device = "png",
   width = 12, height = 9, dpi = 300)
 ```
 
+## Underutilized techniques
 
 It is uncommon to see linked displays utilized in online atlases, but there are several frameworks that support interactive displays of multivariate data. @TNTEA suggested LM plots as a solution to linking cartography and statistical graphics. 
 Linked displays allow for direct manipulation, @RPIG uses Swayne and Klinke's definition of high level interaction that occurs via data selection or brushing tools that highlight subsets of graphical elements such as polygons or points. Selections can be made statistically through interactions which allow subsets to be selected from statistical displays, such as tables of data.
