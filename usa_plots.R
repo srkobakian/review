@@ -139,32 +139,28 @@ ggdorl
 ggchoro1 <- ggplot(st_transform(cancer, 3857)) + 
   geom_sf(aes(fill = AgeAdjustedRate), colour = NA) +
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
-  ggtitle("a. The United States using EPSG: 3857") +
   theme_void()+ guides(fill = FALSE)
 
 ggchoro2 <- ggplot(st_transform(cancer, 2163)) + 
   geom_sf(aes(fill = AgeAdjustedRate), colour = NA) +
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
-  ggtitle("b. The United States using EPSG: 2163") +
   theme_void()+ guides(fill = FALSE)
 
 ggchoro3 <- ggplot(st_transform(cancer, 4326)) + 
   geom_sf(aes(fill = AgeAdjustedRate), colour = NA) +
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
-  ggtitle("c. The United States using EPSG: 4326") +
   theme_void()+ guides(fill = FALSE)
 
 ggchoro4 <- ggplot(st_transform(cancer, 2955)) + 
   geom_sf(aes(fill = AgeAdjustedRate), colour = NA) +
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
-  ggtitle("d. The United States using EPSG: 2955") +
   theme_void() + guides(fill = FALSE)
 
-ggchoroCRS <- gridExtra::grid.arrange(ggchoro1, ggchoro2, ggchoro3, ggchoro4)
+ggchoroCRS <- plot_grid(ggchoro1, ggchoro2, ggchoro3, ggchoro4,
+          labels = "auto")
 
 ggsave(filename = "figures/ggchoroCRS.png", plot = ggchoroCRS,
-  device = "png", dpi = 300, width = 7, height = 6)
-
+  device = "png", dpi = 300, width = 10, height = 7)
 
 ###############################################################################
 
@@ -260,7 +256,7 @@ ggsave(filename = "figures/ggfacet.png", plot = ggfacet,
 
 p <- plot_grid(rasterGrob(png::readPNG("figures/ggtilegram.png")),
           rasterGrob(png::readPNG("figures/ggfacet.png")), 
-          labels = c('A', 'B'), label_size = 20, ncol = 1)
+          labels = c('a', 'b'), label_size = 20, ncol = 1)
 
 ggsave(filename = "figures/gggrids.png", plot = p,
   device = "png", dpi = 300, width = 8, height = 16)
