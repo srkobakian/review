@@ -41,6 +41,10 @@ Cartogram applications should point to examples of cancer outcomes, with the mai
 
 
 \section*{Abstract}
+Choropleth maps are a traditional form of presenting spatial data.
+They are widely used in cancer atlases, leveraging the familiar geographical regions to communicate cancer statistics around the world. The presentation of this data has improved with the developments in the statistics used to measure the impact of cancer on a population. Web atlases have utilized developments in interaction and animation techonolgies to empower individual users to explore cancer statistics for their own purposes. There has also been progress and contributions to alternative displays that present spatial data with varying levels of focus on the spatial distribution of a statistic. This work highlights the impact of the varying sizes of areas created by the administrative boundaries that define communities and affects the way that spatial impact of cancer on Australian communities is understood.
+These displays are not often utilized in cancer atlases, this provides an opportunity to improve the communication of cancer statistics. Including alternative visualizations will provide users a new perspective on the spatial distribution of cancer statistics.
+
 
 # Introduction
 <!-- What data are we working with, why, what are the purposes -->
@@ -149,7 +153,7 @@ Table: \label{tab:measures} Measures used to report cancer statistics
 <!-- Cancer atlas literature -->
 
 Cancer maps are effective tools for communicating to wide range of audiences, including the general public and others not trained in statistical analyses.
-These visualizations enable non-expert audiences to interpret the outputs of sophisticated statistical analyses. Cruickshank (1947) as cited by @DMAHP, discusses using visuals as a 'formal statistical assessment of the spatial pattern'. Overwhelmingly, cancer maps utilized to communicate to the public and other non-expert audiences are choropleths.  These atlases provided Incidence, Survival and Mortality rates to the public on areal or isopleth map bases.
+These visualizations enable non-expert audiences to interpret the outputs of sophisticated statistical analyses. Cruickshank (1947) as cited by @DMAHP, discusses using visuals as a 'formal statistical assessment of the spatial pattern'. Overwhelmingly, cancer maps utilized to communicate to the public and other non-expert audiences are choropleths.  These atlases provided Incidence, Survival and Mortality rates to the public on areal map bases.
 
 The Atlas of Cancer in Queensland [@DACQ] focused on highlighting the difference in experience for those living in rural and disadvantaged areas, the Standardized Incidence Ratios (SIR) were modeled via Bayesian methods.
 The presentation of these rates considers not only the shapes of the areas, but also appropriate choices of color blind friendly color schemes, and categories of the values to highlight significantly different areas. 
