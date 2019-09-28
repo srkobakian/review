@@ -65,7 +65,7 @@ The paper is organized as follows. The next section describes the choropleth map
 
 <!-- what is a choropleth map -->
 A choropleth map is used to display differences in the geographical distribution of data by spatial unit by shading areas of a map. The geography is faithfully rendered, and the color rendering is designed to reveal spatial patterns among data values. A choropleth is constructed by drawing the geographic or political boundaries, and filling the shapes with colors to represent values of a measured variable [@EI]. 
-Figure \ref{fig:choroCRS} shows a choropleth of age-adjusted rate (per 100,000 people) of new cases of lung and bronchus in the USA, averaged over 2012 through 2016. The data was extracted from the official federal statistics by @usa_lung on cancer incidence and deaths, produced by the Centers for Disease Control and Prevention (CDC) and the National Cancer Institute (NCI).
+Figure \ref{fig:choroCRS} shows a choropleth of age-adjusted rate (per 100,000 people) of new cases of lung and bronchus in the USA, averaged over 2012 through 2016. The data was extracted from the official federal statistics by @USInteractive on cancer incidence and deaths, produced by the Centers for Disease Control and Prevention (CDC) and the National Cancer Institute (NCI).
 
 <!-- history and types of choropleths, variations -->
 Early versions of choropleth maps used symbols or patterns instead of color.
@@ -209,8 +209,8 @@ When presenting cancer maps, @MACM believes the intuition derived from maps must
 
 ### Geographic hierarchies
 
-While atlases are often used to describe differences between areas, statistics may be displayed at different levels of aggregation. Global health statistics can be aggregated to administrative and arbitrarily defined regions, such as those used by the World Health organization and the United Nations [@IARC_3].
-World atlases can allow for displays of data aggregated into continents, countries, states, provinces and congressional districts [@USCS].
+While atlases are often used to describe differences between areas, statistics may be displayed at different levels of aggregation. Global health statistics can be aggregated to administrative and arbitrarily defined regions, such as those used by the World Health Organization and the United Nations [@IARC_3].
+World atlases can allow for displays of data aggregated into continents, countries, states, provinces and congressional districts [@USInteractive].
 
 
 ### Population distribution
