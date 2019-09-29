@@ -26,7 +26,8 @@ library(png)
 library(gridExtra)
 
 # read in data
-cancer <- read_csv("data/USCSlung.csv") %>% rename(NAME = Area)
+cancer <- read_csv("data/USCSlung.csv") %>% 
+  rename(NAME = Area)
 
 
 # Join polygons to data
@@ -44,7 +45,9 @@ title <- ""
 
 ###############################################################################
 # Create a choropleth
-ggchoro <- ggplot(cancer) + 
+ggchoro <- cancer %>% 
+  rename(`Age adjusted rate (per 100,000)` = AgeAdjustedRate) %>% 
+  ggplot() + 
   geom_sf(aes(fill = AgeAdjustedRate), colour = NA) +
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
   ggtitle(title) +
@@ -96,7 +99,7 @@ ggncont <- ggplot(ncont) +
   #coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
   theme_void() + guides(fill = FALSE)
 
-save(ncont, "data/ncont.rda")
+save(ncont, file = "data/ncont.rda")
 ggncont
 ggsave(filename = "figures/ggncont.png", device = "png", dpi = 300, width = 7, height = 6)
 
@@ -111,8 +114,8 @@ ggdorl <- ggplot(dorl) +
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
   #coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
   theme_void()+ guides(fill = FALSE)
-ggsave(filename = "figures/ggdorl.png", device = "png", dpi = 300, width = 7, height = 6)
 ggdorl
+ggsave(filename = "figures/ggdorl.png", device = "png", dpi = 300, width = 7, height = 6)
 
 
 ###############################################################################
@@ -139,32 +142,50 @@ ggdorl
 ggchoro1 <- ggplot(st_transform(cancer, 3857)) + 
   geom_sf(aes(fill = AgeAdjustedRate), colour = NA) +
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
-  ggtitle("a. The United States using EPSG: 3857") +
   theme_void()+ guides(fill = FALSE)
+ggsave(filename = "figures/gg3857.png", plot = ggchoro1,
+       device = "png", dpi = 300, width = 7, height = 6)
+
 
 ggchoro2 <- ggplot(st_transform(cancer, 2163)) + 
   geom_sf(aes(fill = AgeAdjustedRate), colour = NA) +
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
-  ggtitle("b. The United States using EPSG: 2163") +
   theme_void()+ guides(fill = FALSE)
+ggsave(filename = "figures/gg2163.png", plot = ggchoro2,
+       device = "png", dpi = 300, width = 7, height = 6)
+
 
 ggchoro3 <- ggplot(st_transform(cancer, 4326)) + 
   geom_sf(aes(fill = AgeAdjustedRate), colour = NA) +
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
-  ggtitle("c. The United States using EPSG: 4326") +
   theme_void()+ guides(fill = FALSE)
+ggsave(filename = "figures/gg4326.png", plot = ggchoro3,
+       device = "png", dpi = 300, width = 7, height = 6)
+
 
 ggchoro4 <- ggplot(st_transform(cancer, 2955)) + 
   geom_sf(aes(fill = AgeAdjustedRate), colour = NA) +
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
-  ggtitle("d. The United States using EPSG: 2955") +
   theme_void() + guides(fill = FALSE)
+ggsave(filename = "figures/gg2955.png", plot = ggchoro4,
+       device = "png", dpi = 300, width = 7, height = 6)
 
-ggchoroCRS <- gridExtra::grid.arrange(ggchoro1, ggchoro2, ggchoro3, ggchoro4)
+
+ggchoros <- plot_grid(ggchoro1, ggchoro2, ggchoro3, ggchoro4,
+          labels = "auto", label_size = 20)
+
+ggchoroCRS <- ggdraw() +
+  draw_plot(ggchoro1, 0, .5, 0.5, 0.55) +
+  draw_plot(ggchoro2, 0.5, 0.5, 0.5, 0.55) +
+  draw_plot(ggchoro3, 0.0, 0.0, 0.5, 0.55) +
+  draw_plot(ggchoro4, 0.5, 0, 0.5, 0.55) +
+  draw_plot(usa_legend, 0, 0, 1, 0.1) +
+  draw_plot_label(c("a", "b", "c", "d"), 
+                  c(0, .5, 0, 0.5), 
+                  c(1, 1, .5, .5), size = 20)
 
 ggsave(filename = "figures/ggchoroCRS.png", plot = ggchoroCRS,
-  device = "png", dpi = 300, width = 7, height = 6)
-
+  device = "png", dpi = 300, width = 10, height = 8)
 
 ###############################################################################
 
@@ -207,10 +228,17 @@ gghexmap
 ggsave(filename = "figures/gghexmap.png", plot = gghexmap,
   device = "png", dpi = 300, width = 7, height = 6)
 
+usa_gridl <- ggdraw() +
+  draw_plot(ggcont, 0, .5, 0.5, 0.55) +
+  draw_plot(ggncont, 0.5, 0.5, 0.5, 0.55) +
+  draw_plot(ggdorl, 0.0, 0.0, 0.5, 0.55) +
+  draw_plot(gghexmap, 0.5, 0, 0.5, 0.55) +
+  draw_plot(usa_legend, 0, 0, 1, 0.1) +
+  draw_plot_label(c("a", "b", "c", "d"), 
+                  c(0, .5, 0, 0.5), 
+                  c(1, 1, .5, .5), size = 20)
 
-
-usa_grid <- gridExtra::grid.arrange(ggcont, ggncont, ggdorl, gghexmap, nrow = 2)
-ggsave(filename = "figures/usa_grid.png", plot = usa_grid,
+ggsave(filename = "figures/usa_grid.png", plot = usa_gridl,
   device = "png", dpi = 300, width = 7, height = 6)
 
 ###############################################################################
@@ -224,13 +252,12 @@ ggtilegram <- cancer %>% rename(state = NAME) %>%
   statebins(., state_col = "state",
     value_col = "AgeAdjustedRate", 
     name = "AgeAdjustedRate",
-    type = "seq", palette = "RdPu",  direction = 1
+    type = "seq", palette = "RdPu",  direction = 1, font_size = 12
   ) +
-  theme_void() +
-  theme(legend.position ="bottom")
+  theme_void() + guides(fill = FALSE)
 ggtilegram
 ggsave(filename = "figures/ggtilegram.png", plot = ggtilegram,
-  device = "png", dpi = 300, width =10, height = 8)
+  device = "png", dpi = 300, width = 10, height = 8)
 
 
 # Geofacet
@@ -251,8 +278,14 @@ ggfacet <- ggplot(cancer_mf) +
   geom_col(aes(x = Sex, y = AgeAdjustedRate, fill = Sex)) + 
   scale_fill_brewer(type = "qual", palette = "Pastel1",  direction = 1) + 
   facet_geo(~ state, grid = us_grid, label = "code") +
-  theme_classic() + 
-  theme(legend.position ="bottom",axis.title.y=element_blank(), axis.text.y = element_text(colour = "black"))
+  theme_bw() + 
+  theme(legend.position ="bottom", 
+        axis.title.y = element_blank(),
+        axis.text.y = element_text(colour = "black"),
+        strip.text.x = element_text(
+          size = 14, color = "black", face = "bold"
+        )
+        )
 
 ggfacet
 ggsave(filename = "figures/ggfacet.png", plot = ggfacet,
@@ -260,7 +293,7 @@ ggsave(filename = "figures/ggfacet.png", plot = ggfacet,
 
 p <- plot_grid(rasterGrob(png::readPNG("figures/ggtilegram.png")),
           rasterGrob(png::readPNG("figures/ggfacet.png")), 
-          labels = c('A', 'B'), label_size = 20, ncol = 1)
+          labels = c('a', 'b'), label_size = 20, nrow = 1)
 
 ggsave(filename = "figures/gggrids.png", plot = p,
-  device = "png", dpi = 300, width = 8, height = 16)
+  device = "png", dpi = 300, width = 16, height = 8)
