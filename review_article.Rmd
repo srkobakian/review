@@ -133,7 +133,7 @@ The presentation of cancer statistics has changed over time with greater access 
 Mortality rates are now often presented as relative rates of risk across the population, and age adjusted to correct for the higher prevalence of cancers in older populations.
 Howe [-@HEDP] describes Stock's development of the standardized mortality ratios through the 1930s. Table \ref{tab:measures} summarizes the measures presented in published cancer atlases, and provides a definition of each measure.
 
-Table: \label{tab:measures} Measures used to report cancer statistics
+Table: \label{tab:measures} Common statistics for reporting cancer information.
 
 |Measure |Details| 
 |:--------------------|:------------------------------------------------|  
@@ -159,7 +159,7 @@ These visualizations enable non-expert audiences to interpret the outputs of sop
 The Atlas of Cancer in Queensland [@DACQ] focused on highlighting the difference in experience for those living in rural and disadvantaged areas, the Standardized Incidence Ratios (SIR) were modeled via Bayesian methods.
 The presentation of these rates considers not only the shapes of the areas, but also appropriate choices of color blind friendly color schemes, and categories of the values to highlight significantly different areas. 
 
-## Overview of publicly available atlases
+## Overview of publicly available atlases \label{sec:publicatlases}
 
 @roberts2019communication identified 33 publicly available cancer atlases, published between January 2010 and November 2015. All of these use choropleth maps. All but one of these were published by non-commercial organizations, including not-for-profits, government, research organizations, advocacy groups or government funded partnerships. The use of choropleths within the public domain mirrors the heavy use of choropleth maps within the research literature, discussed above. 
 The cancer atlases identified by @roberts2019communication covered geographies from all around the world, most focused on single nations. Figure \ref{fig:choropleth-grid-create} displays a global (b), national (a, d, e, f) and state (c, g) choropleths. The sections below provide details on each of the maps within Figure \ref{fig:choropleth-grid-create}.
@@ -457,7 +457,7 @@ The complexity of the boundaries can be adjusted in the resulting display, as th
 
 
 
-```{r ggtilemap, fig.cap = "A tile map and geofaceted map of the Unites States of America. Each state in the tile map has been colored according to the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016. Each state has been represented by a square, each square is the same size. The geofaceted map allows the rates for males and females to be contrasted. It has the same layout as the tile map, but shows more information per state.",fig.height = 8, fig.width = 5}
+```{r ggtilemap, fig.cap = "Two more alternative displays, tile map (left) and geofaceted map (right), showing state age-adjusted rate of incidence for lung and bronchus in the USA. In the tile map, the layout approximates spatial location, with each state being an equal box filled with colour representing cancer incidence. The geofaceted map shows bar charts laid out in a grid approximating the spatial location of the state. The age-adjusted rates for males and females is shown. This type of display allows multiple variables to be displayed for each geographic area.", out.width="100%"}
 knitr::include_graphics("figures/gggrids.png")
 ```
 
@@ -528,11 +528,11 @@ Faceting provides an opportunity to contrast the overall distribution of variabl
 This display makes is difficult to compare specific regions.
 
 
-Table: \label{tab:methods} Mapping methods used to display cancer statistics
+Table: \label{tab:methods} Summary of features and constraints on common mapping methods used to display cancer statistics (Y=Yes, N=No, S=Sometimes).
 
 
-|                     | Choropleth | Contiguous | Non-contiguous | Dorling | Tile maps | Geofacets |
-|:-----------:|------------|-----------|---------------|---------|-----------|----------|
+|                     | Choropleth | Contiguous | Non-contig | Dorling | Tile maps | Geofacets |
+|:-----------|:------------:|:-----------:|:---------------:|:---------:|:-----------:|:----------:|
 |Spatial distortion   |  N  |  Y  |  Y  |  Y  |  Y  |  Y  |
 |Preserves neighbors  |  Y  |  Y  |  Y  |  S  |  S  |  S  |
 |Conceals small areas |  Y  |  S  |  N  |  N  |  N  |  N  |
@@ -549,47 +549,36 @@ as these options have expanded and it is the objectives of the investigator that
 
 # User interactions with maps {#ch:interacting}
 
-Interactivity and animation enhance online atlases by enabling additional information to be presented in the same display. Implementing movement and allowing for changes in the display invites the viewer to engage with the display, and the information presented.  
+Interactivity and animation can add value to online atlases, by enabling additional information to be presented on-the-fly with one display. It also invites the viewer to engage with the display, and the information.  
 
-Interactive methods involve direct manipulation of web displays, keeping a continuous view of the map as it changes due to the physical actions of users. 
-The manipulation of the web display may occur by directly altering the display, clicking the controls or command-line prompts [@RPIG].
-@TGA explains that animations show the transitions between frames in a linear, fixed narrative to passive users, communicating a message by capturing and directing their attention. 
-This may require direct user interaction on the display.
+The word "interactive" is used, and perhaps, confused for many different graphics actions. At one extreme, it is synonymous with direct manipulation of the display, such as selecting an area, mousing over, or panning and zooming, using mouse action on the plot. At the other extreme, it refers to graphical user interfaces (GUI) such as selecting an item on a menu to change the variable being displayed, or checking a toggle box, or dragging a scrollbar. @RPIG provides a good overview of types of interactivity with plots. a key difference from an animation is that interactivity typically involves on-the-fly computations, and changes to the plot. 
 
-Web atlases have employed interactivity and animation to expand the communicative ability of a disease map. It is important to identify the primary questions that might be asked by the users of a map, and allow the display to change to best answer these questions. @CPISACA provide three questions that are generally asked when using a disease map:
+The primary interactive tools found in online cancer maps include 
 
-- What is the mortality rate in a certain area?
-- Are there geographic trends in the data, or regions of unusually high or low rates?
-- Is the lung cancer mortality pattern similar to the pattern of smoking prevalence shown in a companion map?
+- drop down menus to select features,
+- variable selection, 
+- tool tips, 
+- zooming and panning.
 
-A single map display may not effectively answer all three at the same time.
-This is especially true when some areas are small and difficult to identify clearly in a single display or resolution. However, with the ability to interact with a map, or animate the display, map creators can specify and answer these questions by directing the attention of a map user to the areas of interest.
+The latter two would be considered to be direct manipulation on the map display, and the former two are GUI interfaces. The effects of these actions are rapid, incremental, and reversible [@DMIV]. 
 
+There is a long and extensive literature about interactivity with maps. [@mcgranaghan1993cartographic] discuss the way adding interactive elements can alleviate cognitive overload caused when too much information is loaded onto a map. [@cliburn2002design] discuss the trade-offs required for expert vs novice audiences. The expert might desire more complexity for decision-making but this could overwhelm a novice reader. 
+
+@HTLWM says that interactivity can be used to allow users to explore the map for more information and provides flexibility for the display. The user can toggle between different variables, map views or even multiple realizations of future scenarios [@goodchild1994introduction]. This provides additional mechanisms for the users to digest the uncertainty of the available information [@maceachren1992visualizing, @van1994visualization]. Where the needs of the audience is changeable and is the priority, the map creator can allow interactivity for map users to explore a data set through dynamic interactions that allow inspection of the data from many views [@DQBCM]. @TNTEA says user interaction with maps helps them to understand and interpret the spatial distribution of disease, to validate, explain or explore the presented statistics and their relationships to each other.
+
+Animation, in contrast to interactivity, usually involves pre-computing views, and showing these in a sequence. @TGA provided an overview of animation in association with the R package `gganimate` [@gganimate], with some focus on maps, explaining transitions between frames in a linear, to provide a fixed narrative to passive users. Animations are used to communicate a message by capturing and directing users attention. It is most often employed to show changes over time. The controls for basic animation are usually placed outside of the plot space [@TGA], the map image is updated/replaced as the animation progresses. 
+
+@CPISACA provide weather maps as a thoroughly developed example of animation of spatial displays to communicate information to the general public. The movement of a weather system will follow a forecasted path, all map users can follow the animated path of the weather system across the geography over a specified period of time. 
+
+The Australian Cancer Atlas [-@TACA] provides [tours](
+https://atlas.cancer.org.au/app/tour/lungcancer) which change the display to draw user's attention to areas on the map that are relevant to the story.
+This implementation of animation gives users tools to plan their own exploration.
 
 ## Interaction and animation in publicly available atlases
 
-Interactivity can be implemented within modern mapping methods to incorporate additional information and complexity without overloading the user.
-Adding too much information to a map may create cognitive overload [@mcgranaghan1993cartographic] in which the user reaches an information threshold, beyond which will not be able to make sense of the information. 
-Complexity and density of visualization methods can overwhelm novice decision makers, however experts are able to use the detail more readily when making-decisions [@cliburn2002design]. 
-Supplementary information can be incorporated into online atlases without cluttering the display. Interactive design features found in online cancer maps include tool tip features, drop down menus, data selection, zooming and panning.
-Allowing users to explore the map for more information and providing flexibility in the display [@HTLWM]. The use of these supports were found in various online cancer maps identified by @roberts2019communication.
-Additionally, interactivity allows the user to toggle between different variables, map views or multiple realizations of possible future scenarios [@goodchild1994introduction]. Thus providing additional mechanisms for the users comprehension as well as the uncertainty of the available information [@maceachren1992visualizing, @van1994visualization]. For example, changing the population, age or other demographic variables.
-The controls for basic interactive features are often placed outside of the plot space [@TGA], the map image is updated/replaced as the user interacts with the controls. 
-Some more advanced interactions include direct interactions with the plot via the use of overlaid tool tip features, very few cancer atlases involve these more complex selection interactive capabilities. 
+Many publicly available cancer atlases employ interactivity and/or animation. Figure \ref{fig:interacting} shows the interactive GUI tools provided with the public atlases discussed in Section \ref{sec:publicatlases}. Mostly these are menus, and toggles, for choosing indicators, and subsets of the population.
 
-Relationships between spatial areas and diseases can be explored with sophistication in nontraditional but still 'cognitively accessible' ways [@TNTEA]. This helps users to understand and interpret the spatial distribution presented, as well as validate, explain or explore the presented statistics and their relationships to each other and/or their underlying spatial distribution.
-The interactive features of the publicly available maps identified by @roberts2019communication allow the exploration of geographic hierarchies, population distribution, statistical uncertainty, demographics and socio-economic indicators.
-The affects of these actions are rapid, incremental, and reversible @DMIV. Where the needs of the audience is changeable and is the priority, the map creator can allow interactivity for map users to explore a data set through dynamic interactions that allow inspection of the data from many views [@DQBCM]. 
-Interactivity and animation provide an alternative to the traditional approach of a single map for a single use, and enable the map to become more exploratory.
-Interactivity allows users to drive their own exploration, controlling a display through variable controls, links, tool tips, and data selection tools [@TGA]. Tool tips allow users to obtain additional information regarding specific geographic areas.
-
-Development and adoption of this technology has allowed map users more control of the displayed message. Figure \ref{fig:interacting} presents forms of low level interactions with a user interface, these are the control menus for several online cancer atlases.
-The user interface for these online atlases allow combinations of cancer type, gender, and other factors to be shown on the map display and the user to move between and/or compare different views of these variables. 
-These controls may also change the geographies shown, such as continents or countries, states or counties. These displays can show familiar shapes for users to orient themselves on the map, then zoom in to explore densely populated communities.
-Interactions with online atlases can also change the amount of detail shown.
-
-
-```{r interacting, fig.cap = "Interactive controls of displays in publicly available choropleth cancer maps. [a. Globocan 2018: Cancer Today](http://globocan.iarc.fr/Pages/Map.aspx)(Controls for indicator, sex, age groups, continents, and cancer types) , [b. Bowel Cancer Australia Atlas](http://www.bowelcanceratlas.org/) (Controls for indicator, age, year, and geographical areas), [c. The Cancer Atlas ](http://canceratlas.cancer.org/data/#?view=map&metric=INCID_ALL_M) (Controls for predetermined combinations of cancer type or risk factors, mortality or incidence, and gender) [d. Global Cancer Map](http://globalcancermap.com/) (Controls for indicator, and cancer type), [e. United States Cancer Statistics: Data Visualizations](https://gis.cdc.gov/Cancer/USCS/DataViz.html) (Controls for demographics, trends, geography, indicators, risk factors, sex, cancer type, and year).", fig.width = 12, fig.height = 9}
+```{r interacting, fig.cap = "Interactive controls of displays in publicly available choropleth cancer maps: (i) GUI controls for statistic, sex, age groups, continents, and cancer types for [Globocan 2018: Cancer Today ](http://globocan.iarc.fr/Pages/Map.aspx), (ii) Menus for variable selection and zooming on [Bowel Cancer Australia Atlas](http://www.bowelcanceratlas.org/), (iii) Menus for choosing variables and countries in [The Cancer Atlas ](http://canceratlas.cancer.org/data/#?view=map&metric=INCID_ALL_M),  (iv) Tabs for different indicators and cancer types in [Global Cancer Map](http://globalcancermap.com/), (v) Menus and toggles for variable and subset selection in [United States Cancer Statistics: Data Visualizations](https://gis.cdc.gov/Cancer/USCS/DataViz.html).", fig.width = 12, fig.height = 9}
 i1 <- png::readPNG('cancer_map_images/interactivity/3.interactivity.png') # b in choro grid
 i2 <- png::readPNG('cancer_map_images/interactivity/15.interactivity.png') # d in choro grid
 i3 <- png::readPNG('cancer_map_images/interactivity/4.interactivity.png')
@@ -612,20 +601,23 @@ ggsave(filename = "figures/supp_grid.png", device = "png",
 
 ## Under-utilised techniques
 
-It is uncommon to see linked displays utilized in online atlases, but there are several frameworks that support interactive displays of multivariate data. @TNTEA suggested LM plots as a solution to linking cartography and statistical graphics. 
+Figure \ref{fig:animating} shows two examples of more sophisticated interactive maps. The Spanish Cancer map (left) contains a linked display between a choropleth map, and time series plots of cancer change. In linked plots, changing values in one display will trigger changes of corresponding elements in another display. Here, the temporal change in the choropleth map can be played out as an animation. Mousing over the time series plots will highlight the line for a particular region. The Canadian Breast Cancer Mortality map (right) has a magnifying glass which allows the user to zoom into small areas. It is easy to control and shows precise details in the small areas. 
+
+<!-- It is uncommon to see linked displays utilized in online atlases, but there are several frameworks that support interactive displays of multivariate data. @TNTEA suggested LM plots as a solution to linking cartography and statistical graphics. 
 Linked displays allow for direct manipulation, @RPIG uses Swayne and Klinke's definition of high level interaction that occurs via data selection or brushing tools that highlight subsets of graphical elements such as polygons or points. Selections can be made statistically through interactions which allow subsets to be selected from statistical displays, such as tables of data.
 Monmonier implemented linking choropleths with statistical plots, adding a geographic component to scatter plots [@MCRG], the use of link allows spatial dimensions to be reserved for geographic locations of areas. The statistical variation of additional variables can be presented in other appropriate displays.
 Low level interaction is more common, this occurs via the user interface or the map.
 Interacting with the map returns values or information used in the graphical display without referring to, of changing, the original data source of the map.
-
+-->
 
 <!-- Animations -->
-Animations communicate a story, showcasing a critical region by defining and progressing through a small set of keyframes, or waypoints [@ESRI].
+<!--Animations communicate a story, showcasing a critical region by defining and progressing through a small set of keyframes, or waypoints [@ESRI].
 @TGA suggests the use of moving objects demands attention by taking advantage of the behaviour of the visual cognition system.
 They can be produced to not tolerate or require user input, creating useful, directed descriptions of processes, such as highlighting a particular region or time period [@HTLWM].
 Animations ensure all users follow the same interpretive path but creators cannot control the level of engagement.
+-->
 
-```{r animating, fig.cap = "Interactivity and animations in publicly available choropleth cancer maps. [a. Map of Cancer Mortality Rates in Spain](http://www.geeitema.org/AtlasET/atlas.jsp?causa=e27MEPOC)(Controls for indicator, sex, age groups, continents, and cancer types) , [b. Breast Cancer Mortality in Canada](http://www.ehatlas.ca/light-pollution/maps/breast-cancer-mortality) (Controls for indicator, age, year, and geographical areas)", fig.width = 12, fig.height = 9}
+```{r animating, fig.cap = "Two examples of advanced interactivity (and animation) in publicly available choropleth cancer maps: a. Linked maps and time series line plots, with temporal animation in [Map of Cancer Mortality Rates in Spain](http://www.geeitema.org/AtlasET/atlas.jsp?causa=e27MEPOC), b. A highly responsive magnifying glass on a map of [Breast Cancer Mortality in Canada](http://www.ehatlas.ca/light-pollution/maps/breast-cancer-mortality).", fig.width = 12, fig.height = 9}
 a1 <- png::readPNG("cancer_map_images/animation/23.animation.png")
 a2 <- png::readPNG("cancer_map_images/animation/2.animation.png")
 
@@ -636,7 +628,7 @@ ggdraw() +
     c(0, .3), c(1, 1), size = 20)
 ```
 
-Animations can be implemented to allow users varying degrees of control.
+<!-- Animations can be implemented to allow users varying degrees of control.
 Figure \ref{fig:animating} a gives an example of how time can be included through animating displays. This is a basic form of interactivity with animation allowing users to play, pause and rewind films, where the film is intended to be watched in one direction but the position in the animation can be controlled.
 @CPISACA provide weather maps as a thoroughly developed example of animation of spatial displays to communicate information to the general public.
 The movement of a weather system will follow a forecasted path, all map users can follow the animated path of the weather system across the geography over a specified period of time.
@@ -645,6 +637,7 @@ User interaction more allow clicks to progress between stages of more complex an
 The Australian Cancer Atlas [-@TACA] provides [tours](
 https://atlas.cancer.org.au/app/tour/lungcancer) which change the display to draw user's attention to areas on the map that are relevant to the story.
 This implementation of animation gives users tools to plan their own exploration.
+-->
 
 # Conclusions
 
@@ -701,4 +694,42 @@ Decisions taken at this stage may be critical as apparent ‘clusters’ may dep
 Using prediction:
 assuming that neighbouring μi are correlated leads to a ‘clustering’ prior
 
+-->
+
+<!-- presents forms of low level interactions with a user interface, these are the control menus for several online cancer atlases.
+The user interface for these online atlases allow combinations of cancer type, gender, and other factors to be shown on the map display and the user to move between and/or compare different views of these variables. 
+These controls may also change the geographies shown, such as continents or countries, states or counties. These displays can show familiar shapes for users to orient themselves on the map, then zoom in to explore densely populated communities.
+Interactions with online atlases can also change the amount of detail shown.-->
+
+
+
+<!-- Interactivity can be implemented within modern mapping methods to incorporate additional information and complexity without overloading the user.
+Adding too much information to a map may create cognitive overload [@mcgranaghan1993cartographic] in which the user reaches an information threshold, beyond which will not be able to make sense of the information. 
+Complexity and density of visualization methods can overwhelm novice decision makers, however experts are able to use the detail more readily when making-decisions [@cliburn2002design]. 
+Supplementary information can be incorporated into online atlases without cluttering the display. Interactive design features found in online cancer maps include tool tip features, drop down menus, data selection, zooming and panning.
+Allowing users to explore the map for more information and providing flexibility in the display [@HTLWM]. The use of these supports were found in various online cancer maps identified by @roberts2019communication.
+Additionally, interactivity allows the user to toggle between different variables, map views or multiple realizations of possible future scenarios [@goodchild1994introduction]. Thus providing additional mechanisms for the users comprehension as well as the uncertainty of the available information [@maceachren1992visualizing, @van1994visualization]. For example, changing the population, age or other demographic variables.
+The controls for basic interactive features are often placed outside of the plot space [@TGA], the map image is updated/replaced as the user interacts with the controls. 
+Some more advanced interactions include direct interactions with the plot via the use of overlaid tool tip features, very few cancer atlases involve these more complex selection interactive capabilities. 
+
+Relationships between spatial areas and diseases can be explored with sophistication in nontraditional but still 'cognitively accessible' ways [@TNTEA]. This helps users to understand and interpret the spatial distribution presented, as well as validate, explain or explore the presented statistics and their relationships to each other and/or their underlying spatial distribution.
+
+The interactive features of the publicly available maps identified by @roberts2019communication allow the exploration of geographic hierarchies, population distribution, statistical uncertainty, demographics and socio-economic indicators.
+
+
+Interactivity and animation provide an alternative to the traditional approach of a single map for a single use, and enable the map to become more exploratory.
+Interactivity allows users to drive their own exploration, controlling a display through variable controls, links, tool tips, and data selection tools [@TGA]. Tool tips allow users to obtain additional information regarding specific geographic areas.
+
+Development and adoption of this technology has allowed map users more control of the displayed message. 
+-->
+
+
+<!--to expand the communicative ability of a disease map. It is important to identify the primary questions that might be asked by the users of a map, and allow the display to change to best answer these questions. @CPISACA provide three questions that are generally asked when using a disease map:
+
+- What is the mortality rate in a certain area?
+- Are there geographic trends in the data, or regions of unusually high or low rates?
+- Is the lung cancer mortality pattern similar to the pattern of smoking prevalence shown in a companion map?
+
+A single map display may not effectively answer all three at the same time.
+This is especially true when some areas are small and difficult to identify clearly in a single display or resolution. However, with the ability to interact with a map, or animate the display, map creators can specify and answer these questions by directing the attention of a map user to the areas of interest.
 -->
