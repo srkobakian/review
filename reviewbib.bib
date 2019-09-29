@@ -38,8 +38,8 @@
 
 @article{MMST,
   author = {Pickle L. W. and Carr, D. B. and Pearson, J. B.},
-  title = "micromapST: Exploring and Communicating
-Geospatial Patterns in US State Data",
+  title = {{micromapST: Exploring and Communicating
+Geospatial Patterns in US State Data}},
   year = 2015,
   journal = "Journal of Statistical Software",
   volume = "63",
@@ -240,10 +240,9 @@ doi = {10.1186/1476-072X-10-9}
 }
 
 @online{TACA,
-title = {Australian Cancer Atlas},
+title = {{Australian Cancer Atlas}},
 url = {https://atlas.cancer.org.au},
-author = {Australian Cancer Atlas},
-publisher = {{Cancer Council Queensland, Queensland University of Technology, and Cooperative Research Centre for Spatial Information}},
+author = {{Cancer Council Queensland, Queensland University of Technology, and Cooperative Research Centre for Spatial Information}},
 year = {2018},
 version  = {09-2018},
 Accessed = {10/09/2019}
@@ -313,7 +312,6 @@ author = {Keim, D.A and North, S.C and Panse, C and Schneidewind, J},
 
 @article{TFYCC,
 issn = {0004-5608},
-abstract = {Abstract The notion of a cartogram is reviewed. Then, based on a presentation from the 1960s, a direct and simple introduction is given to the design of a computer algorithm for the construction of contiguous value-by-area cartograms. As an example, a table of latitude/longitude to rectangular plane coordinates is included for a cartogram of the United States, along with Tissot's measures for this map projection. This is followed by a short review of the subsequent history of the subject and includes citation of algorithms proposed by others. In contrast to the usual geographic map, the most common use of cartograms is solely for the display and emphasis of a geographic distribution. A second use is in analysis, as a nomograph or problem-solving device similar in use to Mercator's projection, or in the transform-solve-invert paradigm. Recent innovations by computer scientists modify the objective and suggest variation similar to Airy's (1861) “balance of errors” idea for map projections.},
 journal = {Annals of the Association of American Geographers},
 pages = {58--73},
 volume = {94},
@@ -322,7 +320,7 @@ number = {1},
 year = {2004},
 title = {Thirty Five Years of Computer Cartograms},
 author = {Tobler, Waldo},
-keywords = {Anamorphoses ; Cartograms ; Map Distortion ; Map Projections ; Quasiconformal},
+keywords = {Anamorphoses; Cartograms; Map Distortion; Map Projections; Quasiconformal},
 url = {https://doi.org/10.1111/j.1467-8306.2004.09401004.x},
 doi = {10.1111/j.1467-8306.2004.09401004.x}
 }
@@ -355,15 +353,16 @@ booktitle = {Concepts and Techniques in Modern Geography (CATMOG)},
 doi = {10.1002/9780470979587.ch33}
 }
 
-@article{MDAC,
+@inproceedings{MDAC,
 author = {R. G. Cano and K. Buchin and T. Castermans and A. Pieterse and W. Sonke and B. Speckmann},
-journal = {Computer Graphics Forum},
+booktitle = {Computer Graphics Forum},
 year = {2015},
 month = {06},
 volume={34},
 number={3},
 pages={361-370},
-title = {Mosaic Drawings and Cartograms}
+title = {Mosaic Drawings and Cartograms}, 
+publisher = {Wiley Online Library}
 }
 
 
@@ -405,19 +404,20 @@ number = {2},
 pages = {217-224},
 year = {2005},
 URL = {https://doi.org/10.1191/0309132505ph540pr},
-eprint = {https://doi.org/10.1191/0309132505ph540pr}
+eprint = {https://doi.org/10.1191/0309132505ph540pr}, 
+doi = {10.1191/0309132505ph540pr}
 }
 
 @article{ORC,
 title = "On rectangular cartograms",
-journal = "Computational Geometry",
+journal = {{Computational Geometry}},
 volume = "37",
 number = "3",
 pages = "175 - 187",
 year = "2007",
 note = "Special Issue on the 20th European Workshop on Computational Geometry",
 issn = "0925-7721",
-doi = "https://doi.org/10.1016/j.comgeo.2006.06.002",
+doi = {10.1016/j.comgeo.2006.06.002},
 url = "http://www.sciencedirect.com/science/article/pii/S0925772106000770",
 author = "Marc van Kreveld and Bettina Speckmann",
 keywords = "Cartogram, Rectangular layout"
@@ -445,7 +445,7 @@ keywords = "Cartogram, Rectangular layout"
  number = {4},
  pages = {526--534},
  publisher = {[American Geographical Society, Wiley]},
- title = {Automation and Cartography},
+ title = {{Automation and Cartography}},
  volume = {49},
  year = {1959}
 }
@@ -604,11 +604,13 @@ doi = {10.1080/00221347208981697},
 URL = {https://doi.org/10.1080/00221347208981697}
 }
 
-@proceedings{UMPT,
+@inproceedings{UMPT,
 author = {Tobler, W},
-title = {Unusual Map Projections},
+title = {{Unusual Map Projections}},
 year = {1999},
-organization = {Association of American Geographers}
+organization = {Association of American Geographers}, 
+journal={Cartographic Perspectives}
+
 }
 
 @Manual{cowplot,
@@ -643,7 +645,7 @@ organization = {Association of American Geographers}
     url = {https://CRAN.R-project.org/package=sugarbag}
 }
 
-@Manual{tidyverse,
+@online{tidyverse,
     title = {tidyverse: Easily Install and Load the 'Tidyverse'},
     author = {Hadley Wickham},
     year = {2017},
@@ -776,11 +778,12 @@ urldate = {2018-11-16}
 @online{ESRI,
   title = {Animation basics},
   url = {https://pro.arcgis.com/en/pro-app/help/mapping/animation/overview-of-animation.htm},
-  author = {{Esri Australia Pty. Ltd.}},
+  Author = {{Esri Australia Pty. Ltd.}},
   publisher = {{Environmental Systems Research Institute}},
   Accessed = {10/09/2019},
   year = {2019}
 }
+
 
 @phdthesis{DMIV,
   TITLE = {{Direct Manipulation for Information Visualization}},
@@ -797,6 +800,7 @@ urldate = {2018-11-16}
   HAL_VERSION = {v2},
 }
 
+
 @misc{IGF,
   title={Introducing geofacet},
   url={https://ryanhafen.com/blog/geofacet/}, 
@@ -808,7 +812,7 @@ urldate = {2018-11-16}
 
 @INPROCEEDINGS{DQBCM,
   author={G. {Dang} and C. {North} and B. {Shneiderman}},
-  booktitle={Proceedings Fifth International Conference on Information Visualisation},
+  booktitle={{Proceedings Fifth International Conference on Information Visualisation}},
   title={Dynamic queries and brushing on choropleth maps},
   year={2001},
   pages={757-764},
@@ -820,14 +824,16 @@ urldate = {2018-11-16}
  ISSN = {08834237, 21688745},
  URL = {http://www.jstor.org/stable/43288470},
  author = {Yihui Xie and Heike Hofmann and Xiaoyue Cheng},
- journal = {Statistical Science},
+ journal = {{Statistical Science}},
  number = {2},
  pages = {201--213},
- publisher = {Institute of Mathematical Statistics},
- title = {Reactive Programming for Interactive Graphics},
+ publisher = {Institute of Mathematical Sciences},
+ title = {{Reactive Programming for Interactive Graphics}},
  volume = {29},
- year = {2014}
+ year = {2014},
+ doi = {10.1214/14-STS4}
 }
+
 
 @online{BCM,
  URL = {https://alsino.io/static/papers/BeyondChoropleths_AlsinoSkowronnek.pdf},
@@ -837,13 +843,13 @@ urldate = {2018-11-16}
  year = {2016}
 }
 
-<<<<<<< HEAD
 @article{VUADBC,
   author = {Lucchesi, L.R. and Wikle C.K.},
   year = {2017},
   title = {Visualizing uncertainty in areal data with bivariate choropleth maps, map pixelation and glyph rotation},
   journal = {Stat},
-  doi = {https://doi.org/10.1002/sta4.150}
+  url = {https://doi.org/10.1002/sta4.150},
+  doi = {10.1002/sta4.150}
 }
 
 @ARTICLE{MMTVCG,
@@ -865,11 +871,11 @@ urldate = {2018-11-16}
   year = {1998},
   month = {01},
   pages = {},
-  title = {Maps of the Census: a rough guide},
+  title = {{Maps of the Census: A rough guide}},
   volume = {43},
-  journal = {Case Studies of Visualization in the Social Sciences, Technical Report 43}
+  journal = {{Case Studies of Visualization in the Social Sciences, Technical Report 43}}
 }
-=======
+
 
 @online{EnvEnglandWales2,
   author = {{Emperial College London - Small Area Health Statistics Unit}},
