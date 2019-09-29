@@ -566,10 +566,13 @@ There is a long and extensive literature about interactivity with maps. [@mcgran
 
 @HTLWM says that interactivity can be used to allow users to explore the map for more information and provides flexibility for the display. The user can toggle between different variables, map views or even multiple realizations of future scenarios [@goodchild1994introduction]. This provides additional mechanisms for the users to digest the uncertainty of the available information [@maceachren1992visualizing, @van1994visualization]. Where the needs of the audience is changeable and is the priority, the map creator can allow interactivity for map users to explore a data set through dynamic interactions that allow inspection of the data from many views [@DQBCM]. @TNTEA says user interaction with maps helps them to understand and interpret the spatial distribution of disease, to validate, explain or explore the presented statistics and their relationships to each other.
 
-
-
 Animation, in contrast to interactivity, usually involves pre-computing views, and showing these in a sequence. @TGA provided an overview of animation in association with the R package `gganimate` [@gganimate], with some focus on maps, explaining transitions between frames in a linear, to provide a fixed narrative to passive users. Animations are used to communicate a message by capturing and directing users attention. It is most often employed to show changes over time. The controls for basic animation are usually placed outside of the plot space [@TGA], the map image is updated/replaced as the animation progresses. 
 
+@CPISACA provide weather maps as a thoroughly developed example of animation of spatial displays to communicate information to the general public. The movement of a weather system will follow a forecasted path, all map users can follow the animated path of the weather system across the geography over a specified period of time. 
+
+The Australian Cancer Atlas [-@TACA] provides [tours](
+https://atlas.cancer.org.au/app/tour/lungcancer) which change the display to draw user's attention to areas on the map that are relevant to the story.
+This implementation of animation gives users tools to plan their own exploration.
 
 ## Interaction and animation in publicly available atlases
 
