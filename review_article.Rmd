@@ -357,7 +357,7 @@ Recommended criteria to contrast mapping methods include average cartographic er
 
 
 ## Tile map
-
+<!-- 173 words -->
 A tile map provides a tessellated display of consistent shapes.
 Each tile is usually one unit of measurement, this could be geographic regions such as states, or population based where one tile is used for a consistent measure of population.
 <!-- cite mosaic cartograms --> 
@@ -365,7 +365,7 @@ Each tile is usually one unit of measurement, this could be geographic regions s
 A simple tile map presents the areas in a tessellated grid display, where geographic neighbors are found next to each other, with some necessary displacement employed for regions with more than four neighbors.
 These tiles may be labelled or colored to represent a value.
 Tile maps may be difficult to create, they are best created manually, with additional time and care required as the amount of geographic areas to include increases.
-@MDAC define the term 'mosaic cartograms' for hexagonal tile displays, where the number of tiles for each area can be used to communicate the statistic of regions. 
+Cano and others [@MDAC] define the term 'mosaic cartograms' for hexagonal tile displays, where the number of tiles for each area can be used to communicate the statistic of regions. 
 The complexity of the boundaries can be adjusted in the resulting display, as the size of the tiles used allows a trade-off be made between boundary complexity and simplicity.
 
 
@@ -376,19 +376,21 @@ knitr::include_graphics("figures/gggrids.png")
 
 
 ## Geofacet
-Tile maps can be extended to allow more than just simple coloring of tiles to present data.
-@IGF formalizes the term geofaceting to describe a grid display, the arrangement of tiles to create a grid that mimics the geographic topology of the set of areas. 
+<!-- 166 words -->
+Hafen [@IGF] formalizes the term geofaceting to describe a grid display, the arrangement of tiles to create a grid that mimics the geographic topology of the set of areas. 
 Like tile maps, the arrangement of the areas can be reused for other spatial distribution visualizations.
 Geofaceting have the functionality of facets, often used to replicate visualizations for each subset of the data, in this case the data subsets are geographic.
 The amount of information able to be communicated has increased from one value per region in a tile map to one visualization, this is a more flexible display.
 Virtually any plot display can be fit into the tile representing the areas, allowing displays of multiple variables or values per geographic entity.
-As the amount of areas increase care must be taken to ensure legibility of the displays.
-@RPIG acknowledges that this display suffers when the areas have very irregular shapes and large size disparities, as manual creation of the grid is still required.
+<!-- As the amount of areas increase care must be taken to ensure legibility of the displays.
+@RPIG acknowledges that this display suffers when the areas have very irregular shapes and large size disparities CORRECT reference is Cheng's thesis-->
+Manual creation of the grid is required.
 
 ## Multivariate displays
+<!-- 222 words -->
 
-@MMST present linked micromap plots to visually link geographic and statistical data, this serves as a solution to  multi-dimensionality issues.
-This design is widely used in online atlas displays. Areas are grouped based on their value for one variable, and additional columns provide displays that contrast the areas in each group by other variables.
+Pickle and others [@MMST] present linked micromap plots to visually link geographic and statistical data, this serves as a solution to  multi-dimensionality issues.
+This design has been used in online atlas displays of US states. Areas are grouped based on their value for one variable, and additional columns provide displays that contrast the areas in each group by other variables.
 The display juxtaposes of choropleth maps and statistical plots;
 it shows one map per group of the key separating variable, in a row with each additional statistical plot.
 Linked micromaps predominantly utilize the choropleth map for displays of spatial relationships, that are seen when spatial neighbours are alotted to the same group.
@@ -396,14 +398,14 @@ It is one of several alternative displays that allow maps to become bivariate di
 
 
 Bivariate choropleth maps [@VUADBC] blend colour schemes to convey the intersection of categorised levels of an estimate and the associated uncertainty for each spatial area.
-@VUADBC also suggests map pixelation, each region is broken into small pixels, the individual pixels are allocated values that reflect the uncertainty around the area's estimate by creating texture.
+Lucchesi and Wikle [@VUADBC] also suggests map pixelation, each region is broken into small pixels, the individual pixels are allocated values that reflect the uncertainty around the area's estimate by creating texture.
 This display can also be animated, with each frame produced by resampling the pixels.
 Areas with uncertain values will flicker more dramatically than areas with more certain values.
 
 
-Solutions have been provided for bi-variate displays for movement data, containing Origin - Destination matrices and flow map representations [@MMTVCG]. 
+<!-- Solutions have been provided for bi-variate displays for movement data, containing Origin - Destination matrices and flow map representations [@MMTVCG]. 
 This method makes the maps and matrix connections clear, and easy to link geographic areas with link lines not crossing. Bar charts can also be added to these to show group totals.
-
+-->
 
 
 # Comparison of maps and cartograms {#ch:compare}
