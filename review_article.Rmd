@@ -648,26 +648,15 @@ This paper provides an overview of mapping practices as used for cancer atlases,
 There are many different statistics that are commonly used for display. The most basic is incidence rate, which is easy to understand. It is common to see relative rates in many maps which measure how far a region is above or below the average. The purpose of using a relative rate is, perhaps the desire to pinpoint the areas that need attention because they have higher than expected rates. However, we lose the incidence rate information and thus interpretability. A region might be much higher than average, but it may not be close to a health concern, because all regions have low incidence. 
 
 <!-- interaction -->
+Interaction with maps is an important component to public atlases. A purpose is to provide access to more information than is possible to display in a single map, without overwhelming the viewer. Too many choices though can similarly overwhelm a viewer, and thus decisions do need to be made about content to provide, or hide, for accurate and comprehensive communication of information. Similarly, providing ways for users to interact with the display encourages engagement, and creative, efficient, elegant, interactive tools elicits curiosity about the data. 
 
 # Acknowledgements
 
-We would like to acknowledge Dr Earl Duncan (Research Associate at ARC Centre of Excellence for Mathematical & Statistical Frontiers, QUT). His time and effort given to edit and comment on this paper was invaluable.
+The authors would like thank Dr Earl Duncan, Professor Kerrie Mengersen, Dr Susanna Cramb and Dr Peter Baade for conversations on the content of this article. 
 
+The following R [@R] packages were used to produce this paper: tidyverse [@tidyverse], RColorBrewer [@RColorBrewer], ggthemes [@ggthemes], png [@png], cowplot [@cowplot], sf [@sf], spData [@spData], cartogram [@cartogram], sugarbag [@sugarbag], knitr [@knitr], rmarkdown [@rmarkdown].
 
-We thank Dr Susanna Cramb (Spatial Modeller, Cancer Council Queensland) and Dr Peter Baade (Senior Research Fellow, Cancer Council Queensland) for providing the opportunity to cover this exploration of disease mapping methods in writing.
-This literature review would not be possible without the opportunity provided by Queensland University of Technology, and Cancer Council Queensland, and the roles of Professor Kerrie Mengersen (Professor of Statistics, Science and Engineering Faculty, QUT) and Dr Earl Duncan in contributing to the Australian Cancer Atlas and supervision of Stephanie's Research Masters.
-
-It was in the development of this online cancer atlas that methods for disease map displays, and visual communication strategies were explored. We are thankful for the opportunity to write about these visualizations and the situations in which they are appropriate.
-
-Several R [@R] packages were used to produce this paper.
-For data analysis the tidyverse package [@tidyverse] provided many useful functions.
-ggplot2 package [@ggplot2] was used to create maps, with RColorBrewer package [@RColorBrewer] providing additional color palettes and ggthemes [@ggthemes] package providing themes.
-The png package [@png] was used to access png images taken from online web atlases, cowplot package [@cowplot] was used to arrange these plots into grouped images.
-
-The following packages were used to create transformations from the sf [@sf] geographical shapes of the states of America [@spData] and the Australian Statistical Areas (Level 3):
-The cartogram [@cartogram] package creates contiguous, non-contiguous and Dorling cartograms.
-Hexagon tile map displays were created using the sugarbag package [@sugarbag].
-
+Files to reproduce the paper, and code to reproduce the plots, are available at https://github.com/srkobakian/review. 
 
 # References
 
