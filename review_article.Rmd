@@ -42,7 +42,7 @@ Cartogram applications should point to examples of cancer outcomes, with the mai
 
 
 \section*{Abstract}
-Choropleth maps are widely used in cancer atlases, and traditionally communicate cancer statistics over geographic domains. The type of statistic displayed varies immensely, and effective choices can assist in the understanding of impact of cancer on a population. Atlases have moved from print media to web format, and the availability of graphical user interfaces, and user interaction and animation, greatly enhance the ability to communicate more information and positively engage readers. More use of alternatives to choropleth maps, such as cartograms, could be employed in online atlases, to better representation of spatial distributions, and show statistics on small areas. This is especially true for the geography of Australia, where the population is concentrated is small areas along the coastlines.  
+Choropleth maps are widely used in cancer atlases, and traditionally communicate cancer statistics over geographic domains. The type of statistic displayed varies immensely, and effective choices can assist in the understanding of impact of cancer on a population. Atlases have moved from print media to web format, and the availability of graphical user interfaces, and user interaction and animation, greatly enhance the ability to communicate more information and positively engage readers. More use of alternatives to choropleth maps, such as cartograms, could be employed in online atlases, for better representation of spatial distributions, and show statistics on small areas. This is especially true for the geography of Australia, where the population is concentrated is small areas along the coastlines.  
 
 # Introduction
 <!-- What data are we working with, why, what are the purposes -->
@@ -251,12 +251,6 @@ These interactive features provide an opportunity for users to explore the addit
  
 
 # Alternatives to choropleths {#ch:alternatives}
-
-<!--
-Visualizing Data Patterns with Micromaps.
-Two new templates for epidemiology applications: linkedmicromap plots and conditioned choropleth maps-->
-
-
 
 ## Cartograms
 
@@ -538,7 +532,7 @@ The computation and graphics power have made creation, alteration and interactiv
 as these options have expanded and it is the objectives of the investigator that will drive the choices. @CPISACA and @SAMGIS have provided suggestions and comments to help map creators best communicate their health data and spatial analyses.
 
 
-# User interactions with maps {#ch:interacting}
+# User interaction {#ch:interacting}
 
 Interactivity and animation can add value to online atlases, by enabling additional information to be presented on-the-fly with one display. It also invites the viewer to engage with the display, and the information.  
 
