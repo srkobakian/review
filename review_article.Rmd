@@ -250,13 +250,7 @@ These interactive features provide an opportunity for users to explore the addit
 
  
 
-# Alternative to choropleths {#ch:alternatives}
-
-## Micromaps
-
-Choropleths are uni-variate displays, they do not inherently support multi-dimensionality.
-This makes it difficult to pair demographic, environmental and other factors with spatial distributions.
-
+# Alternatives to choropleths {#ch:alternatives}
 
 <!--
 Visualizing Data Patterns with Micromaps.
