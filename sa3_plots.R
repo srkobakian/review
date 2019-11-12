@@ -9,6 +9,7 @@ library(ggthemes)
 library(maptools)
 library(sf)
 library(cartogram)
+library(cowplot)
 
 
 # Filter for centroids only within longitudes
@@ -67,16 +68,25 @@ aus <- absmapsdata::state2016 %>%
 
 ###############################################################################
 
+invthm <- theme_void() + theme(
+  panel.background = element_rect(fill = "transparent", colour = NA), 
+  plot.background = element_rect(fill = "transparent", colour = NA),
+  legend.background = element_rect(fill = "transparent", colour = NA),
+  legend.key = element_rect(fill = "transparent", colour = NA),
+  text = element_text(colour = "white", size = 20),
+)
+
 # Create a choropleth
 aus_ggchoro <- ggplot(sa3lung) + 
   geom_sf(aes(fill = `Age-standardised rate (per 100,000)`), colour = NA) +
   scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1, na.value = "light grey") + 
-  theme_void() +
+  
   coord_sf(crs = CRS("+init=epsg:3112"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
-  theme(legend.position ="bottom") + 
+  invthm + theme(legend.position ="bottom") +
   labs(fill = "Age-standardised rate\n(per 100,000)")
 aus_ggchoro
-ggsave(filename = "figures/aus_ggchoro.png", device = "png", dpi = 300,  width = 7, height = 6)
+ggsave(filename = "figures/aus_ggchoro.png", device = "png",
+  bg = "transparent",  dpi = 300,  width = 7, height = 6)
 
 
 aus_legend <- get_legend(aus_ggchoro)
@@ -92,13 +102,14 @@ cont <- sa3lung %>%
   st_as_sf()
 
 save(cont, "data/auscont.rda")
+load("data/auscont.rda")
 aus_ggcont <- ggplot(cont) + 
   geom_sf(aes(fill = `Age-standardised rate (per 100,000)`)) + 
   scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1) + 
   coord_sf(crs = CRS("+init=epsg:3112"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
-  theme_void()+guides(fill=FALSE)
+  invthm +  guides(fill=FALSE)
 aus_ggcont
-ggsave(filename = "figures/aus_ggcont.png", device = "png", dpi = 300,  width = 7, height = 6)
+ggsave(filename = "figures/aus_ggcont.png", device = "png",   bg = "transparent", dpi = 300,  width = 7, height = 6)
 
 
 ###############################################################################
@@ -121,7 +132,7 @@ aus_ggncont <- ggplot(ncont) +
              c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
   scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1) + 
   scale_size_identity() + 
-  theme_void()+guides(fill=FALSE)
+  invthm +guides(fill=FALSE)
 aus_ggncont
 
 perth_ggncont <- ggplot(ncont %>% filter(gcc_name_2016 == "Greater Perth")) + 
@@ -130,7 +141,7 @@ perth_ggncont <- ggplot(ncont %>% filter(gcc_name_2016 == "Greater Perth")) +
           fill = NA, colour = "grey", size = 0.001) +
   geom_sf(aes(fill = `Age-standardised rate (per 100,000)`), colour = NA) + 
   scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1) + 
-  scale_size_identity() + theme_void() +
+  scale_size_identity() + invthm +
   guides(fill=FALSE)
 perth_ggncont
 
@@ -140,7 +151,7 @@ full_ggncont <- ggdraw() +
   draw_plot(perth_ggncont, 0.33, 0.10, 0.25, 0.25)
 full_ggncont
 ggsave(filename = "figures/aus_ggncont.png", plot = full_ggncont,
-       device = "png", dpi = 300,  width = 7, height = 6)
+       device = "png",   bg = "transparent", dpi = 300,  width = 7, height = 6)
 
 
 ###############################################################################
@@ -152,9 +163,9 @@ aus_ggdorl <- ggplot(dorl) +
   geom_sf(aes(fill = `Age-standardised rate (per 100,000)`)) + 
   scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1) + 
   coord_sf(crs = CRS("+init=epsg:3112"), xlim = c(d["xmin"], d["xmax"]), ylim = c(d["ymin"], d["ymax"])) +
-  theme_void()+guides(fill=FALSE)
+  invthm +guides(fill=FALSE)
 aus_ggdorl
-ggsave(filename = "figures/aus_ggdorl.png", device = "png", dpi = 300,  width = 7, height = 6)
+ggsave(filename = "figures/aus_ggdorl.png", device = "png",  bg = "transparent", dpi = 300,  width = 7, height = 6)
 
 
 ###############################################################################
@@ -191,10 +202,10 @@ aus_gghexmap <- ggplot(hex) +
   geom_sf(aes(fill = `Age-standardised rate (per 100,000)`), colour = NA) + 
   coord_sf(crs = CRS("+init=epsg:3112"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
   scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1) + scale_size_identity() + 
-  theme_void()+guides(fill=FALSE)
+  invthm +guides(fill=FALSE)
 aus_gghexmap
 ggsave(filename = "figures/aus_gghexmap.png", plot = aus_gghexmap,
-  device = "png", dpi = 300,  width = 7, height = 6)
+  device = "png",   bg = "transparent", dpi = 300,  width = 7, height = 6)
 
 
 ###############################################################################
@@ -202,4 +213,4 @@ ggsave(filename = "figures/aus_gghexmap.png", plot = aus_gghexmap,
 
 aus_grid <- gridExtra::grid.arrange(aus_ggcont, full_ggncont, aus_ggdorl, aus_gghexmap, nrow = 2)
 ggsave(filename = "figures/aus_grid.png", plot = aus_grid,
-  device = "png", dpi = 300,  width = 7, height = 6)
+  device = "png",   bg = "transparent", dpi = 300,  width = 7, height = 6)
