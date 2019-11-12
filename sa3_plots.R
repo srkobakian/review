@@ -122,7 +122,7 @@ sa3lung %>%
   ggplot(.) +
   geom_density(aes(x = sva)) + geom_vline(aes(xintercept = 7))
 
-ncont <- cartogram_ncont(sa3lung, k = 1/2,
+ncont <- cartogram_ncont(sa3lung, k = 1/5,
   weight = "Population") %>% st_as_sf() %>% 
   rename(`Age-standardised rate (per 100,000)` = `Age.standardised.rate..per.100.000.`)
 aus_ggncont <- ggplot(ncont) + 
