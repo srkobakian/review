@@ -26,7 +26,9 @@ library(png)
 library(gridExtra)
 
 # read in data
-cancer <- read_csv("data/USCSlung.csv") %>% 
+cancer <- read_csv("~/review/data/USCSlung.csv") 
+
+cancer <-  cancer %>% 
   rename(NAME = Area)
 
 
@@ -44,18 +46,28 @@ title <- ""
   #"Average rate of incidence for lung and bronchus for females and males in the United States 2012-2016, \n where the size of each state has been adjusted for population"
 
 ###############################################################################
+
+invthm <- theme_void() + theme(
+  panel.background = element_rect(fill = "transparent", colour = NA), 
+  plot.background = element_rect(fill = "transparent", colour = NA),
+  legend.background = element_rect(fill = "transparent", colour = NA),
+  legend.key = element_rect(fill = "transparent", colour = NA),
+  text = element_text(colour = "white", size = 20)
+)
+
 # Create a choropleth
 ggchoro <- cancer %>% 
-  rename(`Age adjusted rate (per 100,000)` = AgeAdjustedRate) %>% 
+  mutate(`Age adjusted rate\n(per 100,000)` = AgeAdjustedRate) %>% 
   ggplot() + 
-  geom_sf(aes(fill = AgeAdjustedRate), colour = NA) +
+  geom_sf(aes(fill = `Age adjusted rate\n(per 100,000)`), colour = NA) +
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
   ggtitle(title) +
   #coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
-  theme_void() +
-  theme(legend.position ="bottom")
+  invthm +
+  theme(legend.position ="bottom",
+    legend.text = element_text(size = 8))
 ggchoro
-#ggsave(filename = "figures/ggchoro.png", device = "png", dpi = 300, width = 7, height = 6)
+ggsave(filename = "figures/ggchoro.png", device = "png", dpi = 300, width = 7, height = 6, bg = "transparent")
 
 usa_legend <- get_legend(ggchoro)
 save(usa_legend, file = "figures/usa_legend.rda")
@@ -71,11 +83,11 @@ ggcont <- ggplot(cont) +
   ggtitle(title) +
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
   #coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
-  theme_void() + guides(fill = FALSE)
+  invthm  + guides(fill = FALSE)
 
 save(cont, file = "data/cont.rda")
 ggcont
-ggsave(filename = "figures/ggcont.png", device = "png", dpi = 300, width = 7, height = 6)
+ggsave(filename = "figures/ggcont.png", device = "png", dpi = 300, width = 7, height = 6, bg = "transparent")
 
 
 ###############################################################################
@@ -97,25 +109,31 @@ ggncont <- ggplot(ncont) +
   ggtitle(title) + 
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
   #coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
-  theme_void() + guides(fill = FALSE)
+  invthm  + guides(fill = FALSE)
 
 save(ncont, file = "data/ncont.rda")
 ggncont
-ggsave(filename = "figures/ggncont.png", device = "png", dpi = 300, width = 7, height = 6)
+ggsave(filename = "figures/ggncont.png", device = "png", dpi = 300, width = 7, height = 6, bg = "transparent")
 
 
 ###############################################################################
 # Non - Contiguous Dorling Cartograms
 dorl <- cartogram_dorling(cancer,
   weight = "total_pop_15") %>% st_as_sf()
-ggdorl <- ggplot(dorl) + 
+
+cents <- data.frame(NAME = dorl$NAME, centroids = st_coordinates(st_centroid(dorl$geometry))) %>% rename(x = centroids.X, y = centroids.Y)
+  
+ggdorl <- dorl %>% left_join(us_grid, by = c("NAME" = "name")) %>%
+  left_join(cents) %>% 
+  ggplot() + 
   geom_sf(aes(fill = AgeAdjustedRate), colour = NA) + 
+  #geom_text(aes(x = x, y = y, label = code)) + 
   ggtitle(title) +
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
   #coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
-  theme_void()+ guides(fill = FALSE)
+  invthm + guides(fill = FALSE)
 ggdorl
-ggsave(filename = "figures/ggdorl.png", device = "png", dpi = 300, width = 7, height = 6)
+ggsave(filename = "figures/ggdorl.png", device = "png", dpi = 300, width = 7, height = 6, bg = "transparent")
 
 
 ###############################################################################
@@ -131,8 +149,8 @@ ggsave(filename = "figures/ggdorl.png", device = "png", dpi = 300, width = 7, he
 #   ggtitle(title) +
 #   scale_colour_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
 #   coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
-#   theme_void()+ guides(fill = FALSE)
-# ggsave(filename = "figures/ggdot.png", device = "png", dpi = 300, width = 7, height = 6)
+#   theme_void()+ 
+# ggsave(filename = "figures/ggdot.png", device = "png", dpi = 300, width = 7, height = 6, bg = "transparent")
 # ggdot
 
 
@@ -142,33 +160,33 @@ ggsave(filename = "figures/ggdorl.png", device = "png", dpi = 300, width = 7, he
 ggchoro1 <- ggplot(st_transform(cancer, 3857)) + 
   geom_sf(aes(fill = AgeAdjustedRate), colour = NA) +
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
-  theme_void()+ guides(fill = FALSE)
+  theme_void()+ 
 ggsave(filename = "figures/gg3857.png", plot = ggchoro1,
-       device = "png", dpi = 300, width = 7, height = 6)
+       device = "png", dpi = 300, width = 7, height = 6, bg = "transparent")
 
 
 ggchoro2 <- ggplot(st_transform(cancer, 2163)) + 
   geom_sf(aes(fill = AgeAdjustedRate), colour = NA) +
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
-  theme_void()+ guides(fill = FALSE)
+  theme_void()+ 
 ggsave(filename = "figures/gg2163.png", plot = ggchoro2,
-       device = "png", dpi = 300, width = 7, height = 6)
+       device = "png", dpi = 300, width = 7, height = 6, bg = "transparent")
 
 
 ggchoro3 <- ggplot(st_transform(cancer, 4326)) + 
   geom_sf(aes(fill = AgeAdjustedRate), colour = NA) +
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
-  theme_void()+ guides(fill = FALSE)
+  theme_void()+ 
 ggsave(filename = "figures/gg4326.png", plot = ggchoro3,
-       device = "png", dpi = 300, width = 7, height = 6)
+       device = "png", dpi = 300, width = 7, height = 6, bg = "transparent")
 
 
 ggchoro4 <- ggplot(st_transform(cancer, 2955)) + 
   geom_sf(aes(fill = AgeAdjustedRate), colour = NA) +
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
-  theme_void() + guides(fill = FALSE)
+  invthm 
 ggsave(filename = "figures/gg2955.png", plot = ggchoro4,
-       device = "png", dpi = 300, width = 7, height = 6)
+       device = "png", dpi = 300, width = 7, height = 6, bg = "transparent")
 
 
 ggchoros <- plot_grid(ggchoro1, ggchoro2, ggchoro3, ggchoro4,
@@ -222,11 +240,11 @@ hex <- cancer_ng %>%
 gghexmap <- ggplot(hex) + 
   geom_sf(aes(fill = AgeAdjustedRate), colour = NA) + 
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) +
-  theme_void()+ guides(fill = FALSE) 
+  theme_void()+  
 
 gghexmap
 ggsave(filename = "figures/gghexmap.png", plot = gghexmap,
-  device = "png", dpi = 300, width = 7, height = 6)
+  device = "png", dpi = 300, width = 7, height = 6, bg = "transparent")
 
 usa_gridl <- ggdraw() +
   draw_plot(ggcont, 0, .5, 0.5, 0.55) +
@@ -239,7 +257,7 @@ usa_gridl <- ggdraw() +
                   c(1, 1, .5, .5), size = 20)
 
 ggsave(filename = "figures/usa_grid.png", plot = usa_gridl,
-  device = "png", dpi = 300, width = 7, height = 6)
+  device = "png", dpi = 300, width = 7, height = 6, bg = "transparent")
 
 ###############################################################################
 
@@ -252,12 +270,13 @@ ggtilegram <- cancer %>% rename(state = NAME) %>%
   statebins(., state_col = "state",
     value_col = "AgeAdjustedRate", 
     name = "AgeAdjustedRate",
-    type = "seq", palette = "RdPu",  direction = 1, font_size = 12
+    type = "seq", palette = "RdPu",  direction = 1, font_size = 10
   ) +
-  theme_void() + guides(fill = FALSE)
+  invthm + guides(fill= FALSE)
 ggtilegram
 ggsave(filename = "figures/ggtilegram.png", plot = ggtilegram,
-  device = "png", dpi = 300, width = 10, height = 8)
+  device = "png", dpi = 300, width = 10, height = 8, bg = "transparent")
+
 
 
 # Geofacet
@@ -266,13 +285,12 @@ library(geogrid)
 us_grid <- read_csv("us_grid.csv") %>% filter(col>1)
 
 # read in data
-cancer_f <- read_csv("data/USCS_lung_f.csv") %>% mutate(Sex = "F")
-cancer_m <- read_csv("data/USCS_lung_m.csv") %>% mutate(Sex = "M")
+cancer_f <- read_csv("~/review/data/USCS_lung_f.csv") %>% mutate(Sex = "F")
+cancer_m <- read_csv("~/review/data/USCS_lung_m.csv") %>% mutate(Sex = "M")
 
-cancer_mf <- bind_rows(cancer_f, cancer_m) %>% 
+cancer_mf <- bind_rows(cancer_f, cancer_m) %>% as_tibble() %>% 
     mutate(state = gsub("'", "", Area),
-    AgeAdjustedRate = parse_number(AgeAdjustedRate)) %>% 
-  select(state, Sex, AgeAdjustedRate)
+    AgeAdjustedRate = parse_number(AgeAdjustedRate))
 
 ggfacet <- ggplot(cancer_mf) + 
   geom_col(aes(x = Sex, y = AgeAdjustedRate, fill = Sex)) + 
@@ -281,15 +299,18 @@ ggfacet <- ggplot(cancer_mf) +
   theme_bw() + 
   theme(legend.position ="bottom", 
         axis.title.y = element_blank(),
-        axis.text.y = element_text(colour = "black"),
+        axis.text = element_text(colour = "white"),
         strip.text.x = element_text(
           size = 14, color = "black", face = "bold"
-        )
-        )
+        ),
+    panel.background = element_rect(fill = "transparent", colour = NA), 
+    plot.background = element_rect(fill = "transparent", colour = NA),
+    legend.background = element_rect(fill = "transparent", colour = NA),
+    legend.key = element_rect(fill = "transparent", colour = NA))
 
 ggfacet
 ggsave(filename = "figures/ggfacet.png", plot = ggfacet,
-  device = "png", dpi = 300, width = 10, height = 8)
+  device = "png", dpi = 300, width = 15, height = 12, bg = "transparent")
 
 p <- plot_grid(rasterGrob(png::readPNG("figures/ggtilegram.png")),
           rasterGrob(png::readPNG("figures/ggfacet.png")), 
@@ -297,3 +318,8 @@ p <- plot_grid(rasterGrob(png::readPNG("figures/ggtilegram.png")),
 
 ggsave(filename = "figures/gggrids.png", plot = p,
   device = "png", dpi = 300, width = 16, height = 8)
+
+
+library(tilegramsR)
+
+sf_NPR1to1

@@ -1,0 +1,52 @@
+Area,CancerType,Year,Sex,AgeAdjustedRate,CaseCount,Population
+Utah,Lung and Bronchus,2012-2016,Male and Female,26.9,3249,14722092
+New Mexico,Lung and Bronchus,2012-2016,Male and Female,39.6,4917,10419654
+California,Lung and Bronchus,2012-2016,Male and Female,42.1,84111,193396587
+Colorado,Lung and Bronchus,2012-2016,Male and Female,42.5,11635,26761747
+Hawaii,Lung and Bronchus,2012-2016,Male and Female,45.7,4075,7073523
+Wyoming,Lung and Bronchus,2012-2016,Male and Female,44.1,1474,2913295
+Arizona,Lung and Bronchus,2012-2016,Male and Female,48.1,19611,33577674
+District of Columbia,Lung and Bronchus,2012-2016,Male and Female,49.6,1597,3303613
+Idaho,Lung and Bronchus,2012-2016,Male and Female,50.3,4570,8164601
+Montana,Lung and Bronchus,2012-2016,Male and Female,54.8,3664,5102347
+Nevada,Lung and Bronchus,2012-2016,Male and Female,55.2,8702,14192998
+Oregon,Lung and Bronchus,2012-2016,Male and Female,54.7,13418,19876783
+Texas,Lung and Bronchus,2012-2016,Male and Female,51.9,66292,134871784
+Washington,Lung and Bronchus,2012-2016,Male and Female,55.8,21948,35334992
+Alaska,Lung and Bronchus,2012-2016,Male and Female,56,1743,3683845
+Connecticut,Lung and Bronchus,2012-2016,Male and Female,59.8,13422,17981910
+Florida,Lung and Bronchus,2012-2016,Male and Female,59,84296,99749157
+Iowa,Lung and Bronchus,2012-2016,Male and Female,63,12180,15519167
+Kansas,Lung and Bronchus,2012-2016,Male and Female,59.9,9951,14491289
+Maryland,Lung and Bronchus,2012-2016,Male and Female,56.4,18940,29819892
+Massachusetts,Lung and Bronchus,2012-2016,Male and Female,61.7,25065,33746413
+Minnesota,Lung and Bronchus,2012-2016,Male and Female,56,17646,27254706
+Nebraska,Lung and Bronchus,2012-2016,Male and Female,57.7,6247,9404363
+New Jersey,Lung and Bronchus,2012-2016,Male and Female,56.1,29756,44677257
+New York,Lung and Bronchus,2012-2016,Male and Female,58.9,69015,98767136
+North Dakota,Lung and Bronchus,2012-2016,Male and Female,57.3,2390,3673353
+South Dakota,Lung and Bronchus,2012-2016,Male and Female,59,2999,4240122
+Vermont,Lung and Bronchus,2012-2016,Male and Female,62.4,2622,3125124
+Virginia,Lung and Bronchus,2012-2016,Male and Female,58.6,27356,41548394
+Wisconsin,Lung and Bronchus,2012-2016,Male and Female,59.8,20951,28741681
+Alabama,Lung and Bronchus,2012-2016,Male and Female,66.4,19830,24193046
+Arkansas,Lung and Bronchus,2012-2016,Male and Female,78.1,14335,14834645
+Delaware,Lung and Bronchus,2012-2016,Male and Female,69.5,4160,4673592
+Georgia,Lung and Bronchus,2012-2016,Male and Female,64.1,33291,50489947
+Illinois,Lung and Bronchus,2012-2016,Male and Female,64.7,47130,64349112
+Indiana,Lung and Bronchus,2012-2016,Male and Female,72.9,27711,32940934
+Kentucky,Lung and Bronchus,2012-2016,Male and Female,92.2,24431,22051379
+Louisiana,Lung and Bronchus,2012-2016,Male and Female,67.5,17682,23235641
+Maine,Lung and Bronchus,2012-2016,Male and Female,73.7,6973,6642998
+Michigan,Lung and Bronchus,2012-2016,Male and Female,64,39406,49552119
+Mississippi,Lung and Bronchus,2012-2016,Male and Female,75.5,13073,14929974
+Missouri,Lung and Bronchus,2012-2016,Male and Female,72.9,27086,30286239
+New Hampshire,Lung and Bronchus,2012-2016,Male and Female,64.3,5494,6637378
+North Carolina,Lung and Bronchus,2012-2016,Male and Female,68.8,40197,49744729
+Ohio,Lung and Bronchus,2012-2016,Male and Female,68.5,49288,57937136
+Oklahoma,Lung and Bronchus,2012-2016,Male and Female,69.2,15550,19365706
+Pennsylvania,Lung and Bronchus,2012-2016,Male and Female,64,53883,63915034
+Rhode Island,Lung and Bronchus,2012-2016,Male and Female,70.6,4660,5273809
+South Carolina,Lung and Bronchus,2012-2016,Male and Female,65.5,19737,24161874
+Tennessee,Lung and Bronchus,2012-2016,Male and Female,75.1,29667,32721564
+West Virginia,Lung and Bronchus,2012-2016,Male and Female,79.3,10237,9223721

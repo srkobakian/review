@@ -1,0 +1,52 @@
+Area,CancerType,Year,Sex,AgeAdjustedRate,CaseCount,Population
+District of Columbia,Melanomas of the Skin,2012-2016,Male and Female,9.5,320,3303613
+Texas,Melanomas of the Skin,2012-2016,Male and Female,12.8,16599,134871784
+Alaska,Melanomas of the Skin,2012-2016,Male and Female,14.8,494,3683845
+Mississippi,Melanomas of the Skin,2012-2016,Male and Female,17.1,2803,14929974
+Nevada,Melanomas of the Skin,2012-2016,Male and Female,15,2340,14192998
+New Mexico,Melanomas of the Skin,2012-2016,Male and Female,15.3,1858,10419654
+Illinois,Melanomas of the Skin,2012-2016,Male and Female,19.7,13931,64349112
+Indiana,Melanomas of the Skin,2012-2016,Male and Female,20.1,7286,32940934
+Louisiana,Melanomas of the Skin,2012-2016,Male and Female,17.3,4303,23235641
+Michigan,Melanomas of the Skin,2012-2016,Male and Female,19.4,11120,49552119
+Missouri,Melanomas of the Skin,2012-2016,Male and Female,19.2,6663,30286239
+New York,Melanomas of the Skin,2012-2016,Male and Female,18.1,20521,98767136
+Tennessee,Melanomas of the Skin,2012-2016,Male and Female,20.2,7550,32721564
+Virginia,Melanomas of the Skin,2012-2016,Male and Female,19.2,8816,41548394
+Alabama,Melanomas of the Skin,2012-2016,Male and Female,21.5,5939,24193046
+Arizona,Melanomas of the Skin,2012-2016,Male and Female,22,8513,33577674
+Arkansas,Melanomas of the Skin,2012-2016,Male and Female,21.3,3602,14834645
+California,Melanomas of the Skin,2012-2016,Male and Female,22.5,45698,193396587
+Colorado,Melanomas of the Skin,2012-2016,Male and Female,22.1,6239,26761747
+Connecticut,Melanomas of the Skin,2012-2016,Male and Female,20.5,4455,17981910
+Hawaii,Melanomas of the Skin,2012-2016,Male and Female,21.4,1811,7073523
+Maryland,Melanomas of the Skin,2012-2016,Male and Female,23,7617,29819892
+Massachusetts,Melanomas of the Skin,2012-2016,Male and Female,21.2,8349,33746413
+New Jersey,Melanomas of the Skin,2012-2016,Male and Female,21.9,11388,44677257
+North Dakota,Melanomas of the Skin,2012-2016,Male and Female,23.3,910,3673353
+Ohio,Melanomas of the Skin,2012-2016,Male and Female,22.9,15342,57937136
+Oklahoma,Melanomas of the Skin,2012-2016,Male and Female,21.4,4537,19365706
+South Carolina,Melanomas of the Skin,2012-2016,Male and Female,23.3,6574,24161874
+West Virginia,Melanomas of the Skin,2012-2016,Male and Female,20.9,2386,9223721
+Wyoming,Melanomas of the Skin,2012-2016,Male and Female,22.4,722,2913295
+Delaware,Melanomas of the Skin,2012-2016,Male and Female,29.8,1707,4673592
+Florida,Melanomas of the Skin,2012-2016,Male and Female,24,31857,99749157
+Georgia,Melanomas of the Skin,2012-2016,Male and Female,26.6,13776,50489947
+Idaho,Melanomas of the Skin,2012-2016,Male and Female,27.9,2444,8164601
+Iowa,Melanomas of the Skin,2012-2016,Male and Female,26.3,4640,15519167
+Kansas,Melanomas of the Skin,2012-2016,Male and Female,25.7,4041,14491289
+Kentucky,Melanomas of the Skin,2012-2016,Male and Female,26.9,6689,22051379
+Maine,Melanomas of the Skin,2012-2016,Male and Female,26,2259,6642998
+Minnesota,Melanomas of the Skin,2012-2016,Male and Female,30.4,9202,27254706
+Montana,Melanomas of the Skin,2012-2016,Male and Female,26.8,1640,5102347
+Nebraska,Melanomas of the Skin,2012-2016,Male and Female,23.9,2436,9404363
+New Hampshire,Melanomas of the Skin,2012-2016,Male and Female,30.2,2464,6637378
+North Carolina,Melanomas of the Skin,2012-2016,Male and Female,25.7,14309,49744729
+Oregon,Melanomas of the Skin,2012-2016,Male and Female,27.1,6333,19876783
+Pennsylvania,Melanomas of the Skin,2012-2016,Male and Female,24.3,18896,63915034
+Rhode Island,Melanomas of the Skin,2012-2016,Male and Female,23.6,1499,5273809
+South Dakota,Melanomas of the Skin,2012-2016,Male and Female,24.2,1124,4240122
+Utah,Melanomas of the Skin,2012-2016,Male and Female,39.8,5024,14722092
+Vermont,Melanomas of the Skin,2012-2016,Male and Female,35.8,1417,3125124
+Washington,Melanomas of the Skin,2012-2016,Male and Female,25.8,10107,35334992
+Wisconsin,Melanomas of the Skin,2012-2016,Male and Female,23.9,7942,28741681
