@@ -1,0 +1,125 @@
+---
+from: Stephanie Kobakian
+fromqualifications: BA
+fromtitle: Research Masters Student
+fromemail: stephanie.kobakian@monash.edu
+fromphone: +61 433 699 797
+toname: Professor Peter Baade and Dr Susanna Cramb
+opening: Dear Professor Peter Baade and Dr Susanna Cramb
+closing: Warm regards
+spacing: 1.4
+output: MonashEBSTemplates::letter
+---
+
+Thank you for your letter containing your feedback regarding our submision "Cartogram Mapping and its Application to Cancer Data Visualization", for inclusion in the Focused Issue on Spatial Patterns in Cancer Epidemiology in the Annals of Cancer Epidemiology.
+
+This review paper presented an exploration of cancer mapping methods, focusing on variations on choropleths for online cancer atlases.
+
+**Editor suggestion:**
+**We would suggest that the aim of the manuscript could be phrased to highlight the current approaches and limitations of typical visualisation methods for cancer maps, along with outlining possible alternative methods and challenges in implementing these?**
+
+We have restructed our original submission to provide a clear path from current approaches used, to the alternative approaches that should be explored. We highlight the limitations of using current display methods, to encourage the use of  alternative display methods. We also present the challenges that may be faced when implementing the alternative designs.
+
+The manuscript now contains the following sections:
+
+Current approaches
+Limitations of current approaches
+Alternative visualisation methods
+Challenges of alternative approaches
+
+
+
+We have inclued changes to reflect your minor notes:
+
+**Editor suggestion:**
+**The authors mention a focus on Atlases published between 2010 and 2015, but then include a bowel cancer atlas from 2016. **
+
+**Also, within the bowel cancer atlas data, the reporting of percent of males aged 50-54 with bowel cancer in 2016 is incorrect; it should be the % of the ERP in each area that are males aged 50-54 years. **
+
+We have corrected the description of the statistic used in the bowel cancer atlas of Australia:
+
+
+Bowel Cancer Australia Atlas:
+...shows the average Standardised Incidence Ratio of colorectal cancer for Australian males from 2006 to 2010 in Australia  . It is published by *[Bowel Cancer Australia](https://www.bowelcanceraustralia.org/)*.  
+
+
+
+**Reviewer A: **
+**Major**
+*Comment 1: *
+The Abstract should be more focused- perhaps give an example of how cartogram mapping has been applied to data visualisation. What are the benefits of this approach and suggestions for the future.
+
+*Reply 1:* 
+We agree with the reviewer that alternative approaches have been fantastic when used in political contexts. Choropleth maps have often been used.
+
+
+*Changes in the text:* 
+Cancer atlases communicate cancer statistics over geographic domains. These domains are subdivided by administrative areas such as countries, states or suburbs. When communicating human-related statistics in Australia, the geographic map base highlights the sparsely populated rural areas. The smaller geographic areas may not draw the attention of readers but they are important to consider if they are more densely populated. Alternative map displays can reveal patterns that are not obvious when the same data is shown on a choropleth map. Alternative displays have proven to be successful on online news sites, especially for the communication of election data, where votes are aggregated at the state level.
+
+
+*Comment 2: *
+
+2. The key message seems to get lost in the Abstract. The Conclusion is vague.
+
+*Reply 2:* 
+See *Reply 1* for changes to the abstract. Additionally, the conclusion has also been edited to be more direct in concluding the alternatives presented.
+
+*Changes in the text:* 
+
+*Comment 3: *
+
+3. Entire paper needs substantial English language editing
+
+*Reply :* 
+
+
+*Changes in the text:* 
+
+*Comment 4: *
+
+4. Please avoid the use of sentences which have been used throughout the paper where you start with a reference number: such as “[4] discusses the use of (Map displays for disease data, Line 15-16) They do not make any sense and must be modified.
+
+*Reply :* 
+
+
+*Changes in the text:* 
+
+*Comment 5: *
+
+5. Please provide numbers for Figures and Tables
+
+*Reply :* 
+
+
+*Changes in the text:* 
+
+*Comment 6: *
+
+6. Please clearly state the primary aim of this paper and structure it accordingly.
+
+*Reply :* 
+
+
+*Changes in the text:* 
+
+*Comment 7: *
+
+7. Conclusions must discuss the key focus and conclusions of this paper. 
+
+*Reply :* 
+
+
+*Changes in the text:* 
+
+
+*Minor Comments* 
+
+- Please check the use of past and present tense
+- There are many minor grammatical errors that need to checked.
+- Please edit the last section of the Introduction. Either number each section and then refer to them or find another way to appropriately refer to each section.
+
+
+We thank you for your consideration.
+
+
+
