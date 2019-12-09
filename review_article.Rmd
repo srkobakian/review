@@ -43,7 +43,7 @@ Map displays are commonly required for the communication of cancer statistics ov
 Daniel Exeter [@SE] recognizes one of the key challenges with mapping spatial patterns of disease is the design of visualizations. This paper considers the current visualization techniques to communicate statistics to the public, and their applications to cancer statistics. Alternative approaches are also considered, and the limitations of the visualization methods, highlighting the differences and historic use of these displays.
 
 <!-- Structure of the paper -->
-The paper is organized as follows. The next section describes the choropleth map which is the common approach to disease maps and presents examples of atlases in use today. The limitations of the choropleth map are discussed in Section \ref{ch:chorolimit}. Section \ref{ch:alternatives} describes alternative displays, including the cartogram which is useful when the map has heterogeneously sized geographic units. Section \ref{ch:altlimits} presents the limitaions of producing and using alternative displays. Disease maps are more useful when made interactive, and common options are described in Section \ref{ch:interacting}, along with a discussion of benefits and disadvantages.
+The paper is organized as follows. The next section describes the choropleth map which is the common approach to disease maps and presents examples of atlases in use today. The limitations of the choropleth map are discussed in Section \ref{ch:chorolimit}. Section \ref{ch:alternatives} describes alternative displays, including the cartogram which is useful when the map has heterogeneously sized geographic units. Section \ref{sec:altlimits} presents the limitaions of producing and using alternative displays. Disease maps are more useful when made interactive, and common options are described in Section \ref{ch:interacting}, along with a discussion of benefits and disadvantages.
 
 
 # Traditional approaches for cancer map displays {#ch:choropleths}
@@ -122,8 +122,6 @@ Table: \label{tab:measures} Commonly used measures for reporting cancer informat
 |(Relative Excess Risk)| Represents the estimate of cancer-related mortality within five years of diagnosis. Also referred to as 'excess hazard ratio'| 
 
 
-
-## Overview of publicly available atlases \label{sec:publicatlases}
 <!-- 416 words -->
 Roberts [@roberts2019communication] identified 33 publicly available cancer atlases, published between 2010 and 2018, from different countries around the globe. All of these online atlases used choropleth maps. All but one of these were published by non-commercial organizations, including not-for-profits, government, research organizations, advocacy groups or government-funded partnerships.  Figure \ref{fig:choropleth-grid-create} displays a subset of maps from these atlases.
 
@@ -157,7 +155,7 @@ Figure \ref{fig:choropleth-grid-create}g  displays the incidence rate of childho
 
 ## Additional considerations
 <!-- 479 words -->
-Maps cannot tell the entire story. Supplementary graphs and plots are often included to add more depth and information. Additional materials such as tables, graphs, and text explanations, support understanding and inference derived from maps, ensuring the message communicated will be consistent across a range of viewers [@CPISACA]. The many displays of statistical summaries, including dot plots, bar plots, box plots, cumulative distribution plots, scatter plots, normal probability plots, can provide alternative views of the cancer statistics. These can also display supporting statistics such as error, confidence intervals, distributions, sample or population sizes, standard deviation. When presenting cancer maps, the intuition derived from maps must be 'validated by rigorous statistical analyses' [@MACM], and the display of the supplementary statistics helps in this regard.
+Supplementary graphs and plots are often included to add more depth and information. Additional materials such as tables, graphs, and text explanations, support understanding and inference derived from maps, ensuring the message communicated will be consistent across a range of viewers [@CPISACA]. The many displays of statistical summaries, including dot plots, bar plots, box plots, cumulative distribution plots, scatter plots, normal probability plots, can provide alternative views of the cancer statistics. These can also display supporting statistics such as error, confidence intervals, distributions, sample or population sizes, standard deviation. When presenting cancer maps, the intuition derived from maps must be 'validated by rigorous statistical analyses' [@MACM], and the display of the supplementary statistics helps in this regard.
 
 ### Geographic hierarchies
 
@@ -194,6 +192,7 @@ Using a map of Australia as a visual statistic would communicate an incorrect di
 Choropleths provide a familiar display. This may be less threatening to an audience that could be frightened by statistics, but they suffer primarily from unfaithfully representing the disease information by hiding small geographic areas. Inset maps like in Brisbane city in Figure \ref{fig:choropleth-grid-create}c of the state of Queensland, are commonly used to reduce distorted interpretations, but it is a bandaid remedy. 
 
  As this feature of population distributions continues to intensify, the need for cartograms as an alternative to a choropleth map should only increase.
+ 
 # Contemporary alternatives to choropleths {#ch:alternatives}
 
 ## Cartograms
@@ -397,7 +396,7 @@ This method makes the maps and matrix connections clear, and easy to link geogra
 -->
 
 
-# Limitations of alternative displays {#ch:compare}
+# Limitations of alternative displays {#sec:altlimits}
 <!-- 408 words -->
 
 
@@ -533,7 +532,7 @@ These interactive features provide an opportunity for users to explore the addit
 
 ## Interaction and animation in publicly available atlases
 
-Many publicly available cancer atlases employ interactivity and/or animation. Figure 6 <!--\ref{fig:interacting}--> shows the interactive GUI tools provided with the public atlases discussed in Section \ref{sec:publicatlases}. Mostly these are menus, and toggles, for choosing indicators, and subsets of the population.
+Many publicly available cancer atlases employ interactivity and/or animation. Figure 6 <!--\ref{fig:interacting}--> shows the interactive GUI tools provided with the public atlases. Mostly these are menus, and toggles, for choosing indicators, and subsets of the population.
 
 
 ## Under-utilized techniques

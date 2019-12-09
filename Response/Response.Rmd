@@ -4,8 +4,9 @@ fromqualifications: BA
 fromtitle: Research Masters Student
 fromemail: stephanie.kobakian@monash.edu
 fromphone: +61 433 699 797
+fromsignature: sigfile.png
 toname: Professor Peter Baade and Dr Susanna Cramb
-opening: Dear Professor Peter Baade and Dr Susanna Cramb
+opening: Dear Professor Peter Baade and Dr Susanna Cramb,
 closing: Warm regards
 spacing: 1.4
 output: MonashEBSTemplates::letter
@@ -18,39 +19,39 @@ This review paper presented an exploration of cancer mapping methods, focusing o
 **Editor suggestion:**
 **We would suggest that the aim of the manuscript could be phrased to highlight the current approaches and limitations of typical visualisation methods for cancer maps, along with outlining possible alternative methods and challenges in implementing these?**
 
-We have restructed our original submission to provide a clear path from current approaches used, to the alternative approaches that should be explored. We highlight the limitations of using current display methods, to encourage the use of  alternative display methods. We also present the challenges that may be faced when implementing the alternative designs.
+We have restructed our original submission to provide a clear path from current approaches used, to the alternative approaches that should be explored. We highlight the limitations of using current display methods, to encourage the use of alternative display methods. We also present the challenges that may be faced when implementing the alternative designs.
 
 The manuscript now contains the following sections:
 
-Current approaches
-Limitations of current approaches
-Alternative visualisation methods
-Challenges of alternative approaches
+**Traditional approaches for cancer map displays:** This section discusses the choropleth map as the common map display used in cancer maps and atlases.
+*Limitations of current approaches:* This section presents the possible issues with displaying cancer statistics on a choropleth map.
+*Alternative visualisation methods:* We have shown that there are many alternative displays that highlight population dense regions.
+*Challenges of alternative approaches:* Alternative displays also have limitations when displaying spatial distributions of cancer statistics.
 
 
 
 We have inclued changes to reflect your minor notes:
 
-**Editor suggestion:**
-**The authors mention a focus on Atlases published between 2010 and 2015, but then include a bowel cancer atlas from 2016. **
+*Editor suggestion:*
+*The authors mention a focus on Atlases published between 2010 and 2015, but then include a bowel cancer atlas from 2016. *
 
-**Also, within the bowel cancer atlas data, the reporting of percent of males aged 50-54 with bowel cancer in 2016 is incorrect; it should be the % of the ERP in each area that are males aged 50-54 years. **
+*Also, within the bowel cancer atlas data, the reporting of percent of males aged 50-54 with bowel cancer in 2016 is incorrect; it should be the % of the ERP in each area that are males aged 50-54 years. *
 
-We have corrected the description of the statistic used in the bowel cancer atlas of Australia:
+We have changed the image used from the Bowel Cancer Atlas. To reflect this change the description of the statistic used in the bowel cancer atlas of Australia ahs been corrected:
 
 
 Bowel Cancer Australia Atlas:
-...shows the average Standardised Incidence Ratio of colorectal cancer for Australian males from 2006 to 2010 in Australia  . It is published by *[Bowel Cancer Australia](https://www.bowelcanceraustralia.org/)*.  
+...shows the average Standardised Incidence Ratio of colorectal cancer for Australian males from 2006 to 2010 in Australia. It is published by Bowel Cancer Australia https://www.bowelcanceraustralia.org/.  
 
 
 
-**Reviewer A: **
-**Major**
+*Reviewer A: *
+*Major*
 *Comment 1: *
 The Abstract should be more focused- perhaps give an example of how cartogram mapping has been applied to data visualisation. What are the benefits of this approach and suggestions for the future.
 
 *Reply 1:* 
-We agree with the reviewer that alternative approaches have been fantastic when used in political contexts. Choropleth maps have often been used.
+We agree with the reviewer. Alternative mapping displays have been implemented in political contexts. Choropleth maps have often been used.
 
 
 *Changes in the text:* 
@@ -120,6 +121,5 @@ See *Reply 1* for changes to the abstract. Additionally, the conclusion has also
 
 
 We thank you for your consideration.
-
 
 
