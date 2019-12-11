@@ -1,5 +1,5 @@
 ---
-title: "Cartogram Mapping and its Application to Cancer Data Visualization"
+title: "Cancer Applications of Choropleth maps, and the Potential of Cartograms and Alternative Map Displays"
 author: "Stephanie Kobakian, Jessie Roberts and Dianne Cook"
 bibliography: reviewbib.bib
 output:
@@ -43,7 +43,7 @@ Map displays are commonly required for the communication of cancer statistics ov
 Daniel Exeter [@SE] recognizes one of the key challenges with mapping spatial patterns of disease is the design of visualizations. This paper considers the current visualization techniques to communicate statistics to the public, and their applications to cancer statistics. Alternative approaches are also considered, and the limitations of the visualization methods, highlighting the differences and historic use of these displays.
 
 <!-- Structure of the paper -->
-The paper is organized as follows. The next section describes the choropleth map which is the common approach to disease maps and presents examples of atlases in use today. The limitations of the choropleth map are discussed in Section \ref{ch:chorolimit}. Section \ref{ch:alternatives} describes alternative displays, including the cartogram which is useful when the map has heterogeneously sized geographic units. Section \ref{sec:altlimits} presents the limitaions of producing and using alternative displays. Disease maps are more useful when made interactive, and common options are described in Section \ref{ch:interacting}, along with a discussion of benefits and disadvantages.
+The paper is organized as follows. The next section describes the choropleth map which is the common approach to disease maps and presents examples of atlases in use today. The limitations of the choropleth map are discussed in Section \ref{ch:chorolimit}. Section \ref{ch:alternatives} describes alternative displays, including the cartogram which is useful when the map has heterogeneously sized geographic units. Section \ref{sec:compare} presents the limitaions of producing and using alternative displays. Disease maps are more useful when made interactive, and common options are described in Section \ref{ch:interacting}, along with a discussion of benefits and disadvantages.
 
 
 # Traditional approaches for cancer map displays {#ch:choropleths}
@@ -64,7 +64,7 @@ The familiar shapes are often politically driven boundaries with individual area
 The different population and geographical sizes of administrative areas can attract attention to the shades of the underpopulated but large areas [@EI], Skowronnek [@BCM] calls this an area-size bias. 
 Choropleths can inhibit visual inference when presenting human-related statistics as the display may draw attention away from the 'potentially more important results in the more populous communities' that are geographically smaller [@SE]. 
 
-```{r choropleth-grid-create, message=FALSE, warning = FALSE, fig.cap = "Publicly available choropleth cancer maps published between 2010 and 2015.", out.width='100%', fig.align='center', fig.width=12, fig.height=10}
+```{r choropleth-grid-create, message=FALSE, warning = FALSE, fig.cap = "Publicly available choropleth cancer maps..", out.width='100%', fig.align='center', fig.width=12, fig.height=10}
 library(cowplot)
 
 # Import the images
@@ -125,35 +125,20 @@ Table: \label{tab:measures} Commonly used measures for reporting cancer informat
 <!-- 416 words -->
 Roberts [@roberts2019communication] identified 33 publicly available cancer atlases, published between 2010 and 2018, from different countries around the globe. All of these online atlases used choropleth maps. All but one of these were published by non-commercial organizations, including not-for-profits, government, research organizations, advocacy groups or government-funded partnerships.  Figure \ref{fig:choropleth-grid-create} displays a subset of maps from these atlases.
 
-### The Environment and Health Atlas of England and Wales
+The selection varies in the geographies explored, Figure \ref{fig:choropleth-grid-create}b, Globocan 2012 [@Globocan] explores Estimated Cancer Incidence, Mortality and Prevalence Worldwide utilising data sourced from cancer registries of each country. 
+The Bowel Cancer Australia Atlas presents an example of a cancer specific atlas, Figure \ref{fig:choropleth-grid-create}d shows the average Standardised Incidence Ratio of colorectal cancer for Australian males from 2006 to 2010 in Australia [@Bowel]. The choice of gender can be selected in the Bowel Cancer Atlas, an alternative approach in employed in the Map of Cancer Mortality Rates in Spain, Figure \ref{fig:choropleth-grid-create}f shows side by side maps of the relative risk of lung cancer separately for men and women [@cancerSpain]. 
 
-Figure \ref{fig:choropleth-grid-create}a shows the relative risk for women developing lung cancer in England and Wales in 2010 [@EnvEnglandWales2]. The cancer data was from the Office for National Statistics (ONS) (England) and the Welsh Cancer Intelligence and Surveillance Unit (WCISU).    
+There are vast differences in the geographies considered by online atlases. 
+Figure \ref{fig:choropleth-grid-create}b shows global age-standardized incidence rates (per 100,000) for all invasive cancers for both men and women, aggregated at a national level for 2018.
+The United States Cancer Statistics [@USInteractive] can be seen in Figure \ref{fig:choropleth-grid-create}e. This map contains the incidence rate per 100,000, of all cancer types for men and women in the United States in 2016, aggregated at the state level.
+The Environment and Health Atlas of England and Wales, Figure \ref{fig:choropleth-grid-create}a shows the relative risk for women developing lung cancer in England and Wales in 2010 [@EnvEnglandWales2] at a neighbourhood (small-area) scale.
+The Atlas of Cancer in Queensland, Figure \ref{fig:choropleth-grid-create}c shows the relative incidence ratio of lung cancer in males for each Statistical Area at Level 2 in the state of Queensland within Australia [@QLDcancerAtlas].
 
 
-### Globocan 2012: Estimated Cancer Incidence, Mortality and Prevalence Worldwide
+Age specific atlases are less common, Figure \ref{fig:choropleth-grid-create}g displays Atlas of Childhood Cancer in Ontario, this communicates the incidence rate of childhood cancers per 100,000 (by census division) for children aged 0-14, in Ontario from 1995 to 2004 [@OntarioPediatric]. This atlas communicates information regarding a very small geographic region.
 
-The map seen in Figure \ref{fig:choropleth-grid-create}b shows age-standardized incidence rates (per 100,000) for all invasive cancers for both men and women, aggregated at a national level for 2018 [@Globocan]. It is published by the [World Health Organization's International Agency for Research on Cancer](https://www.iarc.fr/). Data was sourced from cancer registries of each country. 
 
-### Atlas of Cancer in Queensland 
-
-Figure \ref{fig:choropleth-grid-create}c shows the relative incidence ratio of lung cancer in males in the state of QLD within Australia based on data from 1998 to 2007 [@QLDcancerAtlas]. It is published by the Queensland Cancer Council, using data from the *[Queensland Cancer Registry](https://cancerqld.org.au/research/cancer-registries/queensland-cancer-registry/)*.  
-
-### Bowel Cancer Australia Atlas 
-Figure \ref{fig:choropleth-grid-create}d shows the average Standardised Incidence Ratio of colorectal cancer for Australian males from 2006 to 2010 in Australia [@Bowel]. It is published by *[Bowel Cancer Australia](https://www.bowelcanceraustralia.org/)*.  
-
-### United States Cancer Statistics: An Interactive Cancer Statistics Website
-
-The *[United States Cancer Statistics: An Interactive Cancer Statistics Website](https://nccd.cdc.gov/DCPC_INCA/)* [@USInteractive] can be seen in Figure \ref{fig:choropleth-grid-create}e. This map contains  the incidence rate per 100,000, of all cancer types for men and women in the United States in 2016, aggregated at the state level. The map was published by the *[Centers for Disease Control and Prevention](https://www.cdc.gov/)*, with data from state cancer registries.
-
-### Map of Cancer Mortality Rates in Spain
-
-Figure \ref{fig:choropleth-grid-create}f shows side by side maps of the relative risk of lung cancer separately for men and women from 2004 to 2008 [@cancerSpain]. 
-
-### Atlas of Childhood Cancer in Ontario 
-
-Figure \ref{fig:choropleth-grid-create}g  displays the incidence rate of childhood cancers per 100,000 (by census division) for children aged 0-14, in Ontario from 1995 to 2004 [@OntarioPediatric].
-
-## Additional considerations
+## Additional materials
 <!-- 479 words -->
 Supplementary graphs and plots are often included to add more depth and information. Additional materials such as tables, graphs, and text explanations, support understanding and inference derived from maps, ensuring the message communicated will be consistent across a range of viewers [@CPISACA]. The many displays of statistical summaries, including dot plots, bar plots, box plots, cumulative distribution plots, scatter plots, normal probability plots, can provide alternative views of the cancer statistics. These can also display supporting statistics such as error, confidence intervals, distributions, sample or population sizes, standard deviation. When presenting cancer maps, the intuition derived from maps must be 'validated by rigorous statistical analyses' [@MACM], and the display of the supplementary statistics helps in this regard.
 
@@ -187,9 +172,9 @@ A choropleth display may be limited by the administrative boundaries used to def
 This issue is often discussed in the context of election mapping, where each electorate decides the outcome of one parliamentary seat in the house or representatives.
 While all states are visible in a map display of Australia, smaller regions such as electorates present an extreme case of an urban-rural divide. 
 The landmass occupied by urban electoral districts is only 10% of Australia, yet 90% of the population live in these urban areas. To present election results on a choropleth map should be 'unthinkable', as it means diminishing the visual impact of the majority of the electorates.
-Using a map of Australia as a visual statistic would communicate an incorrect distrbution of votes across the country. The issue of spatially heterogeneous population distribution across a country's landmass is common to many countries, especially British colonies [@ACTUC].
+Using a map of Australia as a visual statistic would communicate an incorrect distribution of votes across the country. The issue of spatially heterogeneous population distribution across a country's landmass is common to many countries, especially British colonies [@ACTUC].
 
-Choropleths provide a familiar display. This may be less threatening to an audience that could be frightened by statistics, but they suffer primarily from unfaithfully representing the disease information by hiding small geographic areas. Inset maps like in Brisbane city in Figure \ref{fig:choropleth-grid-create}c of the state of Queensland, are commonly used to reduce distorted interpretations, but it is a bandaid remedy. 
+Choropleths provide a familiar display. This may be less threatening to an audience that could be frightened by statistics, but they suffer primarily from unfaithfully representing the disease information by hiding small geographic areas. Inset maps like in Brisbane city in Figure \ref{fig:choropleth-grid-create}c of the state of Queensland, are commonly used to reduce distorted interpretations, but it is a band aid remedy. 
 
  As this feature of population distributions continues to intensify, the need for cartograms as an alternative to a choropleth map should only increase.
  
@@ -237,13 +222,13 @@ When implementing a distortion of the geographical shape according to population
 Cartograms provide an alternative visualization method for statistical and geographical information.
 The key difference between a choropleth and a cartogram is the desirable augmentation of the size, shape or distance of geographical areas [@ACTUC]. 
 Monmonier [@HTLWM] suggests that white lies may be employed to create useful displays and map creators can draw lines that may distort the geometry and suppress features and it is easy for the average person to disregard the impact of transformations used to create cartograms.
-Cartograms may be seen as an extension of map transformations and projections. The favorable distortion is proportional to a valueother than the actual earth size area [@NAC].
+Cartograms may be seen as an extension of map transformations and projections. The favorable distortion is proportional to a value other than the actual earth size area [@NAC].
 A disadvantage of the conventional map is that sparsely populated rural areas may be emphasized, whereas the areas representing cities are very small, interpreting spatial patterns very difficult.
 The distortion of a cartogram accounts for the population density, preventing it from obscuring the spatial patterns [@TAAM]. 
 The spatial transformation of map regions relative to the data emphasizes the data distribution instead of land size [@CBATCC].
 When visualizing population statistics, Dorling [@ACTUC] considers this equitable representation design 'more socially just', or honest [@NISCC], giving due attention to all members of the population and reducing the visual impact of large areas with small populations [@DMAHP]. 
 Howe [@HEDP] suggests that 'cancer occurs in people, not in geographical areas' and that spatial socio-economic data, like cancer rates, are best presented on a cartogram for urban areas as the population map base avoids allocating 'undue prominence' to rural areas [@CTTMB]. 
-<!-- @MTMSIH encourage the use of cartograms to highlight small areas and uncover local-level inequalities. DI SAYS I think that focuses on bayesian analysis not on cartograms-->
+<!-- @MTMSIH encourage the use of cartograms to highlight small areas and uncover local-level inequalities. DI SAYS I think that focuses on Bayesian analysis not on cartograms-->
 
 <!-- Overview of varieties -->
 <!-- Cartogram makers -->
@@ -284,7 +269,7 @@ Table: \label{tab:usa} Maps used to present statistics for the United States of 
 |a. Contiguous| Each stated shape has been distorted according to the population of the state in 2015. The state of California has become much larger due to its large population density. This draws attention to the densely populated North-East region and detracts from the less populated Mid West.|
 |b. Non-contiguous| The geographic shape of the states has been maintained, but the size has altered according to the population of the state in 2015. The state of California has remained closer to its original size than it's surrounding states. The North-East states have remained closer to their geographical size, in the case of Massachusetts and Connecticut. This draws attention to the densely populated North-East region and the sparse Mid West.|
 |c. Dorling| The states have been represented by a circle, but the size was determined by the population of the state in 2015. The North-East states remain closer to their neighbors and could be displaced from their geographic location. The sparsity of the population in the Mid West is highlighted by the distance between the circles, located at the geographic centroids.|
-|d. Hexagon Tessellation| Each state is represented by a hexagon of equal size. The neighboring states are easily contrasted however the North-East regions have been displaced from their geographic location. The sparsity of the population in the Mid West is highlighteded by the light yellow color, the Age-Adjusted rate in Kentucky is the darkest and its neighbors are similar.|
+|d. Hexagon Tessellation| Each state is represented by a hexagon of equal size. The neighboring states are easily contrasted however the North-East regions have been displaced from their geographic location. The sparsity of the population in the Mid West is highlighted by the light yellow color, the Age-Adjusted rate in Kentucky is the darkest and its neighbors are similar.|
 
 
 
@@ -344,15 +329,15 @@ Recommended criteria to contrast mapping methods include average cartographic er
 -->
 
 
-## tilemap
+## tile map
 <!-- 173 words -->
 A tilemap provides a tessellated display of consistent shapes.
 Each tile is usually one unit of measurement, this could be geographic regions such as states, or population-based where one tile is used for a consistent measure of population.
 <!-- cite mosaic cartograms --> 
 
 A simple tilemap presents the areas in a tessellated grid display, where geographic neighbors are found next to each other, with some necessary displacement employed for regions with more than four neighbors.
-These tiles may be labeled or colored to represent a value.
-tilemaps may be difficult to create, they are best created manually, with additional time and care required as the number of geographic areas to include increases.
+These tiles may be labelled or colored to represent a value.
+tile maps may be difficult to create, they are best created manually, with additional time and care required as the number of geographic areas to include increases.
 Cano and others [@MDAC] define the term 'mosaic cartograms' for hexagonal tile displays, where the number of tiles for each area can be used to communicate the statistic of regions. 
 The complexity of the boundaries can be adjusted in the resulting display, as the size of the tiles used allows a trade-off to be made between boundary complexity and simplicity.
 
@@ -366,7 +351,7 @@ knitr::include_graphics("figures/gggrids.png")
 ## Geofacet
 <!-- 166 words -->
 Hafen [@IGF] formalizes the term geofaceting to describe a grid display, the arrangement of tiles to create a grid that mimics the geographic topology of the set of areas. 
-Like tilemaps, the arrangement of the areas can be reused for other spatial distribution visualizations.
+Like tile maps, the arrangement of the areas can be reused for other spatial distribution visualizations.
 Geofaceting has the functionality of facets, often used to replicate visualizations for each subset of the data. In this case, the data subsets are geographic.
 The amount of information able to be communicated has increased from one value per region in a tilemap to one visualization, this is a more flexible display.
 Virtually any plot display can be fit into the tile representing the areas, allowing displays of multiple variables or values per geographic entity.
@@ -377,11 +362,11 @@ Manual creation of the grid is required.
 ## Multivariate displays
 <!-- 222 words -->
 
-Pickle and others [@MMST] present linked micromap plots to visually link geographic and statistical data, this serves as a solution to  multi-dimensionality issues.
+Pickle and others [@MMST] present linked micro map plots to visually link geographic and statistical data, this serves as a solution to  multi-dimensionality issues.
 This design has been used in online atlas displays of US states. Areas are grouped based on their value for one variable, and additional columns provide displays that contrast the areas in each group by other variables.
 The display juxtaposes of choropleth maps and statistical plots;
 it shows one map per group of the key separating variable, in a row with each additional statistical plot.
-Linked micromaps predominantly utilize the choropleth map for displays of spatial relationships, that are seen when spatial neighbors are alotted to the same group.
+Linked micro maps predominantly utilize the choropleth map for displays of spatial relationships, that are seen when spatial neighbors are allotted to the same group.
 It is one of several alternative displays that allow maps to become bivariate displays, commonly used to present both an estimate and the associated uncertainty.
 
 
@@ -396,7 +381,7 @@ This method makes the maps and matrix connections clear, and easy to link geogra
 -->
 
 
-# Limitations of alternative displays {#sec:altlimits}
+# Comparison and critique of alternative displays {#sec:compare}
 <!-- 408 words -->
 
 
@@ -441,7 +426,7 @@ Choropleth displays utilize more traditional cartographic methods, they are usua
 When there is a relationship between the variable being mapped and geographical features, a choropleth map would pair this information visually.
 Choropleth methods require a decision to be made about the projection of the display, in this case aim to find a map projection that gives the least distorted representation of the geography [@UMPT].
 However a choropleth is limited to a uni-variate display, presenting a spatial distribution by filling each area with a color.
-These displays favor geographically large regions over small regions, though inset displays are often used to zoom in on a geographic area containing many small regions, this is seen in Figure \ref{fig:choropleth-grid-create} c of the state of Queensland, where the capital city Brisbane is highlighteded by the inset map. 
+These displays favor geographically large regions over small regions, though inset displays are often used to zoom in on a geographic area containing many small regions, this is seen in Figure \ref{fig:choropleth-grid-create} c of the state of Queensland, where the capital city Brisbane is highlighted by the inset map. 
 Users can identify the areas relevant to them by the familiar boundaries, and can easily contrast the experience of geographic neighbors. The map is reusable and fit for many purposes.
 -->
 
@@ -471,7 +456,7 @@ This display makes is difficult to compare specific regions.-->
 Table: \label{tab:methods} Summary of features and constraints of common mapping methods used to display cancer statistics (Y=Yes, N=No, S=Sometimes).
 
 
-|                     | Choropleth | Contiguous | Non-contig | Dorling | tilemaps | Geofacets |
+|                     | Choropleth | Contiguous | Non-contig | Dorling | tile maps | Geofacets |
 |:-----------|:------------:|:-----------:|:---------------:|:---------:|:-----------:|:----------:|
 |Spatial distortion   |  N  |  Y  |  Y  |  Y  |  Y  |  Y  |
 |Preserves neighbors  |  Y  |  Y  |  Y  |  S  |  S  |  S  |
@@ -497,17 +482,17 @@ The primary interactive tools found in online cancer maps include
 
 - drop-down menus to select features,
 - variable selection, 
-- tooltips, 
+- tool tips, 
 - zooming and panning.
 
 The latter two would be considered to be direct manipulation on the map display, and the former two are GUI interfaces. The effects of these actions are rapid, incremental, and reversible [@DMIV]. 
 -->
 
-One of the concerns of adding too much information to a map is the fear of cognitive overload [@mcgranaghan1993cartographic] in which the user reaches an information threshold, beyond which will not be able to make sense of the information. It can be a juggling act for a diverse audience, with experts probably preferring more detail [@cliburn2002design]. Interactivity is a design feature within modern mapping methods that can be used to incorporate additional information and complexity without overloading the user. Effective  user-centered interactive actions produce rapid, incremental, and reversible changes to the display [@DMIV].
+One of the concerns of adding too much information to a map is the fear of cognitive overload [@mcgranaghan1993cartographic] in which the user reaches an information threshold, beyond which will not be able to make sense of the information. It can be a juggling act for a diverse audience, with experts probably preferring more detail [@cliburn2002design]. Interactivity is a design feature within modern mapping methods that can be used to incorporate additional information and complexity without overloading the user. Effective  user-centred interactive actions produce rapid, incremental, and reversible changes to the display [@DMIV].
 
 Monmonier [@HTLWM] says that interactivity can be used to allow users to explore the map for more information and provides flexibility for the display. The user can toggle between different variables, map views or even multiple realizations of future scenarios [@goodchild1994introduction]. This provides additional mechanisms for the users to digest the uncertainty of the available information [@maceachren1992visualizing, @van1994visualization]. When the needs of the audience are changeable and are also the priority, the map creator can allow interactivity for map users to explore a data set through dynamic interactions. This can allow inspection of the data from many views [@DQBCM]. User interaction with maps helps to understand and interpret the spatial distribution of disease, to validate, explain or explore the presented statistics and their relationships to each other [@TNTEA].
 
-Interactivity enables supplementary information to be incorporated into online atlases without cluttering the display. Interactive design features, found in online cancer maps, include tooltips, drop-down menus, data selection, zooming, and panning allow users to explore the map as they want more information and allow flexibility in the display [@HTLWM]. The use of these supports can be found in various online cancer maps [@roberts2019communication].
+Interactivity enables supplementary information to be incorporated into online atlases without cluttering the display. Interactive design features, found in online cancer maps, include tool tips, drop-down menus, data selection, zooming, and panning allow users to explore the map as they want more information and allow flexibility in the display [@HTLWM]. The use of these supports can be found in various online cancer maps [@roberts2019communication].
 
 Animation, in contrast to interactivity, usually involves pre-computing views and showing these in a sequence. An overview of animation in association with the R package `gganimate` [@gganimate], with some focus on maps, explaining transitions between frames in a linear, to provide a fixed narrative to passive users [@TGA]. Animations are used to communicate a message by capturing and directing users' attention. It is most often employed to show changes over time. The controls for basic animation are usually placed outside of the plot space [@TGA], the map image is updated/replaced as the animation progresses. 
 
