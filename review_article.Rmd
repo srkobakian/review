@@ -52,7 +52,7 @@ A choropleth map displays the geographical distribution of data over a set of sp
 <!-- psychology -->
 Displaying familiar state boundaries can make a map easier to read [@CIBMUK] and allow viewers to infer the spatial relationships visually in the data using their mental model of the geography. The map users of disease displays may include researchers, the public, policymakers, and the media [@CPISACA]. For these users, the familiarity of the geography is a worthy consideration when presenting results of spatial analysis.
 
-```{r choropleth-grid-create, message=FALSE, warning = FALSE, fig.cap = "A selection of choropleth cancer maps available online.", out.width='100%', fig.align='center', fig.width=12, fig.height=10}
+```{r choropleth-grid-create, message=FALSE, warning = FALSE, fig.cap = "A selection of choropleth cancer maps from online atlases that are publicly available. Maps of various countries were chosen: United Kingdom, Australia, Spain, USA, Canada, and display several different colour palettes and legends.", out.width='100%', fig.align='center', fig.width=12, fig.height=10}
 library(cowplot)
 
 # Import the images
@@ -138,6 +138,11 @@ level of detail. Introducing population and demographic information helps to int
 
 # Limitations of choropleth displays {#ch:chorolimit}
 
+Australia presents an extreme case of an urban rural divide. The land mass occupied by urban electoral districts is only 10% of Australia, yet 90% of the population live in these urban areas [@ACTUC]. This impedes reading information about disease incidence from choropleth maps.
+
+Choropleth maps provide a familiar display, which shows data in a geographically recognisable way. A disadvantage is that the different population and geographical sizes of administrative areas can attract attention to the shades of the underpopulated but large areas [@EI]. Skowronnek also [@BCM] discusses how choropleth maps suffer from area-size bias, as they give a 'stronger visual weight' to large  administrative units. The administrative boundaries used to define regions may limit a choropleth display, as this display unfaithfully represents the disease distribution across the region by obscuring small geographic areas. Sparsely populated rural areas are emphasized, whereas the areas representing inner city communities are very small. This is especially true for Australia.
+
+<!--
 Choropleth maps provide a familiar display that may be important for orienting a non-statistical audience. The familiar shape boundaries define individual areas of non-uniform size, containing different population densities and may be subject to change. A spatially heterogeneous population distribution across a country’s landmass is an issue common to many countries, especially British colonies [@ACTUC]. 
 
 A disadvantage of the conventional map is that the different population and geographical sizes of administrative areas can attract attention to the shades of the underpopulated but large areas [@EI]. Skowronnek also [@BCM] discusses how choropleth maps suffer from area-size bias, as they give a 'stronger visual weight' to large  administrative units. The administrative boundaries used to define regions may limit a choropleth display, as this display unfaithfully represents the disease distribution across the region by obscuring small geographic areas. 
@@ -145,11 +150,15 @@ Sparsely populated rural areas are emphasized, whereas the areas representing in
 
 Those who critique choropleth maps often discuss bi-partisan election mapping in the United States of America [@BCM, @NISCC].
 Election mapping in Australia also suffers when presented on choropleth maps, where each electorate decides the outcome of one parliamentary seat in the house of representatives. While all states are visible on a map display of Australia, smaller geographic units such as electorates present an extreme case of an urban-rural divide. The landmass occupied by urban electoral districts is only 10% of Australia, yet 90% of the population live in these urban areas. To present election results on a choropleth map should be ‘unthinkable’, as it means diminishing the visual impact of most of the electorates and incorrectly communicating the distribution of votes across the country. 
- 
+-->
 
+Inset maps like in Brisbane city in Figure 1<!--\ref{fig:choropleth-grid-create}-->c of the state of Queensland are commonly used to reduce distorted interpretations, but it is a bandaid remedy. For Australia, many, many inset maps would be needed.
+
+
+<!--
 Choropleth maps can inhibit visual inference when presenting human-related statistics as the display may draw attention away from the ‘potentially more important results in the more populous communities’ that are geographically smaller [@SE]. 
 Inset maps like in Brisbane city in Figure Figure 1<!--\ref{fig:choropleth-grid-create}-->c of the state of Queensland are commonly used to reduce distorted interpretations, but it is not always an appropriate solution. As this feature of population distributions continues to intensify, the need for cartograms as an alternative to a choropleth map should only increase.
-
+-->
 
 # Contemporary alternatives to choropleth maps {#ch:alternatives}
 
