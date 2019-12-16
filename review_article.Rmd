@@ -347,9 +347,9 @@ ggdraw() +
 
 Figure 3<!--\ref{fig:auscartograms}--> shows four main types of cartograms displaying melanoma incidence on Statistical Areas at Level 3 [@ABSmaps] areas in Australia. The version of a contiguous cartogram (a) has expanded the highly populated areas while preserving the full shapes of rural areas. It has not fully resolved the population transformation of areas, and if it had accurately sized areas by population, the country would be unrecognizable. The shape-preserved cartogram is unreadable, and it has reduced all areas to tiny spots on the map. Zooming in on a high-resolution output shows it does preserve the areas. The Dorling cartogram has lost all geographic context. The hexagon tile map provides a reasonable spatial distribution despite having too much white-space in the outback areas.
 
-## Limitations of different choices
+## Limitations of alternative displays
 
-Cartograms provide the spatial distortion to more accurately convey the statistical distribution, focuses on the human impact of the disease. However, the transformation of contiguous cartograms often occurs at the expense of the shape of areas [@CBATCC, @NAC, @TAAM]. When the population density pf the geographic units is highly dissonant with geographic density, the cartogram will lose all spatial context.
+Cartograms provide the spatial distortion to more accurately convey the statistical distribution, focuses on the human impact of the disease. However, the transformation of contiguous cartograms often occurs at the expense of the shape of areas [@CBATCC, @NAC, @TAAM]. When the population density of the geographic units is highly dissonant with geographic density, the cartogram will lose all spatial context.
 Dorling [@ACTUC] has a cartogram showing the 1966 general election results, which looked very little like the geographical shape of Australia. 
 
 Some mix of tiling, faceting or even micro maps, which allow some spatial continuity while also zooming into small areas, are good solutions for difficult geographies. Table \ref{tab:methods} summarizes the key criteria for testing maps and alternative displays. Moore and Carpenter [@SAMGIS] and Bell et al. [@CPISACA] provide suggestions and comments to help map creators best communicate their health data and spatial analysis.
@@ -518,7 +518,7 @@ Interaction with maps is an important component of public atlases. A purpose is 
 The authors would like to thank Dr. Earl Duncan for his contributions in editing and refining the drafts of this article.
 They would also like to thank Professor Kerrie Mengersen, Dr. Susanna Cramb and Dr. Peter Baade for conversations on the content of this article. 
 
-The following R [@R] packages were used to produce this paper: tidyverse [@tidyverse], RColorBrewer [@RColorBrewer], ggthemes [@ggthemes], png [@png], cowplot [@cowplot], sf [@sf], spData [@spData], cartogram [@cartogram], sugarbag [@sugarbag], knitr [@knitr], rmarkdown [@rmarkdown].
+The following R [@R] packages were used to produce this paper: tidyverse [@tidyverse], RColorBrewer [@RColorBrewer], ggthemes [@ggthemes], png [@png], cowplot [@cowplot], sf [@sf], spData [@spData], cartogram [@cartogram], sugarbag [@sugarbag], knitr [@knitr], rmarkdown [@rmarkdown] and absmapsdata [@ABSmaps].
 
 Files to reproduce the paper, and code to reproduce the plots, are available at https://github.com/srkobakian/review. 
 
