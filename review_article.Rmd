@@ -1,5 +1,5 @@
 ---
-title: "Cancer Applications of Choropleth maps, and the Potential of Cartograms and Alternative Map Displays"
+title: "Cancer Applications of Choropleth Maps, and the Potential of Cartograms and Alternative Map Displays"
 author: "Stephanie Kobakian, Jessie Roberts and Dianne Cook"
 bibliography: reviewbib.bib
 output:
@@ -44,7 +44,7 @@ To visualize and communicate geospatial cancer statistics over geographic domain
 The paper is structured as follows. The next section describes the choropleth map, which is the common approach to disease maps and presents examples of atlases in use today. Section 3 discusses the limitations of the choropleth map. Section 4 describes alternative displays, including the cartogram, which is useful when the map has heterogeneously sized geographic units. Section 5 presents the limitations of the production and use of alternative displays. Disease maps are more useful when made interactive, Section 6 describes common options, along with a discussion of benefits and disadvantages.
 
 
-# Traditional approaches for cancer map displays {#ch:choropleth maps}
+# Traditional approaches for cancer map displays {#ch:choropleth_maps}
 <!-- 381 words -->
 <!-- what is a choropleth map -->
 A choropleth map displays the geographical distribution of data over a set of spatial units by shading areas of a map [@EI, @BCM]. Faithful rendering of the geography, when combined with an appropriate color scheme, can reveal spatial patterns among data values. Identifying and explaining spatial structures, patterns, and processes involve considering the individuals and organizing them into representable units of communities [@SAMGIS]. Early versions of choropleth maps used symbols or patterns instead of color. Choropleth maps can be used for displaying disease data [@DMAHP], including cancer data [@CPISACA]. In epidemiology, choropleth maps are often used as a tool to study the spatial distribution of cancer incidence and mortality.
@@ -52,7 +52,7 @@ A choropleth map displays the geographical distribution of data over a set of sp
 <!-- psychology -->
 Displaying familiar state boundaries can make a map easier to read [@CIBMUK] and allow viewers to infer the spatial relationships visually in the data using their mental model of the geography. The map users of disease displays may include researchers, the public, policymakers, and the media [@CPISACA]. For these users, the familiarity of the geography is a worthy consideration when presenting results of spatial analysis.
 
-```{r choropleth-grid-create, message=FALSE, warning = FALSE, fig.cap = "Examples of publicly available choropleth cancer maps.", out.width='100%', fig.align='center', fig.width=12, fig.height=10}
+```{r choropleth-grid-create, message=FALSE, warning = FALSE, fig.cap = "A selection of choropleth cancer maps available online.", out.width='100%', fig.align='center', fig.width=12, fig.height=10}
 library(cowplot)
 
 # Import the images
@@ -124,7 +124,7 @@ The Atlas of Cancer in Queensland, Figure 1<!--\ref{fig:choropleth-grid-create}-
 Age-specific atlases are less common, Figure 1<!--\ref{fig:choropleth-grid-create}-->g displays Atlas of Childhood Cancer in Ontario, this communicates the incidence rate of childhood cancers per 100,000 (by census division) for children aged 0-14, in Ontario from 1995 to 2004 [@OntarioPediatric]. This atlas communicates information regarding a small geographic region.
 
 
-## Additional materials
+## Additional considerations
 <!-- 479 words -->
 Cancer atlases often display supplementary graphs and plots to add more information. Additional materials such as tables, graphs, and text explanations support understanding and inference derived from maps, ensuring the message communicated will be consistent across a range of viewers [@CPISACA]. The many displays of statistical summaries, including dot plots, bar plots, box plots, cumulative distribution plots, scatter plots, and normal probability plots, can provide alternative views of the cancer statistics. These can also display supporting statistics such as error, confidence intervals, distributions, sample or population sizes, and standard deviation. 
 
