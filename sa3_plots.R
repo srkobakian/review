@@ -161,8 +161,10 @@ ggsave(filename = "figures/aus_ggncont.png", plot = full_ggncont,
 
 ###############################################################################
 # Non - Contiguous Dorling Cartograms
-dorl <- sa3lung %>% filter(cent_long >110, cent_long<155) %>% cartogram_dorling(.,
-  weight = "Population", k = 0.1) %>% st_as_sf(crs=CRS("+init=epsg:3112"))
+dorl <- sa3lung %>% filter(cent_long >110, cent_long<155) %>% 
+  mutate(pop = (Population/max(Population))*10) %>% 
+  cartogram_dorling(., k = 0.01, weight = "pop", m_weight = 1) %>%
+  st_as_sf(crs=CRS("+init=epsg:3112"))
 d <- st_bbox(dorl)
 aus_ggdorl <- ggplot(dorl) + 
   geom_sf(aes(fill = `Age-standardised rate (per 100,000)`)) + 
