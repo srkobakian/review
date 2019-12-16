@@ -73,8 +73,8 @@ ggdraw() +
   draw_plot(rasterGrob(plot6), 0, 0, .66, .5) +
   draw_plot(rasterGrob(plot7), .66, 0, .33, .5) +
   draw_plot_label(c("a", "b", "c", "d", "e", "f", "g"), 
-    c(0.015, 0.33, 0.63, 0.015, 0.33, 0.014, 0.63), 
-    c(0.99, 0.99, 0.99, 0.74, 0.74, 0.47, 0.47), size = 20)
+    c(0.015, 0.31, 0.66, 0.015, 0.31, 0.014, 0.66), 
+    c(0.99, 0.99, 0.99, 0.74, 0.74, 0.46, 0.46), size = 20)
 
 ggsave(filename = "figures/choropleth_grid.png", 
   device = "png", width = 6, height = 5, dpi = 300)
@@ -118,7 +118,7 @@ There are vast differences in the geographies considered by online atlases.
 Figure 1<!--\ref{fig:choropleth-grid-create}-->b shows global age-standardized incidence rates (per 100,000) for all invasive cancers for both men and women, aggregated at a national level for 2018.
 The United States Cancer Statistics [@USInteractive] presented in Figure 1<!--\ref{fig:choropleth-grid-create}-->e contains the incidence rate per 100,000, of all cancer types for men and women in the United States in 2016, aggregated at the state level.
 The Environment and Health Atlas of England and Wales, Figure 1<!--\ref{fig:choropleth-grid-create}-->a shows the relative risk for women developing lung cancer in England and Wales in 2010 [@EnvEnglandWales2] at a neighborhood (small-area) scale.
-The Atlas of Cancer in Queensland, Figure 1<!--\ref{fig:choropleth-grid-create}-->c shows the relative incidence ratio of lung cancer in males for each Statistical Area at Level 2 [@SA2] in the state of Queensland within Australia [@QLDcancerAtlas].
+The Atlas of Cancer in Queensland, Figure 1<!--\ref{fig:choropleth-grid-create}-->c shows the relative incidence ratio of lung cancer in males for each Statistical Area at Level 2 in the state of Queensland within Australia [@QLDcancerAtlas].
 
 
 Age-specific atlases are less common, Figure 1<!--\ref{fig:choropleth-grid-create}-->g displays Atlas of Childhood Cancer in Ontario, this communicates the incidence rate of childhood cancers per 100,000 (by census division) for children aged 0-14, in Ontario from 1995 to 2004 [@OntarioPediatric]. This atlas communicates information regarding a small geographic region.
@@ -159,6 +159,7 @@ Inset maps like in Brisbane city in Figure Figure 1<!--\ref{fig:choropleth-grid-
 <!-- What is a cartogram? -->
 Choropleth maps imply uniformity of data across the geographic space but population densities are unlikely to be uniform [@BCM]. Cartographers developed the cartogram to draw the attention to the population by transforming the map [@ACCAC]. The resulting display can communicate the impact of the disease more accurately across the population, as recorded by the statistic, at the sacrifice of geographic accuracy. 
 
+<!--
 ```{r choroCRS, fig.cap = "Four choropleth maps average age-adjusted rate of incidence for lung and bronchus in the United States averaged from sex and years 2012-2016, using four different map projections. The map projections alter the shapes and angles of the boundaries of each state.", message=FALSE, warning=FALSE, out.width='100%', fig.align='center'}
 #knitr::include_graphics("figures/ggchoroCRS.png")
 c1 <- png::readPNG("figures/gg3857.png")
@@ -178,6 +179,7 @@ ggdraw() +
     c(0, .5, 0, 0.5), 
     c(1, 1, .5, .5), size = 20)
 ```
+-->
 
 <!-- Denominators -->
 When a map creator desires a uniform population density of the map base, the purposeful distortion of the map space is beneficial. The "population distribution is often extremely uneven in former British colonies" [@ACTUC], and this makes the distortion necessary, [@CTTMB] population will then become a uniformly distributed background for the statistic presented [@GOINO].
@@ -198,12 +200,12 @@ Howe [@HEDP] suggests that 'cancer occurs in people, not in geographical areas' 
 The creation of cartograms was historically in the hands of professional cartographers [@CD]. 
 Early approaches by John Hunter and Jonathan Young (1968) and Durham's wooden tile method, Skoda and Robertson's (1972) steel ball-bearing approach and Tobler's (1973) computer programs [@ACTUC]. 
 Howe [@HEDP] discusses the impact of electronic computer-assisted techniques.
-Geographical information systems allow map creators to produce cartograms and they use these systems depending on ‘the effectiveness, efficiency, and satisfaction of the map products' (Nielsen 1994) [@CD].
+Geographical information systems allow map creators to produce cartograms and they use these systems depending on ‘the effectiveness, efficiency, and satisfaction of the map products' [@CD].
 
 There are many issues to consider when creating alternative map displays: the intended audience of the map, and its purpose are key points in cartogram use and creation as 'there is no "best" cartogram or method of creating cartograms just as there is no "best" map' (Monmonier and Schnell, 1988) [@ACTUC]. 
 Nusrat and Kobourov [@SAIC] provided a framework to investigate implementations of the many algorithms presented, and the "statistical accuracy, geographical accuracy, and topological accuracy". 
 
-```{r ggcartograms, fig.cap = "Common alternatives to maps, showing the same information as in Figure \ref{choroCRS} for the United States of America: (a) contiguous cartogram, (b) non-contiguous, shape-preserved cartogram, (c)  Dorling cartogram (non-contiguous), (d) hexagon tilemap (non-contiguous). Maps (a) - (c) are created by resizing and reshaping the states of the USA to match the 2015 population of the state. This provides a better sense of the extent of disease relative to the population in the country and can help ease losing information about physically small but population-dense states. Map creators give each state equal size and thus equal emphasis in (d) the hexagon tile map.", message=FALSE, warning=FALSE, out.width='100%'}
+```{r ggcartograms, fig.cap = "Common alternatives to maps, showing the same information for the United States of America: (a) contiguous cartogram, (b) non-contiguous, shape-preserved cartogram, (c)  Dorling cartogram (non-contiguous), (d) hexagon tilemap (non-contiguous). Maps (a) - (c) are created by resizing and reshaping the states of the USA to match the 2015 population of the state. This provides a better sense of the extent of disease relative to the population in the country and can help ease losing information about physically small but population-dense states. Map creators give each state equal size and thus equal emphasis in (d) the hexagon tile map.", message=FALSE, warning=FALSE, out.width='100%'}
 g1 <- png::readPNG("figures/ggcont.png")
 g2 <- png::readPNG("figures/ggncont.png")
 g3 <- png::readPNG("figures/ggdorl.png")
@@ -234,7 +236,7 @@ Table: 2<!--\label{tab:usa}--> Maps used to present statistics for the United St
 
 
 
-Figure 3<!--\ref{fig:ggcartograms}--> shows four different cartograms for the same data displayed in Figure 2<!--\ref{fig:choroCRS}-->. The information in Table 2<!--\ref{tab:usa}--> summarizes what can be observed in the four types of cartograms.
+Figure 2<!--\ref{fig:ggcartograms}--> shows four different cartograms for the same data. The information in Table 2<!--\ref{tab:usa}--> summarizes what can be observed in the four types of cartograms.
 
 
 ### Contiguous
@@ -242,28 +244,22 @@ Figure 3<!--\ref{fig:ggcartograms}--> shows four different cartograms for the sa
 <!-- What is a contiguous cartogram -->
 <!-- Intentionally preserve neighbors -->
 
-A contiguous cartogram alters the choropleth according to a statistic and maintains connectivity of the map regions. This transformation often occurs at the expense of the shape of areas [@CBATCC, @NAC, @TAAM].
+A contiguous cartogram alters the choropleth according to a statistic and maintains connectivity of the map regions. 
 Min Ouyang and Revesz [@ACA] present three algorithms for creating value-by-area cartograms. They implement 'map deformation' to account for the value assigned to each area.
 Other methods include Tobler’s Pseudo-Cartogram Method, Dorling’s Cellular Automaton Method [@ACTUC], Radial Expansion Method of Selvin et al., Rubber Sheet Method of Dougenik et al., Gusein-Zade and Tikunov’s Line Integral Method, Constraint-Based Method (Kocmoud and House) [@CBATCC].
 
-<!-- 
-An intentional goal when creating the 1966 Census population cartogram for Canada was to maintain contiguity, while attempting to keep the actual shape of places. The end result was a 'very accurate isodemo-graphic map of Canada'. This intentional design goal coincided with the rising interest in urban geography and presentation of social statistics. Figure 3<!--\ref{fig:ggcartograms}--> a shows a population contiguous cartogram of the United States. All states are visible and the shape of the United States overall is still recognizable.
-In contrast, Figure \ref{fig:auscartograms} a shows an Australian contiguous cartogram also based on population. The south east is completely distorted, areas with low population are still large very the map, as their initial area was used to determine the area allocated in the contiguous cartogram.
+Figure 2<!--\ref{fig:ggcartograms}--> a shows a population contiguous cartogram of the United States. All states are visible and the shape of the United States overall is still recognizable.
+In contrast, Figure 3<!--\ref{fig:auscartograms}--> a shows an Australian contiguous cartogram also based on population. The south east is completely distorted, areas with low population are still large very the map, as their initial area was used to determine the area allocated in the contiguous cartogram.
 
 To be able to recognize the significant changes, a reader will usually have to know the initial geography to find the differences in the new cartogram layout [@NAC]. Tobler's Conformal mapping means to preserve angles locally so that the shapes of small areas on a traditional map and a cartogram would be similar.
 @CBATCC presents this issue as conflicting tasks or aims, to adjust region sizes and retain region shapes. 
--->
 
 ### Non-contiguous
 
-Non-contiguous cartograms prioritize the shapes of the areas instead of connectivity. Each area stays in a similar position to its location on a choropleth map. Displaying the choropleth map base allows map users to make comparisons regarding the change in the area. The addition is the gap between areas, created as each area shrinks or grows according to the associated value of the statistic. Olson [@NAC] discusses the creation of these maps, the significance of the empty areas left between the geographic boundaries and the new shape, and the 'difference from the original map that is the real message' of these displays.
+Non-contiguous cartograms prioritize the shapes of the areas instead of connectivity. Each area stays in a similar position to its location on a choropleth map. Displaying the choropleth map base allows map users to make comparisons regarding the change in the area. The addition is the gap between areas, created as each area shrinks or grows according to the associated value of the statistic. Olson [@NAC] discusses the creation of these maps and the significance of the empty areas left between the geographic boundaries and the new shape. It is the 'difference from the original map that is the real message' of these displays.
 
 The distortion of region shapes on the contiguous cartogram presents an additional hurdle to visual recognition, and the non-contiguous cartogram eliminates this hurdle, and presents the meaningful empty-space property [@ECGC, @NAC]. 
-<!-- The shapes are valuable for recognition and allows users to orient themselves on the display. Map creators can efficiently communicate with this kind of map by keeping the outlines or particular elements of the original in the new shape [@NISCC].
-The scale of the areas does not impact on the shape recognition.
-However it may impact on the visibility of all areas if small areas expand beyond their boundaries. 
-Figure 3<!--\ref{fig:ggcartograms}-->b shows small overlaps in the North-East region of the United States. These overlaps are also shown in the non-contiguous cartogram of Australia in Figure \ref{fig:auscartograms} b.
--->
+
 
 ### Dorling
 
@@ -278,18 +274,13 @@ Raisz laid the groundwork for this approach in the mid-1930s, and his rectangula
 @TFYCC quotes the official definition of Value-Area Cartograms, the simplistic displays which represent each area as a single rectangle, sized according to the value of the statistic.
 This rectangular display may sacrifice contiguity but allows for tiling where geographic neighbors placed in suitable relative positions also share borders [@CDWCS]. Rectangular cartograms communicate bi-variate displays of the population by the size of each rectangular, and they use color to communicate a second variable [@ORC]. 
 
-A similar method to a rectangular cartogram, represents each geographic area using a square. The squares are tessellated to create a grid. This method has been used broadly in the media, e.g. FiveThirtyEight, Bloomberg Business, The Guardian, The Washington Post, The New York Times and NPR.
-Each area is represented by a square of the same dimensions.
-<!--
-Figure 3<!--\ref{fig:ggcartograms}-->d shows a hexagon tilemap representing each state using a single hexagon.
-
-Recommended criteria to contrast mapping methods include average cartographic error, and maximum cartographic error, correct adjacency, maximum aspect ratio, and suitable relative positions [@ORC]. However, this does not consider the issues with actually producing rectangular cartograms. Algorithms for the creation of rectangular cartograms
--->
 
 
 ## Tile Map
 <!-- 173 words -->
-A tile map provides a tessellated display of consistent shapes. Each tile is usually one unit of measurement, this could be geographic regions such as states or population-based that use a consistent measure of population for each tile. Regions with over four neighbors require some necessary displacement. The tile map uses color to represent a value of a statistic for each area. A similar method to a rectangular cartogram represents each geographic area using a square of the same dimensions. The squares tessellate to create a grid. There are online media sources using this method, such as FiveThirtyEight, Bloomberg Business, The Guardian, The Washington Post, The New York Times and NPR. Tile maps may be difficult to create as they are best created manually, they require additional time and care as the number of geographic areas to include increases.
+A tile map provides a tessellated display of consistent shapes. 
+A similar method to a rectangular cartogram, represents each geographic area using a square. The squares are tessellated to create a grid. This method has been used broadly in the media by FiveThirtyEight, Bloomberg Business, The Guardian, The Washington Post, The New York Times and NPR.
+Each area is represented by a square of the same dimensions, each tile is usually one unit of measurement, this could be geographic regions such as states or population-based that use a consistent measure of population for each tile. Regions with over four neighbors require some necessary displacement. The tile map uses color to represent a value of a statistic for each area. A similar method to a rectangular cartogram represents each geographic area using a square of the same dimensions. The squares tessellate to create a grid. There are online media sources using this method, these include [NPR](https://www.npr.org/2016/10/18/498406765/npr-battleground-map-hillary-clinton-is-winning-and-its-not-close), [FiveThirtyEight](https://projects.fivethirtyeight.com/2016-election-forecast/), [The Wall Street Journal](http://graphics.wsj.com/elections/2016/2016-electoral-college-map-predictions/), [The Washington Post](https://www.washingtonpost.com/graphics/politics/2016-election/50-state-poll/). Tile maps may be difficult to create as they are best created manually, they require additional time and care as the number of geographic areas to include increases.
 <!-- cite mosaic cartograms --> 
 
 Cano and others [@MDAC] define the term 'mosaic cartograms' for hexagonal tile displays, where the number of tiles for each area or the color of them can communicate the statistic of regions. 
@@ -330,14 +321,13 @@ Areas with uncertain values will flicker more dramatically than areas with more 
 <!-- 408 words -->
 
 
-```{r auscartograms, fig.cap = "Cartograms showing melanoma incidence in Australia: (a) contiguous, partially population transformed, (b) non-contiguous shape preserved, (c) Dorling, (d) hexagon tile map. The contiguous cartogram has expanded the highly populated areas while preserving the full shapes of rural areas. If it accurately sized areas by population, the country would be unrecognizable. The shape-preserved is unreadable due to the small area sizes. The Dorling cartogram presents all areas but many are difficult to compare. The hexagon tile map provides a reasonable spatial distribution despite having isolated hexagons in the outback areas.", message=FALSE, warning=FALSE, out.width='100%'}
+```{r auscartograms, fig.cap = "Cartograms showing melanoma incidence in Australia: (a) contiguous, partially population transformed, (b) non-contiguous shape preserved, (c) Dorling, (d) hexagon tile map. The contiguous cartogram has expanded the highly populated areas while preserving the full shapes of rural areas. If it accurately sized areas by population, the country would be unrecognizable. The shape-preserved is unreadable due to the small area sizes. The Dorling cartogram presents all areas but many are difficult to compare. The hexagon tile map provides a reasonable spatial distribution despite having isolated hexagons in the outback areas.", message=FALSE, warning=FALSE, out.width='100%', cache=FALSE}
 
 aus1 <- png::readPNG("figures/aus_ggcont.png")
 aus2 <- png::readPNG("figures/aus_ggncont.png")
 aus3 <- png::readPNG("figures/aus_ggdorl.png")
 aus4 <- png::readPNG("figures/aus_gghexmap.png")
 load("aus_legend.rda")
-
 load("figures/aus_legend.rda")
 
 library(cowplot)
@@ -352,28 +342,18 @@ ggdraw() +
     c(1, 1, .5, .5), size = 20)
 ```
 
-  
+
 ## Neither choropleth maps or cartograms perform well for Australia
 
-Figure \ref{fig:auscartograms} shows four main types of cartograms displaying melanoma incidence on SA3 areas in Australia. The version of a contiguous cartogram (a) has expanded the highly populated areas while preserving the full shapes of rural areas. It has not fully resolved the population transformation of areas, and if it had accurately sized areas by population, the country would be unrecognizable. The shape-preserved cartogram is unreadable, and it has reduced all areas to tiny spots on the map. Zooming in on a high-resolution output shows it does preserve the areas. The Dorling cartogram has lost all geographic context. The hexagon tile map provides a reasonable spatial distribution despite having too much white-space in the outback areas.
+Figure 3<!--\ref{fig:auscartograms}--> shows four main types of cartograms displaying melanoma incidence on Statistical Areas at Level 3 [@ABSmaps] areas in Australia. The version of a contiguous cartogram (a) has expanded the highly populated areas while preserving the full shapes of rural areas. It has not fully resolved the population transformation of areas, and if it had accurately sized areas by population, the country would be unrecognizable. The shape-preserved cartogram is unreadable, and it has reduced all areas to tiny spots on the map. Zooming in on a high-resolution output shows it does preserve the areas. The Dorling cartogram has lost all geographic context. The hexagon tile map provides a reasonable spatial distribution despite having too much white-space in the outback areas.
 
-## Pros and cons of different choices
+## Limitations of different choices
 
-
-Cartograms provide the spatial distortion to more accurately convey the statistical distribution, focuses on the human impact of the disease. However, if the population density is highly dissonant with geographic density, the cartogram will lose all spatial context, and thus futile. 
+Cartograms provide the spatial distortion to more accurately convey the statistical distribution, focuses on the human impact of the disease. However, the transformation of contiguous cartograms often occurs at the expense of the shape of areas [@CBATCC, @NAC, @TAAM]. When the population density pf the geographic units is highly dissonant with geographic density, the cartogram will lose all spatial context.
 Dorling [@ACTUC] has a cartogram showing the 1966 general election results, which looked very little like the geographical shape of Australia. 
 
 Some mix of tiling, faceting or even micro maps, which allow some spatial continuity while also zooming into small areas, are good solutions for difficult geographies. Table \ref{tab:methods} summarizes the key criteria for testing maps and alternative displays. Moore and Carpenter [@SAMGIS] and Bell et al. [@CPISACA] provide suggestions and comments to help map creators best communicate their health data and spatial analysis.
 
-<!-- choropleth maps, true topology, geographic distance, good for showing geographic importance 
-To choose an appropriate map display, the map creator must consider the intended user, and message the map will communicate.
-Choropleth displays utilize more traditional cartographic methods, they are usually true to the topography, displaying familiar boundaries of countries, states or administrative areas. Highlighting the geographic distribution, and differences between equal spatial units.
-When there is a relationship between the variable being mapped and geographical features, a choropleth map would pair this information visually.
-Choropleth methods require a decision to be made about the projection of the display, in this case aim to find a map projection that gives the least distorted representation of the geography [@UMPT].
-However a choropleth is limited to a uni-variate display, presenting a spatial distribution by filling each area with a color.
-These displays favor geographically large regions over small regions, though inset displays are often used to zoom in on a geographic area containing many small regions, this is seen in Figure 1<!--\ref{fig:choropleth-grid-create}--> c of the state of Queensland, where the capital city Brisbane is highlighted by the inset map. 
-Users can identify the areas relevant to them by the familiar boundaries, and can easily contrast the experience of geographic neighbors. The map is reusable and fit for many purposes.
--->
 
 <!-- Cartograms, sacrifice geography, focus on the outliers/ relationships in data space 
 Cartographers were historically the creators of geographic displays, and epidemiologists utilized the maps that had been prepared in advance.
@@ -460,11 +440,6 @@ These interactive features provide an opportunity for users to explore the addit
 -->
 
 
-## Interaction and animation in publicly available atlases
-
-Many publicly available cancer atlases employ interactivity and/or animation. Figure 6 <!--\ref{fig:interacting}--> shows the interactive GUI tools provided with the public atlases. Mostly these are menus, and toggles, for choosing indicators, and subsets of the population.
-
-
 ## Under-utilized techniques
 
 Figure 7 <!--\ref{fig:animating}--> shows two examples of more sophisticated interactive maps. The Spanish Cancer map (left) contains a linked display between a choropleth map and time series plots of cancer change. In linked plots, changing values in one display will trigger changes of corresponding elements in another display. Here, the temporal change in the choropleth map can be played out as an animation. Mousing over the time series plots will highlight the line for a particular region. The Canadian Breast Cancer Mortality map (right) has a magnifying glass that allows the user to zoom into small areas. It is easy to control and shows precise details in small areas. 
@@ -540,7 +515,8 @@ Interaction with maps is an important component of public atlases. A purpose is 
 
 # Acknowledgements
 <!-- 77 words -->
-The authors would like to thank Dr. Earl Duncan, Professor Kerrie Mengersen, Dr. Susanna Cramb and Dr. Peter Baade for conversations on the content of this article. 
+The authors would like to thank Dr. Earl Duncan for his contributions in editing and refining the drafts of this article.
+They would also like to thank Professor Kerrie Mengersen, Dr. Susanna Cramb and Dr. Peter Baade for conversations on the content of this article. 
 
 The following R [@R] packages were used to produce this paper: tidyverse [@tidyverse], RColorBrewer [@RColorBrewer], ggthemes [@ggthemes], png [@png], cowplot [@cowplot], sf [@sf], spData [@spData], cartogram [@cartogram], sugarbag [@sugarbag], knitr [@knitr], rmarkdown [@rmarkdown].
 

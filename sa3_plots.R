@@ -89,7 +89,7 @@ aus_ggchoro <- ggplot(sa3lung) +
   scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1, na.value = "light grey") + 
   
   coord_sf(crs = CRS("+init=epsg:3112"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
-  invthm + theme(legend.position ="bottom") +
+ theme(legend.position ="bottom") +
   labs(fill = "Age-standardised rate\n(per 100,000)")
 aus_ggchoro
 ggsave(filename = "figures/aus_ggchoro.png", device = "png",
@@ -133,7 +133,7 @@ ncont <- cartogram_ncont(sa3lung, k = 1/5,
   weight = "Population") %>% st_as_sf() %>% 
   rename(`Age-standardised rate (per 100,000)` = `Age.standardised.rate..per.100.000.`)
 aus_ggncont <- ggplot(ncont) + 
-  geom_sf(data=aus, fill = NA, colour = "grey", size = 0.01) +
+  geom_sf(data=aus, fill = NA, colour = "black", size = 0.1) +
   geom_sf(aes(fill = `Age-standardised rate (per 100,000)`), colour = NA) + 
   coord_sf(crs = CRS("+init=epsg:3112"), xlim =
              c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
@@ -144,7 +144,7 @@ aus_ggncont
 perth_ggncont <- ggplot(ncont %>% filter(gcc_name_2016 == "Greater Perth")) + 
   geom_rect(aes(xmin =-1736000, xmax = -1639000, ymin=-3824000, ymax=-3672300), fill = NA, colour = "black") +
   geom_sf(data= sa3lung %>% filter(gcc_name_2016 == "Greater Perth"),
-          fill = NA, colour = "grey", size = 0.001) +
+          fill = NA, colour = "black", size = 0.1) +
   geom_sf(aes(fill = `Age-standardised rate (per 100,000)`), colour = NA) + 
   scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1) + invthm +
   guides(fill=FALSE)
@@ -156,14 +156,14 @@ full_ggncont <- ggdraw() +
   draw_plot(perth_ggncont, 0.33, 0.10, 0.25, 0.25)
 full_ggncont
 ggsave(filename = "figures/aus_ggncont.png", plot = full_ggncont,
-       device = "png",   bg = "transparent", dpi = 300,  width = 7, height = 6)
+       device = "png", bg = "transparent", dpi = 300,  width = 7, height = 6)
 
 
 ###############################################################################
 # Non - Contiguous Dorling Cartograms
 dorl <- sa3lung %>% filter(cent_long >110, cent_long<155) %>% 
   mutate(pop = (Population/max(Population))*10) %>% 
-  cartogram_dorling(., k = 0.01, weight = "pop", m_weight = 1) %>%
+  cartogram_dorling(., k = 0.05, weight = "pop", m_weight = 1) %>%
   st_as_sf(crs=CRS("+init=epsg:3112"))
 d <- st_bbox(dorl)
 aus_ggdorl <- ggplot(dorl) + 
@@ -181,14 +181,14 @@ centroids <- create_centroids(sa3lungmap, "sa3_name_2016")
 lung_neighbours <- st_intersects(sa3lungmap,sa3lungmap)
 
 grid <- create_grid(centroids = centroids, 
-  hex_size = 0.75,buffer_dist = 5)
+  hex_size = 0.70,buffer_dist = 5)
 hexmap <- allocate(
   centroids = centroids, hex_grid = grid, use_neighbours = NULL,
-  sf_id = "sa3_name_2016", hex_size = 0.75, hex_filter = 8, 
+  sf_id = "sa3_name_2016", hex_size = 0.70, hex_filter = 8, 
   focal_points = capital_cities, verbose = TRUE, width = 30
 )
 
-hexagons <- fortify_hexagon(hexmap, sf_id = "sa3_name_2016", hex_size = 0.75) %>% 
+hexagons <- fortify_hexagon(hexmap, sf_id = "sa3_name_2016", hex_size = 0.70) %>% 
   left_join(st_drop_geometry(sa3lung))
 
 hexagons_sf <- hexagons %>% 
@@ -207,11 +207,11 @@ hex <- sa3lung %>%
   mutate(geometry = hexagons_sf$geometry)
 
 aus_gghexmap <- ggplot(hex) + 
-  geom_sf(data=aus, fill = NA, colour = "grey", size = 0.001) +
+  geom_sf(data=aus, fill = NA, colour = "black", size = 0.1) +
   geom_sf(aes(fill = `Age-standardised rate (per 100,000)`), colour = NA) + 
   coord_sf(crs = CRS("+init=epsg:3112"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
   scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1) + scale_size_identity() + 
-  invthm +guides(fill=FALSE)
+  invthm + guides(fill=FALSE)
 aus_gghexmap
 ggsave(filename = "figures/aus_gghexmap.png", plot = aus_gghexmap,
   device = "png",   bg = "transparent", dpi = 300,  width = 7, height = 6)
