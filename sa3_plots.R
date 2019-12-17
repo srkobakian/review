@@ -58,17 +58,13 @@ cimar_sa3 <- cimar_sa3 %>%
 sa3lung <- sa3lung %>% 
   left_join(cimar_sa3, by = c("sa3_name_2016" = "Name")) %>% 
   st_as_sf() %>%
-  #filter(!is.na(Population)) %>%
-  mutate(Population = as.numeric(ifelse(is.na(Population), 1, Population)),
-         `Age-standardised rate (per 100,000)` = as.numeric(ifelse(is.na(`Age-standardised rate (per 100,000)`),
-                                                        1, `Age-standardised rate (per 100,000)`))) %>% 
+  filter(!is.na(Population)) %>%
+  mutate(`Age-standardised rate (per 100,000)` = as.numeric(ifelse(is.na(`Age-standardised rate (per 100,000)`), 1, `Age-standardised rate (per 100,000)`))) %>% 
   filter(!st_is_empty(geometry))
 
 sa3lung <- st_transform(sa3lung, 3112)
 
 b <- st_bbox(sa3lung)
-b["xmin"]<- -2181807
-b["xmax"]<- 1933081
 
 aus <- absmapsdata::state2016 %>% 
   filter(!(state_name_2016 == "Other Territories"))
@@ -111,6 +107,7 @@ cont <- sa3lung %>%
 save(cont, "data/auscont.rda")
 load("data/auscont.rda")
 aus_ggcont <- ggplot(cont) + 
+  geom_sf(data=sa3lung, fill = NA, colour = "grey", size = 0.5) +
   geom_sf(aes(fill = `Age-standardised rate (per 100,000)`)) + 
   scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1) + 
   coord_sf(crs = CRS("+init=epsg:3112"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
@@ -129,31 +126,34 @@ sa3lung %>%
   ggplot(.) +
   geom_density(aes(x = sva)) + geom_vline(aes(xintercept = 7))
 
+
 ncont <- cartogram_ncont(sa3lung, k = 1/5,
   weight = "Population") %>% st_as_sf() %>% 
   rename(`Age-standardised rate (per 100,000)` = `Age.standardised.rate..per.100.000.`)
-aus_ggncont <- ggplot(ncont) + 
-  geom_sf(data=aus, fill = NA, colour = "black", size = 0.1) +
-  geom_sf(aes(fill = `Age-standardised rate (per 100,000)`), colour = NA) + 
-  coord_sf(crs = CRS("+init=epsg:3112"), xlim =
-             c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
+
+goldfields_box <- st_bbox(st_buffer(ncont %>% filter(sa3_name_2016 == "Goldfields"), dist=500))
+
+aus_ggncont <- ggplot(ncont) +  
+  geom_sf(aes(fill = `Age-standardised rate (per 100,000)`), colour = NA) + geom_rect(aes(xmin =goldfields_box[1] , xmax = goldfields_box[3] , ymin=goldfields_box [2], ymax=goldfields_box [4]), fill = NA, colour = "black") + 
+  geom_sf(data=sa3lung, fill = NA, colour = "grey", size = 0.5) +
   scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1) + 
-  invthm +guides(fill=FALSE)
+  coord_sf(crs = CRS("+init=epsg:3112 +units=m"), xlim =
+      c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
+  invthm + guides(fill=FALSE)
 aus_ggncont
 
-perth_ggncont <- ggplot(ncont %>% filter(gcc_name_2016 == "Greater Perth")) + 
-  geom_rect(aes(xmin =-1736000, xmax = -1639000, ymin=-3824000, ymax=-3672300), fill = NA, colour = "black") +
-  geom_sf(data= sa3lung %>% filter(gcc_name_2016 == "Greater Perth"),
-          fill = NA, colour = "black", size = 0.1) +
+
+goldfields_ggncont <- ggplot(ncont %>% filter(sa3_name_2016 == "Goldfields"))  + geom_rect(aes(xmin =goldfields_box[1] , xmax = goldfields_box[3] , ymin=goldfields_box [2], ymax=goldfields_box [4]), fill = NA, colour = "black") +
   geom_sf(aes(fill = `Age-standardised rate (per 100,000)`), colour = NA) + 
-  scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1) + invthm +
-  guides(fill=FALSE)
-perth_ggncont
+  scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1) + invthm + guides(fill=FALSE)
+goldfields_ggncont
 
 library(cowplot)
-full_ggncont <- ggdraw() + 
-  draw_plot(aus_ggncont, 0, 0, 1, 1) +
-  draw_plot(perth_ggncont, 0.33, 0.10, 0.25, 0.25)
+full_ggncont <- ggdraw(aus_ggncont, xlim = c(0,1), ylim = c(0,1)) + 
+  draw_plot(goldfields_ggncont, 0.38, 0.06, 0.2, 0.2) + 
+  draw_line( # inset, ausmap
+    x = c(.42, .35), 
+    y = c(0.26, 0.45))
 full_ggncont
 ggsave(filename = "figures/aus_ggncont.png", plot = full_ggncont,
        device = "png", bg = "transparent", dpi = 300,  width = 7, height = 6)
@@ -161,12 +161,14 @@ ggsave(filename = "figures/aus_ggncont.png", plot = full_ggncont,
 
 ###############################################################################
 # Non - Contiguous Dorling Cartograms
+# k = Share of the bounding box of x filled by the larger circle
 dorl <- sa3lung %>% filter(cent_long >110, cent_long<155) %>% 
-  mutate(pop = (Population/max(Population))*10) %>% 
-  cartogram_dorling(., k = 0.05, weight = "pop", m_weight = 1) %>%
+  mutate(pop = Population) %>% 
+  cartogram_dorling(., k = 0.08, weight = "pop", m_weight = 1) %>%
   st_as_sf(crs=CRS("+init=epsg:3112"))
 d <- st_bbox(dorl)
 aus_ggdorl <- ggplot(dorl) + 
+  geom_sf(data=sa3lung, fill = NA, colour = "black", size = 0.1) +
   geom_sf(aes(fill = `Age-standardised rate (per 100,000)`)) + 
   scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1) +
   coord_sf(crs = CRS("+init=epsg:3112"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
@@ -192,7 +194,7 @@ hexagons <- fortify_hexagon(hexmap, sf_id = "sa3_name_2016", hex_size = 0.70) %>
   left_join(st_drop_geometry(sa3lung))
 
 hexagons_sf <- hexagons %>% 
-  select(sa3_name_2016, long, lat) %>% 
+  dplyr::select(sa3_name_2016, long, lat) %>% 
   sf::st_as_sf(coords = c("long", "lat"), crs = 4283) %>%
   group_by(sa3_name_2016) %>% 
   summarise(do_union = FALSE) %>%
@@ -207,7 +209,7 @@ hex <- sa3lung %>%
   mutate(geometry = hexagons_sf$geometry)
 
 aus_gghexmap <- ggplot(hex) + 
-  geom_sf(data=aus, fill = NA, colour = "black", size = 0.1) +
+  geom_sf(data=sa3lung, fill = NA, colour = "black", size = 0.1) +
   geom_sf(aes(fill = `Age-standardised rate (per 100,000)`), colour = NA) + 
   coord_sf(crs = CRS("+init=epsg:3112"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
   scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1) + scale_size_identity() + 

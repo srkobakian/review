@@ -27,3 +27,4 @@ rsconnect/
 review.Rproj
 .Rproj.user
 review_article_files
+.DS_Store

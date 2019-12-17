@@ -52,7 +52,19 @@ A choropleth map displays the geographical distribution of data over a set of sp
 <!-- psychology -->
 Displaying familiar state boundaries can make a map easier to read [@CIBMUK] and allow viewers to infer the spatial relationships visually in the data using their mental model of the geography. The map users of disease displays may include researchers, the public, policymakers, and the media [@CPISACA]. For these users, the familiarity of the geography is a worthy consideration when presenting results of spatial analysis.
 
-```{r choropleth-grid-create, message=FALSE, warning = FALSE, fig.cap = "A selection of choropleth cancer maps from online atlases that are publicly available. Maps of various countries were chosen: United Kingdom, Australia, Spain, USA, Canada, and display several different colour palettes and legends.", out.width='100%', fig.align='center', fig.width=12, fig.height=10}
+
+## Cancer atlases {#ch:public}
+<!-- 360 words -->
+<!-- Displaying of cancer data on choropleth maps -->
+A cancer atlas is a map, or collection of maps, representing cancer incidence and mortality for a country, or group of countries. Atlases are key to developing hypotheses regarding areas with unusually high rates, geographic correlations, work-related exposures, and high-risk diets [@MACM]. The data collection methods across regions and the administrative control within regions lends itself to choropleth visualization. 
+Cancer maps and atlases dating back to Haviland's maps in 1875, and early work in US cancer atlases appearing in 1971 [@burbank]. The presentation of cancer statistics has increased with greater access to computational power and the availability of geographic information systems software [@SE].
+
+<!-- Measures reported in cancer atlases -->
+Cancer maps are effective tools for communicating incidence, survival, and mortality to a wide range of audiences, including the public and others not trained in statistical analysis.
+These visualizations enable non-expert audiences to interpret the outputs of sophisticated statistical analysis. Cruickshank (1947) as cited by S. D. Walter [@DMAHP], discusses using visuals as a 'formal statistical assessment of the spatial pattern'. Overwhelmingly, choropleth maps are visulisation chosen to communicate cancer statistics to members of the public and other non-expert audiences.  
+
+
+```{r choropleth-grid-create, message=FALSE, warning = FALSE, fig.cap = "A selection of choropleth cancer maps from online atlases that are publicly available. Maps of various countries were chosen: United Kingdom, Australia, Spain, USA, Canada, and display several different colour palettes and legends. These atllases are described in Table 1.", out.width='100%', fig.align='center', fig.width=12, fig.height=10}
 library(cowplot)
 
 # Import the images
@@ -81,20 +93,24 @@ ggsave(filename = "figures/choropleth_grid.png",
 ```
 
 
-## Cancer atlases {#ch:public}
-<!-- 360 words -->
-<!-- Displaying of cancer data on choropleth maps -->
-A cancer atlas is a map, or collection of maps, representing cancer incidence and mortality for a country, or group of countries. Atlases are key to developing hypotheses regarding areas with unusually high rates, geographic correlations, work-related exposures, and high-risk diets [@MACM]. The data collection methods across regions and the administrative control within regions lends itself to choropleth visualization. 
-Cancer maps and atlases dating back to Haviland's maps in 1875, and early work in US cancer atlases appearing in 1971 [@burbank]. The presentation of cancer statistics has increased with greater access to computational power and the availability of geographic information systems software [@SE].
+Table: 1<!--\label{tab:choropleths}--> A selection of choropleth cancer maps from online atlases.
 
-<!-- Measures reported in cancer atlases -->
-Cancer maps are effective tools for communicating incidence, survival, and mortality to a wide range of audiences, including the public and others not trained in statistical analysis.
-These visualizations enable non-expert audiences to interpret the outputs of sophisticated statistical analysis. Cruickshank (1947) as cited by S. D. Walter [@DMAHP], discusses using visuals as a 'formal statistical assessment of the spatial pattern'. Overwhelmingly, the cancer maps used to communicate to members of the public and other non-expert audiences are choropleth maps.  
+| Fig. | Atlas | Statistic | Data source | 
+|:----:|:-------------|:----------------------|:----------------|  
+|1a | The Environment and Health Atlas of England and Wales | relative risk for women developing lung cancer in England and Wales in 2010 [@EnvEnglandWales2]| [ Office for National Statistics (ONS) (England) and from the Welsh Cancer Intelligence and Surveillance Unit (WCISU) ](http://www.envhealthatlas.co.uk/homepage/)|
+|1b | Globocan 2018: Estimated Cancer Incidence, Mortality and Prevalence Worldwide | age standardized incidence rates (per 100,000) for all invasive cancers for both men and women, aggregated at a national level for 2018 [@Globocan]| [World Health Organization's International Agency for Research on Cancer](https://www.iarc.fr/). |
+|1c | Atlas of Cancer in Queensland | the relative incidence ratio of lung cancer in males in the state of QLD within Australia based on data from 1998 to 2007, Queensland Cancer Council[@QLDcancerAtlas] | [Queensland Cancer Registry](https://cancerqld.org.au/research/cancer-registries/queensland-cancer-registry/) |
+|1d | Bowel Cancer Australia Atlas | the percentage of Australian males between 50 - 54 years of age diagnosed with bowel cancer in 2016 in Australia [@Bowel]. |  [Bowel Cancer Australia](https://www.bowelcanceraustralia.org/)|
+|1e | United States Cancer Statistics: An Interactive Cancer Statistics Website | the incidence rate per 100,000, of all cancer types for men and women in the United States in 2016, aggregated at the state level [@USInteractive].|  *[Centers for Disease Control and Prevention](https://www.cdc.gov/)*, with data from state cancer registries. | 
+|1f | Map of Cancer Mortality Rates in Spain | side by side maps of relative risk of lung cancer for men vs women for 2004 to 2008 [@cancerSpain].| [Map of cancer mortality rates in Spain](https://elpais.com/elpais/2014/10/06/media/1412612722_141933.html)|
+|1g | Atlas of Childhood Cancer in Ontario | the incidence rate of childhood cancers per 100,000 (by census division) for children aged 0-14, in Ontario from 1995 to 2004 [@OntarioPediatric]. | [The Pediatric Oncology Group of Ontario Networked Information System](https://www.pogo.ca/research-data/pogonis-childhood-cancer-database/data-requests/)|
 
-Epidemiologists and statisticians have developed the statistics used to communicate the burden of cancer over several decades. Table 1<!--\ref{tab:measures}--> summarizes the measures commonly presented in published cancer atlases. Mortality rates are commonly presented as relative rates of risk across the population and age-adjusted to correct for the higher prevalence of cancers in older populations.
+
+
+Epidemiologists and statisticians have developed the statistics used to communicate the burden of cancer over several decades. Table 2<!--\ref{tab:measures}--> summarizes the measures commonly presented in published cancer atlases. Mortality rates are commonly presented as relative rates of risk across the population and age-adjusted to correct for the higher prevalence of cancers in older populations.
 Howe [@HEDP] describes Stock's development of the standardized mortality ratios through the 1930s. 
 
-Table: 1<!--\label{tab:measures}--> Common measures for reporting cancer information.
+Table: 2<!--\label{tab:measures}--> Common measures for reporting cancer information.
 
 |Measure |Details| 
 |:--------------------|:------------------------------------------------|  
@@ -111,14 +127,14 @@ Table: 1<!--\label{tab:measures}--> Common measures for reporting cancer informa
 
 
 <!-- 416 words -->
-Roberts [@roberts2019communication] identified 33 cancer atlases published between 2010 and 2018. Each of these online atlases uses choropleth maps. All except one of these were published by non-commercial organizations, including not-for-profits, government, research organizations, advocacy groups or government-funded partnerships. Figure 1<!--\ref{fig:choropleth-grid-create}--> displays a subset of maps from these atlases, the selection varies in the geographies explored. Figure 1<!--\ref{fig:choropleth-grid-create}-->b shows Globocan 2012 [@Globocan] which explores Estimated Cancer Incidence, Mortality and Prevalence Worldwide using data sourced from cancer registries of each country. 
+Roberts [@roberts2019communication] identified 33 cancer atlases published between 2010 and 2018. Each of these online atlases uses choropleth maps. All except one of these were published by non-commercial organizations, including not-for-profits, government, research organizations, advocacy groups or government-funded partnerships. Figure 1<!--\ref{fig:choropleth-grid-create}--> displays a subset of maps from these atlases, the selection varies in the geographies explored. Figure 1<!--\ref{fig:choropleth-grid-create}-->b shows Globocan 2018 [@Globocan] which explores Estimated Cancer Incidence, Mortality and Prevalence Worldwide using data sourced from cancer registries of each country. 
 The Bowel Cancer Australia Atlas in Figure 1<!--\ref{fig:choropleth-grid-create}-->d presents an example of a cancer specific atlas, it shows the average Standardized Incidence Ratio of colorectal cancer for Australian males from 2006 to 2010 in Australia [@Bowel]. Like many of the atlases examined, there is a choice of gender displayed in the Bowel Cancer Atlas. An alternative approach used in the Map of Cancer Mortality Rates in Spain, Figure 1<!--\ref{fig:choropleth-grid-create}-->f shows side-by-side maps of the relative risk of lung cancer separately for men and women [@cancerSpain]. 
 
 There are vast differences in the geographies considered by online atlases. 
 Figure 1<!--\ref{fig:choropleth-grid-create}-->b shows global age-standardized incidence rates (per 100,000) for all invasive cancers for both men and women, aggregated at a national level for 2018.
 The United States Cancer Statistics [@USInteractive] presented in Figure 1<!--\ref{fig:choropleth-grid-create}-->e contains the incidence rate per 100,000, of all cancer types for men and women in the United States in 2016, aggregated at the state level.
 The Environment and Health Atlas of England and Wales, Figure 1<!--\ref{fig:choropleth-grid-create}-->a shows the relative risk for women developing lung cancer in England and Wales in 2010 [@EnvEnglandWales2] at a neighborhood (small-area) scale.
-The Atlas of Cancer in Queensland, Figure 1<!--\ref{fig:choropleth-grid-create}-->c shows the relative incidence ratio of lung cancer in males for each Statistical Area at Level 2 in the state of Queensland within Australia [@QLDcancerAtlas].
+The Atlas of Cancer in Queensland, Figure 1<!--\ref{fig:choropleth-grid-create}-->c shows the relative incidence ratio of lung cancer in males for each Statistical Area at Level 2 [@abs2016] in the state of Queensland within Australia [@QLDcancerAtlas].
 
 
 Age-specific atlases are less common, Figure 1<!--\ref{fig:choropleth-grid-create}-->g displays Atlas of Childhood Cancer in Ontario, this communicates the incidence rate of childhood cancers per 100,000 (by census division) for children aged 0-14, in Ontario from 1995 to 2004 [@OntarioPediatric]. This atlas communicates information regarding a small geographic region.
@@ -138,9 +154,15 @@ level of detail. Introducing population and demographic information helps to int
 
 # Limitations of choropleth displays {#ch:chorolimit}
 
-Australia presents an extreme case of an urban rural divide. The land mass occupied by urban electoral districts is only 10% of Australia, yet 90% of the population live in these urban areas [@ACTUC]. This impedes reading information about disease incidence from choropleth maps.
+Australia presents an extreme case of an urban rural divide. The land mass occupied by urban electoral districts is only 10% of Australia, yet 90% of the population live in these urban areas [@ACTUC]. 
 
 Choropleth maps provide a familiar display, which shows data in a geographically recognisable way. A disadvantage is that the different population and geographical sizes of administrative areas can attract attention to the shades of the underpopulated but large areas [@EI]. Skowronnek also [@BCM] discusses how choropleth maps suffer from area-size bias, as they give a 'stronger visual weight' to large  administrative units. The administrative boundaries used to define regions may limit a choropleth display, as this display unfaithfully represents the disease distribution across the region by obscuring small geographic areas. Sparsely populated rural areas are emphasized, whereas the areas representing inner city communities are very small. This is especially true for Australia.
+
+Choropleth maps colour each geographic unit to allow map users to measure the value of the statistic [@EI]. Map users contrast the colours in neighbouring areas to understand the spatial distribution. Map creators must choose an attractive and effective colour scheme, but is a difficult task [@CB]. The ColorBrewer system supports map creators in the decision making process, but this does not consider perceptual colour
+specifications. 
+
+Brewer [@CB] also suggests the use and colors of borders and backgrounds can change the appearance of the colors representing the value of the statistics.
+Incorporating borders may allow a reference point to orient users as they compare colours of neighbouring areas. 
 
 <!--
 Choropleth maps provide a familiar display that may be important for orienting a non-statistical audience. The familiar shape boundaries define individual areas of non-uniform size, containing different population densities and may be subject to change. A spatially heterogeneous population distribution across a country’s landmass is an issue common to many countries, especially British colonies [@ACTUC]. 
@@ -234,7 +256,7 @@ ggdraw() +
     c(1, 1, .5, .5), size = 20)
 ```
 
-Table: 2<!--\label{tab:usa}--> Maps used to present statistics for the United States of America. The colour of each state communicates the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016.
+Table: 3<!--\label{tab:usa}--> Maps used to present statistics for the United States of America. The colour of each state communicates the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016.
 
 |Map display |Details| 
 |:--------------------|:------------------------------------------------|  
@@ -245,7 +267,7 @@ Table: 2<!--\label{tab:usa}--> Maps used to present statistics for the United St
 
 
 
-Figure 2<!--\ref{fig:ggcartograms}--> shows four different cartograms for the same data. The information in Table 2<!--\ref{tab:usa}--> summarizes what can be observed in the four types of cartograms.
+Figure 2<!--\ref{fig:ggcartograms}--> shows four different cartograms for the same data. The information in Table 3<!--\ref{tab:usa}--> summarizes what can be observed in the four types of cartograms.
 
 
 ### Contiguous
@@ -354,14 +376,14 @@ ggdraw() +
 
 ## Neither choropleth maps or cartograms perform well for Australia
 
-Figure 3<!--\ref{fig:auscartograms}--> shows four main types of cartograms displaying melanoma incidence on Statistical Areas at Level 3 [@ABSmaps] areas in Australia. The version of a contiguous cartogram (a) has expanded the highly populated areas while preserving the full shapes of rural areas. It has not fully resolved the population transformation of areas, and if it had accurately sized areas by population, the country would be unrecognizable. The shape-preserved cartogram is unreadable, and it has reduced all areas to tiny spots on the map. Zooming in on a high-resolution output shows it does preserve the areas. The Dorling cartogram has lost all geographic context. The hexagon tile map provides a reasonable spatial distribution despite having too much white-space in the outback areas.
+Figure 3<!--\ref{fig:auscartograms}--> shows four main types of cartograms displaying melanoma incidence on Statistical Areas at Level 3 [@abs2016] in Australia. The version of a contiguous cartogram (a) has expanded the highly populated areas while preserving the full shapes of rural areas. It has not fully resolved the population transformation of areas, and if it had accurately sized areas by population, the country would be unrecognizable. The shape-preserved cartogram is unreadable, and it has reduced all areas to tiny spots on the map. Zooming in on a high-resolution output shows it does preserve the areas. The Dorling cartogram has lost all geographic context. The hexagon tile map provides a reasonable spatial distribution despite having too much white-space in the outback areas.
 
 ## Limitations of alternative displays
 
 Cartograms provide the spatial distortion to more accurately convey the statistical distribution, focuses on the human impact of the disease. However, the transformation of contiguous cartograms often occurs at the expense of the shape of areas [@CBATCC, @NAC, @TAAM]. When the population density of the geographic units is highly dissonant with geographic density, the cartogram will lose all spatial context.
 Dorling [@ACTUC] has a cartogram showing the 1966 general election results, which looked very little like the geographical shape of Australia. 
 
-Some mix of tiling, faceting or even micro maps, which allow some spatial continuity while also zooming into small areas, are good solutions for difficult geographies. Table \ref{tab:methods} summarizes the key criteria for testing maps and alternative displays. Moore and Carpenter [@SAMGIS] and Bell et al. [@CPISACA] provide suggestions and comments to help map creators best communicate their health data and spatial analysis.
+Some mix of tiling, faceting or even micro maps, which allow some spatial continuity while also zooming into small areas, are good solutions for difficult geographies. Table 3 <!--\ref{tab:methods}--> summarizes the key criteria for testing maps and alternative displays. Moore and Carpenter [@SAMGIS] and Bell et al. [@CPISACA] provide suggestions and comments to help map creators best communicate their health data and spatial analysis.
 
 
 <!-- Cartograms, sacrifice geography, focus on the outliers/ relationships in data space 
@@ -387,7 +409,7 @@ Faceting provides an opportunity to contrast the overall distribution of variabl
 This display makes is difficult to compare specific regions.-->
 
 
-Table: \label{tab:methods} Summary of features and constraints of common mapping methods used to display cancer statistics (Y=Yes, N=No, S=Sometimes).
+Table: 3<!--\label{tab:methods}--> Summary of features and constraints of common mapping methods used to display cancer statistics (Y=Yes, N=No, S=Sometimes).
 
 
 |                     | Choropleth | Contiguous | Non-contig | Dorling | tile maps | Geofacets |
