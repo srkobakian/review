@@ -95,8 +95,8 @@ ggsave(filename = "figures/choropleth_grid.png",
 
 Table: 1<!--\label{tab:choropleths}--> A selection of choropleth cancer maps from online atlases.
 
-| Fig. | Atlas | Statistic | Data source | 
-|:----:|:-------------|:----------------------|:----------------|  
+|Fig.| Atlas | Statistic | Data source | 
+|:---:|:------------|:----------------------|:----------------|  
 |1a | The Environment and Health Atlas of England and Wales | relative risk for women developing lung cancer in England and Wales in 2010 [@EnvEnglandWales2]| [ Office for National Statistics (ONS) (England) and from the Welsh Cancer Intelligence and Surveillance Unit (WCISU) ](http://www.envhealthatlas.co.uk/homepage/)|
 |1b | Globocan 2018: Estimated Cancer Incidence, Mortality and Prevalence Worldwide | age standardized incidence rates (per 100,000) for all invasive cancers for both men and women, aggregated at a national level for 2018 [@Globocan]| [World Health Organization's International Agency for Research on Cancer](https://www.iarc.fr/). |
 |1c | Atlas of Cancer in Queensland | the relative incidence ratio of lung cancer in males in the state of QLD within Australia based on data from 1998 to 2007, Queensland Cancer Council[@QLDcancerAtlas] | [Queensland Cancer Registry](https://cancerqld.org.au/research/cancer-registries/queensland-cancer-registry/) |

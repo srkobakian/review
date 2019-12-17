@@ -111,7 +111,7 @@ aus_ggcont <- ggplot(cont) +
   geom_sf(aes(fill = `Age-standardised rate (per 100,000)`)) + 
   scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1) + 
   coord_sf(crs = CRS("+init=epsg:3112"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
-  invthm +  guides(fill=FALSE)
+  invthm + guides(fill=FALSE)
 aus_ggcont
 ggsave(filename = "figures/aus_ggcont.png", device = "png",  bg = "transparent", dpi = 300,  width = 7, height = 6)
 
@@ -127,14 +127,16 @@ sa3lung %>%
   geom_density(aes(x = sva)) + geom_vline(aes(xintercept = 7))
 
 
-ncont <- cartogram_ncont(sa3lung, k = 1/5,
+ncont <- cartogram_ncont(sa3lung, k = 1/3,
   weight = "Population") %>% st_as_sf() %>% 
   rename(`Age-standardised rate (per 100,000)` = `Age.standardised.rate..per.100.000.`)
 
 goldfields_box <- st_bbox(st_buffer(ncont %>% filter(sa3_name_2016 == "Goldfields"), dist=500))
 
 aus_ggncont <- ggplot(ncont) +  
-  geom_sf(aes(fill = `Age-standardised rate (per 100,000)`), colour = NA) + geom_rect(aes(xmin =goldfields_box[1] , xmax = goldfields_box[3] , ymin=goldfields_box [2], ymax=goldfields_box [4]), fill = NA, colour = "black") + 
+  geom_sf(aes(fill = `Age-standardised rate (per 100,000)`), colour = NA) + 
+  geom_rect(aes(xmin =goldfields_box[1], xmax = goldfields_box[3], 
+                ymin=goldfields_box[2], ymax=goldfields_box[4]), fill = NA, colour = "black") + 
   geom_sf(data=sa3lung, fill = NA, colour = "grey", size = 0.5) +
   scale_fill_distiller(type = "seq", palette = "Purples",  direction = 1) + 
   coord_sf(crs = CRS("+init=epsg:3112 +units=m"), xlim =
@@ -151,9 +153,9 @@ goldfields_ggncont
 library(cowplot)
 full_ggncont <- ggdraw(aus_ggncont, xlim = c(0,1), ylim = c(0,1)) + 
   draw_plot(goldfields_ggncont, 0.38, 0.06, 0.2, 0.2) + 
-  draw_line( # inset, ausmap
-    x = c(.42, .35), 
-    y = c(0.26, 0.45))
+  draw_line(x = c(0.425, 0.385, 0.535), 
+            y = c(0.25, 0.44, 0.25)) + 
+  draw_line(x = c(0.425, 0.385), y = c(0.07, 0.44))
 full_ggncont
 ggsave(filename = "figures/aus_ggncont.png", plot = full_ggncont,
        device = "png", bg = "transparent", dpi = 300,  width = 7, height = 6)
