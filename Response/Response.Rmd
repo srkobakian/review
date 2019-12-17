@@ -24,8 +24,8 @@ We have restructed our original submission to provide a clear path from current 
 The manuscript now contains the following sections:
 
 **Traditional approaches for cancer map displays:** This section discusses the choropleth map as the common map display used in cancer maps and atlases.
-*Limitations of current approaches:* This section presents the possible issues with displaying cancer statistics on a choropleth map.
-*Alternative visualisation methods:* We have shown that there are many alternative displays that highlight population dense regions.
+*Limitations of choropleth displays:* This section presents the possible issues with displaying cancer statistics on a choropleth map.
+*Contemporary alternatives to choropleth maps:* We have shown that there are many alternative displays that highlight population dense regions.
 *Challenges of alternative approaches:* Alternative displays also have limitations when displaying spatial distributions of cancer statistics.
 
 
@@ -55,7 +55,8 @@ We agree with the reviewer. Alternative mapping displays have been implemented i
 
 
 *Changes in the text:* 
-Cancer atlases communicate cancer statistics over geographic domains. These domains are subdivided by administrative areas such as countries, states or suburbs. When communicating human-related statistics in Australia, the geographic map base highlights the sparsely populated rural areas. The smaller geographic areas may not draw the attention of readers but they are important to consider if they are more densely populated. Alternative map displays can reveal patterns that are not obvious when the same data is shown on a choropleth map. Alternative displays have proven to be successful on online news sites, especially for the communication of election data, where votes are aggregated at the state level.
+
+Cancer atlases communicate cancer statistics over geographic domains. They subdivide these domains into administrative regions such as countries, states, or suburbs. When communicating human-related statistics in Australia, the geographic map base draws attention to sparsely populated rural areas. The smaller geographic areas may not draw the attention of readers, but they are important to consider if they are more densely populated. Alternative map displays can be more effective than a choropleth map at revealing spatial patterns. Alternative displays have rarely been used in the context of online cancer atlases, but the Globocan atlas, [@Globocan] provides an example of how alternative statistical displays can be implemented.
 
 
 *Comment 2: *
@@ -63,16 +64,18 @@ Cancer atlases communicate cancer statistics over geographic domains. These doma
 2. The key message seems to get lost in the Abstract. The Conclusion is vague.
 
 *Reply 2:* 
-See *Reply 1* for changes to the abstract. Additionally, the conclusion has also been edited to be more direct in concluding the alternatives presented.
+Changes to the abstract have been made. Additionally, the conclusion has also been edited to be more direct in concluding the alternatives presented.
 
 *Changes in the text:* 
+
+Cancer atlases communicate cancer statistics over geographic domains. They subdivide these domains into administrative regions such as countries, states, or suburbs. When communicating human-related statistics in Australia, the geographic map base draws attention to sparsely populated rural areas. The smaller geographic areas may not draw the attention of readers, but they are important to consider if they are more densely populated. Alternative map displays can be more effective than a choropleth map at revealing spatial patterns. Alternative displays have rarely been used in the context of online cancer atlases, but the Globocan atlas, [@Globocan] provides an example of how alternative statistical displays can be implemented.
 
 *Comment 3: *
 
 3. Entire paper needs substantial English language editing
 
-*Reply :* 
-
+*Reply 3:* 
+Thank you for this point. Subtantial time has been taken to improve the language used.
 
 *Changes in the text:* 
 
