@@ -30,7 +30,7 @@ library(grid)
 \section*{Abstract}
 <!-- 105 words -->
 
-Cancer atlases communicate cancer statistics over geographic domains. They subdivide these domains into administrative regions such as countries, states, or suburbs. When communicating human-related statistics in Australia, the geographic map base draws attention to sparsely populated rural areas. The smaller geographic areas may not draw the attention of readers, but they are important to consider if they are more densely populated. Alternative map displays can be more effective than a choropleth map at revealing spatial patterns. Alternative displays have rarely been used in the context of online cancer atlases, but the Globocan atlas, [@Globocan] provides an example of how alternative statistical displays can be implemented.
+Cancer atlases communicate cancer statistics over geographic domains, typically with a choropleth map. They subdivide these domains into administrative regions such as countries, states, or suburbs. When communicating human-related statistics, the choropleth has a disadvantage in that it draws attention to sparsely populated rural areas to the neglect of small inner city areas. The smaller geographic areas are important to consider if they are densely populated. Alternative map displays, such as a cartogram or a hexagon tile map, can be more effective at accurately communicating spatial patterns. It is recommended that more use of these alternative displays is made. In addition, with the ease of today's technology, user interaction with the displays is encouraged. Users should also be able to interactively display different statistics, such as incidence rate or relative incidence. 
 
 # Introduction
 <!-- 436 words -->
