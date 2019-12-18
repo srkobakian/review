@@ -1,7 +1,6 @@
 ---
 title: "Cancer Applications of Choropleth Maps, and the Potential of Cartograms and Alternative Map Displays"
-author: "Stephanie Kobakian, Jessie Roberts and Dianne Cook"
-bibliography: reviewbib.bib
+author: "Stephanie Kobakian^[Science and Engineering Faculty, Queensland University of Technology.], Dianne Cook^[Faculty of Econometrics and Business Statistics, Monash University.] and Jessie Roberts^[Queensland University of Technology.]"
 output:
   pdf_document:
     fig_caption: yes
@@ -11,8 +10,8 @@ output:
     dev: jpeg
 header-includes:
     - \usepackage{setspace}\doublespacing
-    - \usepackage{fancyhdr}\pagestyle{fancy}\fancyhead[R]{\thepage}
 link-citations: yes
+bibliography: reviewbib.bib
 fontsize: 11pt
 geometry: margin = 1.2in
 csl: springer-vancouver.csl
@@ -287,7 +286,7 @@ Raisz laid the groundwork for this approach in the mid-1930s, and his rectangula
 
 ## Tile Map
 <!-- 173 words -->
-A tile map provides a tessellated display of consistent shapes.  A similar method to a rectangular cartogram, represents each geographic area using a square. The squares are tessellated to create a grid. Each area is represented by a square of the same dimensions, each tile is usually one unit of measurement, this could be geographic regions such as states or population-based that use a consistent measure of population for each tile. Regions with over four neighbors require some necessary displacement. The tile map uses color to represent a value of a statistic for each area. A similar method to a rectangular cartogram represents each geographic area using a square of the same dimensions. There are online media sources using this method, these include [NPR](https://www.npr.org/2016/10/18/498406765/npr-battleground-map-hillary-clinton-is-winning-and-its-not-close), [FiveThirtyEight](https://projects.fivethirtyeight.com/2016-election-forecast/), [The Wall Street Journal](http://graphics.wsj.com/elections/2016/2016-electoral-college-map-predictions/), [The Washington Post](https://www.washingtonpost.com/graphics/politics/2016-election/50-state-poll/). Tile maps may be difficult to create as they are best created manually, they require additional time and care as the number of geographic areas to include increases.
+A tile map provides a tessellated display of consistent shapes.  A similar method to a rectangular cartogram, represents each geographic area using a square. The squares are tessellated to create a grid. Each area is represented by a square of the same dimensions, each tile is usually one unit of measurement, this could be geographic regions such as states or population-based that use a consistent measure of population for each tile. Regions with over four neighbors require some necessary displacement. The tile map uses color to represent a value of a statistic for each area. A similar method to a rectangular cartogram represents each geographic area using a square of the same dimensions. There are online media sources using this method, these include [@NPR], [@FiveThirtyEight], [@WSJ], [@WP]. Tile maps may be difficult to create as they are best created manually, they require additional time and care as the number of geographic areas to include increases.
 <!-- cite mosaic cartograms --> 
 
 Cano and others [@MDAC] define the term 'mosaic cartograms' for hexagonal tile displays, where the number of tiles for each area or the color of them can communicate the statistic of regions. When using several tile per regions, map makers can adjust the complexity of the boundaries in the resulting display. They can also make a trade-off between boundary complexity and simplicity by the size of the tiles used.
