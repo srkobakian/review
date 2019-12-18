@@ -99,10 +99,9 @@ Thank you for this point. Subtantial time has been taken to improve the language
 
 *Comment 6: *
 
-6. Please clearly state the primary aim of this paper and structure it accordingly.
-
+6. Please clearly state the primary aim of this paper and structure it accordingl=['
+]
 *Reply :* 
-
 
 *Changes in the text:* 
 
@@ -110,10 +109,10 @@ Thank you for this point. Subtantial time has been taken to improve the language
 
 7. Conclusions must discuss the key focus and conclusions of this paper. 
 
-*Reply :* 
+*Reply 7:* 
+Small changes have been made to the conclusion that make the focus of the paper and recommendations clearer.The conclusion has three parts (1) mapping practices, and recommendations, (2) staistics applied and the pros and cons, and (3) user interaction with online maps and the benefits of incorporating this.
 
-
-*Changes in the text:* 
+*Changes in the text 7:* 
 
 
 *Minor Comments* 
