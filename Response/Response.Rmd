@@ -21,6 +21,9 @@ This review paper presented an exploration of cancer mapping methods, focusing o
 
 We have restructed our original submission to provide a clear path from current approaches used, to the alternative approaches that should be explored. We highlight the limitations of using current display methods, to encourage the use of alternative display methods. We also present the challenges that may be faced when implementing the alternative designs.
 
+The manuscript title has been changed:
+"Cancer Applications of Choropleth Maps, and the Potential of Cartograms and Alternative Map Displays"
+
 The manuscript now contains the following sections:
 
 **Traditional approaches for cancer map displays:** This section discusses the choropleth map as the common map display used in cancer maps and atlases.
@@ -44,6 +47,7 @@ Bowel Cancer Australia Atlas:
 ...shows the average Standardised Incidence Ratio of colorectal cancer for Australian males from 2006 to 2010 in Australia. It is published by Bowel Cancer Australia https://www.bowelcanceraustralia.org/.  
 
 
+The following section outlines comments made by the reviewer and contains our responses after the suggested changes were implemented.
 
 *Reviewer A: *
 *Major*
@@ -51,12 +55,12 @@ Bowel Cancer Australia Atlas:
 The Abstract should be more focused- perhaps give an example of how cartogram mapping has been applied to data visualisation. What are the benefits of this approach and suggestions for the future.
 
 *Reply 1:* 
-We agree with the reviewer. Alternative mapping displays have been implemented in political contexts. Choropleth maps have often been used.
+The advantages of alternative mapping displays, including cartograms, has been included in the abstract. It clearly includes the changes to the map display made by alternative visualisation methods, and how they benefit the map user as they build an understanding of the spatial distribution.
 
 
 *Changes in the text:* 
 
-Cancer atlases communicate cancer statistics over geographic domains. They subdivide these domains into administrative regions such as countries, states, or suburbs. When communicating human-related statistics in Australia, the geographic map base draws attention to sparsely populated rural areas. The smaller geographic areas may not draw the attention of readers, but they are important to consider if they are more densely populated. Alternative map displays can be more effective than a choropleth map at revealing spatial patterns. Alternative displays have rarely been used in the context of online cancer atlases, but the Globocan atlas, [@Globocan] provides an example of how alternative statistical displays can be implemented.
+Cancer atlases communicate cancer statistics over geographic domains, typically with a choropleth map. They subdivide these domains into administrative regions such as countries, states, or suburbs. When communicating human-related statistics, the choropleth has a disadvantage in that it draws attention to sparsely populated rural areas to the neglect of small inner city areas. The smaller geographic areas are important to consider if they are densely populated. Alternative map displays, such as a cartogram or a hexagon tile map, can shift the attention of map users from the large rural areas by decreasing their size on the map display. This means alternative displays can be more effective at accurately communicating spatial patterns across spatial areas, by highlighting areas of interest. It is recommended that alternative displays are included in cancer atlases. In addition, with the ease of today's technology, user interaction with the displays is encouraged. Users should also be able to interactively display different statistics, such as incidence rate or relative incidence. 
 
 
 *Comment 2: *
@@ -64,55 +68,47 @@ Cancer atlases communicate cancer statistics over geographic domains. They subdi
 2. The key message seems to get lost in the Abstract. The Conclusion is vague.
 
 *Reply 2:* 
-Changes to the abstract have been made. Additionally, the conclusion has also been edited to be more direct in concluding the alternatives presented.
+Changes to the abstract have been made. Additionally, the conclusion has also been edited to be more direct in recommending the use or consideration of the alternatives presented.
 
 *Changes in the text:* 
-
-Cancer atlases communicate cancer statistics over geographic domains. They subdivide these domains into administrative regions such as countries, states, or suburbs. When communicating human-related statistics in Australia, the geographic map base draws attention to sparsely populated rural areas. The smaller geographic areas may not draw the attention of readers, but they are important to consider if they are more densely populated. Alternative map displays can be more effective than a choropleth map at revealing spatial patterns. Alternative displays have rarely been used in the context of online cancer atlases, but the Globocan atlas, [@Globocan] provides an example of how alternative statistical displays can be implemented.
+Please see the response to *Comment 1*.
 
 *Comment 3: *
 
 3. Entire paper needs substantial English language editing
 
 *Reply 3:* 
-Thank you for this point. Subtantial time has been taken to improve the language used.
+Thank you for this point. Substantial time has been taken to improve the language used in this paper.
 
-*Changes in the text:* 
 
 *Comment 4: *
 
 4. Please avoid the use of sentences which have been used throughout the paper where you start with a reference number: such as “[4] discusses the use of (Map displays for disease data, Line 15-16) They do not make any sense and must be modified.
 
-*Reply :* 
+*Reply:* 
+The referencing system was changed to implement the springer-vancouver style. We apologise for the issues this caused when exporting to a Word Document, the text has been modified appropriately.
 
-
-*Changes in the text:* 
 
 *Comment 5: *
 
 5. Please provide numbers for Figures and Tables
 
-*Reply :* 
-
-
-*Changes in the text:* 
+*Reply 5:* 
+this begins the discussion, andNumbers for figures and tables have been corrected. This paper was produced using Rmarkdown, this introduced errors with numbering figures, sections and tables. All numbering has now been manually defined.
 
 *Comment 6: *
 
-6. Please clearly state the primary aim of this paper and structure it accordingl=['
-]
-*Reply :* 
+6. Please clearly state the primary aim of this paper and structure it accordingly
 
-*Changes in the text:* 
+*Reply 6:* 
+The primary aim of this paper is to present alternative map displays as viable visualisation methods for presenting spatial distributions in cancer atlases. A choropleth map is commonly used in practice, it is described and it's limitations are highlighted. The alternative map displays address the limitations of the choropleth map. The methods and the limitations of these alternative displays are discussed.
 
 *Comment 7: *
 
 7. Conclusions must discuss the key focus and conclusions of this paper. 
 
 *Reply 7:* 
-Small changes have been made to the conclusion that make the focus of the paper and recommendations clearer.The conclusion has three parts (1) mapping practices, and recommendations, (2) staistics applied and the pros and cons, and (3) user interaction with online maps and the benefits of incorporating this.
-
-*Changes in the text 7:* 
+Small changes have been made to the conclusion that make the focus of the paper and recommendations clearer. The conclusion has three parts (1) mapping practices, and recommendations, (2) statistics applied and the pros and cons, and (3) user interaction with online maps and the benefits of incorporating this.
 
 
 *Minor Comments* 
@@ -121,7 +117,10 @@ Small changes have been made to the conclusion that make the focus of the paper 
 - There are many minor grammatical errors that need to checked.
 - Please edit the last section of the Introduction. Either number each section and then refer to them or find another way to appropriately refer to each section.
 
+All minor comments were addressed in the process of substantial editing.
 
-We thank you for your consideration.
+
+We thank you for your consideration of our changes.
+
 
 

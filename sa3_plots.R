@@ -153,9 +153,9 @@ goldfields_ggncont
 library(cowplot)
 full_ggncont <- ggdraw(aus_ggncont, xlim = c(0,1), ylim = c(0,1)) + 
   draw_plot(goldfields_ggncont, 0.38, 0.06, 0.2, 0.2) + 
-  draw_line(x = c(0.425, 0.385, 0.535), 
+  draw_line(x = c(0.405, 0.345, 0.555), 
             y = c(0.25, 0.44, 0.25)) + 
-  draw_line(x = c(0.425, 0.385), y = c(0.07, 0.44))
+  draw_line(x = c(0.405, 0.345), y = c(0.07, 0.44))
 full_ggncont
 ggsave(filename = "figures/aus_ggncont.png", plot = full_ggncont,
        device = "png", bg = "transparent", dpi = 300,  width = 7, height = 6)

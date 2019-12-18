@@ -30,7 +30,7 @@ library(grid)
 \section*{Abstract}
 <!-- 105 words -->
 
-Cancer atlases communicate cancer statistics over geographic domains, typically with a choropleth map. They subdivide these domains into administrative regions such as countries, states, or suburbs. When communicating human-related statistics, the choropleth has a disadvantage in that it draws attention to sparsely populated rural areas to the neglect of small inner city areas. The smaller geographic areas are important to consider if they are densely populated. Alternative map displays, such as a cartogram or a hexagon tile map, can be more effective at accurately communicating spatial patterns. It is recommended that more use of these alternative displays is made. In addition, with the ease of today's technology, user interaction with the displays is encouraged. Users should also be able to interactively display different statistics, such as incidence rate or relative incidence. 
+Cancer atlases communicate cancer statistics over geographic domains, typically with a choropleth map. They subdivide these domains into administrative regions such as countries, states, or suburbs. When communicating human-related statistics, the choropleth has a disadvantage in that it draws attention to sparsely populated rural areas to the neglect of small inner city areas. The smaller geographic areas are important to consider if they are densely populated. Alternative map displays, such as a cartogram or a hexagon tile map, can shift the attention of map users from the large rural areas by decreasing their size on the map display. This means alternative displays can be more effective at accurately communicating spatial patterns across spatial areas, by highlighting areas of interest. It is recommended that alternative displays are included in cancer atlases. In addition, with the ease of today's technology, user interaction with the displays is encouraged. Users should also be able to interactively display different statistics, such as incidence rate or relative incidence. 
 
 # Introduction
 <!-- 436 words -->
@@ -350,7 +350,7 @@ Areas with uncertain values will flicker more dramatically than areas with more 
 <!-- 408 words -->
 
 
-```{r auscartograms, fig.cap = "Cartograms showing melanoma incidence in Australia: (a) contiguous, partially population transformed, (b) non-contiguous shape preserved, (c) Dorling, (d) hexagon tile map. The contiguous cartogram has expanded the highly populated areas while preserving the full shapes of rural areas. If it accurately sized areas by population, the country would be unrecognizable. The shape-preserved is unreadable due to the small area sizes. The Dorling cartogram presents all areas but many are difficult to compare. The hexagon tile map provides a reasonable spatial distribution despite having isolated hexagons in the outback areas.", message=FALSE, warning=FALSE, out.width='100%', cache=FALSE}
+```{r auscartograms, fig.cap = "Cartograms showing melanoma incidence in Australia: (a) contiguous, partially population transformed, (b) non-contiguous shape preserved, (c) Dorling, (d) hexagon tile map. The contiguous cartogram has expanded the highly populated areas while preserving the full shapes of rural areas. If it accurately sized areas by population, the country would be unrecognizable. The shape-preserved is unreadable due to the small area sizes. The Dorling cartogram presents all areas but many are difficult to compare. The hexagon tile map provides a reasonable spatial distribution despite having isolated hexagons in the outback areas.", message=FALSE, warning=FALSE, out.width='100%', cache=FALSE, fig.width=8, fig.height=6, dpi=300}
 
 aus1 <- png::readPNG("figures/aus_ggcont.png")
 aus2 <- png::readPNG("figures/aus_ggncont.png")
@@ -360,21 +360,21 @@ load("aus_legend.rda")
 load("figures/aus_legend.rda")
 
 library(cowplot)
-ggdraw() +
-  draw_plot(rasterGrob(aus1), 0, .55, 0.5, 0.50) +
-  draw_plot(rasterGrob(aus2), 0.5, 0.55, 0.5, 0.50) +
+ggdraw(xlim = c(0,1), ylim = c(0,1.2)) +
+  draw_plot(rasterGrob(aus1), 0, .65, 0.5, 0.50) +
+  draw_plot(rasterGrob(aus2), 0.5, 0.65, 0.5, 0.50) +
   draw_plot(rasterGrob(aus3), 0.0, 0.1, 0.5, 0.55) +
   draw_plot(rasterGrob(aus4), 0.5, 0.1, 0.5, 0.55) +
   draw_plot(aus_legend, 0, 0, 1, .1) +
   draw_plot_label(c("a", "b", "c", "d"), 
     c(0, .5, 0, 0.5), 
-    c(1, 1, .5, .5), size = 20)
+    c(1.15, 1.15, .6, .6), size = 20)
 ```
 
 
 ## Neither choropleth maps or cartograms perform well for Australia
 
-Figure 3<!--\ref{fig:auscartograms}--> shows four main types of cartograms displaying melanoma incidence on Statistical Areas at Level 3 [@abs2016] in Australia. The version of a contiguous cartogram (a) has expanded the highly populated areas while preserving the full shapes of rural areas. It has not fully resolved the population transformation of areas, and if it had accurately sized areas by population, the country would be unrecognizable. The shape-preserved cartogram is unreadable, and it has reduced all areas to tiny spots on the map. Zooming in on a high-resolution output shows it does preserve the areas. The Dorling cartogram has lost all geographic context. The hexagon tile map provides a reasonable spatial distribution despite having too much white-space in the outback areas.
+Figure 3<!--\ref{fig:auscartograms}--> shows four main types of cartograms displaying melanoma incidence on Statistical Areas at Level 3 [@abs2016] in Australia. The version of a contiguous cartogram (a) has expanded the highly populated areas while preserving the full shapes of rural areas. It has not fully resolved the population transformation of areas, and if it had accurately sized areas by population, the country would be unrecognizable. The shape-preserved cartogram is unreadable, and it has reduced all areas to tiny spots on the map. Zooming in on a high-resolution output shows it does preserve the areas. The Dorling cartogram and the hexagon tile map provide reasonable displays of the spatial distribution, despite having too much white-space in the outback areas.
 
 ## Limitations of alternative displays
 
@@ -534,13 +534,14 @@ ggdraw() +
 <!-- 307 words -->
 
 <!-- summary of mapping -->
-This paper provides an overview of mapping practices as commonly used for cancer atlases and recommends new approaches, such as cartograms and hexagon tile maps that should be adopted going forward. The conventional approach is the choropleth map, and it is widely used. When there are small areas, as occurs in Australia where the population is concentrated on the coast, the information about cancer can be lost, and alternatives are needed. Making an inset can clarify congested regions but this breaks the viewers' attention because they need to shift focus from the map to the inset, and if there are many congested areas, many insets would be needed. The map alternatives, like cartograms and their variations, can be useful to allow the spatial distribution of cancer data to be digested.
+This paper provides an overview of mapping practices as commonly used for cancer atlases and recommends new approaches, such as cartograms and hexagon tile maps that should be adopted going forward. The conventional approach is the choropleth map, and it is widely used. The choropleth map suffers when there are small geographic units, as occurs in Australia where the population is concentrated on the coast, the information about the burden of cancer on those communities can be hidden. Making an inset can clarify congested regions but this breaks the viewers' attention as they shift focus from the map to the inset, and if there are many congested areas, many insets would be needed. The map alternatives implement tradeoffs between the familiar shapes, and the importance of the geographic areas in the context of the areas. Given the population or a cancer statistic for each area, the geographic size or shape will change. Alternative displays allow the spatial distribution of cancer data to be digested by map users.
 
 <!-- statistics -->
-Many different statistics are commonly used for cancer displays. The most basic is the incidence rate, which is easy to understand. It is common to see relative rates in many maps which measure how far a region is above or below the average. The purpose of using a relative rate is, perhaps the desire to pinpoint the areas that need attention because they have higher than expected rates. However, we lose the incidence rate information and thus interpretability. A region might be much higher than average, but it may not be close to a health concern, because all regions have a low incidence. 
+Many statistics are commonly used in cancer displays. The most basic is the incidence rate. It is common to see relative rates which measure how far a region is above or below the average. The purpose of using a relative rate is, perhaps the desire to pinpoint the areas that need attention because they have higher than expected rates. 
+<!--However, we lose the incidence rate information and thus interpretability. --> A region might be much higher than average, but it may not be close to a health concern, because all regions have a low incidence. Supplementary materials can allow map users to recognise when this occurs.
 
 <!-- interaction -->
-Interaction with maps is an important component of public atlases, and is easy to add with today's technology. A purpose is to provide access to more information than is possible to display in a single map, without overwhelming the viewer. Too many choices though can similarly overwhelm a viewer, and thus decisions do need to be made about content to provide, or hide, for accurate and comprehensive communication of information. Similarly, providing ways for users to interact with the display encourages engagement, and creative, efficient, elegant, interactive tools elicit curiosity about the data. 
+Interaction with maps is an important component of public atlases, and is easy to add with today's technology. The purpose is to provide access to more information than is possible to display in a single map, without overwhelming the viewer. Too many choices can similarly overwhelm a viewer, and thus decisions do need to be made about content to provide for accurate and comprehensive communication of information. Similarly, providing ways for users to interact with the display encourages engagement, and creative, efficient, elegant, interactive tools elicit curiosity about the data. 
 
 # Acknowledgements
 <!-- 77 words -->
