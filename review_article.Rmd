@@ -25,8 +25,7 @@ yolo: yes
 fig_path <- glue::glue("figs/")
 knitr::opts_chunk$set(echo = FALSE, 
                       warning = FALSE,
-                      message = FALSE,
-                      fig.path = fig_path)
+                      message = FALSE)
 library(ggplot2)
 library(cowplot)
 library(png)
@@ -71,31 +70,7 @@ Cancer maps are effective tools for communicating incidence, survival, and morta
 
 
 ```{r choropleth-grid-create, message=FALSE, warning = FALSE, fig.cap = "Figure 1: A selection of choropleth cancer maps from online atlases that are publicly available. Maps of various countries were chosen: United Kingdom, Australia, Spain, USA, Canada, and display several different colour palettes and legends. These atllases are described in Table 1.", out.width='100%', fig.align='center', fig.width=12, fig.height=10}
-library(cowplot)
-
-# Import the images
-plot1 <- png::readPNG('cancer_map_images/choropleths/21.choropleth.png')
-plot2 <- png::readPNG('cancer_map_images/choropleths/3.choropleth.png')
-plot3 <- png::readPNG('cancer_map_images/choropleths/25.choropleth.png')
-plot4 <- png::readPNG('cancer_map_images/choropleths/15.choropleth.png')
-plot5 <- png::readPNG('cancer_map_images/choropleths/7.choropleth.png')
-plot6 <- png::readPNG('cancer_map_images/choropleths/23.choropleth.png')
-plot7 <- png::readPNG('cancer_map_images/choropleths/26.choropleth.png')
-
-ggdraw() +
-  draw_plot(rasterGrob(plot1), 0, .75, 0.33, .25) +
-  draw_plot(rasterGrob(plot2), 0.33, 0.75, 0.33, .25) +
-  draw_plot(rasterGrob(plot3), 0.66, 0.5, .33, .5) +
-  draw_plot(rasterGrob(plot4), 0, 0.5, .33, .25) +
-  draw_plot(rasterGrob(plot5), 0.33, 0.5, .33, .25) +
-  draw_plot(rasterGrob(plot6), 0, 0, .66, .5) +
-  draw_plot(rasterGrob(plot7), .66, 0, .33, .5) +
-  draw_plot_label(c("a", "b", "c", "d", "e", "f", "g"), 
-    c(0.015, 0.31, 0.66, 0.015, 0.31, 0.014, 0.66), 
-    c(0.99, 0.99, 0.99, 0.74, 0.74, 0.46, 0.46), size = 20)
-
-ggsave(filename = "figures/choropleth_grid.png", 
-  device = "png", width = 6, height = 5, dpi = 300)
+knitr::include_graphics("figures/choropleth_grid.png")
 ```
 
 
@@ -222,23 +197,7 @@ The creation of cartograms was historically in the hands of professional cartogr
 There are two key issues to consider when creating alternative map displays, (1) the intended audience of the map, and (2) its purpose. Nusrat and Kobourov [@SAIC] provided a framework to investigate implementations of the many algorithms presented, and the "statistical accuracy, geographical accuracy, and topological accuracy". 
 
 ```{r ggcartograms, fig.cap = "Figure 2: Common alternatives to maps, showing the same information for the United States of America: (a) contiguous cartogram, (b) non-contiguous, shape-preserved cartogram, (c)  Dorling cartogram (non-contiguous), (d) hexagon tilemap (non-contiguous). Maps (a) - (c) are created by resizing and reshaping the states of the USA to match the 2015 population of the state. This provides a better sense of the extent of disease relative to the population in the country and can help ease losing information about physically small but population-dense states. Map creators give each state equal size and thus equal emphasis in (d) the hexagon tile map.", message=FALSE, warning=FALSE, out.width='100%'}
-g1 <- png::readPNG("figures/ggcont.png")
-g2 <- png::readPNG("figures/ggncont.png")
-g3 <- png::readPNG("figures/ggdorl.png")
-g4 <- png::readPNG("figures/gghexmap.png")
-#knitr::include_graphics("figures/usa_grid.png")
-
-load("figures/usa_legend.rda")
-
-ggdraw() +
-  draw_plot(rasterGrob(g1), 0, .55, 0.5,  0.45) +
-  draw_plot(rasterGrob(g2), 0.5, 0.55, 0.5, 0.45) +
-  draw_plot(rasterGrob(g3), 0.0, 0.1, 0.5, 0.45) +
-  draw_plot(rasterGrob(g4), 0.5, 0.1, 0.5, 0.45) +
-  draw_plot(usa_legend, 0, 0, 1, 0.1, scale = 2) +
-  draw_plot_label(c("a", "b", "c", "d"), 
-    c(0, .5, 0, 0.5), 
-    c(1, 1, .5, .5), size = 20)
+knitr::include_graphics("figures/usa_grid.png")
 ```
 
 Table: Table 3: <!--\label{tab:usa}--> Maps used to present statistics for the United States of America. The colour of each state communicates the average age-adjusted rate of incidence for lung and bronchus for females and males in the United States 2012-2016.
@@ -316,24 +275,7 @@ Lucchesi and Wikle [@VUADBC] present bivariate choropleth maps blend color schem
 
 
 ```{r auscartograms, fig.cap = "Figure 4: Cartograms showing melanoma incidence in Australia: (a) contiguous, partially population transformed, (b) non-contiguous shape preserved, (c) Dorling, (d) hexagon tile map. The contiguous cartogram has expanded the highly populated areas while preserving the full shapes of rural areas. If it accurately sized areas by population, the country would be unrecognizable. The shape-preserved is unreadable due to the small area sizes. The Dorling cartogram presents all areas but many are difficult to compare. The hexagon tile map provides a reasonable spatial distribution despite having isolated hexagons in the outback areas.", message=FALSE, warning=FALSE, out.width='100%', cache=FALSE, fig.width=8, fig.height=6, dpi=300}
-
-aus1 <- png::readPNG("figures/aus_ggcont.png")
-aus2 <- png::readPNG("figures/aus_ggncont.png")
-aus3 <- png::readPNG("figures/aus_ggdorl.png")
-aus4 <- png::readPNG("figures/aus_gghexmap.png")
-load("aus_legend.rda")
-load("figures/aus_legend.rda")
-
-library(cowplot)
-ggdraw(xlim = c(0,1), ylim = c(0,1.2)) +
-  draw_plot(rasterGrob(aus1), 0, .65, 0.5, 0.50) +
-  draw_plot(rasterGrob(aus2), 0.5, 0.65, 0.5, 0.50) +
-  draw_plot(rasterGrob(aus3), 0.0, 0.1, 0.5, 0.55) +
-  draw_plot(rasterGrob(aus4), 0.5, 0.1, 0.5, 0.55) +
-  draw_plot(aus_legend, 0, 0, 1, .1) +
-  draw_plot_label(c("a", "b", "c", "d"), 
-    c(0, .5, 0, 0.5), 
-    c(1.15, 1.15, .6, .6), size = 20)
+knitr::include_graphics("figures/auscartograms.png")
 ```
 
 
@@ -463,35 +405,11 @@ This implementation of animation gives users tools to plan their own exploration
 -->
 
 ```{r interacting, fig.cap = "Figure 5: Interactive controls of displays in publicly available choropleth cancer maps: (i) GUI controls for statistic, sex, age groups, continents, and cancer types for [Globocan 2018: Cancer Today ](http://globocan.iarc.fr/Pages/Map.aspx), (ii) Menus for variable selection and zooming on [Bowel Cancer Australia Atlas](http://www.bowelcanceratlas.org/), (iii) Menus for choosing variables and countries in [The Cancer Atlas ](http://canceratlas.cancer.org/data/#?view=map&metric=INCID_ALL_M),  (iv) Tabs for different indicators and cancer types in [Global Cancer Map](http://globalcancermap.com/), (v) Menus and toggles for variable and subset selection in [United States Cancer Statistics: Data Visualizations](https://gis.cdc.gov/Cancer/USCS/DataViz.html).", fig.width = 12, fig.height = 9}
-i1 <- png::readPNG('cancer_map_images/interactivity/3.interactivity.png') # b in choro grid
-i2 <- png::readPNG('cancer_map_images/interactivity/15.interactivity.png') # d in choro grid
-i3 <- png::readPNG('cancer_map_images/interactivity/4.interactivity.png')
-i4 <- png::readPNG('cancer_map_images/interactivity/5.interactivity.png')
-i5 <- png::readPNG('cancer_map_images/interactivity/7.interactivity.png') # e in choro grid
-
-ggdraw() +
-  draw_plot(rasterGrob(i1), 0,  0.13,   .28,  .83) + #a
-  draw_plot(rasterGrob(i2), 0.32, 0.56, .68, .4) + #b
-  draw_plot(rasterGrob(i3), 0.32, 0.41, .68, .13) + #c
-  draw_plot(rasterGrob(i4), 0.32, 0.14, .68, .25) + #d
-  draw_plot(rasterGrob(i5), 0, 0, 1, .13) + #e
-  draw_plot_label(c("i", "ii", "iii", "iv", "v"), 
-    c(0.01, 0.3, 0.3, 0.3, 0.01), 
-    c(0.99, 0.99, 0.57, 0.40, 0.15), size = 20)
-
-ggsave(filename = "figures/supp_grid.png", device = "png", 
-  width = 12, height = 9, dpi = 300)
+knitr::include_graphics("figures/interacting.png")
 ```
 
-```{r animating, fig.cap = "Two examples of advanced interactivity (and animation) in publicly available choropleth cancer maps: a. Linked maps and time-series line plots, with temporal animation in [Map of Cancer Mortality Rates in Spain](http://www.geeitema.org/AtlasET/atlas.jsp?causa=e27MEPOC), b. A highly responsive magnifying glass on a map of [Breast Cancer Mortality in Canada](http://www.ehatlas.ca/light-pollution/maps/breast-cancer-mortality).", fig.width = 12, fig.height = 9}
-a1 <- png::readPNG("cancer_map_images/animation/23.animation.png")
-a2 <- png::readPNG("cancer_map_images/animation/2.animation.png")
-
-ggdraw() +
-  draw_plot(rasterGrob(a1), 0, 0, 0.3, 1) +
-  draw_plot(rasterGrob(a2), 0.3, 0, 0.7, 1) +
-  draw_plot_label(c("I", "II"), 
-    c(0, .3), c(1, 1), size = 20)
+```{r animating, fig.cap = "Two examples of advanced interactivity (and animation) in publicly available choropleth cancer maps: a. Linked maps and time-series line plots, with temporal animation in [Map of Cancer Mortality Rates in Spain](http://www.geeitema.org/AtlasET/atlas.jsp?causa=e27MEPOC), b. A highly responsive magnifying glass on a map of [Breast Cancer Mortality in Canada](http://www.ehatlas.ca/light-pollution/maps/breast-cancer-mortality).", fig.width = 12, fig.height = 7}
+knitr::include_graphics("figures/animating.png")
 ```
 
 # 6. Conclusions

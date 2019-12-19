@@ -1,7 +1,6 @@
 ---
 from: Stephanie Kobakian
 fromqualifications: BA
-fromtitle: Research Masters Student
 fromemail: stephanie.kobakian@monash.edu
 fromphone: +61 433 699 797
 fromsignature: sigfile.png
