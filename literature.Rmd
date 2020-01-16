@@ -288,7 +288,7 @@ Cartograms provide the spatial distortion to more accurately convey the statisti
 Some mix of tiling, faceting or even micromaps, which allow some spatial continuity while also zooming into small areas, are good solutions for difficult geographies. Table 3 <!--\ref{tab:methods}--> summarizes the key criteria for testing maps and alternative displays. Moore and Carpenter [@SAMGIS] and Bell et al. [@CPISACA] provide suggestions and comments to help map creators best communicate their health data and spatial analysis.
 
 
-Table 3: <!--\label{tab:methods}--> Summary of features and constraints of common mapping methods used to display cancer statistics (Y=Yes, N=No, S=Sometimes).
+Table 4: <!--\label{tab:methods}--> Summary of features and constraints of common mapping methods used to display cancer statistics (Y=Yes, N=No, S=Sometimes).
 
 
 |                     | Choropleth | Contiguous | Non-contig | Dorling | Tile maps | Geofacets |
