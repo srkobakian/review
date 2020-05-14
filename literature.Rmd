@@ -87,6 +87,7 @@ Table 1: <!--\label{tab:measures}--> Common measures for reporting cancer inform
 |7. Excess Hazard Ratio | The estimate of cancer-related mortality within five years of diagnosis. |  |
 
 
+# Measures mapped
 
 # Traditional approaches for cancer map displays {#ch:choropleth-maps}
 <!-- 381 words -->
