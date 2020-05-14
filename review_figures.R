@@ -1,12 +1,13 @@
 # Figures
-
+library(ggplot2)
+library(grid)
 library(cowplot)
 
 # Import the images
 plot1 <- png::readPNG('cancer_map_images/choropleths/21.choropleth.png')
 plot2 <- png::readPNG('cancer_map_images/choropleths/3.choropleth.png')
 plot3 <- png::readPNG('cancer_map_images/choropleths/25.choropleth.png')
-plot4 <- png::readPNG('cancer_map_images/choropleths/15.choropleth.png')
+plot4 <- png::readPNG('cancer_map_images/choropleths/aca.choropleth.png')
 plot5 <- png::readPNG('cancer_map_images/choropleths/7.choropleth.png')
 plot6 <- png::readPNG('cancer_map_images/choropleths/23.choropleth.png')
 plot7 <- png::readPNG('cancer_map_images/choropleths/26.choropleth.png')
@@ -19,6 +20,7 @@ ggdraw(xlim = c(0,1), ylim = c(0,1)) +
   draw_plot(rasterGrob(plot5), 0.33, 0.5, .33, .25) +
   draw_plot(rasterGrob(plot6), 0, 0, .66, .5) +
   draw_plot(rasterGrob(plot7), .66, 0, .33, .5) +
+  draw_plot(rasterGrob(plot8), .66, 0, .33, .5) +
   draw_plot_label(c("a", "b", "c", "d", "e", "f", "g"), 
     c(0.025, 0.33, 0.66, 0.025, 0.33, 0.025, 0.66), 
     c(0.99, 0.99, 0.99, 0.74, 0.74, 0.46, 0.46), size = 20)

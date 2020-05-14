@@ -1,0 +1,79 @@
+---
+from: Stephanie Kobakian
+fromqualifications: B.Com and B.Eco
+fromemail: stephanie.kobakian@monash.edu
+fromphone: +61 433 699 797
+fromsignature: sigfile.png
+toname: Professor Peter Baade and Dr Susanna Cramb
+opening: Dear Professor Peter Baade and Dr Susanna Cramb,
+closing: Warm regards
+spacing: 1.4
+output: MonashEBSTemplates::letter
+---
+
+We recently received the document titled *ACE-19-31-R1-from-the-reviewers*, we thank you for the recommendations and changes made within this document.
+
+Your feedback regarding our submission included a title change, please accept this resubmission with the new title "Mapping Cancer: the Potential of Cartograms and Alternative Map Displays", for inclusion in the Focused Issue on Spatial Patterns in Cancer Epidemiology in the Annals of Cancer Epidemiology.
+
+This review paper presents an exploration of cancer mapping methods, focusing on variations on choropleths for online cancer atlases.
+
+**Reviewer suggestion:**
+**Add a sentence about the study aims (in the abstract).**
+
+We have included the following sentence in the abstract:
+
+This study summarises current practices for cancer atlases and investigates the alternative map displays that could be used to accurately represent the distribution of cancer statistics across a population, as many cancer atlases lack appropriate displays for population statistics.
+
+
+**Reviewer suggestion:**
+**Could we structure paper as:**
+**Introduction (also introduces cancer atlases)**
+**Measures mapped (info around Table 2)**
+**Visualisation approaches**
+**- Choropleth (mention advant and disadvant, along with figures from cancer atlases)**
+**- Cartograms**
+**- Tile maps**
+**- Geofacets**
+**- Multivariate maps**
+**Comparison & critique of alternative methods**
+**Additional considerations**
+**- Associated graphs**
+**- Displaying uncertainty measures**
+**- Interactivity**
+**Recommendations for mapping cancer**
+**Conclusion**
+
+We have rearranged the sections from the "Introduction" to "Traditional approaches for cancer map displays" in this submission at the request of the reviewer. The discussion of choropleth maps considers the advantages and disadvantages now occurs in the same section.
+
+**Reviewer suggestion:**
+**Suggest also noting development of statistical methods and software**
+
+
+
+**Reviewer suggestion:**
+**Give the actual reference for Cruikshank 1947**
+
+This quote has been removed.
+
+**Reviewer suggestion:**
+**Suggest including Australian Cancer Atlas**
+We have replaced the Bowel Cancer Australia Atlas with the Australian Cancer Atlas.
+
+
+
+**Reviewer suggestion:**
+**This table might benefit from an additional column, which gives an example of a cancer map using this measure. Also, some of these measures can be calculated.**
+
+Several suggestions were made regarding Table 2: Common measures for reporting cancer information.
+The additional information requested is communicated more effectively using a paragraph style format.
+
+
+
+
+All minor comments were addressed in the process of substantial editing.
+
+
+We thank you for your consideration of our changes.
+
+
+
