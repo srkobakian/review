@@ -45,10 +45,29 @@ This study summarises current practices for cancer atlases and investigates the 
 
 We have rearranged the sections from the "Introduction" to "Traditional approaches for cancer map displays" in this submission at the request of the reviewer. The discussion of choropleth maps considers the advantages and disadvantages now occurs in the same section.
 
+
+The following reviewer suggestions relate to the introduction:
+
+**Reviewer suggestion:**
+**Given the ethical and privacy considerations for small area data, it is not a straightforward process to obtain and report area-specific counts.**
+
+We agree that it is not easy to obtain and report area-specific counts.
+The statement has been removed.
+
+**Reviewer suggestion:**
+**Suggest moving paragraph to proposed choropleth maps section**
+
+This paragraph has been moved the choropleth section under visualisation approches.
+
+**Reviewer suggestion:**
+**Can you include mention of how this is different to a thematic map?**
+
+We have included in the choropleth section:
+Choropleth maps are a type of thematic map that show polygons for each of the groups of data points representing the geographic units, where each polygon is shaded with a color according to the area-specific values of the statistic being conveyed.
+
 **Reviewer suggestion:**
 **Suggest also noting development of statistical methods and software**
-
-
+The paragraph that began the *Cancer Atlases* section has been moved to the introduction. This paragraph describes cancer atlases, and the developments oof statistical methods and software.
 
 **Reviewer suggestion:**
 **Give the actual reference for Cruikshank 1947**
@@ -59,15 +78,34 @@ This quote has been removed.
 **Suggest including Australian Cancer Atlas**
 We have replaced the Bowel Cancer Australia Atlas with the Australian Cancer Atlas.
 
-
-
 **Reviewer suggestion:**
 **This table might benefit from an additional column, which gives an example of a cancer map using this measure. Also, some of these measures can be calculated.**
 
 Several suggestions were made regarding Table 2: Common measures for reporting cancer information.
-The additional information requested is communicated more effectively using a paragraph style format.
+Additional columns have been included.
+
+XXX
 
 
+**Reviewer suggestion:**
+**This is the wrong reference.**
+The incorrect reference to the use of Statistical Areas at Level 2 for the Atlas of Cancer in Queensland has been corrected to reflect that the atlas used Statistical Local Areas.
+
+**Reviewer suggestion:**
+The following paragraph was included at the suggestion of the reviewer:
+
+As data becomes more sparse, either by increasing geographic resolution or stratifying by age/sex, obtaining reliable estimates becomes more difficult. Many atlases analyzing smaller areas use statistical modelling to produce estimates, although some continue to use simple calculations and suppress regions where estimates are unstable (e.g. (mention some)). XXX
+
+
+**Reviewer suggestion:**
+**These are very different terms, so ideally should not have the same abbreviation. **
+The terms credible intervals and confidence intervals are no longer abbreviated.
+
+
+**Reviewer suggestion:**
+**Which map?**
+The following sentence has been removed: The map focuses on displaying the statistic and lacks additional space to represent the uncertainty. 
+As the Australian Cancer Atlas example presented in Figure 1 does include uncertainty using transparency.
 
 
 All minor comments were addressed in the process of substantial editing.
