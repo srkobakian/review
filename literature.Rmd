@@ -86,7 +86,7 @@ Table 1: <!--\label{tab:measures}--> Common measures for reporting cancer inform
 
 # Visualisation approaches
 
-# Traditional approaches for cancer map displays {#ch:choropleth-maps}
+## Traditional approaches for cancer map displays {#ch:choropleth-maps}
 
 <!-- Ways to visualize, whats our hypothesis -->
 A choropleth map is the common display to visualize and communicate geospatial cancer statistics over geographic domain. Choropleth maps are a type of thematic map that show polygons for each of the groups of data points representing the geographic units, where each polygon is shaded with a color according to the area-specific values of the statistic being conveyed. Visualizing this data is helpful as geographic patterns of disease may be obscured when reported in a table [@SAMGIS]. Providing a visual representation of cancer outcomes allows identification of geographic patterns of the disease that can then be addressed with public health policy and actions. The spatial distribution of the disease incidence can be examined using a choropleth map display and may reveal a trend in longitude or latitude, or rural vs urban, or coastal vs inland, or even specific hot spots of the disease. One of the key challenges with mapping spatial patterns of disease is the design of visualizations [@SE]. It is important to consider the strengths and weaknesses of designs, as visualizing diseases on maps is often the first step in exploratory spatial data analysis and helps in the formulation of hypotheses. 
@@ -150,9 +150,9 @@ Choropleth maps can inhibit visual inference when presenting human-related stati
 Inset maps like in Brisbane city in Figure Figure 1<!--\ref{fig:choropleth-grid-create}c of the state of Queensland are commonly used to reduce distorted interpretations, but it is not always an appropriate solution. As this feature of population distributions continues to intensify, the need for cartograms as an alternative to a choropleth map should only increase.
 -->
 
-# Contemporary alternatives to choropleth maps {#ch:alternatives}
+## Contemporary alternatives to choropleth maps {#ch:alternatives}
 
-## Cartograms
+### Cartograms
 <!-- 1496 words inc table-->
 
 <!-- What is a cartogram? -->
@@ -242,7 +242,7 @@ Raisz [@RSCW] laid the groundwork for this approach in the mid-1930s, drawing re
 
 
 
-## Tile Map
+### Tile Map
 <!-- 173 words -->
 A tile map provides a tessellated display of consistent shapes.  A similar method to a rectangular cartogram, represents each geographic area using a square. The squares are tessellated to create a grid. Each area is represented by a square of the same dimensions, each tile is usually one unit of measurement, this could be geographic regions such as states or population-based that use a consistent measure of population for each tile. Regions with over four neighbors require some necessary displacement. The tile map uses color to represent a value of a statistic for each area. A similar method to a rectangular cartogram represents each geographic area using a square of the same dimensions. There are online media sources using this method, these include [@NPR], [@FiveThirtyEight], [@WSJ], [@WP]. Tile maps may be difficult to create as they are best created manually, they require additional time and care as the number of geographic areas to include increases.
 
@@ -250,7 +250,7 @@ Cano and others [@MDAC] define the term 'mosaic cartograms' for hexagonal tile d
 
 
 
-## Geofacet
+### Geofacet
 <!-- 166 words -->
 Hafen [@IGF] introduces the term geofacet to describe a grid display of small plots. The arrangement of tiles mimics the geographic topology. Geofaceting has the functionality that a statistical plot can be constructed in each facet for each geographic area. A tile map can communicate only one value per region in a visualization, while geofaceting is a more flexible visualization for communication as it increases the amount of information displayed. Virtually any type of plot can be shown in the tile, allowing displays of multiple variables or values per geographic entity. Creating the layout of a geofacet is manual, but once created can be used for any data on that geographic base.
 
@@ -259,7 +259,7 @@ knitr::include_graphics("figures/gggrids.png")
 ```
 
 
-## Multivariate displays
+### Multivariate displays
 <!-- 222 words -->
 
 Pickle and others [@MMST] present linked micromap plots to match geographic and statistical data visually, this serves as a solution to  multi-dimensionality issues. These maps group areas based on their value for one variable, and additional columns provide displays that contrast the areas in each group by other variables. The display juxtaposes choropleth maps and statistical plots; it shows one map per group of the key separating variable, in a row with each additional statistical plot. Linked micromaps predominantly use the choropleth map for displays of spatial relationships. These maps show spatial relationships by allotting spatial neighbors to the same group. It is one of several alternative displays that allow maps to become bivariate displays, commonly used to present both an estimate and the associated uncertainty.
@@ -277,7 +277,7 @@ knitr::include_graphics("figures/auscartograms.png")
 ```
 
 
-## Neither choropleth maps or cartograms perform well for Australia
+## Performance of choropleth maps or cartograms for Australia
 
 Figure 4<!--\ref{fig:auscartograms}--> shows four main types of cartograms using melanoma incidence on Australian Statistical Areas at Level 3 [@abs2016]. The version of a contiguous cartogram (a) has expanded the highly populated areas while preserving the full shapes of rural areas. It has not fully resolved the population transformation of areas, and if it had accurately sized areas by population, the country would be unrecognizable. The shape-preserved cartogram is unreadable, and it has reduced all areas to tiny spots on the map. Zooming in on a high-resolution output shows it does preserve the shapes. The Dorling cartogram and the hexagon tile map provide reasonable displays of the spatial distribution, despite having too much white-space in the outback areas.
 
