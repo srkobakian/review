@@ -96,10 +96,14 @@ The following paragraph was included at the suggestion of the reviewer:
 
 As data becomes more sparse, either by increasing geographic resolution or stratifying by age/sex, obtaining reliable estimates becomes more difficult. Many atlases analyzing smaller areas use statistical modelling to produce estimates, although some continue to use simple calculations and suppress regions where estimates are unstable (e.g. (mention some)). XXX
 
+**Reviewer suggestion:**
+**Are you referring to area-based characteristics?**
+This socioeconomic indicators mentioned refer to the characteristics of small areas presented in cancer atlases.
+The Australian cancer atlas allows filtering using socioeconomic indicators, but this statement has been removed as it is not common in other atlases.
 
 **Reviewer suggestion:**
 **These are very different terms, so ideally should not have the same abbreviation. **
-The terms credible intervals and confidence intervals are no longer abbreviated.
+The terms credible intervals and confidence intervals are no longer abbreviated to avoid dual use of the abbreviation.
 
 
 **Reviewer suggestion:**
@@ -107,6 +111,12 @@ The terms credible intervals and confidence intervals are no longer abbreviated.
 The following sentence has been removed: The map focuses on displaying the statistic and lacks additional space to represent the uncertainty. 
 As the Australian Cancer Atlas example presented in Figure 1 does include uncertainty using transparency.
 
+
+**Reviewer suggestion:**
+**Can you clarify whether this recommendation holds when using a ratio measure – which has 1 as the average, and then diverging values higher and lower than the average (eg an SIR).**
+Diverging colour schemes have been suggested for this use by Cynthia Brewer, a reference has been included:
+
+It is possible to allow for data to progress uniformly in both positive and negative directions from a mid point, such as the mean of the data. These diverging colour schemes pair two sequential schemes that use a common light colour at the mid point, each sequential scheme progresses to a dark hue at the extreme value in each direction XXX.
 
 All minor comments were addressed in the process of substantial editing.
 
