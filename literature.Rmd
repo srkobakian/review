@@ -293,14 +293,14 @@ Some mix of tiling, faceting or even micromaps, which allow some spatial continu
 Table 4: <!--\label{tab:methods}--> Summary of features and constraints of common mapping methods used to display cancer statistics (Y=Yes, N=No, S=Sometimes).
 
 
-|                     | Choropleth | Contiguous | Non-contig | Dorling | Tile maps | Geofacets |
-|:-----------|:------------:|:-----------:|:---------------:|:---------:|:-----------:|:----------:|
-|Spatial distortion   |  N  |  Y  |  Y  |  Y  |  Y  |  Y  |
-|Preserves neighbors  |  Y  |  Y  |  Y  |  S  |  S  |  S  |
-|Conceals small areas |  Y  |  S  |  N  |  N  |  N  |  N  |
-|Uniform shape        |  N  |  N  |  N  |  Y  |  Y  |  Y  |
-|Univariate only      |  Y  |  Y  |  Y  |  S  |  S  |  N  |
-|Manual construction  |  N  |  N  |  N  |  N  |  Y  |  Y  |
+|            | Choropleth | Contiguous | Non-contig | Dorling | Tile maps | Geofacets |
+|:------------|:----------:|:------------:|:---------:|:-----------:|:----------:|:---------:|
+|Spatial<br> distortion   |  N  |  Y  |  Y  |  Y  |  Y  |  Y  |
+|Preserves<br> neighbors  |  Y  |  Y  |  Y  |  S  |  S  |  S  |
+|Conceals<br> small areas |  Y  |  S  |  N  |  N  |  N  |  N  |
+|Uniform<br> shapes        |  N  |  N  |  N  |  Y  |  Y  |  Y  |
+|Univariate      |  Y  |  Y  |  Y  |  S  |  S  |  N  |
+|Manual<br> construction  |  N  |  N  |  N  |  N  |  Y  |  Y  |
 
 
 <!-- Creating maps of diseases now involves more decisions to be made by map makers, rather than cartographers. 
