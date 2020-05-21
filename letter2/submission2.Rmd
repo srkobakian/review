@@ -114,11 +114,49 @@ As the Australian Cancer Atlas example presented in Figure 1 does include uncert
 
 **Reviewer suggestion:**
 **Can you clarify whether this recommendation holds when using a ratio measure – which has 1 as the average, and then diverging values higher and lower than the average (eg an SIR).**
-Diverging colour schemes have been suggested for this use by Cynthia Brewer, a reference has been included:
+Diverging colour schemes have been suggested for this use by Cynthia Brewer, however a ratio measure requires rescaling of the colour space:
 
-It is possible to allow for data to progress uniformly in both positive and negative directions from a mid point, such as the mean of the data. These diverging colour schemes pair two sequential schemes that use a common light colour at the mid point, each sequential scheme progresses to a dark hue at the extreme value in each direction XXX.
+When communicating information using colour, a map creator should use a scheme with perceptually uniform color spaces that match equal steps in data space with equal steps in the colour space [@PUCS], a linear color gradient is appropriate for incidence counts and rates, but may not be appropriate for ratio measures.
 
-All minor comments were addressed in the process of substantial editing.
+
+**Reviewer suggestion:**
+**Suggest deleting, or rewording to reflect scientific language. **
+The following section was removed:
+*Inset maps like in Brisbane city in Figure 1c of the state of Queensland are commonly used to reduce distorted interpretations, but it is a bandaid remedy. For Australia, many, many inset maps would be needed.*
+
+
+**Reviewer suggestion:**
+**Can this sentence be reworded for clarity?**
+The following section was removed and the concept of cartograms has been explained in the paragraph that introduced cartograms:
+
+*The “population distribution is often extremely uneven”, making a distortion necessary so that population is more faithfully represented as a uniformly distributed background for the statistic to be presented *
+
+
+**Reviewer suggestion:**
+**Ensure all these refs are included in the list.**
+References have been added to credit the original publications of the alternative displays dicussed by Tobler.
+
+
+**Reviewer suggestion:**
+**The information in Figure 2 and Table 3 are complementary, and would be better to be combined.**
+The details of the variables and their use in the creation of the cartograms has now been included in the caption of figure 2.
+
+
+**Reviewer suggestion:**
+**This text could be moved to the main text / methods.**
+The impact of the changes to the maps has now been included in a paragraph structure. 
+
+
+**Reviewer suggestion:**
+**This is a subjective comment – maybe “a very large amount of white space”?**
+Thank you for the suggestion, the previous text has been replaced with your suggestion.
+
+
+**Reviewer suggestion:**
+
+
+
+All minor comments including spell checking, grammar  were addressed in the process of substantial editing.
 
 
 We thank you for your consideration of our changes.
