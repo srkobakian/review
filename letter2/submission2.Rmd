@@ -81,8 +81,7 @@ We have replaced the Bowel Cancer Australia Atlas with the Australian Cancer Atl
 **Reviewer suggestion:**
 **This table might benefit from an additional column, which gives an example of a cancer map using this measure. Also, some of these measures can be calculated.**
 
-Several suggestions were made regarding Table 2: Common measures for reporting cancer information.
-Additional columns have been included.
+Several suggestions were made regarding Table 1: Common measures for reporting cancer information. this table was previously Table 2 and an additional column has been included to indicate the cancer atlas examples in Figure 1 that display each statistic.
 
 
 
@@ -93,7 +92,7 @@ The incorrect reference to the use of Statistical Areas at Level 2 for the Atlas
 **Reviewer suggestion:**
 The following paragraph was included at the suggestion of the reviewer:
 
-As data becomes more sparse, either by increasing geographic resolution or stratifying by age/sex, obtaining reliable estimates becomes more difficult. Many atlases analyzing smaller areas use statistical modelling to produce estimates, although some continue to use simple calculations and suppress regions where estimates are unstable (e.g. (mention some)). XXX
+As data becomes more sparse, either by increasing geographic resolution or stratifying by age/sex, obtaining reliable estimates becomes more difficult. Many atlases analyzing smaller areas use statistical modelling to produce estimates, although some continue to use simple calculations and suppress regions where estimates are unstable.
 
 **Reviewer suggestion:**
 **Are you referring to area-based characteristics?**
