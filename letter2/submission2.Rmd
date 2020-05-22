@@ -148,15 +148,56 @@ The impact of the changes to the maps has now been included in a paragraph struc
 
 
 **Reviewer suggestion:**
+**Could you show an example? (of a completed contiguous cartogram that fully resolved the population transformation of areas)**
+Sadly I could not find any packages in R that created a complete contiguous cartogram. Allowing the algorithm to run for further iterations saw the error rise, we chose the amount of iterations that led to the minimum error.
+
+**Reviewer suggestion:**
 **This is a subjective comment – maybe “a very large amount of white space”?**
 Thank you for the suggestion, the previous text has been replaced with your suggestion.
 
 
 **Reviewer suggestion:**
+**Can you summarise these here? (suggestions and comments to help map creators best communicate their health data and spatial analysis)**
+
+An additional paragraph has been included that dicusses the recommendations made by Bell et al. for choosing desirable alternative map diplays.
+
+*Some mix of tiling, faceting or even micromaps, which allow some spatial continuity while also zooming into small areas, are good solutions for difficult geographies. Bell et al. [@CPISACA] provide suggestions and comments to help map creators best communicate their health data and spatial analysis. The authors highlighted that the map design chosen should be tested on a representative sample of potential consumers, to ensure that the target audience is not misinformed by the display. The authors encourage the consideration of map types beyond the traditional classed choropleth map, but warn that sound cartographic principles must be employed to ensure effective communication to the public. A clear definition of the purpose of the display can help map creators to select the design that best communicates the statistic of interest [@CPISACA]. Table 4 lists several features, or limitations, of each alternative display in contrast to the commonly used choropleth map. The desirable features of each display can be contrasted within the table, this can be used to help inform the choice of map creators as they consider each alternative display. Map creators should choose a display that best communicates the statistic according to the purpose of their display.*
+
+**Reviewer suggestion:**
+**Not clear what “sometimes” means (in table 3).**
+The use of Yes, No and Possible in the calls of Table 3 has been explained in the new caption:
+
+*Summary of features and constraints of common mapping methods used to display cancer statistics. Yes means that the map dispay always employs the characteristic. No means that the display does not employ the characteristic. Possible means it is possible to employ the characteristic when using the display, but it is not necessary to produce the display.*
+
+
+**Reviewer suggestion:**
+**Suggest either a separate recommendations section or very clearly laying out the recommendations here. Do you recommend always (and only) using alternative visualisations, regardless of the audience, or are you suggesting supplying multiple forms of visualisations? Does your recommendation differ depending on the country/data? Ensure your final recommendations are clearly reflected in your abstract wording also. **
+
+The following paragraph has been included to make clear the recommendations of the authors to the readers.
+
+*Choropleth map displays are familiar and useful for map users to orient themselves to the statistic and additional features of the display. A choropleth map display may be the most effective display for the data considering budget, time, and maintenance contraints. Map creators should consider the shapes and discrepancies in size within the set of geographic units used for analysis, and whether the features of the dataset warrant transformation of the geographic units. Additional mapping methods should be considered by map creators during the development of a cancer atlas, as alternative displays may align better with the purpose of the display. Incorporating the population of the geographic units may better inform the map readers of the distribution of the statistic. The importance and potential impact of utilising a display that emphasises the underlying population should be considered during the design phase. Cartograms and tile maps should be adopted as primary displays going forward, or secondary displays if the familiarity of the choropleth map will benefit the users. Clear explanations of the interpretation of the geogephic units in alternative displays should also be included, along with the features of the distribution of the statistic. *
 
 
 
-All minor comments including spell checking, grammar  were addressed in the process of substantial editing.
+**Reviewer suggestion:**
+**Isn’t the most ‘basic’ the number of cancers?**
+We have removed the statement: The most basic is the incidence rate. 
+
+
+**Reviewer suggestion:**
+**Crude or age standardized?**
+We have clarified that the age standardized rates are of interest here.
+
+
+**Reviewer suggestion:** XXX
+I would suggest replacing this section with a discussion of relative versus absolute measures. 
+
+
+
+
+
+
+All minor comments including spell checking and grammar fixes were addressed in the process of editing.
 
 
 We thank you for your consideration of our changes.
