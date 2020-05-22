@@ -18,7 +18,7 @@ This review paper presented an exploration of cancer mapping methods, focusing o
 **Editor suggestion:**
 **We would suggest that the aim of the manuscript could be phrased to highlight the current approaches and limitations of typical visualisation methods for cancer maps, along with outlining possible alternative methods and challenges in implementing these?**
 
-We have restructed our original submission to provide a clear path from current approaches used, to the alternative approaches that should be explored. We highlight the limitations of using current display methods, to encourage the use of alternative display methods. We also present the challenges that may be faced when implementing the alternative designs.
+We have restructured our original submission to provide a clear path from current approaches used, to the alternative approaches that should be explored. We highlight the limitations of using current display methods, to encourage the use of alternative display methods. We also present the challenges that may be faced when implementing the alternative designs.
 
 The manuscript title has been changed:
 "Cancer Applications of Choropleth Maps, and the Potential of Cartograms and Alternative Map Displays"
