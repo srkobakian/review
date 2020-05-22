@@ -17,13 +17,7 @@ Your feedback regarding our submission included a title change, please accept th
 
 This review paper presents an exploration of cancer mapping methods, focusing on variations on choropleths for online cancer atlases.
 
-**Reviewer suggestion:**
-**Add a sentence about the study aims (in the abstract).**
-
-We have included the following sentence in the abstract:
-
-*This study summarises current practices for cancer atlases and investigates the alternative map displays that could be used to accurately represent the distribution of cancer statistics across a population, as many cancer atlases lack appropriate displays for population statistics.*
-
+The first suggestion pertains to the structure of the article. The rest of the suggestions are listed in the order of the comments made in the document  *ACE-19-31-R1-from-the-reviewers*.
 
 **Reviewer suggestion:**
 **Could we structure paper as:**
@@ -46,7 +40,17 @@ We have included the following sentence in the abstract:
 We have rearranged the sections from the "Introduction" to "Traditional approaches for cancer map displays" in this submission at the request of the reviewer. The discussion of choropleth maps considers the advantages and disadvantages now occurs in the same section.
 
 
-The following reviewer suggestions relate to the introduction:
+
+**Reviewer suggestion:**
+**Add a sentence about the study aims (in the abstract).**
+
+We have included the following sentence in the abstract:
+
+*This study summarises current practices for cancer atlases and investigates the alternative map displays that could be used to accurately represent the distribution of cancer statistics across a population, as many cancer atlases lack appropriate displays for population statistics.*
+
+**Reviewer suggestion:**
+**I would suggest deleting this sentence and the previous one. **
+These sentences have been removed
 
 **Reviewer suggestion:**
 **Given the ethical and privacy considerations for small area data, it is not a straightforward process to obtain and report area-specific counts.**
@@ -66,12 +70,12 @@ We have included in the choropleth section:
 Choropleth maps are a type of thematic map that show polygons for each of the groups of data points representing the geographic units, where each polygon is shaded with a color according to the area-specific values of the statistic being conveyed.
 
 **Reviewer suggestion:**
+**Could move to the introduction** and
 **Suggest also noting development of statistical methods and software**
-The paragraph that began the *Cancer Atlases* section has been moved to the introduction. This paragraph describes cancer atlases, and the developments oof statistical methods and software.
+The paragraph that began the *Cancer Atlases* section has been moved to the introduction. This paragraph describes cancer atlases, and the developments of statistical methods and software.
 
 **Reviewer suggestion:**
 **Give the actual reference for Cruikshank 1947**
-
 This quote has been removed.
 
 **Reviewer suggestion:**
@@ -96,7 +100,7 @@ As data becomes more sparse, either by increasing geographic resolution or strat
 
 **Reviewer suggestion:**
 **Are you referring to area-based characteristics?**
-This socioeconomic indicators mentioned refer to the characteristics of small areas presented in cancer atlases.
+The socioeconomic indicators mentioned refer to the characteristics of small areas presented in cancer atlases.
 The Australian cancer atlas allows filtering using socioeconomic indicators, but this statement has been removed as it is not common in other atlases.
 
 **Reviewer suggestion:**
@@ -132,7 +136,7 @@ The following section was removed and the concept of cartograms has been explain
 
 **Reviewer suggestion:**
 **Ensure all these refs are included in the list.**
-References have been added to credit the original publications of the alternative displays dicussed by Tobler.
+References have been added to credit the original publications of the alternative displays discussed by Tobler.
 
 
 **Reviewer suggestion:**
