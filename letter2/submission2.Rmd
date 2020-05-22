@@ -5,7 +5,7 @@ fromemail: stephanie.kobakian@monash.edu
 fromphone: +61 433 699 797
 fromsignature: sigfile.png
 toname: Professor Peter Baade and Dr Susanna Cramb
-opening: Dear Professor Peter Baade and Dr Susanna Cramb,
+opening: Dear Professor Peter and Dr Susanna,
 closing: Warm regards
 spacing: 1.4
 output: MonashEBSTemplates::letter
@@ -22,7 +22,7 @@ This review paper presents an exploration of cancer mapping methods, focusing on
 
 We have included the following sentence in the abstract:
 
-This study summarises current practices for cancer atlases and investigates the alternative map displays that could be used to accurately represent the distribution of cancer statistics across a population, as many cancer atlases lack appropriate displays for population statistics.
+*This study summarises current practices for cancer atlases and investigates the alternative map displays that could be used to accurately represent the distribution of cancer statistics across a population, as many cancer atlases lack appropriate displays for population statistics.*
 
 
 **Reviewer suggestion:**
@@ -84,7 +84,6 @@ We have replaced the Bowel Cancer Australia Atlas with the Australian Cancer Atl
 Several suggestions were made regarding Table 2: Common measures for reporting cancer information.
 Additional columns have been included.
 
-XXX
 
 
 **Reviewer suggestion:**
