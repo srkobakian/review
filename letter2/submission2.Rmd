@@ -116,9 +116,7 @@ As the Australian Cancer Atlas example presented in Figure 1 does include uncert
 
 **Reviewer suggestion:**
 **Can you clarify whether this recommendation holds when using a ratio measure – which has 1 as the average, and then diverging values higher and lower than the average (eg an SIR).**
-Diverging colour schemes have been suggested for this use by Cynthia Brewer, however a ratio measure requires rescaling of the colour space:
-
-When communicating information using colour, a map creator should use a scheme with perceptually uniform color spaces that match equal steps in data space with equal steps in the colour space [@PUCS], a linear color gradient is appropriate for incidence counts and rates, but may not be appropriate for ratio measures.
+A linear colour gradient can be transformed to a log scale for ratio measures. This has been used in the Australian Cancer Atlas, a small example has been included in the paragraph to explain the transformation.
 
 
 **Reviewer suggestion:**
@@ -191,18 +189,16 @@ We have removed the statement: The most basic is the incidence rate.
 We have clarified that the age standardized rates are of interest here.
 
 
-**Reviewer suggestion:** XXX
-I would suggest replacing this section with a discussion of relative versus absolute measures. 
+**Reviewer suggestion:**
+**I would suggest replacing this section with a discussion of relative versus absolute measures.**
+We have included additional comments discussing of relative measures.
 
-
-
-
-
+Please pass our warm thanks to the reviewers for their thorough and thoughtful recommendations. Their input has greatly improved this piece of writing.
 
 All minor comments including spell checking and grammar fixes were addressed in the process of editing.
 
 
-We thank you for your consideration of our changes.
+We thank you for your patience and your consideration of our changes.
 
 
 
