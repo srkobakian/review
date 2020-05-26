@@ -69,7 +69,24 @@ ggchoro <- cancer %>%
 ggchoro
 ggsave(filename = "figures/ggchoro.png", device = "png", dpi = 300, width = 7, height = 6, bg = "transparent")
 
-usa_legend <- get_legend(ggchoro)
+invthm_black <- theme_void() + theme(
+  panel.background = element_rect(fill = "transparent", colour = NA), 
+  plot.background = element_rect(fill = "transparent", colour = NA),
+  legend.background = element_rect(fill = "transparent", colour = NA),
+  legend.key = element_rect(fill = "transparent", colour = NA),
+  text = element_text(colour = "black", size = 20)
+)
+ggchoro2 <- cancer %>% 
+  mutate(`Age adjusted rate\n(per 100,000)` = AgeAdjustedRate) %>% 
+  ggplot() + 
+  geom_sf(aes(fill = `Age adjusted rate\n(per 100,000)`), colour = NA) +
+  scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
+  ggtitle(title) +
+  #coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
+  invthm +
+  theme(legend.position ="bottom",
+        legend.text = element_text(size = 8))
+usa_legend <- get_legend(ggchoro2)
 save(usa_legend, file = "figures/usa_legend.rda")
 
 ###############################################################################
@@ -160,7 +177,7 @@ ggsave(filename = "figures/ggdorl.png", device = "png", dpi = 300, width = 7, he
 ggchoro1 <- ggplot(st_transform(cancer, 3857)) + 
   geom_sf(aes(fill = AgeAdjustedRate), colour = NA) +
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
-  theme_void()+ 
+  theme_void()
 ggsave(filename = "figures/gg3857.png", plot = ggchoro1,
        device = "png", dpi = 300, width = 7, height = 6, bg = "transparent")
 
@@ -168,7 +185,7 @@ ggsave(filename = "figures/gg3857.png", plot = ggchoro1,
 ggchoro2 <- ggplot(st_transform(cancer, 2163)) + 
   geom_sf(aes(fill = AgeAdjustedRate), colour = NA) +
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
-  theme_void()+ 
+  theme_void() 
 ggsave(filename = "figures/gg2163.png", plot = ggchoro2,
        device = "png", dpi = 300, width = 7, height = 6, bg = "transparent")
 
@@ -176,7 +193,7 @@ ggsave(filename = "figures/gg2163.png", plot = ggchoro2,
 ggchoro3 <- ggplot(st_transform(cancer, 4326)) + 
   geom_sf(aes(fill = AgeAdjustedRate), colour = NA) +
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
-  theme_void()+ 
+  theme_void() 
 ggsave(filename = "figures/gg4326.png", plot = ggchoro3,
        device = "png", dpi = 300, width = 7, height = 6, bg = "transparent")
 
@@ -240,24 +257,29 @@ hex <- cancer_ng %>%
 gghexmap <- ggplot(hex) + 
   geom_sf(aes(fill = AgeAdjustedRate), colour = NA) + 
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) +
-  theme_void()+  
+  invthm  + guides(fill = FALSE)  #theme_void()  
 
 gghexmap
 ggsave(filename = "figures/gghexmap.png", plot = gghexmap,
   device = "png", dpi = 300, width = 7, height = 6, bg = "transparent")
 
+load("data/usa_legend.rda")
+
 usa_gridl <- ggdraw() +
-  draw_plot(ggcont, 0, .5, 0.5, 0.55) +
-  draw_plot(ggncont, 0.5, 0.5, 0.5, 0.55) +
-  draw_plot(ggdorl, 0.0, 0.0, 0.5, 0.55) +
-  draw_plot(gghexmap, 0.5, 0, 0.5, 0.55) +
+  draw_plot(ggcont, -0.05, 0.55, 0.60, 0.55) +
+  draw_plot(ggncont, 0.45, 0.55, 0.60, 0.55, 0.9) +
+  draw_plot(ggdorl, -0.05, 0.1, 0.60, 0.55, 0.9) +
+  draw_plot(gghexmap, 0.45, 0.1, 0.60, 0.55, 0.7) +
   draw_plot(usa_legend, 0, 0, 1, 0.1) +
   draw_plot_label(c("a", "b", "c", "d"), 
                   c(0, .5, 0, 0.5), 
-                  c(1, 1, .5, .5), size = 20)
+                  c(1, 1, .55, .55), size = 20)
+usa_gridl
 
 ggsave(filename = "figures/usa_grid.png", plot = usa_gridl,
-  device = "png", dpi = 300, width = 7, height = 6, bg = "transparent")
+  device = "png", dpi = 300, width = 7, height = 5, bg = "transparent")
+ggsave(filename = "figures/usa_grid2.png", plot = usa_gridl,
+       device = "png", dpi = 300, width = 11, height = 6, bg = "transparent")
 
 ###############################################################################
 
