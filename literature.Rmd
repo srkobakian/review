@@ -23,10 +23,10 @@ yolo: yes
 ---
 
 ```{r setup, include=FALSE}
-fig_path <- glue::glue("figs/")
 knitr::opts_chunk$set(echo = FALSE, 
                       warning = FALSE,
                       message = FALSE,
+  fig_path = "figs/",
   out.width = "\\textwidth")
 library(ggplot2)
 library(cowplot)
@@ -281,7 +281,7 @@ The south east is enlarged, but high population areas are still small, and low p
 
 ## 4.2 Limitations of alternative displays
 
-Cartograms provide the spatial distortion to more accurately convey the statistical distribution, focusing on the human impact of the disease. However, the transformation of contiguous cartograms often occurs at the expense of the shape of areas [@CBATCC, @NAC, @TAAM]. When the population density of the geographic units is highly dissonant with geographic density, the cartogram will lose all spatial context. Dorling [@ACTUC] contains a cartogram showing the 1966 general election results for Australia, produced Hughes and Savage [@HughesSavage], which looked very little like the geographical shape of Australia. The reader is encouraged to access the freely available pdf of Dorling's book, and this image can be found on page 41.
+Cartograms provide the spatial distortion to more accurately convey the statistical distribution, focusing on the human impact of the disease. However, the transformation of contiguous cartograms often occurs at the expense of the shape of areas [@CBATCC, @NAC, @TAAM]. When the population density of the geographic units is highly dissonant with geographic density, the cartogram will lose all spatial context. Dorling [@ACTUC] contains a cartogram showing the 1966 general election results for Australia, produced Hughes and Savage [@HS], which looked very little like the geographical shape of Australia. The reader is encouraged to access the freely available pdf of Dorling's book, and this image can be found on page 41.
 
 The most common aesthetics employed in alternative map displays are shape, colour and size. Each alternative alternative display allows for some combination of these. Colour is used most often to represent the variable of interest.
 The size and shape are often used to scale the areas to draw attention to regions of interest.
