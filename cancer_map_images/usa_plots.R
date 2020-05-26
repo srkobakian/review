@@ -83,7 +83,7 @@ ggchoro2 <- cancer %>%
   scale_fill_distiller(type = "seq", palette = "RdPu",  direction = 1) + 
   ggtitle(title) +
   #coord_sf(crs = CRS("+init=epsg:3857"), xlim = c(b["xmin"], b["xmax"]), ylim = c(b["ymin"], b["ymax"])) +
-  invthm +
+  invthm_black +
   theme(legend.position ="bottom",
         legend.text = element_text(size = 8))
 usa_legend <- get_legend(ggchoro2)
@@ -277,8 +277,6 @@ usa_gridl <- ggdraw() +
 usa_gridl
 
 ggsave(filename = "figures/usa_grid.png", plot = usa_gridl,
-  device = "png", dpi = 300, width = 7, height = 5, bg = "transparent")
-ggsave(filename = "figures/usa_grid2.png", plot = usa_gridl,
        device = "png", dpi = 300, width = 11, height = 6, bg = "transparent")
 
 ###############################################################################
