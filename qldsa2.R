@@ -76,7 +76,8 @@ nac_colours <- c("A" = "#33809d",
                  "B" = "#aec6c7",
                  "C" = "#fff4bc",
                  "D" = "#ff9a64",
-                 "E" = "#ff3500")
+                 "E" = "#ff3500",
+                 "NA" = "#D3D3D3")
 
 colours <- c(   "Much lower\nthan average" = "#33809d",
                 "Lower than\naverage" = "#aec6c7",
@@ -143,13 +144,26 @@ qld_ggchoro <- ggplot(sa2_mel_fort) +
   geom_polygon(aes(x = long, y = lat, group = interaction(sa2_name_2011, polygon),
                    fill = p50_col), colour = "lightgrey") +
   scale_fill_manual(values = nac_colours) + 
-  coord_sf(crs = CRS("+init=epsg:3112"), 
+  coord_sf(crs = 3112, 
            xlim = c(b["xmin"], b["xmax"]), 
            ylim = c(b["ymin"], b["ymax"])) +
-  theme(legend.position ="bottom") +
+  guides(fill = FALSE) +
   labs(fill = "Melanoma Cancer (Males):\nAge-standardised rate\n(per 100,000)") +
   invthm
 
+bris_box <- c(xmin = 1808445, ymin = -3297649,        
+              xmax = 1877776, ymax = -3190617)
+
+bris_ggchoro <- ggplot(sa2_mel_fort) + 
+  geom_polygon(aes(x = long, y = lat, group = interaction(sa2_name_2011, polygon),
+                   fill = p50_col), colour = "lightgrey") +
+  scale_fill_manual(values = nac_colours) + 
+  coord_sf(crs = 3112, 
+           xlim = c(bris_box["xmin"], bris_box["xmax"]), 
+           ylim = c(bris_box["ymin"], bris_box["ymax"])) +
+  guides(fill = FALSE) +
+  labs(fill = "Melanoma Cancer (Males):\nAge-standardised rate\n(per 100,000)") + invthm 
+  
 qld_ggchoro
 ggsave(filename = "figures/qld_ggchoro.png", device = "png",
        bg = "transparent",  dpi = 300,  width = 7, height = 6)
@@ -161,10 +175,13 @@ save(qld_legend, file = "figures/qld_legend.rda")
 # Cartograms
 
 # Contiguous Cartograms
-#qldcont <- sa2_mel %>% 
-#  left_join(pop, by = c("sa2_name_2011" = "SA2_name")) %>%
-#  cartogram_cont(., weight = "pop", itermax = 49) %>%
-#  st_as_sf()
+pop <- pop %>% mutate(pop = pop+1)
+ 
+# qldcont <- sa2_mel %>% 
+#    left_join(pop, by = c("sa2_name_2011" = "SA2_name")) %>%
+#    cartogram_cont(., weight = "pop", prepare = "adjust", 
+#                   itermax = 200, threshold  = 0.9) %>%
+#    st_as_sf()
 
 #save(qldcont, file = "data/qldcont.rda")
 load("data/qldcont.rda")
@@ -172,12 +189,12 @@ clim <-st_bbox(qldcont)
   
 qld_ggcont <- ggplot(qldcont) + 
   geom_sf(data = sa2_mel, fill = NA, colour = "grey", size = 0.5) +
-  geom_sf(aes(fill = p50_col), size = 0.01) +
-  scale_fill_manual(values = nac_colours) + 
-  coord_sf(crs = CRS("+init=epsg:3112"), 
+  geom_sf(aes(fill = p50_col), size = 0.001) +
+  scale_fill_manual(values = nac_colours, na.value = "#505050") + 
+  coord_sf(crs = 3112, 
            xlim = c(b["xmin"], clim["xmax"]), 
            ylim = c(clim["ymin"], clim["ymax"])) +
-  invthm + guides(fill=FALSE)
+  invthm + guides(fill=FALSE) + theme(plot.background = element_rect(fill = "black"))
 qld_ggcont
 ggsave(filename = "figures/qld_ggcont.png", device = "png",  bg = "transparent", dpi = 300,  width = 7, height = 6)
 
@@ -186,7 +203,7 @@ ggsave(filename = "figures/qld_ggcont.png", device = "png",  bg = "transparent",
 # Non - Contiguous Cartograms
 # Needs a scaling factor
 
-sa2_mel  <- sa2_mel %>% 
+sa2_mel <- sa2_mel %>% 
   left_join(pop, by = c("sa2_name_2011" = "SA2_name")) %>% 
   mutate(sva = sqrt(as.numeric(pop)/as.numeric(albers_sqkm)))
 
@@ -199,14 +216,11 @@ ncont <- cartogram_ncont(sa2_mel, k = 1,
                          weight = "pop") %>% 
   st_as_sf() %>% st_transform("+init=epsg:3112 +units=m")
 
-bris_box <- c(xmin = 1808445, ymin = -3287649,        
-              xmax = 1877776, ymax = -3190617)
-
 
 qld_ggncont <- ggplot(ncont) +  
   geom_sf(data=sa2_mel, 
           fill = NA, colour = "grey", size = 0.2) +
-  geom_sf(aes(fill = p50_col), size = 0.1) + 
+  geom_sf(aes(fill = p50_col), size = 0.01) + 
   scale_fill_manual(values = nac_colours) +
   invthm + guides(fill=FALSE)
 qld_ggncont
@@ -214,7 +228,7 @@ qld_ggncont
 
 brisbane <- ggplot(ncont %>% filter(gcc_name_2011 == "Greater Brisbane")) +  
   geom_sf(data=sa2_mel %>% filter(gcc_name_2011 == "Greater Brisbane"), 
-          fill = NA, colour = "grey", size = 0.1) +
+          fill = NA, colour = "grey", size = 0.01) +
   geom_sf(aes(fill = p50_col), colour=NA) + 
   scale_fill_manual(values = nac_colours) +
 coord_sf(crs = CRS("+init=epsg:3112 +units=m"), 
@@ -281,21 +295,19 @@ hex_allocated <- allocate(
   hex_size = 0.27,
   ## same size used in create_grid
   hex_filter = 10,
-  use_neighbours = sa2_melmap,
-  focal_points = capital_cities %>%
-    filter(points == "Brisbane"),
+  focal_points = capital_cities,
   width = 35,
   verbose = FALSE
 )
 
 ## Prepare to plot
-fort_hex <-
-  fortify_hexagon(data = hex_allocated,
+fort_hex <-  fortify_hexagon(data = hex_allocated,
                   sf_id = "sa2_name_2011",
                   hex_size = 0.27) %>%
   left_join(sa2_melmap)
 sa2_mel_fort <-
-  st_transform(sa2_mel, "+proj=longlat +datum=WGS84 +no_defs") %>% fortify_sfc()
+  st_transform(sa2_mel, "+proj=longlat +datum=WGS84 +no_defs") %>% 
+  fortify_sfc()
 ## Make a plot
 qld_gghexmap <- ggplot() +
   geom_polygon(
@@ -316,24 +328,33 @@ ggsave(filename = "figures/qld_gghexmap.png", plot = qld_gghexmap,
 # qld grid
 
 qld_grid <- cowplot::plot_grid(
-  plot_grid(qld_ggcont, qld_ggncont, 
-            qld_ggdorl, qld_gghexmap,
+  plot_grid(qld_ggchoro, qld_ggcont,  
+            qld_ggncont, qld_ggdorl, 
             labels=c("a", "b", "c", "d"),
             ncol = 2, nrow = 2, label_size = 28) +
-    draw_plot(brisbane, 0.8, 0.75, 0.15, 0.15) + 
-    draw_line(x = c(0.82, 0.87, 0.92), 
-              y = c(0.75, 0.56, 0.75), colour = "white") + 
-    draw_line(x = c(0.82, 0.92, 0.92, 0.82, 0.82), 
-              y = c(0.75, 0.75, 0.9, 0.9, 0.75), colour = "white"),
+    draw_plot(bris_ggchoro, 0.365, 0.7, 0.2, 0.2) + 
+    draw_plot(brisbane, 0.365, 0.2, 0.21, 0.2) +
+    draw_line(x = c(0.4, 0.37, 0.53), 
+              y = c(0.7, 0.55, 0.7), colour = "#505050") + 
+    draw_line(x = c(0.4, 0.37, 0.53), 
+              y = c(0.2, 0.05, 0.2), colour = "#505050") + 
+    draw_line(x = c(0.4, 0.53, 0.53, 0.4, 0.4), 
+              y = c(0.7, 0.7, 0.9, 0.9, 0.7), colour = "#505050") +
+    draw_line(x = c(0.4, 0.53, 0.53, 0.4, 0.4), 
+              y = c(0.2, 0.2, 0.4, 0.4, 0.2), colour = "#505050") ,
   cowplot::get_legend(coloursplot + 
-                        theme(legend.position = "bottom")),
-  ncol=1, rel_heights=c(.85, .15))+
-  theme(plot.background = element_rect(fill = "black", colour = NA))
+                     theme(legend.position = "bottom",
+                           legend.background = 
+                           element_rect(fill = "black", colour = NA),
+                           legend.text = element_text(colour = "white"),
+                           legend.title = element_text(colour = "white"))),
+                           ncol=1, rel_heights=c(.8, .2))  +
+  theme(plot.background = element_rect(fill = "black", colour = "black"))
 qld_grid 
 
 
 ggsave(filename = "figures/qld_grid.pdf", plot = qld_grid,
-       device = "pdf", bg = "transparent", dpi = 300,  width = 14, height = 14)
+       device = "pdf", dpi = 400,  width = 14, height = 14)
 
 ###############################################################################
 
@@ -364,7 +385,7 @@ aus_centroids <- create_centroids(aus_sa2, "sa2_name_2011")
 
 ## Create hexagon grid
 aus_grid <- create_grid(centroids = aus_centroids,
-                    hex_size = 0.1,
+                    hex_size = 0.2,
                     buffer_dist = 5)
 
 ## Allocate polygon centroids to hexagon grid points
@@ -373,19 +394,21 @@ aus_allocated <- allocate(
   hex_grid = aus_grid,
   sf_id = "sa2_name_2011",
   ## same column used in create_centroids
-  hex_size = 0.1,
+  hex_size = 0.2,
   ## same size used in create_grid
-  hex_filter = 10,
-  use_neighbours = aus_sa2,
+  hex_filter = 20,
   focal_points = capital_cities,
-  width = 35,
-  verbose = FALSE
+  width = 45,
+  verbose = TRUE
 )
+
+save(aus_allocated, file = "data/aus_hexmap.rda")
+load("data/aus_hexmap.rda")
 
 ## Prepare to plot
 aus_fort_hex <- fortify_hexagon(data = aus_allocated,
                             sf_id = "sa2_name_2011",
-                            hex_size = 0.1) %>% 
+                            hex_size = 0.2) %>% 
   left_join(SIR_male, by = c("sa2_name_2011" = "SA2_NAME11")) %>% 
   mutate(p50_col = factor(colour_cat(Melanoma), 
                           levels = c("A", "B", "C", "D", "E")))
@@ -393,56 +416,74 @@ aus_fort_hex <- fortify_hexagon(data = aus_allocated,
 aus_sa2_mel_fort <- aus_sa2 %>%
   fortify_sfc()
 
+
+colours <- c(   "Much lower\nthan average" = "#33809d",
+                "Lower than\naverage" = "#aec6c7",
+                "Average" = "#fff4bc",
+                "Higher than\naverage" = "#ff9a64",
+                "Much higher\nthan average" = "#ff3500")
+colourdata <- tribble(~data,
+                      "Much lower\nthan average",
+                      "Lower than\naverage",
+                      "Average",
+                      "Higher than\naverage",
+                      "Much higher\nthan average") %>% 
+  mutate(data = factor(data, 
+                       levels = c(
+                         "Much lower\nthan average",
+                         "Lower than\naverage",
+                         "Average",
+                         "Higher than\naverage",
+                         "Much higher\nthan average")))
+coloursplot <- ggplot(colourdata) + 
+  geom_bar(aes(x=data, 
+               fill = data)) +
+  scale_fill_manual(values = colours) +
+  labs(fill = "Melanoma Cancer (Males):\nAge-standardised rate\n(per 100,000)")
+
 ## Make a plot
-aus_gghexmap <- ggplot() +
-  geom_polygon(aes(x = long, y = lat, group = interaction(sa2_name_2011, polygon)), 
-               fill = NA, colour = "lightgrey", data = aus_sa2_mel_fort) +
-  geom_polygon(aes(x = long, y = lat, group = hex_id, fill = p50_col), 
-               data = aus_fort_hex) + 
-  scale_fill_manual(values = nac_colours) + 
-  scale_size_identity() + coord_equal() +
-  invthm + guides(fill=FALSE)
+aus_gghexmap <- plot_grid(
+    ggplot() +
+    geom_polygon(aes(x = long, y = lat, group = interaction(sa2_name_2011, polygon)), 
+                 fill = NA, colour = "#696969", data = aus_sa2_mel_fort) +
+    geom_polygon(aes(x = long, y = lat, group = hex_id, fill = p50_col), 
+                 data = aus_fort_hex) + 
+    scale_fill_manual(values = nac_colours) + 
+    scale_size_identity() + coord_equal() +
+    invthm + guides(fill=FALSE) +
+    theme(plot.background = element_rect(fill = "black", colour = NA)),
+  cowplot::get_legend(coloursplot + 
+                        theme(legend.position = "bottom")),
+  ncol=1, rel_heights=c(.85, .15))
 aus_gghexmap
 
-ggsave(filename = "figures/qld_gghexmap.png", plot = qld_gghexmap,
-       device = "png", bg = "transparent", dpi = 300,  width = 7, height = 6)
+ggsave(filename = "figures/aus_gghexmap.png", plot = aus_gghexmap,
+       device = "png", bg = "transparent", dpi = 300,  width = 14, height = 12)
 
-# Change this for a more detailed map
-fort_aus <- aus_sa2  %>% 
-  fortify_sfc(keep = 0.01)
-
-sa2_neighbours <- st_intersects(aus_sa2, aus_sa2)
-
-sa2_map <- create_hexmap(shp = aus_sa2,
-                         sf_id = "sa2_name_2011", 
-                         neighbours = sa2_neighbours,
-                         buffer_dist = NULL, 
-                         hex_filter = 10, 
-                         hex_size = 0.27, 
-                         export_shp = FALSE, 
-                         focal_points = capital_cities, 
-                         verbose = TRUE)
-
-hexmap_aus <- left_join(SIR %>% 
-                          filter(Cancer_name == "Melanoma", Sex_name == "Males") %>% 
-                          select(sa2_name_2011 = SA2_name, Cancer_name, Year, p50), 
-                        sa2_map %>% 
-                          select(sa2_name_2011, points, hex_id, hex_long, hex_lat))
-hex_points_df <- fortify_hexagon(data = hexmap_aus, 
-                                 sf_id = "sa2_name_2011", hex_size = 0.27) %>% 
-  mutate(polygon = "1")
+# choropleth display
+aus_choro_fort <- aus_sa2_mel_fort %>% 
+  left_join(SIR_male, by = c("sa2_name_2011" = "SA2_NAME11")) %>% 
+  mutate(p50_col = factor(colour_cat(Melanoma), 
+                          levels = c("A", "B", "C", "D", "E")))
+aus_choro <- plot_grid(
+  ggplot() +
+    geom_polygon(aes(x = long, y = lat, group = interaction(sa2_name_2011, polygon), fill = p50_col), colour = "#696969", size = 0.0001, data = aus_choro_fort) +
+    scale_fill_manual(values = nac_colours) + 
+    scale_size_identity() + coord_equal() +
+    invthm + guides(fill=FALSE) +
+    theme(plot.background = element_rect(fill = "black", colour = NA)),
+  cowplot::get_legend(coloursplot + 
+                        theme(legend.position = "bottom")),
+  ncol=1, rel_heights=c(.85, .15))
+aus_choro
 
 
-hex <- hex_points_df  %>% 
-  mutate(p50cat = map_chr(p50, colour_cat))
+ggsave(filename = "figures/aus_ggchoro.png", plot = aus_choro,
+       device = "png", bg = "transparent", dpi = 300,  width = 14, height = 12)
 
-# Create static plot
-ggplot(hex_points_df) + 
-  geom_polygon(aes(x = long, y = lat, fill = p50cat,
-                   group = interaction(sa2_name_2011, polygon)), size = 3, color = "#808080") + 
-  coord_equal() + invthm +
-  scale_fill_manual(values = nac_colours, na.value = "#006400") +
-  guides(fill = FALSE)
+
+
+
 
 # Create static plot - geography
 geo_plot <- ggplot(hex %>% filter(poly_type == "geography")) + 
@@ -458,8 +499,7 @@ ggsave(filename = "figures/melanoma_hex.png", device = "png", hex_plot, dpi = 30
 qld_grid <- gridExtra::grid.arrange(qld_ggcont, full_ggncont, qld_ggdorl, qld_gghexmap,  nrow = 2)
 ggsave(filename = "figures/qld_grid.png", plot = qld_grid,
        device = "png",   bg = "transparent", dpi = 300,  width = 7, height = 6)
-                                    ## 
-                                    
+
                                     
 
 ## 

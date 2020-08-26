@@ -946,12 +946,12 @@ year = {2018}
 
 @online{USInteractive,
   url = {http://www.cdc.gov/cancer/dataviz},
-  author = {{U.S. Department of Health and Human Services, Centers for Disease Control and Prevention and National Cancer Institute - Cancer Statistics Working Group}},
-  title = {{U.S. Cancer Statistics Data Visualizations Tool (data 1999-2016)}},
+  author = {{U.S. Cancer Statistics Working Group}},
+  publisher = {{U.S. Department of Health and Human Services, Centers for Disease Control and Prevention and National Cancer Institute}},
+  title = {{U.S. Cancer Statistics Data Visualizations Tool, based on 2019 submission data (1999–2017)}},
   year = {2019},
   urldate = {2019-09-26}
 }
-
 
 @online{cancerSpain,
   author = {{Carlos III Institute of Health, National Center for Epidemiology}},
@@ -961,13 +961,18 @@ year = {2018}
   urldate = {2019-09-27}
 }
 
-@online{OntarioPediatric,
-  author = {{Pediatric Oncology Group of Ontario}},
-  title = {{Incidence Rate of Childhood Cancers, Atlas of Childhood Cancer in Ontario (1985-2004)}},
+@incollection{OntarioPediatric,
+  author = {Greenberg, ML. and Agha, M and Pole, JD. and Gozdyra, P and Williams, J and DiMonte, B},
+  title = {{Chapter 3: Incidence Patterns and Trends}},
+  booktitle = {Atlas of Childhood Cancer in Ontario (1985-2004)},
+  publisher = {{Pediatric Oncology Group of Ontario}},
+  editor = {Greenberg, ML and Barnett, H and Williams, J},
   year = 2015,
-  url = {https://www.pogo.ca/wp-content/uploads/2015/02/POGO_CC-Atlas-3-Incidence_Feb-2015.pdf},
-  urldate = {2019-09-26}
+  chapter = 3,
+  address = {Toronto}, 
+  ISBN = {978-0-9939255-1-1}
 }
+
 
 @online{NICR_1,
   author = {{Northern Ireland Cancer Registry}},
@@ -1028,11 +1033,23 @@ Schemes for Maps}},
   publisher = {The British Cartographic Society}
 }
 
-@online{abs2016,
-  author = {Australian Bureau of Statistics},
-  year = {2018},
+@online{abs2011,
+  author = {{ABS}},
+  title = {Statistical Area Level 2 (SA2) ASGS Ed 2011 Digital Boundaries in ESRI Shapefile Format},
+  year = {2011},
+  publisher = {data cube: ESRI Shapefile, cat. no. 1270.0.55.001}, 
   accessed = {{18 Dec 2019}},
-  url = {https://www.abs.gov.au/websitedbs/D3310114.nsf/home/Australian+Statistical+Geography+Standard+(ASGS)}
+  url = {https://www.abs.gov.au/AUSSTATS/abs@.nsf/DetailsPage/1270.0.55.001July%202011}
+}
+
+
+@online{abs2016,
+  author = {{ABS}},
+  title = {Statistical Area Level 3 (SA3) ASGS Ed 2011 Digital Boundaries in ESRI Shapefile Format},
+  year = {2016},
+  publisher = {data cube: ESRI Shapefile, cat. no. 1270.0.55.001}, 
+  accessed = {{18 Dec 2019}},
+  url = {https://www.abs.gov.au/AUSSTATS/abs@.nsf/DetailsPage/1270.0.55.001July%202011}
 }
 
 @online{viridis,
@@ -1143,3 +1160,5 @@ year = {1967}
         abstract = {The popularity of Bayesian disease mapping is increasing, as is the variety of available models. The most commonly used prior for enabling spatial correlation within a Bayesian model is the intrinsic conditional autoregressive (CAR) distribution. This approach allows for local smoothing of estimates over neighbouring areas, but it assumes a common variance for the smoothing term over the whole region. This is applicable if there is a smooth spatial trend over the region, which may not be valid for large, spatially heterogeneous areas. The aim of this report is to critically review alternative Bayesian models, especially those that enable local variation in the smoothing.},
              url = {https://eprints.qut.edu.au/115590/}
 }
+
+

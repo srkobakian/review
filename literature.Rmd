@@ -1,8 +1,7 @@
 ---
 title: 'Mapping Cancer: the Potential of Cartograms and Alternative Map Displays'
 author: Stephanie Kobakian^[Science and Engineering Faculty, Queensland University
-  of Technology.], Dianne Cook^[Faculty of Econometrics and Business Statistics, Monash
-  University.] and Jessie Roberts^[Queensland University of Technology.]
+  of Technology, Queensland, Australia.], Dianne Cook^[Faculty of Econometrics and Business Statistics, Monash University, Victoria, Australia.] and Jessie Roberts^[Science and Engineering Faculty, Queensland University of Technology, Queensland, Australia.]
 csl: springer-vancouver.csl
 output:
   word_document:
@@ -34,6 +33,18 @@ library(png)
 library(grid)
 ```
 
+(I) Conception and design: All authors; 
+(II) Administrative support: None; 
+(III) Provision of study materials or patients: J Roberts, S Kobakian; 
+(IV) Collection and assembly of data: None; 
+(V) Data analysis and interpretation: All authors; 
+(VI) Manuscript writing: All authors; 
+(VII) Final approval of manuscript: All authors.
+
+Correspondence to: Stephanie Kobakian, MPhil. Monash University, Melbourne VIC 3800, AUS. Email: stephanie.kobakian@monash.edu.
+
+\section*{Keywords}
+Cancer; cancer atlas; choropleth; cartogram; spatial; 
 
 \section*{Abstract}
 <!-- 105 words -->
@@ -112,17 +123,17 @@ Table 2: <!--\label{tab:choropleths}--> A selection of choropleth cancer maps fr
 | Fig. | Atlas | Data | Statistic | Source |
 |----|-----------|-------------|-----------|--------------|
 | a | The Environment and Health<br> Atlas of England and Wales<br> [@EnvEnglandWales2] | Sex: Women<br> Year: 2010<br> Cancer: Lung | Relative risk | Office for National Statistics<br> (ONS) (England) and from the<br> Welsh Cancer Intelligence and<br> Surveillance Unit (WCISU) [1a](http://www.envhealthatlas.co.uk/homepage/) |
-| b | Globocan 2018: Estimated Cancer<br> Incidence, Mortality and <br> <br> prevalence Worldwide<br> [@Globocan] | Sex: Both<br> Year: 2018<br> Cancer: All invasive | Age standardized<br> incidence rates<br> (per 100,000) | World Health Organization's<br> International Agency for<br> Research on Cancer [1b](https://www.iarc.fr/<br>)  |
+| b | Globocan 2018: Estimated Cancer<br> Incidence, Mortality and <br> <br> Prevalence Worldwide<br> [@Globocan] | Sex: Both<br> Year: 2018<br> Cancer: All invasive | Age standardized<br> incidence rates<br> (per 100,000) | World Health Organization's<br> International Agency for<br> Research on Cancer [1b](https://gco.iarc.fr/today<br>)  |
 | c | Atlas of Cancer in Queensland<br>  [@QLDcancerAtlas] | Sex: Males<br> Year: 1998 - 2007<br> Cancer: Lung | Relative incidence<br> ratio | Queensland Cancer Registry [1c](https://cancerqld.org.au/research/cancer-registries/queensland-cancer-registry/) |
-| d | Australian Cancer Atlas<br> [@ACA] | Sex: Males<br> Year: 2010 - 2014<br> Cancer: Lung | Average standardized<br> incidence rate | Australian Cancer Atlas [1d](https://atlas.cancer.org.au/) |
-| e | United States Cancer<br> Statistics: An Interactive<br> Cancer Statistics Website<br>  | Sex: Both<br> Year: 2016<br> Cancer: All types | Incidence rate per<br> 100,000 | With data from state cancer<br> registries: <br> Centers for Disease Control and Prevention [1e](https://www.cdc.gov/) |
-| f | Map of Cancer Mortality<br> Rates in Spain<br> [@cancerSpain] | Sex: Both<br> Year: 2004 - 2008<br> Cancer: All types | Relative risk | <br> Map of cancer mortality rates<br> in Spain [1f](https://elpais.com/elpais/2014/10/06/media/1412612722_141933.html) |
+| d | Map of Cancer Mortality<br> Rates in Spain<br> [@cancerSpain] | Sex: Males<br> Year: 1975 - 2017<br> Cancer: Lung | Age Standardized Rate | <br> Map of cancer mortality rates<br> in Spain [1f](http://ariadna.cne.isciii.es/MapP/) |
+| e | United States Cancer<br> Statistics: An Interactive<br> Cancer Statistics Website<br> [@USInteractive] | Sex: Both<br> Year: 2016<br> Cancer: All types | Incidence rate per<br> 100,000 | With data from state cancer<br> registries: <br> Centers for Disease Control and Prevention [1e](https://gis.cdc.gov/Cancer/USCS/DataViz.html) |
+| f | Australian Cancer Atlas<br> [@ACA] | Sex: Males<br> Year: 2010 - 2014<br> Cancer: Lung | Average standardized<br> incidence rate | Australian Cancer Atlas [1d](https://atlas.cancer.org.au/) |
 | g | Atlas of Childhood<br> Cancer in Ontario<br> [@OntarioPediatric] | Sex: Both<br> Year: 1995 - 2004<br> Cancer: All types | Incidence rate per<br> 100,00 | <br> The Pediatric Oncology Group<br> of Ontario Networked Information<br> System [1g](https://www.pogo.ca/research-data/pogonis-childhood-cancer-database/data-requests/) |
 
 <!-- 416 words -->
-A review of modern cancer atlases [@roberts2019communication] identified 33 cancer atlases published between 2010 and 2016. Atlases published between 2016 and 2018 have also been considered. Each of these online atlases uses choropleth maps. All except one of these were published by non-commercial organizations, including not-for-profits, government, research organizations, advocacy groups or government-funded partnerships. Figure 1<!--\ref{fig:choropleth-grid-create}--> displays a subset of maps from these atlases, the selection varies in the geographies explored. Figure 1b<!--\ref{fig:choropleth-grid-create}--> shows Globocan 2018 [@Globocan] which explores Estimated Cancer Incidence, Mortality and Prevalence Worldwide using estimates based on available country cancer registries. Many atlases allow users to view sex-specific distributions, however sex is displayed in side-by-side maps in the Map of Cancer Mortality Rates in Spain (Figure 1f)<!--\ref{fig:choropleth-grid-create}--> [@cancerSpain]. 
+A review of modern cancer atlases [@roberts2019communication] identified 33 cancer atlases published between 2010 and 2016. Atlases published between 2016 and 2018 have also been considered. Each of these online atlases uses choropleth maps. All except one of these were published by non-commercial organizations, including not-for-profits, government, research organizations, advocacy groups or government-funded partnerships. Figure 1<!--\ref{fig:choropleth-grid-create}--> displays a subset of maps from these atlases, the selection varies in the geographies explored. Figure 1b<!--\ref{fig:choropleth-grid-create}--> shows Globocan 2018 [@Globocan] which explores Estimated Cancer Incidence, Mortality and Prevalence Worldwide using estimates based on available country cancer registries. Most atlases allow users to view sex-specific distributions. 
 
-There is large variation in the resolution of the maps. Figure 1<!--\ref{fig:choropleth-grid-create}-->b shows global information at a national level. The United States Cancer Statistics [@USInteractive] shows data aggregated at the state level (n = 51). The Environment and Health Atlas of England and Wales [@EnvEnglandWales2] (Figure 1a<!--\ref{fig:choropleth-grid-create}-->) shows the relative risk for women developing lung cancer  at a neighborhood (small-area) scale (n = 8850). The Australian Cancer Atlas (Figure 1d<!--\ref{fig:choropleth-grid-create}-->) shows the relative incidence ratio of lung cancer in males for each Statistical Area at Level 2 [@abs2016] (n = 2292). The Atlas of Cancer in Queensland (Figure 1c<!--\ref{fig:choropleth-grid-create}-->) shows a subset of the Australian Statistical Local Areas (SLAs) located in the state of Queensland within Australia [@QLDcancerAtlas] (n = 478).
+There is large variation in the resolution of the maps. Figure 1<!--\ref{fig:choropleth-grid-create}-->b shows global information at a national level. The United States Cancer Statistics [@USInteractive] shows data aggregated at the state level (n = 51). The Environment and Health Atlas of England and Wales [@EnvEnglandWales2] (Figure 1a<!--\ref{fig:choropleth-grid-create}-->) shows the relative risk for women developing lung cancer  at a neighborhood (small-area) scale (n = 8850). The Australian Cancer Atlas (Figure 1f<!--\ref{fig:choropleth-grid-create}-->) shows the relative incidence ratio of lung cancer in males for each Statistical Area at Level 2 [@abs2011] (n = 2292). The Atlas of Cancer in Queensland (Figure 1c<!--\ref{fig:choropleth-grid-create}-->) shows a subset of the Australian Statistical Local Areas (SLAs) located in the state of Queensland within Australia [@QLDcancerAtlas] (n = 478).
 
 
 Age-specific atlases are less common. Figure 1g<!--\ref{fig:choropleth-grid-create}--> displays Atlas of Childhood Cancer in Ontario, this communicates the incidence rate of childhood cancers per 100,000 (by census division) for children aged 0-14, in Ontario from 1995 to 2004 [@OntarioPediatric]. 
@@ -155,28 +166,6 @@ Inset maps like in Brisbane city in Figure 1c<!--\ref{fig:choropleth-grid-create
 
 <!-- What is a cartogram? -->
 Choropleth maps imply uniformity of data across the geographic space but population densities are unlikely to be uniform [@BCM]. Cartographers developed the cartogram to draw the attention to the population by transforming the map [@ACCAC]. The resulting display can communicate the impact of the disease more accurately across the population, as recorded by the statistic, at the sacrifice of geographic accuracy. 
-
-<!--
-```{r choroCRS, fig.cap = "Four choropleth maps average age-adjusted rate of incidence for lung and bronchus in the United States averaged from sex and years 2012-2016, using four different map projections. The map projections alter the shapes and angles of the boundaries of each state.", message=FALSE, warning=FALSE, fig.align='center'}
-#knitr::include_graphics("figures/ggchoroCRS.png")
-c1 <- png::readPNG("figures/gg3857.png")
-c2 <- png::readPNG("figures/gg2163.png")
-c3 <- png::readPNG("figures/gg4326.png")
-c4 <- png::readPNG("figures/gg2955.png")
-#knitr::include_graphics("figures/usa_grid.png")
-load("figures/usa_legend.rda")
-
-ggdraw() +
-  draw_plot(rasterGrob(c1), 0, .55, 0.5,    0.45) +
-  draw_plot(rasterGrob(c2), 0.5, 0.55, 0.5, 0.45) +
-  draw_plot(rasterGrob(c3), 0.0, 0.1, 0.5, 0.45) +
-  draw_plot(rasterGrob(c4), 0.5, 0.1, 0.5,   0.45) +
-  draw_plot(usa_legend, 0, 0, 1, 0.1, scale = 2) +
-  draw_plot_label(c("a", "b", "c", "d"), 
-    c(0, .5, 0, 0.5), 
-    c(1, 1, .5, .5), size = 20)
-```
--->
 
 <!-- Denominators 
 Through the purposeful distortion of the map space, a map can present each region using a size that reflects the amount of population, rather than the amount of land the region encompasses. The borders or boundaries can be adjusted and the distortion of map areas can allow for equal representation of the members of population, and provide a uniform population display for the statistic to be presented [@ACTUC] [@CTTMB] [@GOINO]. 
@@ -321,7 +310,7 @@ Introducing population and demographic information helps to interpret the rates 
 
 One of the concerns of adding too much information to a map is the fear of cognitive overload [@mcgranaghan1993cartographic] in which the user reaches an information threshold, beyond which they become confused. It can be a juggling act for a diverse audience, with experts probably preferring more detail [@cliburn2002design] while a simpler display is more broadly readable. Interactivity is a design feature within modern mapping methods that can be used to incorporate additional information and complexity without overloading the user. Effective  user-centred interactive actions produce rapid, incremental, and reversible changes to the display [@DMIV].
 
-Monmonier [@HTLWM] recommends using interactivity to allow users to explore the map for more information and provide flexibility for the display. The user can toggle between different variables, map views or even multiple realizations of future scenarios [@goodchild1994introduction]. This provides additional mechanisms for the users to digest the uncertainty of the available information [@maceachren1992visualizing, @van1994visualization]. When the needs of the audience are changeable and are also the priority, the map creator can allow interactivity for map users to explore a data set through dynamic interactions. This can allow inspection of the data from many views [@DQBCM]. User interaction with maps helps to understand and interpret the spatial distribution of disease, to validate, explain or explore the presented statistics and their relationships to each other [@TNTEA].
+Monmonier [@HTLWM] recommends using interactivity to allow users to explore the map for more information and provide flexibility for the display. The user can toggle between different variables, map views or even multiple realizations of future scenarios [@goodchild1994introduction]. This provides additional mechanisms for the users to digest the uncertainty of the available information [@maceachren1992visualizing], [@van1994visualization]. When the needs of the audience are changeable and are also the priority, the map creator can allow interactivity for map users to explore a data set through dynamic interactions. This can allow inspection of the data from many views [@DQBCM]. User interaction with maps helps to understand and interpret the spatial distribution of disease, to validate, explain or explore the presented statistics and their relationships to each other [@TNTEA].
 
 Interactivity enables supplementary information to be incorporated into online atlases without cluttering the display. Interactive design features, found in online cancer maps, include tool tips, drop-down menus, data selection, zooming, and panning to allow users to explore the map as they want more information and allow flexibility in the display [@HTLWM]. The use of these supports can be found in various online cancer maps and are shown in Figure 5 [@roberts2019communication].
 
@@ -369,5 +358,11 @@ They would also like to thank Professor Kerrie Mengersen, Dr. Susanna Cramb and 
 The following R [@R] packages were used to produce this paper: tidyverse [@tidyverse], RColorBrewer [@RColorBrewer], ggthemes [@ggthemes], png [@png], cowplot [@cowplot], sf [@sf], spData [@spData], cartogram [@cartogram], sugarbag [@sugarbag], knitr [@knitr], rmarkdown [@rmarkdown] and absmapsdata [@ABSmaps].
 
 Files to reproduce the paper, and code to reproduce the plots, are available at https://github.com/srkobakian/review. 
+
+# Footnote
+
+*Conflicts of Interest:* All authors have completed the ICMJE uniform disclosure form. The series “Spatial Patterns in Cancer Epidemiology” was commissioned by the editorial office without any funding or sponsorship. The authors have no other conflicts of interest to declare.
+
+*Ethical Statement:* The authors are accountable for all aspects of the work in ensuring that questions related to the accuracy or integrity of any part of the work are appropriately investigated and resolved.
 
 # References
